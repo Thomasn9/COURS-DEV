@@ -9,13 +9,39 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Java-Script</a>
+                    <a class="nav-link"><NuxtLink to="/PHP">JavaScript</NuxtLink></a>
                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#">PHP</a>
+                <li class="nav-item">
+                    <a class="nav-link"><NuxtLink to="/PHP">PHP</NuxtLink></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><NuxtLink to="/PHP">Java</NuxtLink></a>
+                </li>
+<!-- ===============================================\\FRAMEWORK//================================================= -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Framework
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"><NuxtLink to="/PHP/coucou">Vue</NuxtLink></a>
+                        <a class="dropdown-item"><NuxtLink to="/PHP/coucou">React</NuxtLink></a>
+                        <a class="dropdown-item"><NuxtLink to="/PHP/coucou">Angular</NuxtLink></a>
+                    </div>
+                </li>
+<!-- ===============================================\\META-FRAMEWORK//================================================= -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Meta Framework
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"><NuxtLink to="/PHP/coucou">Nuxt</NuxtLink></a>
+                        <a class="dropdown-item"><NuxtLink to="/PHP/coucou">Next</NuxtLink></a>
+                    </div>
                 </li>
             </ul>
         </div>

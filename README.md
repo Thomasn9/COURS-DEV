@@ -1,3 +1,45 @@
+# cours a rajouter:
+pense bete pour lecons a faire 
+
+# PHP
+- switch case sur les url
+- diagramme de classe (classe abstraite / héritage)
+- json_encode
+- lecons sur ce code 
+================================================================================
+<?php
+
+namespace App\Controller;
+
+abstract class AbstractController{
+
+    public function render(string $template, string $title,array $data = []):void{
+
+        include  __DIR__. "/../../templates/template_".$template.".php";
+
+    }
+
+    public function jsonResponse(array $data, int $statusCode = 200):void{
+        http_response_code($statusCode);
+        echo json_encode($data,JSON_PRETTY_PRINT);
+    }
+
+    public function formSubmit(array $post){
+        if(isset($post["submit"])){
+            return true;
+        }
+        return false;
+    }
+}
+================================================================================
+- fonction implodeR
+- la regle du "dry don't repeat yourself" en POO
+
+# Java-Script
+# Java
+
+
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
