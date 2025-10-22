@@ -5,6 +5,9 @@ pense bete pour lecons a faire
 - switch case sur les url
 - diagramme de classe (classe abstraite / héritage)
 - json_encode
+- fonction implodeR
+- la regle du "dry don't repeat yourself" en POO
+- quest ce que c'est le DTO
 - lecons sur ce code 
 ================================================================================
 <?php
@@ -32,13 +35,11 @@ abstract class AbstractController{
     }
 }
 ================================================================================
-- fonction implodeR
-- la regle du "dry don't repeat yourself" en POO
 
 # Java-Script
 # Java
 
-
+================================================================================
 
 # Nuxt Minimal Starter
 
