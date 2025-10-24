@@ -2,6 +2,7 @@
 pense bete pour lecons a faire 
 
 # PHP
+- super constantes
 - diagramme de classe (classe abstraite / héritage)
 - json_encode
 - fonction implodeR
