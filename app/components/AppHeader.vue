@@ -10,65 +10,44 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link">
-                        <NuxtLink to="/">Home</NuxtLink>
-                    </a>
+                    <NuxtLink class="nav-link" to="/">Home</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">
-                        <NuxtLink to="#">JavaScript</NuxtLink>
-                    </a>
+                    <NuxtLink class="nav-link" to="#">JavaScript</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">
-                        <NuxtLink to="/PHP/index_php">PHP</NuxtLink>
-                    </a>
+                    <NuxtLink class="nav-link" to="/PHP/index_php">PHP</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">
-                        <NuxtLink to="#">Java</NuxtLink>
-                    </a>
+                    <NuxtLink class="nav-link" to="#">Java</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">
-                        <NuxtLink to="#">SQL</NuxtLink>
-                    </a>
+                    <NuxtLink class="nav-link" to="#">SQL</NuxtLink>
                 </li>
                 <!-- ===============================================\\FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">
-                    <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Framework
+                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Framework
                 </li>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="dropdown-item">
-                            <NuxtLink to="#">Vue</NuxtLink>
-                        </li>
-                        <li class="dropdown-item">
-                            <NuxtLink to="#">React</NuxtLink>
-                        </li>
-                        <li class="dropdown-item">
-                            <NuxtLink to="#">Angular</NuxtLink>
-                        </li>
-                    </div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <NuxtLink class="dropdown-item" to="#">Vue</NuxtLink>
+                    <NuxtLink class="dropdown-item" to="#">React</NuxtLink>
+                    <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
+                </div>
                 </li>
                 <!-- ===============================================\\META-FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">
-                    <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Meta Framework
+                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Meta Framework
+                </li>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <NuxtLink class="dropdown-item" to="#">Nuxt</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="#">Next</NuxtLink>
                     </li>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li>
-                            <li class="dropdown-item">
-                                <NuxtLink to="#">Nuxt</NuxtLink>
-                            </li>
-                            <li class="dropdown-item">
-                                <NuxtLink to="#">Next</NuxtLink>
-                            </li>
-                        </li>
-
-                    </div>
+                </div>
                 </li>
             </ul>
         </div>
@@ -79,8 +58,6 @@
 </script>
 
 <style scoped>
-
-
 #logo {
     width: 3vw;
     margin: 1cqw;
