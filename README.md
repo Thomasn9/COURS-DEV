@@ -2,7 +2,6 @@
 pense bete pour lecons a faire 
 
 # PHP
-- switch case sur les url
 - diagramme de classe (classe abstraite / héritage)
 - json_encode
 - fonction implodeR

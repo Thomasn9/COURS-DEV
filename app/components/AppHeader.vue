@@ -13,7 +13,7 @@
                     <NuxtLink class="nav-link" to="/">Home</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="#">JavaScript</NuxtLink>
+                    <NuxtLink class="nav-link" to="/JavaScript/index_javaSript">JavaScript</NuxtLink>
                 </li>
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="/PHP/index_php">PHP</NuxtLink>
@@ -23,6 +23,9 @@
                 </li>
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="#">SQL</NuxtLink>
+                </li>
+                <li class="nav-item">
+                    <NuxtLink class="nav-link" to="#">Cyber Sécurité</NuxtLink>
                 </li>
                 <!-- ===============================================\\FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">

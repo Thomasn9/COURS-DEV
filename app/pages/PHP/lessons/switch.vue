@@ -5,8 +5,7 @@
             <header class="lesson-header bg-gradient-primary">
                 <h1 class="text-white">Les structures switch en PHP</h1>
                 <p class="lesson-meta text-white">
-                    <time datetime="2023-10-15">15 Octobre 2023</time> •
-                    <span>Niveau : Débutant/Intermédiaire</span>
+                    <span>Niveau : Débutant / Intermédiaire</span>
                 </p>
             </header>
 
@@ -227,7 +226,7 @@
             <span class="keyword">return</span> <span class="string">"Bien"</span>;
         <span class="keyword">case</span> <span class="variable">$note</span> &gt;= <span class="number">12</span> <span class="operator">&&</span> <span class="variable">$note</span> &lt; <span class="number">14</span>:
             <span class="keyword">return</span> <span class="string">"Assez bien"</span>;
-        <span class="keyword">case</span> <span class="variable">$note</span> &gt;= <span class="number">10</span> <span class="operator">&&</span> <span class="variable">$note</span> <span class="operator">&lt;</span> <span class="number">12</span>:
+        <span class="keyword">case</span> <span class="variable">$note</span> &gt;= <span class="number">10</span> <span class="operator">&&</span> <span class="variable">$note</span> &lt; <span class="number">12</span>:
             <span class="keyword">return</span> <span class="string">"Passable"</span>;
         <span class="keyword">case</span> <span class="variable">$note</span> &gt;= <span class="number">0</span> <span class="operator">&&</span> <span class="variable">$note</span> &lt; <span class="number">10</span>:
             <span class="keyword">return</span> <span class="string">"Insuffisant"</span>;
@@ -264,6 +263,8 @@
 .lesson-content {
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header avec le style gradient */
@@ -305,6 +306,9 @@
     margin-bottom: 2rem;
     border-radius: 15px;
     transition: all 0.3s ease;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .lesson-section:hover {
@@ -382,9 +386,11 @@
     height: 300px;
 }
 
-/* Styles pour le code - CONSERVATION DES COULEURS VS CODE */
+/* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
 .code-example, .code-block {
     margin: 1.5rem 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .code-comparison {
@@ -392,16 +398,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin: 1.5rem 0;
-}
-
-@media (max-width: 768px) {
-    .code-comparison {
-        grid-template-columns: 1fr;
-    }
+    width: 100%;
 }
 
 pre {
-    background: #1e1e1e !important; /* Fond sombre comme VS Code */
+    background: #1e1e1e !important;
     color: #d4d4d4 !important;
     padding: 1.5rem !important;
     border-radius: 8px;
@@ -410,6 +411,23 @@ pre {
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 0.9rem;
     line-height: 1.5;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: pre-wrap; /* Permet le retour à la ligne */
+    word-wrap: break-word; /* Casse les mots longs */
+    word-break: break-word; /* Assure la césure des mots */
+}
+
+/* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
+pre code {
+    display: block;
+    white-space: pre-wrap; /* Retour à la ligne automatique */
+    overflow-x: auto;
+    max-width: 100%;
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 /* Couleurs VS Code pour la syntaxe PHP */
@@ -451,7 +469,7 @@ details summary {
     line-height: 1.6;
 }
 
-/* Responsive */
+/* RESPONSIVE DESIGN AMÉLIORÉ */
 @media (max-width: 768px) {
     .lesson-container {
         padding: 1rem;
@@ -467,6 +485,47 @@ details summary {
     
     .lesson-section {
         padding: 1.5rem;
+    }
+    
+    .code-comparison {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    pre {
+        padding: 1rem !important;
+        font-size: 0.85rem;
+    }
+}
+
+/* POUR LES TRÈS PETITS ÉCRANS */
+@media (max-width: 480px) {
+    pre {
+        padding: 0.75rem !important;
+        font-size: 0.8rem;
+    }
+    
+    .lesson-container {
+        padding: 0.5rem;
+    }
+    
+    .lesson-section {
+        padding: 1rem;
+    }
+    
+    .lesson-header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .lesson-header h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* POUR LES TRÈS GRANDS ÉCRANS */
+@media (min-width: 1400px) {
+    .lesson-content {
+        max-width: 1300px;
     }
 }
 

@@ -28,8 +28,21 @@
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-purple fw-bold fs-4">La doc de JavaScript</h5>
-                        <p class="card-text text-dark flex-grow-1">Ici se trouve la doc officielle de JavaScript</p>
-                        <a href="#" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
+                        <p class="card-text text-dark flex-grow-1">Ici se trouve la doc de JavaScript</p>
+                        <a href="https://jsdoc.app/" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
+                    <div class="card-img-container p-4 bg-light-purple">
+                        <img class="card-img" src="/img_index/sql.png" alt="Logo sql">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-purple fw-bold fs-4">La doc SQL</h5>
+                        <p class="card-text text-dark flex-grow-1">Ici se trouve la doc de SQL</p>
+                        <a href="https://sql.sh/" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
                     </div>
                 </div>
             </div>

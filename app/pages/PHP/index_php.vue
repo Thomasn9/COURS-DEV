@@ -1,9 +1,37 @@
 <template>
   <div class="page-container">
+
+    <!-- =============================================================\\I//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">I</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Includes</h5>
+        <p class="card-text">Les includes en php et leurs utilité</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/include">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
     <!-- =============================================================\\S//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">S</h3>
     </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Super Globale Session</h5>
+        <p class="card-text">la super globale session en PHP ($_SESSION)</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/super_globale-session">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
     <div class="card border-purple shadow-lg">
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Switch</h5>
@@ -13,23 +41,12 @@
         </NuxtLink>
       </div>
     </div>
-    
-    <!-- =============================================================\\T//==================================================================== -->
-    <div class="section-header">
-      <h3 class="lettreSommaire">T</h3>
-    </div>
-    <div class="card border-purple shadow-lg">
-      <div class="card-body bg-light-purple">
-        <h5 class="card-title text-purple">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/autre-lecon">
-          Accès à la leçon
-        </NuxtLink>
-      </div>
-    </div>
+
   </div>
 </template>
 
+
+<!-- =============================================================\\STYLE//==================================================================== -->
 <style scoped>
 .page-container {
   padding: 2rem;
@@ -139,6 +156,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -154,11 +172,11 @@
   .card {
     margin-bottom: 1.5rem;
   }
-  
+
   .page-container {
     padding: 1rem;
   }
-  
+
   .lettreSommaire {
     font-size: 2rem;
   }
