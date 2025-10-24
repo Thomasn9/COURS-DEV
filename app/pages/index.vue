@@ -16,7 +16,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-purple fw-bold fs-4">La doc officielle de PHP</h5>
                         <p class="card-text text-dark flex-grow-1">Toute la doc officielle de PHP si jamais les exemples présents sur le recueil ne suffisent pas !</p>
-                        <a href="https://www.php.net/docs.php" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
+                        <a href="https://www.php.net/docs.php" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-purple fw-bold fs-4">La doc de JavaScript</h5>
                         <p class="card-text text-dark flex-grow-1">Ici se trouve la doc de JavaScript</p>
-                        <a href="https://jsdoc.app/" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
+                        <a href="https://jsdoc.app/" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-purple fw-bold fs-4">La doc SQL</h5>
                         <p class="card-text text-dark flex-grow-1">Ici se trouve la doc de SQL</p>
-                        <a href="https://sql.sh/" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
+                        <a href="https://sql.sh/" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-purple fw-bold fs-4">Java</h5>
                         <p class="card-text text-dark flex-grow-1">La doc officielle de Java</p>
-                        <a href="#" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
+                        <a href="#" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
                     </div>
                 </div>
             </div>
