@@ -1,6 +1,69 @@
 <template>
     <div class="page-container">
 
+        <!-- =============================================================\\B//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">B</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Les Boucles</h5>
+                <p class="card-text">Les différente boucles existantes et leur utilité en javaScript</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/boucle">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\F//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">F</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Les Fonctions</h5>
+                <p class="card-text">Les fonctions en javaScript et leur syntaxe</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/fonction">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\M//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">M</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Map()</h5>
+                <p class="card-text">La fonction map et sont utilité pour les tableaux</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/map">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\T//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">T</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Les Tableaux</h5>
+                <p class="card-text">Les tableau en javaScript leur syntaxe et utilité</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/tableaux">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\V//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">V</h3>
@@ -10,7 +73,8 @@
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Les Variables</h5>
                 <p class="card-text">Les variables en javaScript et leur syntaxe</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/variables">
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/variables">
                     Accès à la leçon
                 </NuxtLink>
             </div>

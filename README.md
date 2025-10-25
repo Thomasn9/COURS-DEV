@@ -1,5 +1,4 @@
-# cours a rajouter:
-Les lecons a venir :
+# Les lecons a venir:
 
 # PHP
 - super constantes (__LINE__/__FILE__/__FUNCTION__/__CLASS__/__TRAIT__/__METHOD__/__PROPERTY__/__NAMESPACE__)
@@ -8,13 +7,15 @@ Les lecons a venir :
 - fonction implodeR
 - la regle du "dry don't repeat yourself" en POO
 - quest ce que c'est le DTO
-- lecons sur ce code 
+- json_decode
+- jsonResponse
+- fil-get-content
+- 
 
 ================================================================================
 
 # Java-Script
-- function
-- boucles
+- fonction fléché
 - console.log
 - add-event-listner
 ================================================================================
