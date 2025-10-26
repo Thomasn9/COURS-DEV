@@ -10,14 +10,13 @@
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Includes</h5>
         <p class="card-text">Les includes en php et leurs utilité</p>
-        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-          to="lessons/include">
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/include">
           Accès à la leçon
         </NuxtLink>
       </div>
     </div>
 
-        <!-- =============================================================\\M//==================================================================== -->
+    <!-- =============================================================\\M//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">M</h3>
     </div>
@@ -32,14 +31,53 @@
         </NuxtLink>
       </div>
     </div>
+
+        <!-- =============================================================\\P//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">P</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Password_hash()</h5>
+        <p class="card-text">La fonction password_hash en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/password_hash">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
     <!-- =============================================================\\S//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">S</h3>
     </div>
 
+
     <div class="card border-purple shadow-lg">
       <div class="card-body bg-light-purple">
-        <h5 class="card-title text-purple">Super Globale Session</h5>
+        <h5 class="card-title text-purple">Super Globale $_GET</h5>
+        <p class="card-text">la super globale GET et son utilité en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/super_globale_GET">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Super Globale $_POST</h5>
+        <p class="card-text">la super globale POST et son utilité en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/super_globale_POST">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Super Globale $_SESSION</h5>
         <p class="card-text">la super globale session en PHP ($_SESSION)</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
           to="lessons/super_globale-session">
@@ -51,7 +89,7 @@
     <div class="card border-purple shadow-lg">
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Switch</h5>
-        <p class="card-text">Les switch case dans php et logique pour autre langages</p>
+        <p class="card-text">Les switch case dans php et leurs logique pour autre langages</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/switch">
           Accès à la leçon
         </NuxtLink>
