@@ -32,6 +32,17 @@
       </div>
     </div>
 
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">MVC</h5>
+        <p class="card-text">Explication et fonctionnement de la structure </p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/MVC">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
         <!-- =============================================================\\P//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">P</h3>
@@ -43,6 +54,17 @@
         <p class="card-text">La fonction password_hash en PHP</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
           to="lessons/password_hash">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">password_verify()</h5>
+        <p class="card-text">La fonction password_verify en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/password_verify">
           Accès à la leçon
         </NuxtLink>
       </div>
