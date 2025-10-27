@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
 
-        <!-- =============================================================\\C//==================================================================== -->
+    <!-- =============================================================\\C//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">C</h3>
     </div>
@@ -23,6 +23,16 @@
 
     <div class="card border-purple shadow-lg">
       <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Implode</h5>
+        <p class="card-text">La fonction implode et son utilité</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/implode">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Includes</h5>
         <p class="card-text">Les includes en php et leurs utilité</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/include">
@@ -31,7 +41,8 @@
       </div>
     </div>
 
-        <!-- =============================================================\\J//==================================================================== -->
+
+    <!-- =============================================================\\J//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">J</h3>
     </div>
@@ -76,14 +87,13 @@
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">MVC</h5>
         <p class="card-text">Explication et fonctionnement de la structure </p>
-        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-          to="lessons/MVC">
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/MVC">
           Accès à la leçon
         </NuxtLink>
       </div>
     </div>
 
-        <!-- =============================================================\\P//==================================================================== -->
+    <!-- =============================================================\\P//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">P</h3>
     </div>
@@ -92,8 +102,7 @@
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Password_hash()</h5>
         <p class="card-text">La fonction password_hash en PHP</p>
-        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-          to="lessons/password_hash">
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/password_hash">
           Accès à la leçon
         </NuxtLink>
       </div>
@@ -103,8 +112,7 @@
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">password_verify()</h5>
         <p class="card-text">La fonction password_verify en PHP</p>
-        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-          to="lessons/password_verify">
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/password_verify">
           Accès à la leçon
         </NuxtLink>
       </div>
@@ -114,8 +122,7 @@
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">POO</h5>
         <p class="card-text">La programmation orienté objet et son utilité en PHP</p>
-        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-          to="lessons/POO">
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/POO">
           Accès à la leçon
         </NuxtLink>
       </div>
@@ -164,6 +171,23 @@
         <h5 class="card-title text-purple">Switch</h5>
         <p class="card-text">Les switch case dans php et leurs logique pour autre langages</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/switch">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <!-- =============================================================\\T//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">T</h3>
+    </div>
+
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">This</h5>
+        <p class="card-text">La variable $this</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/this">
           Accès à la leçon
         </NuxtLink>
       </div>

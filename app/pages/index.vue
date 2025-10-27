@@ -9,7 +9,7 @@
     <main class="container-fluid bg-light min-vh-100 py-5">
         <div class="row justify-content-center g-4">
             <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/php.png" alt="Logo PHP">
                     </div>
@@ -22,7 +22,7 @@
             </div>
             
             <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/js.png" alt="Logo JavaScript">
                     </div>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/sql.png" alt="Logo sql">
                     </div>
@@ -48,7 +48,7 @@
             </div>
             
             <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/java.png" alt="Logo Java">
                     </div>
@@ -59,6 +59,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
+                    <div class="card-img-container p-4 bg-light-purple">
+                        <img class="card-img" src="/img_index/grafikart.png" alt="Logo grafikart">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-purple fw-bold fs-4">Grafikart.fr</h5>
+                        <p class="card-text text-dark flex-grow-1">Le site de grafikart regroupe des leçons et astuces de manière très pédagogique sur beaucoup de langages, ce site est une référence dans le monde du dev.</p>
+                        <a href="https://grafikart.fr/" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 </template>

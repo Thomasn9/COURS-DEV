@@ -5,6 +5,9 @@
             <div class="lesson-header">
                 <h1 class="text-white">Les Classes dans le Modèle MVC en PHP</h1>
                 <p class="lesson-meta text-white">Architecture • POO • PHP • MVC</p>
+                <p class="lesson-meta text-white">
+                    <span>Niveau : Débutant / Intermédiaire</span>
+                </p>
             </div>
 
             <!-- Introduction -->
