@@ -1,6 +1,21 @@
 <template>
   <div class="page-container">
 
+        <!-- =============================================================\\A//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">A</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Attribut de classe</h5>
+        <p class="card-text">Les attributs d'une classe en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/attribut_class">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
     <!-- =============================================================\\C//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">C</h3>
@@ -11,6 +26,21 @@
         <h5 class="card-title text-purple">Les Class</h5>
         <p class="card-text">Les class et leur utilité en PHP</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/class">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+        <!-- =============================================================\\G//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">G</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Getters</h5>
+        <p class="card-text">Les Getters en POO PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/get_set">
           Accès à la leçon
         </NuxtLink>
       </div>
@@ -132,6 +162,15 @@
       <h3 class="lettreSommaire">S</h3>
     </div>
 
+        <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Setters</h5>
+        <p class="card-text">Les Setters en POO PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/get_set">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
 
     <div class="card border-purple shadow-lg">
       <div class="card-body bg-light-purple">
@@ -188,6 +227,17 @@
         <p class="card-text">La variable $this</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
           to="lessons/this">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Type</h5>
+        <p class="card-text">Les différents typage en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/type">
           Accès à la leçon
         </NuxtLink>
       </div>

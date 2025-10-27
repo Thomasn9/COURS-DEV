@@ -8,8 +8,9 @@
 
     <main class="container-fluid bg-light min-vh-100 py-5">
         <div class="row justify-content-center g-4">
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
+
+            <div class="col-md-4 col-lg-3 m-3">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/php.png" alt="Logo PHP">
                     </div>
@@ -21,8 +22,8 @@
                 </div>
             </div>
             
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
+            <div class="col-md-4 col-lg-3 m-3">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/js.png" alt="Logo JavaScript">
                     </div>
@@ -34,8 +35,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
+            <div class="col-md-4 col-lg-3 m-3">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/sql.png" alt="Logo sql">
                     </div>
@@ -47,8 +48,8 @@
                 </div>
             </div>
             
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
+            <div class="col-md-4 col-lg-3 m-3">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/java.png" alt="Logo Java">
                     </div>
@@ -60,8 +61,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-white border-purple shadow-lg h-100 transition-all m-3">
+            <div class="col-md-4 col-lg-3 m-3">
+                <div class="card bg-white border-purple shadow-lg h-100 transition-all">
                     <div class="card-img-container p-4 bg-light-purple">
                         <img class="card-img" src="/img_index/grafikart.png" alt="Logo grafikart">
                     </div>
