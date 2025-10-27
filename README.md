@@ -1,7 +1,6 @@
 # Les lecons a venir:
 
 # PHP
-- la logique MVC (utiliser les shéma de mathieu)
 - super constantes (__LINE__/__FILE__/__FUNCTION__/__CLASS__/__TRAIT__/__METHOD__/__PROPERTY__/__NAMESPACE__)
 - diagramme de classe (classe abstraite / héritage)
 - fonction implodeR

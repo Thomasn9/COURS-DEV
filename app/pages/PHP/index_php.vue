@@ -1,6 +1,21 @@
 <template>
   <div class="page-container">
 
+        <!-- =============================================================\\C//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">C</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Les Class</h5>
+        <p class="card-text">Les class et leur utilité en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/class">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
     <!-- =============================================================\\I//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">I</h3>
@@ -90,6 +105,17 @@
         <p class="card-text">La fonction password_verify en PHP</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
           to="lessons/password_verify">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">POO</h5>
+        <p class="card-text">La programmation orienté objet et son utilité en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+          to="lessons/POO">
           Accès à la leçon
         </NuxtLink>
       </div>
