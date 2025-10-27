@@ -16,6 +16,31 @@
       </div>
     </div>
 
+        <!-- =============================================================\\J//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">J</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Json_decode()</h5>
+        <p class="card-text">L'utilisation de la fonction json_decode en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/json_decode">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Json_encode()</h5>
+        <p class="card-text">L'utilisation de la fonction json_encode en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/json_encode">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
     <!-- =============================================================\\M//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">M</h3>
