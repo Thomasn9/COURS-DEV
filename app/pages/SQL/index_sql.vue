@@ -35,6 +35,22 @@
             </div>
         </div>
 
+                <!-- =============================================================\\I//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">I</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Inner Join</h5>
+                <p class="card-text">Les jointures entres tables SQL</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/variables">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\S//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">S</h3>
@@ -45,23 +61,6 @@
                 <h5 class="card-title text-purple">Select</h5>
                 <p class="card-text">Les select en SQL leur syntaxe et utilité.</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/select">
-                    Accès à la leçon
-                </NuxtLink>
-            </div>
-        </div>
-
-
-        <!-- =============================================================\\V//==================================================================== -->
-        <div class="section-header">
-            <h3 class="lettreSommaire">V</h3>
-        </div>
-
-        <div class="card border-purple shadow-lg">
-            <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Les Variables</h5>
-                <p class="card-text">Les variables en javaScript et leur syntaxe</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/variables">
                     Accès à la leçon
                 </NuxtLink>
             </div>
