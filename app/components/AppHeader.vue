@@ -19,7 +19,7 @@
                     <NuxtLink class="nav-link" to="/PHP/index_php">PHP</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="#">Java</NuxtLink>
+                    <NuxtLink class="nav-link" to="/Java/index_java">Java</NuxtLink>
                 </li>
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="/SQL/index_sql">SQL</NuxtLink>

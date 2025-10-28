@@ -2,7 +2,7 @@
     <div class="page-container">
 
 
-                <!-- =============================================================\\A//==================================================================== -->
+        <!-- =============================================================\\A//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">A</h3>
         </div>
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-                <!-- =============================================================\\I//==================================================================== -->
+        <!-- =============================================================\\I//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">I</h3>
         </div>
@@ -63,6 +63,38 @@
                 <p class="card-text">Les jointures entres tables SQL</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/inner_join">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\L//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">L</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Left join</h5>
+                <p class="card-text">La jointure Left join en SQL</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/left_rigth_join">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\R//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">R</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Rigth join</h5>
+                <p class="card-text">La jointure rigth join</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/left_rigth_join">
                     Accès à la leçon
                 </NuxtLink>
             </div>
