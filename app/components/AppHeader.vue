@@ -22,7 +22,7 @@
                     <NuxtLink class="nav-link" to="#">Java</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="#">SQL</NuxtLink>
+                    <NuxtLink class="nav-link" to="/SQL/index_sql">SQL</NuxtLink>
                 </li>
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="#">Cyber Sécurité</NuxtLink>
