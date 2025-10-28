@@ -2,6 +2,23 @@
     <div class="page-container">
 
 
+                <!-- =============================================================\\A//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">A</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Alter table </h5>
+                <p class="card-text">Les modification d'un table SQL</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/alter_table">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+
         <!-- =============================================================\\C//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">C</h3>
@@ -45,7 +62,7 @@
                 <h5 class="card-title text-purple">Inner Join</h5>
                 <p class="card-text">Les jointures entres tables SQL</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/variables">
+                    to="lessons/inner_join">
                     Accès à la leçon
                 </NuxtLink>
             </div>
