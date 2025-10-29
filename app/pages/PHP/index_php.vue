@@ -31,6 +31,16 @@
       </div>
     </div>
 
+        <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Connexion BDD</h5>
+        <p class="card-text">La connexion a une base de donnée mysql via PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/connection_BDD">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
         <!-- =============================================================\\G//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">G</h3>
