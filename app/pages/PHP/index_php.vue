@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
 
-        <!-- =============================================================\\A//==================================================================== -->
+    <!-- =============================================================\\A//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">A</h3>
     </div>
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-        <div class="card border-purple shadow-lg">
+    <div class="card border-purple shadow-lg">
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Connexion BDD</h5>
         <p class="card-text">La connexion a une base de donnée mysql via PHP</p>
@@ -41,7 +41,23 @@
       </div>
     </div>
 
-        <!-- =============================================================\\G//==================================================================== -->
+
+    <!-- =============================================================\\E//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">E</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">.env</h5>
+        <p class="card-text">L'extrême importance du .env dans un projet</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/pointEnv">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <!-- =============================================================\\G//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">G</h3>
     </div>
@@ -172,7 +188,7 @@
       <h3 class="lettreSommaire">S</h3>
     </div>
 
-        <div class="card border-purple shadow-lg">
+    <div class="card border-purple shadow-lg">
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Setters</h5>
         <p class="card-text">Les Setters en POO PHP</p>
@@ -235,8 +251,7 @@
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">This</h5>
         <p class="card-text">La variable $this</p>
-        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-          to="lessons/this">
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/this">
           Accès à la leçon
         </NuxtLink>
       </div>
@@ -246,8 +261,7 @@
       <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Type</h5>
         <p class="card-text">Les différents typage en PHP</p>
-        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-          to="lessons/type">
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/type">
           Accès à la leçon
         </NuxtLink>
       </div>

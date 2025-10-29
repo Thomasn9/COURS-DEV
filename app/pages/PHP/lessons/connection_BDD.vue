@@ -1,76 +1,80 @@
 <template>
-  <div class="lesson-container">
-    <div class="lesson-content">
-      <!-- En-tête de la leçon -->
-      <header class="lesson-header">
-        <h1 class="text-white">Connexion à MySQL en PHP avec Architecture MVC</h1>
-        <p class="lesson-meta text-white">Apprenez à structurer votre application PHP avec le pattern MVC et à interagir avec une base de données MySQL</p>
-                        <p class="lesson-meta text-white">
+    <div class="lesson-container">
+        <div class="lesson-content">
+            <!-- En-tête de la leçon -->
+            <header class="lesson-header">
+                <h1 class="text-white">Connexion à MySQL en PHP avec Architecture MVC</h1>
+                <p class="lesson-meta text-white">Apprenez à structurer votre application PHP avec le pattern MVC et à
+                    interagir avec une base de données MySQL</p>
+                <p class="lesson-meta text-white">
                     <span>Niveau : Intermédiaire</span>
                 </p>
-      </header>
+            </header>
 
-      <!-- Introduction -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Introduction</h2>
-        <p>Dans cette leçon, nous allons découvrir comment connecter une application PHP à une base de données MySQL en utilisant l'architecture MVC (Modèle-Vue-Contrôleur). Cette architecture permet de séparer les préoccupations de votre application pour une meilleure maintenabilité et évolutivité.</p>
-        
-        <div class="textExemple">
-          <h3 class="text-purple">Objectifs d'apprentissage</h3>
-          <ul>
-            <li>Comprendre l'architecture MVC et ses avantages</li>
-            <li>Configurer une connexion à MySQL en PHP</li>
-            <li>Créer un modèle pour interagir avec la base de données</li>
-            <li>Implémenter un contrôleur pour gérer la logique métier</li>
-            <li>Afficher les données dans une vue</li>
-          </ul>
-        </div>
-      </section>
+            <!-- Introduction -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Introduction</h2>
+                <p>Dans cette leçon, nous allons découvrir comment connecter une application PHP à une base de données
+                    MySQL en utilisant l'architecture MVC (Modèle-Vue-Contrôleur). Cette architecture permet de séparer
+                    les préoccupations de votre application pour une meilleure maintenabilité et évolutivité.</p>
 
-      <!-- Section 1: Architecture MVC -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">1. Comprendre l'Architecture MVC</h2>
-        <p>L'architecture MVC sépare votre application en trois composants distincts :</p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Structure MVC</h3>
-          <pre><code class="language-php"><span class="comment">// Structure de dossiers MVC typique</span>
+                <div class="textExemple">
+                    <h3 class="text-purple">Objectifs d'apprentissage</h3>
+                    <ul>
+                        <li>Comprendre l'architecture MVC et ses avantages</li>
+                        <li>Configurer une connexion à MySQL en PHP</li>
+                        <li>Créer un modèle pour interagir avec la base de données</li>
+                        <li>Implémenter un contrôleur pour gérer la logique métier</li>
+                        <li>Afficher les données dans une vue</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 1: Architecture MVC -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">1. Comprendre l'Architecture MVC</h2>
+                <p>L'architecture MVC sépare votre application en trois composants distincts :</p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Structure MVC</h3>
+                    <pre><code class="language-php"><span class="comment">// Structure de dossiers MVC typique</span>
 <span class="variable">app</span>/
 ├── <span class="variable">controllers</span>/    <span class="comment"># Contrôleurs - Logique métier</span>
 ├── <span class="variable">models</span>/         <span class="comment"># Modèles - Interaction avec la base de données</span>
 ├── <span class="variable">views</span>/          <span class="comment"># Vues - Présentation des données</span>
 └── <span class="variable">config</span>/         <span class="comment"># Configuration (connexion DB, etc.)</span></code></pre>
-        </div>
+                </div>
 
-        <div class="code-comparison">
-          <div>
-            <h4 class="text-purple">Rôle de chaque composant</h4>
-            <ul>
-              <li><strong>Modèle (Model)</strong> : Gère les données et la logique métier</li>
-              <li><strong>Vue (View)</strong> : Présente les données à l'utilisateur</li>
-              <li><strong>Contrôleur (Controller)</strong> : Reçoit les entrées utilisateur et coordonne modèle et vue</li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-purple">Avantages du MVC</h4>
-            <ul>
-              <li>Séparation des préoccupations</li>
-              <li>Code plus maintenable et réutilisable</li>
-              <li>Facilite le travail d'équipe</li>
-              <li>Meilleure testabilité</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+                <div class="code-comparison">
+                    <div>
+                        <h4 class="text-purple">Rôle de chaque composant</h4>
+                        <ul>
+                            <li><strong>Modèle (Model)</strong> : Gère les données et la logique métier</li>
+                            <li><strong>Vue (View)</strong> : Présente les données à l'utilisateur</li>
+                            <li><strong>Contrôleur (Controller)</strong> : Reçoit les entrées utilisateur et coordonne
+                                modèle et vue</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-purple">Avantages du MVC</h4>
+                        <ul>
+                            <li>Séparation des préoccupations</li>
+                            <li>Code plus maintenable et réutilisable</li>
+                            <li>Facilite le travail d'équipe</li>
+                            <li>Meilleure testabilité</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Section 2: Configuration de la connexion MySQL -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">2. Configuration de la Connexion MySQL</h2>
-        <p>Commençons par configurer la connexion à notre base de données MySQL.</p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Fichier de configuration de la base de données</h3>
-          <pre><code class="language-php"><span class="keyword">&lt;?php</span>
+            <!-- Section 2: Configuration de la connexion MySQL -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">2. Configuration de la Connexion MySQL</h2>
+                <p>Commençons par configurer la connexion à notre base de données MySQL.</p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Fichier de configuration de la base de données</h3>
+                    <pre><code class="language-php"><span class="keyword">&lt;?php</span>
 <span class="comment">// app/config/Database.php</span>
 
 <span class="keyword">class</span> <span class="class-name">Database</span> {
@@ -99,27 +103,27 @@
     }
 }
 <span class="keyword">?&gt;</span></code></pre>
-        </div>
+                </div>
 
-        <div class="textExemple">
-          <h4 class="text-purple">Explications</h4>
-          <ul>
-            <li>Nous utilisons PDO (PHP Data Objects) pour une connexion sécurisée</li>
-            <li>PDO::ATTR_ERRMODE permet de gérer les erreurs de manière appropriée</li>
-            <li>PDO::FETCH_ASSOC retourne les résultats sous forme de tableau associatif</li>
-            <li>Le bloc try/catch permet de capturer les exceptions PDO</li>
-          </ul>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h4 class="text-purple">Explications</h4>
+                    <ul>
+                        <li>Nous utilisons PDO (PHP Data Objects) pour une connexion sécurisée</li>
+                        <li>PDO::ATTR_ERRMODE permet de gérer les erreurs de manière appropriée</li>
+                        <li>PDO::FETCH_ASSOC retourne les résultats sous forme de tableau associatif</li>
+                        <li>Le bloc try/catch permet de capturer les exceptions PDO</li>
+                    </ul>
+                </div>
+            </section>
 
-      <!-- Section 3: Création du Modèle -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">3. Création d'un Modèle</h2>
-        <p>Le modèle représente les données et la logique métier de notre application.</p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Modèle Utilisateur</h3>
-          <pre><code class="language-php"><span class="keyword">&lt;?php</span>
+            <!-- Section 3: Création du Modèle -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">3. Création d'un Modèle</h2>
+                <p>Le modèle représente les données et la logique métier de notre application.</p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Modèle Utilisateur</h3>
+                    <pre><code class="language-php"><span class="keyword">&lt;?php</span>
 <span class="comment">// app/models/User.php</span>
 
 <span class="keyword">class</span> <span class="class-name">User</span> {
@@ -184,17 +188,18 @@
     }
 }
 <span class="keyword">?&gt;</span></code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Section 4: Création du Contrôleur -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">4. Création d'un Contrôleur</h2>
-        <p>Le contrôleur gère la logique de l'application et coordonne les interactions entre le modèle et la vue.</p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Contrôleur Utilisateur</h3>
-          <pre><code class="language-php"><span class="keyword">&lt;?php</span>
+            <!-- Section 4: Création du Contrôleur -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">4. Création d'un Contrôleur</h2>
+                <p>Le contrôleur gère la logique de l'application et coordonne les interactions entre le modèle et la
+                    vue.</p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Contrôleur Utilisateur</h3>
+                    <pre><code class="language-php"><span class="keyword">&lt;?php</span>
 <span class="comment">// app/controllers/UserController.php</span>
 
 <span class="keyword">class</span> <span class="class-name">UserController</span> {
@@ -268,17 +273,17 @@
     }
 }
 <span class="keyword">?&gt;</span></code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Section 5: Création de la Vue -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">5. Création d'une Vue</h2>
-        <p>La vue présente les données à l'utilisateur de manière formatée.</p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Vue pour afficher tous les utilisateurs</h3>
-          <pre><code class="language-php"><span class="keyword">&lt;!DOCTYPE</span> <span class="variable">html</span><span class="keyword">&gt;</span>
+            <!-- Section 5: Création de la Vue -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">5. Création d'une Vue</h2>
+                <p>La vue présente les données à l'utilisateur de manière formatée.</p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Vue pour afficher tous les utilisateurs</h3>
+                    <pre><code class="language-php"><span class="keyword">&lt;!DOCTYPE</span> <span class="variable">html</span><span class="keyword">&gt;</span>
 <span class="keyword">&lt;html</span> <span class="variable">lang</span>=<span class="string">"fr"</span><span class="keyword">&gt;</span>
 <span class="keyword">&lt;head&gt;</span>
     <span class="keyword">&lt;meta</span> <span class="variable">charset</span>=<span class="string">"UTF-8"</span><span class="keyword">&gt;</span>
@@ -325,17 +330,17 @@
     <span class="keyword">&lt;/div&gt;</span>
 <span class="keyword">&lt;/body&gt;</span>
 <span class="keyword">&lt;/html&gt;</span></code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Section 6: Routage -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">6. Système de Routage</h2>
-        <p>Le routeur dirige les requêtes vers les contrôleurs appropriés.</p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Routeur simple</h3>
-          <pre><code class="language-php"><span class="keyword">&lt;?php</span>
+            <!-- Section 6: Routage -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">6. Système de Routage</h2>
+                <p>Le routeur dirige les requêtes vers les contrôleurs appropriés.</p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Routeur simple</h3>
+                    <pre><code class="language-php"><span class="keyword">&lt;?php</span>
 <span class="comment">// index.php (point d'entrée de l'application)</span>
 
 <span class="function">require_once</span> <span class="string">'app/config/Database.php'</span>;
@@ -371,38 +376,38 @@
         <span class="keyword">break</span>;
 }
 <span class="keyword">?&gt;</span></code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Section 7: Exercice Pratique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">7. Exercice Pratique</h2>
-        <p>Maintenant que nous avons vu les bases, essayez de mettre en pratique ces concepts.</p>
-        
-        <div class="exercise">
-          <h3 class="text-purple">Exercice : Système de Blog</h3>
-          <p>Créez un système de blog simple avec les fonctionnalités suivantes :</p>
-          <ul>
-            <li>Table "posts" avec les champs : id, title, content, author, created_at</li>
-            <li>Afficher la liste des articles</li>
-            <li>Afficher un article individuel</li>
-            <li>Créer un nouvel article</li>
-          </ul>
-          
-          <details class="solution">
-            <summary class="btn-purple btn-hover">Voir la solution</summary>
-            <div class="solution-content">
-              <h4 class="text-purple">Structure de la table posts</h4>
-              <pre><code class="language-sql"><span class="keyword">CREATE TABLE</span> <span class="variable">posts</span> (
+            <!-- Section 7: Exercice Pratique -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">7. Exercice Pratique</h2>
+                <p>Maintenant que nous avons vu les bases, essayez de mettre en pratique ces concepts.</p>
+
+                <div class="exercise">
+                    <h3 class="text-purple">Exercice : Système de Blog</h3>
+                    <p>Créez un système de blog simple avec les fonctionnalités suivantes :</p>
+                    <ul>
+                        <li>Table "posts" avec les champs : id, title, content, author, created_at</li>
+                        <li>Afficher la liste des articles</li>
+                        <li>Afficher un article individuel</li>
+                        <li>Créer un nouvel article</li>
+                    </ul>
+
+                    <details class="solution">
+                        <summary class="btn-purple btn-hover">Voir la solution</summary>
+                        <div class="solution-content">
+                            <h4 class="text-purple">Structure de la table posts</h4>
+                            <pre><code class="language-sql"><span class="keyword">CREATE TABLE</span> <span class="variable">posts</span> (
     <span class="variable">id</span> <span class="class-name">INT</span> <span class="keyword">AUTO_INCREMENT PRIMARY KEY</span>,
     <span class="variable">title</span> <span class="class-name">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">NOT NULL</span>,
     <span class="variable">content</span> <span class="class-name">TEXT</span> <span class="keyword">NOT NULL</span>,
     <span class="variable">author</span> <span class="class-name">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT NULL</span>,
     <span class="variable">created_at</span> <span class="class-name">TIMESTAMP</span> <span class="keyword">DEFAULT</span> <span class="function">CURRENT_TIMESTAMP</span>
 );</code></pre>
-              
-              <h4 class="text-purple">Modèle Post</h4>
-              <pre><code class="language-php"><span class="keyword">class</span> <span class="class-name">Post</span> {
+
+                            <h4 class="text-purple">Modèle Post</h4>
+                            <pre><code class="language-php"><span class="keyword">class</span> <span class="class-name">Post</span> {
     <span class="keyword">private</span> <span class="variable">$conn</span>;
     <span class="keyword">private</span> <span class="variable">$table</span> = <span class="string">'posts'</span>;
 
@@ -425,95 +430,98 @@
 
     <span class="comment">// Ajoutez les autres méthodes (read_single, create, etc.)</span>
 }</code></pre>
-              
-              <p>Continuez en créant le contrôleur PostController et les vues correspondantes en suivant le même pattern que pour les utilisateurs.</p>
-            </div>
-          </details>
-        </div>
-      </section>
 
-      <!-- Section 8: Bonnes Pratiques -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">8. Bonnes Pratiques et Sécurité</h2>
-        
-        <div class="code-comparison">
-          <div>
-            <h3 class="text-purple">Sécurité</h3>
-            <ul>
-              <li>Toujours utiliser des requêtes préparées</li>
-              <li>Valider et échapper les entrées utilisateur</li>
-              <li>Utiliser des mots de passe forts pour la base de données</li>
-              <li>Ne pas exposer les informations de connexion</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-purple">Performance</h3>
-            <ul>
-              <li>Fermer les connexions à la base de données</li>
-              <li>Utiliser des index sur les colonnes fréquemment interrogées</li>
-              <li>Limiter les données récupérées avec SELECT</li>
-              <li>Mettre en cache les requêtes répétitives</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+                            <p>Continuez en créant le contrôleur PostController et les vues correspondantes en suivant
+                                le même pattern que pour les utilisateurs.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
 
-      <!-- Section 9: Conclusion -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Conclusion</h2>
-        <p>Vous avez maintenant les bases pour créer une application PHP connectée à MySQL en utilisant l'architecture MVC. Cette approche vous permettra de développer des applications plus structurées, maintenables et évolutives.</p>
-        
-        <div class="textExemple">
-          <h3 class="text-purple">Prochaines étapes</h3>
-          <ul>
-            <li>Explorer des frameworks PHP comme Laravel ou Symfony qui implémentent MVC</li>
-            <li>Apprendre à gérer les relations entre tables</li>
-            <li>Découvrir l'authentification et les autorisations</li>
-            <li>Implémenter des tests unitaires pour vos modèles et contrôleurs</li>
-          </ul>
+            <!-- Section 8: Bonnes Pratiques -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">8. Bonnes Pratiques et Sécurité</h2>
+
+                <div class="code-comparison">
+                    <div>
+                        <h3 class="text-purple">Sécurité</h3>
+                        <ul>
+                            <li>Toujours utiliser des requêtes préparées</li>
+                            <li>Valider et échapper les entrées utilisateur</li>
+                            <li>Utiliser des mots de passe forts pour la base de données</li>
+                            <li>Ne pas exposer les informations de connexion</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-purple">Performance</h3>
+                        <ul>
+                            <li>Fermer les connexions à la base de données</li>
+                            <li>Utiliser des index sur les colonnes fréquemment interrogées</li>
+                            <li>Limiter les données récupérées avec SELECT</li>
+                            <li>Mettre en cache les requêtes répétitives</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Conclusion -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Conclusion</h2>
+                <p>Vous avez maintenant les bases pour créer une application PHP connectée à MySQL en utilisant
+                    l'architecture MVC. Cette approche vous permettra de développer des applications plus structurées,
+                    maintenables et évolutives.</p>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Prochaines étapes</h3>
+                    <ul>
+                        <li>Explorer des frameworks PHP comme Laravel ou Symfony qui implémentent MVC</li>
+                        <li>Apprendre à gérer les relations entre tables</li>
+                        <li>Découvrir l'authentification et les autorisations</li>
+                        <li>Implémenter des tests unitaires pour vos modèles et contrôleurs</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="btn-purple btn-hover">Passer à la leçon suivante</a>
+            </section>
         </div>
-        
-        <a href="#" class="btn-purple btn-hover">Passer à la leçon suivante</a>
-      </section>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: 'MySQLPHPLesson',
-  data() {
-    return {
-      lessonTitle: 'Connexion à MySQL en PHP avec Architecture MVC'
-    }
-  },
-  head() {
-    return {
-      title: this.lessonTitle,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Apprenez à connecter une application PHP à MySQL en utilisant l\'architecture MVC pour une meilleure structure et maintenabilité.'
+    name: 'MySQLPHPLesson',
+    data() {
+        return {
+            lessonTitle: 'Connexion à MySQL en PHP avec Architecture MVC'
         }
-      ]
+    },
+    head() {
+        return {
+            title: this.lessonTitle,
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Apprenez à connecter une application PHP à MySQL en utilisant l\'architecture MVC pour une meilleure structure et maintenabilité.'
+                }
+            ]
+        }
+    },
+    mounted() {
+        // Appliquer la coloration syntaxique après le rendu
+        this.applySyntaxHighlighting();
+    },
+    methods: {
+        applySyntaxHighlighting() {
+            // Cette fonction applique les classes de coloration syntaxique
+            // Dans un vrai projet, vous pourriez utiliser une bibliothèque comme Prism.js
+            // Pour cet exemple, nous utilisons les classes CSS que nous avons définies
+
+            // Les classes sont déjà appliquées dans le HTML via les spans
+            // Cette méthode est principalement pour la démonstration
+            console.log('Coloration syntaxique appliquée');
+        }
     }
-  },
-  mounted() {
-    // Appliquer la coloration syntaxique après le rendu
-    this.applySyntaxHighlighting();
-  },
-  methods: {
-    applySyntaxHighlighting() {
-      // Cette fonction applique les classes de coloration syntaxique
-      // Dans un vrai projet, vous pourriez utiliser une bibliothèque comme Prism.js
-      // Pour cet exemple, nous utilisons les classes CSS que nous avons définies
-      
-      // Les classes sont déjà appliquées dans le HTML via les spans
-      // Cette méthode est principalement pour la démonstration
-      console.log('Coloration syntaxique appliquée');
-    }
-  }
 }
 </script>
 
@@ -651,7 +659,8 @@ export default {
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example, .code-block {
+.code-example,
+.code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -678,15 +687,19 @@ pre {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap; /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Casse les mots longs */
-    word-break: break-word; /* Assure la césure des mots */
+    white-space: pre-wrap;
+    /* Permet le retour à la ligne */
+    word-wrap: break-word;
+    /* Casse les mots longs */
+    word-break: break-word;
+    /* Assure la césure des mots */
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
-    white-space: pre-wrap; /* Retour à la ligne automatique */
+    white-space: pre-wrap;
+    /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -695,22 +708,78 @@ pre code {
 }
 
 /* COULEURS VS CODE POUR LA SYNTAXE PHP ET SQL */
-.keyword { color: #c586c0 !important; } /* Mots-clés (class, function, if, etc.) */
-.variable { color: #9cdcfe !important; } /* Variables et noms de fonctions */
-.string { color: #ce9178 !important; } /* Chaînes de caractères */
-.comment { color: #6a9955 !important; } /* Commentaires */
-.function { color: #dcdcaa !important; } /* Noms de fonctions */
-.operator { color: #d4d4d4 !important; } /* Opérateurs (+, -, =, =>, etc.) */
-.constant { color: #4fc1ff !important; } /* Constantes */
-.number { color: #b5cea8 !important; } /* Nombres */
-.class-name { color: #4ec9b0 !important; } /* Noms de classes */
+.keyword {
+    color: #c586c0 !important;
+}
+
+/* Mots-clés (class, function, if, etc.) */
+.variable {
+    color: #9cdcfe !important;
+}
+
+/* Variables et noms de fonctions */
+.string {
+    color: #ce9178 !important;
+}
+
+/* Chaînes de caractères */
+.comment {
+    color: #6a9955 !important;
+}
+
+/* Commentaires */
+.function {
+    color: #dcdcaa !important;
+}
+
+/* Noms de fonctions */
+.operator {
+    color: #d4d4d4 !important;
+}
+
+/* Opérateurs (+, -, =, =>, etc.) */
+.constant {
+    color: #4fc1ff !important;
+}
+
+/* Constantes */
+.number {
+    color: #b5cea8 !important;
+}
+
+/* Nombres */
+.class-name {
+    color: #4ec9b0 !important;
+}
+
+/* Noms de classes */
 
 /* Styles spécifiques pour SQL */
-.language-sql .keyword { color: #569cd6 !important; } /* Mots-clés SQL */
-.language-sql .variable { color: #9cdcfe !important; } /* Noms de tables/colonnes */
-.language-sql .string { color: #ce9178 !important; } /* Chaînes SQL */
-.language-sql .number { color: #b5cea8 !important; } /* Nombres SQL */
-.language-sql .function { color: #dcdcaa !important; } /* Fonctions SQL */
+.language-sql .keyword {
+    color: #569cd6 !important;
+}
+
+/* Mots-clés SQL */
+.language-sql .variable {
+    color: #9cdcfe !important;
+}
+
+/* Noms de tables/colonnes */
+.language-sql .string {
+    color: #ce9178 !important;
+}
+
+/* Chaînes SQL */
+.language-sql .number {
+    color: #b5cea8 !important;
+}
+
+/* Nombres SQL */
+.language-sql .function {
+    color: #dcdcaa !important;
+}
+
+/* Fonctions SQL */
 
 /* Exercices et solutions */
 .exercise {
@@ -750,24 +819,24 @@ details summary {
     .lesson-container {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 2rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 2rem;
     }
-    
+
     .lesson-section {
         padding: 1.5rem;
     }
-    
+
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
@@ -780,19 +849,19 @@ details summary {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-    
+
     .lesson-container {
         padding: 0.5rem;
     }
-    
+
     .lesson-section {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 1.75rem;
     }
@@ -811,6 +880,7 @@ details summary {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -821,9 +891,23 @@ details summary {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lesson-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
 </style>
