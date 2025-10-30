@@ -23,6 +23,16 @@
 
     <div class="card border-purple shadow-lg">
       <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Les Class abstrait</h5>
+        <p class="card-text">Les class abstrait et leur utilité en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/class_abstrait">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
         <h5 class="card-title text-purple">Les Class</h5>
         <p class="card-text">Les class et leur utilité en PHP</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/class">
@@ -179,6 +189,21 @@
         <h5 class="card-title text-purple">POO</h5>
         <p class="card-text">La programmation orienté objet et son utilité en PHP</p>
         <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/POO">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
+        <!-- =============================================================\\R//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">R</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Repository</h5>
+        <p class="card-text">Les répository dans la structure MVC en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/repository">
           Accès à la leçon
         </NuxtLink>
       </div>
