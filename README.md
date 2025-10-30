@@ -1,5 +1,5 @@
 # Les lecons a venir:
-
+================================================================================
 # PHP
 - super constantes (__LINE__/__FILE__/__FUNCTION__/__CLASS__/__TRAIT__/__METHOD__/__PROPERTY__/__NAMESPACE__)
 - diagramme de classe (classe abstraite / héritage)
@@ -8,9 +8,14 @@
 - quest ce que c'est le DTO
 - jsonResponse
 - fil-get-content
+================================================================================
+# SQL
+- rajouter au cours creation BDD (inno db a la fin des tables sql)
+- rajouter comment mettre des mot reserver dans un table sql
+- rajouter lecons sur les INSERT INTO
+- rajouter une lecons sur les check (mettre la nition LENGTH())
 
 ================================================================================
-
 # Java-Script
 - fonction fléché
 - console.log
