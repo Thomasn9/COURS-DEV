@@ -18,7 +18,7 @@
                 <p class="textExemple">
                     Une INNER JOIN retourne uniquement les enregistrements qui ont des correspondances dans les deux
                     tables jointes,
-                    formant ainsi l'int ersection des datasets.
+                    formant ainsi l'intersection des datasets.
                 </p>
             </section>
 
@@ -33,8 +33,7 @@
                             sont retournées</li>
                         <li><strong>Condition de jointure</strong> : Spécifie comment les tables sont reliées
                             (généralement via des clés primaires/étrangères)</li>
-                        <li><strong>Alias de tables</strong> : Permettent de simplifier l'écriture des requêtes
-                            complexes</li>
+                        <li><strong>Syntaxe claire</strong> : Permettent une écriture explicite des requêtes</li>
                     </ul>
                 </div>
 
@@ -81,10 +80,10 @@ Résultat INNER JOIN │ │
                                 <div class="code-example">
                                     <pre><code><span class="sql-comment">-- Syntaxe WHERE (dépréciée)</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>, 
-  <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>, <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span>
-<span class="sql-reserved">WHERE</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>;</code></pre>
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>, 
+  <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>, <span class="sql-identifier">commandes</span>
+<span class="sql-reserved">WHERE</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>;</code></pre>
                                 </div>
                                 <p class="warning-text">Syntaxe ambiguë et moins lisible</p>
                             </div>
@@ -93,11 +92,11 @@ Résultat INNER JOIN │ │
                                 <div class="code-example">
                                     <pre><code><span class="sql-comment">-- Syntaxe INNER JOIN (moderne)</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>, 
-  <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>;</code></pre>
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>, 
+  <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>;</code></pre>
                                 </div>
                                 <p class="success-text">Syntaxe claire et explicite</p>
                             </div>
@@ -121,15 +120,15 @@ Résultat INNER JOIN │ │
                         <h4 class="text-purple"> Exemple de catastrophe avec jointure implicite</h4>
                         <div class="code-example">
                             <pre><code><span class="sql-comment">-- OUBLI de la condition WHERE = CATASTROPHE!</span>
-<span class="sql-reserved">SELECT</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>, <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span>;
+<span class="sql-reserved">SELECT</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>, <span class="sql-identifier">commandes</span>;
 <span class="sql-comment">-- Produit cartésien: 100 clients × 1000 commandes = 100,000 lignes!</span>
 
 <span class="sql-comment">-- Avec INNER JOIN, impossible d'oublier la condition ON</span>
-<span class="sql-reserved">SELECT</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>;
+<span class="sql-reserved">SELECT</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>;
 <span class="sql-comment">-- Seulement les commandes avec clients correspondants</span></code></pre>
                         </div>
                     </div>
@@ -177,31 +176,31 @@ Résultat INNER JOIN │ │
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Clients et leurs commandes</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>,
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">prenom</span>,
-  <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span>,
-  <span class="sql-identifier">co</span>.<span class="sql-identifier">montant</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>;</code></pre>
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>,
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">prenom</span>,
+  <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span>,
+  <span class="sql-identifier">commandes</span>.<span class="sql-identifier">montant</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>;</code></pre>
                     </div>
                 </div>
 
                 <div class="textExemple">
-                    <h3 class="text-purple">Avec alias et conditions supplémentaires</h3>
+                    <h3 class="text-purple">Avec conditions supplémentaires</h3>
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Commandes récentes de clients français</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Nom client'</span>,
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom'</span>,
-  <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Date commande'</span>,
-  <span class="sql-identifier">co</span>.<span class="sql-identifier">montant</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Montant'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>
-<span class="sql-reserved">WHERE</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">pays</span> <span class="sql-operator">=</span> <span class="sql-string">'France'</span>
-  <span class="sql-reserved">AND</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span> <span class="sql-operator">>=</span> <span class="sql-string">'2024-01-01'</span>
-<span class="sql-reserved">ORDER BY</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span> <span class="sql-reserved">DESC</span>;</code></pre>
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Nom client'</span>,
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom'</span>,
+  <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Date commande'</span>,
+  <span class="sql-identifier">commandes</span>.<span class="sql-identifier">montant</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Montant'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>
+<span class="sql-reserved">WHERE</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">pays</span> <span class="sql-operator">=</span> <span class="sql-string">'France'</span>
+  <span class="sql-reserved">AND</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span> <span class="sql-operator">>=</span> <span class="sql-string">'2024-01-01'</span>
+<span class="sql-reserved">ORDER BY</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span> <span class="sql-reserved">DESC</span>;</code></pre>
                     </div>
                 </div>
             </section>
@@ -216,19 +215,19 @@ Résultat INNER JOIN │ │
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Clients, commandes et produits</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>,
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">prenom</span>,
-  <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span>,
-  <span class="sql-identifier">p</span>.<span class="sql-identifier">nom_produit</span>,
-  <span class="sql-identifier">dc</span>.<span class="sql-identifier">quantite</span>,
-  <span class="sql-identifier">p</span>.<span class="sql-identifier">prix</span> <span class="sql-operator">*</span> <span class="sql-identifier">dc</span>.<span class="sql-identifier">quantite</span> <span class="sql-reserved">AS</span> <span class="sql-string">'sous_total'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">details_commande</span> <span class="sql-identifier">dc</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">commande_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">dc</span>.<span class="sql-identifier">commande_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">produits</span> <span class="sql-identifier">p</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">dc</span>.<span class="sql-identifier">produit_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">produit_id</span>;</code></pre>
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>,
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">prenom</span>,
+  <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span>,
+  <span class="sql-identifier">produits</span>.<span class="sql-identifier">nom_produit</span>,
+  <span class="sql-identifier">details_commande</span>.<span class="sql-identifier">quantite</span>,
+  <span class="sql-identifier">produits</span>.<span class="sql-identifier">prix</span> <span class="sql-operator">*</span> <span class="sql-identifier">details_commande</span>.<span class="sql-identifier">quantite</span> <span class="sql-reserved">AS</span> <span class="sql-string">'sous_total'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">details_commande</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">commande_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">details_commande</span>.<span class="sql-identifier">commande_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">produits</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">details_commande</span>.<span class="sql-identifier">produit_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">produits</span>.<span class="sql-identifier">produit_id</span>;</code></pre>
                     </div>
                 </div>
 
@@ -252,13 +251,13 @@ client_id    commande_id        commande_id        produit_id
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Jointure sur clé composite</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">nom</span>,
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">prenom</span>,
-  <span class="sql-identifier">d</span>.<span class="sql-identifier">nom_departement</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">e</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">departements</span> <span class="sql-identifier">d</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">departement_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">d</span>.<span class="sql-identifier">departement_id</span>
-  <span class="sql-reserved">AND</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">region_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">d</span>.<span class="sql-identifier">region_id</span>;</code></pre>
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">nom</span>,
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">prenom</span>,
+  <span class="sql-identifier">departements</span>.<span class="sql-identifier">nom_departement</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">employes</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">departements</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">employes</span>.<span class="sql-identifier">departement_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">departements</span>.<span class="sql-identifier">departement_id</span>
+  <span class="sql-reserved">AND</span> <span class="sql-identifier">employes</span>.<span class="sql-identifier">region_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">departements</span>.<span class="sql-identifier">region_id</span>;</code></pre>
                     </div>
                 </div>
 
@@ -267,14 +266,14 @@ client_id    commande_id        commande_id        produit_id
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Produits et leurs promotions actives</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">p</span>.<span class="sql-identifier">nom_produit</span>,
-  <span class="sql-identifier">p</span>.<span class="sql-identifier">prix</span>,
-  <span class="sql-identifier">pr</span>.<span class="sql-identifier">nom_promotion</span>,
-  <span class="sql-identifier">pr</span>.<span class="sql-identifier">pourcentage_remise</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">produits</span> <span class="sql-identifier">p</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">promotions</span> <span class="sql-identifier">pr</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">produit_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">pr</span>.<span class="sql-identifier">produit_id</span>
-  <span class="sql-reserved">AND</span> <span class="sql-function">CURDATE</span>() <span class="sql-reserved">BETWEEN</span> <span class="sql-identifier">pr</span>.<span class="sql-identifier">date_debut</span> <span class="sql-reserved">AND</span> <span class="sql-identifier">pr</span>.<span class="sql-identifier">date_fin</span>;</code></pre>
+  <span class="sql-identifier">produits</span>.<span class="sql-identifier">nom_produit</span>,
+  <span class="sql-identifier">produits</span>.<span class="sql-identifier">prix</span>,
+  <span class="sql-identifier">promotions</span>.<span class="sql-identifier">nom_promotion</span>,
+  <span class="sql-identifier">promotions</span>.<span class="sql-identifier">pourcentage_remise</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">produits</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">promotions</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">produits</span>.<span class="sql-identifier">produit_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">promotions</span>.<span class="sql-identifier">produit_id</span>
+  <span class="sql-reserved">AND</span> <span class="sql-function">CURDATE</span>() <span class="sql-reserved">BETWEEN</span> <span class="sql-identifier">promotions</span>.<span class="sql-identifier">date_debut</span> <span class="sql-reserved">AND</span> <span class="sql-identifier">promotions</span>.<span class="sql-identifier">date_fin</span>;</code></pre>
                     </div>
                 </div>
 
@@ -283,13 +282,13 @@ client_id    commande_id        commande_id        produit_id
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Employés et leurs managers</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Employé'</span>,
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom employé'</span>,
-  <span class="sql-identifier">m</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Manager'</span>,
-  <span class="sql-identifier">m</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom manager'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">e</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">m</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">manager_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">m</span>.<span class="sql-identifier">employe_id</span>;</code></pre>
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Employé'</span>,
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom employé'</span>,
+  <span class="sql-identifier">managers</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Manager'</span>,
+  <span class="sql-identifier">managers</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom manager'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">employes</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">managers</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">employes</span>.<span class="sql-identifier">manager_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">managers</span>.<span class="sql-identifier">employe_id</span>;</code></pre>
                     </div>
                 </div>
             </section>
@@ -303,16 +302,16 @@ client_id    commande_id        commande_id        produit_id
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Chiffre d'affaires par client</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>,
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">prenom</span>,
-  <span class="sql-function">COUNT</span>(<span class="sql-identifier">co</span>.<span class="sql-identifier">commande_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre de commandes'</span>,
-  <span class="sql-function">SUM</span>(<span class="sql-identifier">co</span>.<span class="sql-identifier">montant</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Chiffre d affaires total'</span>,
-  <span class="sql-function">AVG</span>(<span class="sql-identifier">co</span>.<span class="sql-identifier">montant</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Montant moyen par commande'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>
-<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span>, <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">c</span>.<span class="sql-identifier">prenom</span>
-<span class="sql-reserved">HAVING</span> <span class="sql-function">SUM</span>(<span class="sql-identifier">co</span>.<span class="sql-identifier">montant</span>) <span class="sql-operator">></span> <span class="sql-number">1000</span>
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>,
+  <span class="sql-identifier">clients</span>.<span class="sql-identifier">prenom</span>,
+  <span class="sql-function">COUNT</span>(<span class="sql-identifier">commandes</span>.<span class="sql-identifier">commande_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre de commandes'</span>,
+  <span class="sql-function">SUM</span>(<span class="sql-identifier">commandes</span>.<span class="sql-identifier">montant</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Chiffre d affaires total'</span>,
+  <span class="sql-function">AVG</span>(<span class="sql-identifier">commandes</span>.<span class="sql-identifier">montant</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Montant moyen par commande'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>
+<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span>, <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">clients</span>.<span class="sql-identifier">prenom</span>
+<span class="sql-reserved">HAVING</span> <span class="sql-function">SUM</span>(<span class="sql-identifier">commandes</span>.<span class="sql-identifier">montant</span>) <span class="sql-operator">></span> <span class="sql-number">1000</span>
 <span class="sql-reserved">ORDER BY</span> <span class="sql-string">'Chiffre d affaires total'</span> <span class="sql-reserved">DESC</span>;</code></pre>
                     </div>
                 </div>
@@ -322,17 +321,17 @@ client_id    commande_id        commande_id        produit_id
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Produits les plus vendus par catégorie</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">cat</span>.<span class="sql-identifier">nom_categorie</span>,
-  <span class="sql-identifier">p</span>.<span class="sql-identifier">nom_produit</span>,
-  <span class="sql-function">SUM</span>(<span class="sql-identifier">dc</span>.<span class="sql-identifier">quantite</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Quantité vendue'</span>,
-  <span class="sql-function">SUM</span>(<span class="sql-identifier">dc</span>.<span class="sql-identifier">quantite</span> <span class="sql-operator">*</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">prix</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Chiffre d affaires'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">categories</span> <span class="sql-identifier">cat</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">produits</span> <span class="sql-identifier">p</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">cat</span>.<span class="sql-identifier">categorie_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">categorie_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">details_commande</span> <span class="sql-identifier">dc</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">produit_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">dc</span>.<span class="sql-identifier">produit_id</span>
-<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">cat</span>.<span class="sql-identifier">categorie_id</span>, <span class="sql-identifier">cat</span>.<span class="sql-identifier">nom_categorie</span>, <span class="sql-identifier">p</span>.<span class="sql-identifier">produit_id</span>, <span class="sql-identifier">p</span>.<span class="sql-identifier">nom_produit</span>
-<span class="sql-reserved">ORDER BY</span> <span class="sql-identifier">cat</span>.<span class="sql-identifier">nom_categorie</span>, <span class="sql-string">'Quantité vendue'</span> <span class="sql-reserved">DESC</span>;</code></pre>
+  <span class="sql-identifier">categories</span>.<span class="sql-identifier">nom_categorie</span>,
+  <span class="sql-identifier">produits</span>.<span class="sql-identifier">nom_produit</span>,
+  <span class="sql-function">SUM</span>(<span class="sql-identifier">details_commande</span>.<span class="sql-identifier">quantite</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Quantité vendue'</span>,
+  <span class="sql-function">SUM</span>(<span class="sql-identifier">details_commande</span>.<span class="sql-identifier">quantite</span> <span class="sql-operator">*</span> <span class="sql-identifier">produits</span>.<span class="sql-identifier">prix</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Chiffre d affaires'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">categories</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">produits</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">categories</span>.<span class="sql-identifier">categorie_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">produits</span>.<span class="sql-identifier">categorie_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">details_commande</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">produits</span>.<span class="sql-identifier">produit_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">details_commande</span>.<span class="sql-identifier">produit_id</span>
+<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">categories</span>.<span class="sql-identifier">categorie_id</span>, <span class="sql-identifier">categories</span>.<span class="sql-identifier">nom_categorie</span>, <span class="sql-identifier">produits</span>.<span class="sql-identifier">produit_id</span>, <span class="sql-identifier">produits</span>.<span class="sql-identifier">nom_produit</span>
+<span class="sql-reserved">ORDER BY</span> <span class="sql-identifier">categories</span>.<span class="sql-identifier">nom_categorie</span>, <span class="sql-string">'Quantité vendue'</span> <span class="sql-reserved">DESC</span>;</code></pre>
                     </div>
                 </div>
             </section>
@@ -360,24 +359,24 @@ client_id    commande_id        commande_id        produit_id
                             <div class="code-example">
                                 <pre><code><span class="sql-comment">-- Jointure avant filtrage</span>
 <span class="sql-reserved">SELECT</span> <span class="sql-keyword">*</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>
-<span class="sql-reserved">WHERE</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">ville</span> <span class="sql-operator">=</span> <span class="sql-string">'Paris'</span>;</code></pre>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>
+<span class="sql-reserved">WHERE</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">ville</span> <span class="sql-operator">=</span> <span class="sql-string">'Paris'</span>;</code></pre>
                             </div>
                         </div>
                         <div>
                             <h5>Plus efficace</h5>
                             <div class="code-example">
                                 <pre><code><span class="sql-comment">-- Filtrage avant jointure (si possible)</span>
-<span class="sql-reserved">SELECT</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">c</span>.<span class="sql-identifier">prenom</span>, <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span>
+<span class="sql-reserved">SELECT</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">clients</span>.<span class="sql-identifier">prenom</span>, <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span>
 <span class="sql-reserved">FROM</span> (
   <span class="sql-reserved">SELECT</span> <span class="sql-identifier">client_id</span>, <span class="sql-identifier">nom</span>, <span class="sql-identifier">prenom</span>
   <span class="sql-reserved">FROM</span> <span class="sql-identifier">clients</span>
   <span class="sql-reserved">WHERE</span> <span class="sql-identifier">ville</span> <span class="sql-operator">=</span> <span class="sql-string">'Paris'</span>
-) <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>;</code></pre>
+) <span class="sql-identifier">clients</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>;</code></pre>
                             </div>
                         </div>
                     </div>
@@ -393,28 +392,28 @@ client_id    commande_id        commande_id        produit_id
                     <div class="code-example">
                         <pre><code><span class="sql-comment">-- Analyse des ventes par région et catégorie</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">r</span>.<span class="sql-identifier">nom_region</span>,
-  <span class="sql-identifier">cat</span>.<span class="sql-identifier">nom_categorie</span>,
-  <span class="sql-function">COUNT</span>(<span class="sql-reserved">DISTINCT</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">commande_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre de commandes'</span>,
-  <span class="sql-function">SUM</span>(<span class="sql-identifier">dc</span>.<span class="sql-identifier">quantite</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Quantité vendue'</span>,
-  <span class="sql-function">SUM</span>(<span class="sql-identifier">dc</span>.<span class="sql-identifier">quantite</span> <span class="sql-operator">*</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">prix</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Chiffre d affaires'</span>,
-  <span class="sql-function">AVG</span>(<span class="sql-identifier">p</span>.<span class="sql-identifier">prix</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Prix moyen'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">regions</span> <span class="sql-identifier">r</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">clients</span> <span class="sql-identifier">c</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">r</span>.<span class="sql-identifier">region_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">region_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> <span class="sql-identifier">co</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">client_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">details_commande</span> <span class="sql-identifier">dc</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">commande_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">dc</span>.<span class="sql-identifier">commande_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">produits</span> <span class="sql-identifier">p</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">dc</span>.<span class="sql-identifier">produit_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">produit_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">categories</span> <span class="sql-identifier">cat</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">categorie_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">cat</span>.<span class="sql-identifier">categorie_id</span>
-<span class="sql-reserved">WHERE</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">date_commande</span> <span class="sql-operator">>=</span> <span class="sql-string">'2024-01-01'</span>
-  <span class="sql-reserved">AND</span> <span class="sql-identifier">co</span>.<span class="sql-identifier">statut</span> <span class="sql-operator">=</span> <span class="sql-string">'livrée'</span>
-<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">r</span>.<span class="sql-identifier">region_id</span>, <span class="sql-identifier">r</span>.<span class="sql-identifier">nom_region</span>, <span class="sql-identifier">cat</span>.<span class="sql-identifier">categorie_id</span>, <span class="sql-identifier">cat</span>.<span class="sql-identifier">nom_categorie</span>
+  <span class="sql-identifier">regions</span>.<span class="sql-identifier">nom_region</span>,
+  <span class="sql-identifier">categories</span>.<span class="sql-identifier">nom_categorie</span>,
+  <span class="sql-function">COUNT</span>(<span class="sql-reserved">DISTINCT</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">commande_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre de commandes'</span>,
+  <span class="sql-function">SUM</span>(<span class="sql-identifier">details_commande</span>.<span class="sql-identifier">quantite</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Quantité vendue'</span>,
+  <span class="sql-function">SUM</span>(<span class="sql-identifier">details_commande</span>.<span class="sql-identifier">quantite</span> <span class="sql-operator">*</span> <span class="sql-identifier">produits</span>.<span class="sql-identifier">prix</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Chiffre d affaires'</span>,
+  <span class="sql-function">AVG</span>(<span class="sql-identifier">produits</span>.<span class="sql-identifier">prix</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Prix moyen'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">regions</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">clients</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">regions</span>.<span class="sql-identifier">region_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">region_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">commandes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">clients</span>.<span class="sql-identifier">client_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">client_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">details_commande</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">commande_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">details_commande</span>.<span class="sql-identifier">commande_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">produits</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">details_commande</span>.<span class="sql-identifier">produit_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">produits</span>.<span class="sql-identifier">produit_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">categories</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">produits</span>.<span class="sql-identifier">categorie_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">categories</span>.<span class="sql-identifier">categorie_id</span>
+<span class="sql-reserved">WHERE</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">date_commande</span> <span class="sql-operator">>=</span> <span class="sql-string">'2024-01-01'</span>
+  <span class="sql-reserved">AND</span> <span class="sql-identifier">commandes</span>.<span class="sql-identifier">statut</span> <span class="sql-operator">=</span> <span class="sql-string">'livrée'</span>
+<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">regions</span>.<span class="sql-identifier">region_id</span>, <span class="sql-identifier">regions</span>.<span class="sql-identifier">nom_region</span>, <span class="sql-identifier">categories</span>.<span class="sql-identifier">categorie_id</span>, <span class="sql-identifier">categories</span>.<span class="sql-identifier">nom_categorie</span>
 <span class="sql-reserved">HAVING</span> <span class="sql-string">'Chiffre d affaires'</span> <span class="sql-operator">></span> <span class="sql-number">5000</span>
-<span class="sql-reserved">ORDER BY</span> <span class="sql-identifier">r</span>.<span class="sql-identifier">nom_region</span>, <span class="sql-string">'Chiffre d affaires'</span> <span class="sql-reserved">DESC</span>;</code></pre>
+<span class="sql-reserved">ORDER BY</span> <span class="sql-identifier">regions</span>.<span class="sql-identifier">nom_region</span>, <span class="sql-string">'Chiffre d affaires'</span> <span class="sql-reserved">DESC</span>;</code></pre>
                     </div>
                 </div>
             </section>
@@ -437,40 +436,40 @@ client_id    commande_id        commande_id        produit_id
                         <div class="solution-content">
                             <pre><code><span class="sql-comment">-- Employés avec département et poste</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">nom</span>,
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">prenom</span>,
-  <span class="sql-identifier">d</span>.<span class="sql-identifier">nom_departement</span>,
-  <span class="sql-identifier">p</span>.<span class="sql-identifier">titre_poste</span>,
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">salaire</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">e</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">departements</span> <span class="sql-identifier">d</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">departement_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">d</span>.<span class="sql-identifier">departement_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">postes</span> <span class="sql-identifier">p</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">poste_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">poste_id</span>;
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">nom</span>,
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">prenom</span>,
+  <span class="sql-identifier">departements</span>.<span class="sql-identifier">nom_departement</span>,
+  <span class="sql-identifier">postes</span>.<span class="sql-identifier">titre_poste</span>,
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">salaire</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">employes</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">departements</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">employes</span>.<span class="sql-identifier">departement_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">departements</span>.<span class="sql-identifier">departement_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">postes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">employes</span>.<span class="sql-identifier">poste_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">postes</span>.<span class="sql-identifier">poste_id</span>;
 
 <span class="sql-comment">-- Salaire moyen par département</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">d</span>.<span class="sql-identifier">nom_departement</span>,
-  <span class="sql-function">COUNT</span>(<span class="sql-identifier">e</span>.<span class="sql-identifier">employe_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre employés'</span>,
-  <span class="sql-function">AVG</span>(<span class="sql-identifier">e</span>.<span class="sql-identifier">salaire</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Salaire moyen'</span>,
-  <span class="sql-function">MAX</span>(<span class="sql-identifier">e</span>.<span class="sql-identifier">salaire</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Salaire maximum'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">departements</span> <span class="sql-identifier">d</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">e</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">d</span>.<span class="sql-identifier">departement_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">departement_id</span>
-<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">d</span>.<span class="sql-identifier">departement_id</span>, <span class="sql-identifier">d</span>.<span class="sql-identifier">nom_departement</span>;
+  <span class="sql-identifier">departements</span>.<span class="sql-identifier">nom_departement</span>,
+  <span class="sql-function">COUNT</span>(<span class="sql-identifier">employes</span>.<span class="sql-identifier">employe_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre employés'</span>,
+  <span class="sql-function">AVG</span>(<span class="sql-identifier">employes</span>.<span class="sql-identifier">salaire</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Salaire moyen'</span>,
+  <span class="sql-function">MAX</span>(<span class="sql-identifier">employes</span>.<span class="sql-identifier">salaire</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Salaire maximum'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">departements</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">employes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">departements</span>.<span class="sql-identifier">departement_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">employes</span>.<span class="sql-identifier">departement_id</span>
+<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">departements</span>.<span class="sql-identifier">departement_id</span>, <span class="sql-identifier">departements</span>.<span class="sql-identifier">nom_departement</span>;
 
 <span class="sql-comment">-- Managers et leurs équipes</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">m</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Manager'</span>,
-  <span class="sql-identifier">m</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom manager'</span>,
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Employé'</span>,
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom employé'</span>,
-  <span class="sql-identifier">d</span>.<span class="sql-identifier">nom_departement</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">m</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">e</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">m</span>.<span class="sql-identifier">employe_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">manager_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">departements</span> <span class="sql-identifier">d</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">departement_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">d</span>.<span class="sql-identifier">departement_id</span>;</code></pre>
+  <span class="sql-identifier">managers</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Manager'</span>,
+  <span class="sql-identifier">managers</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom manager'</span>,
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Employé'</span>,
+  <span class="sql-identifier">employes</span>.<span class="sql-identifier">prenom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Prénom employé'</span>,
+  <span class="sql-identifier">departements</span>.<span class="sql-identifier">nom_departement</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">employes</span> <span class="sql-identifier">managers</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">employes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">managers</span>.<span class="sql-identifier">employe_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">employes</span>.<span class="sql-identifier">manager_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">departements</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">employes</span>.<span class="sql-identifier">departement_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">departements</span>.<span class="sql-identifier">departement_id</span>;</code></pre>
                         </div>
                     </details>
                 </div>
@@ -489,50 +488,50 @@ client_id    commande_id        commande_id        produit_id
                         <div class="solution-content">
                             <pre><code><span class="sql-comment">-- Étudiants avec cours et notes</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">nom</span>,
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">prenom</span>,
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">titre_cours</span>,
-  <span class="sql-identifier">p</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Professeur'</span>,
-  <span class="sql-identifier">n</span>.<span class="sql-identifier">note</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">etudiants</span> <span class="sql-identifier">e</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">inscriptions</span> <span class="sql-identifier">i</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">etudiant_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">i</span>.<span class="sql-identifier">etudiant_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">cours</span> <span class="sql-identifier">c</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">i</span>.<span class="sql-identifier">cours_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">cours_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">professeurs</span> <span class="sql-identifier">p</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">professeur_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">professeur_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">notes</span> <span class="sql-identifier">n</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">i</span>.<span class="sql-identifier">inscription_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">n</span>.<span class="sql-identifier">inscription_id</span>;
+  <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">nom</span>,
+  <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">prenom</span>,
+  <span class="sql-identifier">cours</span>.<span class="sql-identifier">titre_cours</span>,
+  <span class="sql-identifier">professeurs</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Professeur'</span>,
+  <span class="sql-identifier">notes</span>.<span class="sql-identifier">note</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">etudiants</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">inscriptions</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">etudiant_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">inscriptions</span>.<span class="sql-identifier">etudiant_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">cours</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">inscriptions</span>.<span class="sql-identifier">cours_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">cours</span>.<span class="sql-identifier">cours_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">professeurs</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">cours</span>.<span class="sql-identifier">professeur_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">professeurs</span>.<span class="sql-identifier">professeur_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">notes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">inscriptions</span>.<span class="sql-identifier">inscription_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">notes</span>.<span class="sql-identifier">inscription_id</span>;
 
 <span class="sql-comment">-- Moyenne générale par étudiant</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">nom</span>,
-  <span class="sql-identifier">e</span>.<span class="sql-identifier">prenom</span>,
-  <span class="sql-function">COUNT</span>(<span class="sql-identifier">n</span>.<span class="sql-identifier">note_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre de notes'</span>,
-  <span class="sql-function">AVG</span>(<span class="sql-identifier">n</span>.<span class="sql-identifier">note</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Moyenne générale'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">etudiants</span> <span class="sql-identifier">e</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">inscriptions</span> <span class="sql-identifier">i</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">etudiant_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">i</span>.<span class="sql-identifier">etudiant_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">notes</span> <span class="sql-identifier">n</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">i</span>.<span class="sql-identifier">inscription_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">n</span>.<span class="sql-identifier">inscription_id</span>
-<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">e</span>.<span class="sql-identifier">etudiant_id</span>, <span class="sql-identifier">e</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">e</span>.<span class="sql-identifier">prenom</span>
-<span class="sql-reserved">HAVING</span> <span class="sql-function">COUNT</span>(<span class="sql-identifier">n</span>.<span class="sql-identifier">note_id</span>) <span class="sql-operator">>=</span> <span class="sql-number">3</span>
+  <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">nom</span>,
+  <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">prenom</span>,
+  <span class="sql-function">COUNT</span>(<span class="sql-identifier">notes</span>.<span class="sql-identifier">note_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre de notes'</span>,
+  <span class="sql-function">AVG</span>(<span class="sql-identifier">notes</span>.<span class="sql-identifier">note</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Moyenne générale'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">etudiants</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">inscriptions</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">etudiant_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">inscriptions</span>.<span class="sql-identifier">etudiant_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">notes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">inscriptions</span>.<span class="sql-identifier">inscription_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">notes</span>.<span class="sql-identifier">inscription_id</span>
+<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">etudiant_id</span>, <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">nom</span>, <span class="sql-identifier">etudiants</span>.<span class="sql-identifier">prenom</span>
+<span class="sql-reserved">HAVING</span> <span class="sql-function">COUNT</span>(<span class="sql-identifier">notes</span>.<span class="sql-identifier">note_id</span>) <span class="sql-operator">>=</span> <span class="sql-number">3</span>
 <span class="sql-reserved">ORDER BY</span> <span class="sql-string">'Moyenne générale'</span> <span class="sql-reserved">DESC</span>;
 
 <span class="sql-comment">-- Cours les plus populaires</span>
 <span class="sql-reserved">SELECT</span> 
-  <span class="sql-identifier">c</span>.<span class="sql-identifier">titre_cours</span>,
-  <span class="sql-identifier">p</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Professeur'</span>,
-  <span class="sql-function">COUNT</span>(<span class="sql-identifier">i</span>.<span class="sql-identifier">etudiant_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre d étudiants'</span>,
-  <span class="sql-function">AVG</span>(<span class="sql-identifier">n</span>.<span class="sql-identifier">note</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Note moyenne'</span>
-<span class="sql-reserved">FROM</span> <span class="sql-identifier">cours</span> <span class="sql-identifier">c</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">professeurs</span> <span class="sql-identifier">p</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">professeur_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">p</span>.<span class="sql-identifier">professeur_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">inscriptions</span> <span class="sql-identifier">i</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">cours_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">i</span>.<span class="sql-identifier">cours_id</span>
-<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">notes</span> <span class="sql-identifier">n</span> 
-  <span class="sql-reserved">ON</span> <span class="sql-identifier">i</span>.<span class="sql-identifier">inscription_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">n</span>.<span class="sql-identifier">inscription_id</span>
-<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">c</span>.<span class="sql-identifier">cours_id</span>, <span class="sql-identifier">c</span>.<span class="sql-identifier">titre_cours</span>, <span class="sql-identifier">p</span>.<span class="sql-identifier">nom</span>
+  <span class="sql-identifier">cours</span>.<span class="sql-identifier">titre_cours</span>,
+  <span class="sql-identifier">professeurs</span>.<span class="sql-identifier">nom</span> <span class="sql-reserved">AS</span> <span class="sql-string">'Professeur'</span>,
+  <span class="sql-function">COUNT</span>(<span class="sql-identifier">inscriptions</span>.<span class="sql-identifier">etudiant_id</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Nombre d étudiants'</span>,
+  <span class="sql-function">AVG</span>(<span class="sql-identifier">notes</span>.<span class="sql-identifier">note</span>) <span class="sql-reserved">AS</span> <span class="sql-string">'Note moyenne'</span>
+<span class="sql-reserved">FROM</span> <span class="sql-identifier">cours</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">professeurs</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">cours</span>.<span class="sql-identifier">professeur_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">professeurs</span>.<span class="sql-identifier">professeur_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">inscriptions</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">cours</span>.<span class="sql-identifier">cours_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">inscriptions</span>.<span class="sql-identifier">cours_id</span>
+<span class="sql-reserved">INNER JOIN</span> <span class="sql-identifier">notes</span> 
+  <span class="sql-reserved">ON</span> <span class="sql-identifier">inscriptions</span>.<span class="sql-identifier">inscription_id</span> <span class="sql-operator">=</span> <span class="sql-identifier">notes</span>.<span class="sql-identifier">inscription_id</span>
+<span class="sql-reserved">GROUP BY</span> <span class="sql-identifier">cours</span>.<span class="sql-identifier">cours_id</span>, <span class="sql-identifier">cours</span>.<span class="sql-identifier">titre_cours</span>, <span class="sql-identifier">professeurs</span>.<span class="sql-identifier">nom</span>
 <span class="sql-reserved">ORDER BY</span> <span class="sql-string">'Nombre d étudiants'</span> <span class="sql-reserved">DESC</span>
 <span class="sql-reserved">LIMIT</span> <span class="sql-number">10</span>;</code></pre>
                         </div>
@@ -549,7 +548,7 @@ client_id    commande_id        commande_id        produit_id
                     <ul>
                         <li><strong>Toujours utiliser INNER JOIN explicite</strong> plutôt que la syntaxe WHERE
                             dépréciée</li>
-                        <li>Nommer systématiquement les alias de tables pour plus de clarté</li>
+                        <li>Utiliser des noms de tables explicites pour plus de clarté</li>
                         <li>Utiliser des clés primaires et étrangères pour des jointures efficaces</li>
                         <li>Séparer la logique de jointure (ON) de la logique de filtrage (WHERE)</li>
                     </ul>
@@ -596,11 +595,13 @@ client_id    commande_id        commande_id        produit_id
 </template>
 
 <script>
-
+export default {
+    name: 'InnerJoinLesson'
+}
 </script>
 
 <style scoped>
-/* Les styles restent identiques aux leçons précédentes */
+/* Les styles restent identiques */
 .lesson-container {
     padding: 2rem;
     background: #f8f9fa;
@@ -751,55 +752,43 @@ pre code {
     font-weight: bold;
 }
 
-/* Mots réservés */
 .sql-keyword {
     color: #4FC1FF !important;
 }
 
-/* Mots-clés */
 .sql-identifier {
     color: #9CDCFE !important;
 }
 
-/* Identifiants */
 .sql-type {
     color: #4EC9B0 !important;
 }
 
-/* Types de données */
 .sql-string {
     color: #CE9178 !important;
 }
 
-/* Chaînes de caractères */
 .sql-comment {
     color: #6A9955 !important;
     font-style: italic;
 }
 
-/* Commentaires */
 .sql-function {
     color: #DCDCAA !important;
 }
 
-/* Fonctions SQL */
 .sql-number {
     color: #B5CEA8 !important;
 }
 
-/* Nombres */
 .sql-constant {
     color: #569CD6 !important;
 }
 
-/* Constantes */
 .sql-operator {
     color: #D4D4D4 !important;
 }
 
-/* Opérateurs */
-
-/* Styles pour la section d'avertissement */
 .warning-section {
     background: #fff3f3;
     border: 2px solid #ff6b6b;
