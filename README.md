@@ -10,6 +10,7 @@
 - fil-get-content
 - Le rooting en MVC
 - rajouter au switch case le rooting
+- bind param
 ================================================================================
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
