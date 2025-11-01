@@ -24,6 +24,8 @@
 # Nuxt
 - props
 - emits
+- rooting nuxt
+- nuxt link
 ================================================================================
 # Sécuriter
 - buffer overflow
