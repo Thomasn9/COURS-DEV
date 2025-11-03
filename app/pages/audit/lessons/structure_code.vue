@@ -1,243 +1,237 @@
 <template>
-    <div class="lesson-container">
-        <div class="lesson-content">
-            <!-- En-tête de la leçon -->
-            <header class="lesson-header">
-                <h1 class="text-white">Structure de Code dans le Contexte d'un Audit</h1>
-                <p class="lesson-meta text-white">Audit technique • Architecture • Maintenabilité • Bonnes pratiques</p>
-            </header>
+  <div class="lesson-container">
+    <div class="lesson-content">
+      <!-- En-tête de la leçon -->
+      <header class="lesson-header">
+        <h1 class="text-white">Structure de Code dans le Contexte d'un Audit</h1>
+        <p class="lesson-meta text-white">Audit technique • Architecture • Maintenabilité • Bonnes pratiques</p>
+      </header>
 
-            <!-- Introduction -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Introduction à l'audit de structure de code</h2>
-                <p class="textExemple">
-                    L'audit de structure de code examine l'organisation, l'architecture et les principes de conception
-                    d'une base de code pour évaluer sa maintenabilité, son évolutivité et sa conformité aux standards.
-                    Il va au-delà de la simple vérification syntaxique pour analyser les fondations du système.
-                </p>
-                <p class="textExemple">
-                    Une structure de code solide est essentielle pour la longévité des projets, la facilité de
-                    maintenance
-                    et la réduction des dettes techniques.
-                </p>
-            </section>
+      <!-- Introduction -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Introduction à l'audit de structure de code</h2>
+        <p class="textExemple">
+          L'audit de structure de code examine l'organisation, l'architecture et les principes de conception 
+          d'une base de code pour évaluer sa maintenabilité, son évolutivité et sa conformité aux standards. 
+          Il va au-delà de la simple vérification syntaxique pour analyser les fondations du système.
+        </p>
+        <p class="textExemple">
+          Une structure de code solide est essentielle pour la longévité des projets, la facilité de maintenance 
+          et la réduction des dettes techniques.
+        </p>
+      </section>
 
-            <!-- Objectifs de l'audit de structure -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Objectifs de l'audit de structure de code</h2>
-                <ul>
-                    <li><strong>Évaluer la maintenabilité</strong> : Analyser la facilité de compréhension et de
-                        modification du code</li>
-                    <li><strong>Vérifier l'évolutivité</strong> : S'assurer que l'architecture supporte les évolutions
-                        futures</li>
-                    <li><strong>Identifier les dettes techniques</strong> : Détecter les choix structurels
-                        problématiques</li>
-                    <li><strong>Valider les principes SOLID</strong> : Vérifier l'application des bonnes pratiques de
-                        conception</li>
-                    <li><strong>Optimiser les performances</strong> : Repérer les inefficacités architecturales</li>
-                </ul>
-            </section>
+      <!-- Objectifs de l'audit de structure -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Objectifs de l'audit de structure de code</h2>
+        <ul>
+          <li><strong>Évaluer la maintenabilité</strong> : Analyser la facilité de compréhension et de modification du code</li>
+          <li><strong>Vérifier l'évolutivité</strong> : S'assurer que l'architecture supporte les évolutions futures</li>
+          <li><strong>Identifier les dettes techniques</strong> : Détecter les choix structurels problématiques</li>
+          <li><strong>Valider les principes SOLID</strong> : Vérifier l'application des bonnes pratiques de conception</li>
+          <li><strong>Optimiser les performances</strong> : Repérer les inefficacités architecturales</li>
+        </ul>
+      </section>
 
-            <!-- Aspects évalués -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Aspects structurels évalués</h2>
+      <!-- Aspects évalués -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Aspects structurels évalués</h2>
+        
+        <h3 class="text-purple">1. Architecture et patterns</h3>
+        <p class="textExemple">
+          Évaluation des patterns architecturaux (MVC, Microservices, Hexagonale) et leur mise en œuvre cohérente.
+        </p>
+        
+        <h3 class="text-purple">2. Organisation des modules</h3>
+        <p class="textExemple">
+          Analyse de la modularité, de la séparation des concerns et de la cohésion des composants.
+        </p>
+        
+        <h3 class="text-purple">3. Qualité des abstractions</h3>
+        <p class="textExemple">
+          Vérification de l'encapsulation, des interfaces et de la gestion des dépendances.
+        </p>
 
-                <h3 class="text-purple">1. Architecture et patterns</h3>
-                <p class="textExemple">
-                    Évaluation des patterns architecturaux (MVC, Microservices, Hexagonale) et leur mise en œuvre
-                    cohérente.
-                </p>
+        <h3 class="text-purple">4. Gestion des données</h3>
+        <p class="textExemple">
+          Évaluation des modèles de données, du mapping objet-relationnel et des stratégies de persistance.
+        </p>
+      </section>
 
-                <h3 class="text-purple">2. Organisation des modules</h3>
-                <p class="textExemple">
-                    Analyse de la modularité, de la séparation des concerns et de la cohésion des composants.
-                </p>
+      <!-- Processus d'audit structurel -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Processus d'audit de structure de code</h2>
+        
+        <div class="process-step">
+          <h3 class="text-purple">1. Analyse architecturale globale</h3>
+          <p class="textExemple">
+            Examiner le diagramme d'architecture, identifier les patterns utilisés 
+            et évaluer la cohérence d'ensemble.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <h3 class="text-purple">2. Revue de la modularité</h3>
+          <p class="textExemple">
+            Analyser la structure des packages/modules, les dépendances circulaires 
+            et la séparation des responsabilités.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <h3 class="text-purple">3. Évaluation des principes SOLID</h3>
+          <p class="textExemple">
+            Vérifier l'application des principes de conception orientée objet 
+            et identifier les violations structurelles.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <h3 class="text-purple">4. Métriques et rapports</h3>
+          <p class="textExemple">
+            Calculer les métriques de complexité, générer des visualisations 
+            et documenter les recommandations d'amélioration.
+          </p>
+        </div>
+      </section>
 
-                <h3 class="text-purple">3. Qualité des abstractions</h3>
-                <p class="textExemple">
-                    Vérification de l'encapsulation, des interfaces et de la gestion des dépendances.
-                </p>
+      <!-- Critères d'évaluation -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Critères d'évaluation de la structure</h2>
+        
+        <div class="severity-grid">
+          <div class="severity-item severity-critical">
+            <h4 class="text-white">ARCHITECTURE DÉFAILLANTE</h4>
+            <div class="severity-content">
+              <p><strong>Impact :</strong> Remise en cause totale de la base code</p>
+              <p><strong>Indicateurs :</strong></p>
+              <ul>
+                <li>God objects et classes omnipotentes</li>
+                <li>Dépendances circulaires généralisées</li>
+                <li>Absence de séparation des concerns</li>
+                <li>Couplage fort entre tous les modules</li>
+              </ul>
+              <p><strong>Action :</strong> Refactorisation majeure nécessaire</p>
+            </div>
+          </div>
+          
+          <div class="severity-item severity-high">
+            <h4 class="text-white">PROBLÈMES STRUCTURELS MAJEURS</h4>
+            <div class="severity-content">
+              <p><strong>Impact :</strong> Difficultés importantes de maintenance</p>
+              <p><strong>Indicateurs :</strong></p>
+              <ul>
+                <li>Violations multiples des principes SOLID</li>
+                <li>Modules trop gros et peu cohésifs</li>
+                <li>Dépendances inappropriées</li>
+                <li>Duplication de code structurelle</li>
+              </ul>
+              <p><strong>Action :</strong> Refactorisation ciblée requise</p>
+            </div>
+          </div>
+          
+          <div class="severity-item severity-medium">
+            <h4 class="text-white">AMÉLIORATIONS RECOMMANDÉES</h4>
+            <div class="severity-content">
+              <p><strong>Impact :</strong> Opportunités d'optimisation</p>
+              <p><strong>Indicateurs :</strong></p>
+              <ul>
+                <li>Certaines classes trop longues</li>
+                <li>Interfaces peu spécifiques</li>
+                <li>Opportunités de réutilisation</li>
+                <li>Organisation sous-optimale</li>
+              </ul>
+              <p><strong>Action :</strong> Améliorations progressives</p>
+            </div>
+          </div>
+          
+          <div class="severity-item severity-low">
+            <h4 class="text-white">STRUCTURE SATISFAISANTE</h4>
+            <div class="severity-content">
+              <p><strong>Impact :</strong> Excellente maintenabilité</p>
+              <p><strong>Indicateurs :</strong></p>
+              <ul>
+                <li>Architecture cohérente et documentée</li>
+                <li>Modules bien définis et cohésifs</li>
+                <li>Faible couplage, forte cohésion</li>
+                <li>Respect des principes SOLID</li>
+              </ul>
+              <p><strong>Action :</strong> Maintenance des bonnes pratiques</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <h3 class="text-purple">4. Gestion des données</h3>
-                <p class="textExemple">
-                    Évaluation des modèles de données, du mapping objet-relationnel et des stratégies de persistance.
-                </p>
-            </section>
+      <!-- Principes SOLID évalués -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Principes SOLID évalués</h2>
+        
+        <div class="solid-grid">
+          <div class="solid-item">
+            <h4 class="text-purple">S - Single Responsibility</h4>
+            <p><strong>Une classe = une responsabilité</strong></p>
+            <ul>
+              <li>Classes focalisées sur un métier précis</li>
+              <li>Éviter les classes "fourre-tout"</li>
+              <li>Facilite les tests unitaires</li>
+              <li>Réduit l'impact des changements</li>
+            </ul>
+          </div>
+          
+          <div class="solid-item">
+            <h4 class="text-purple">O - Open/Closed</h4>
+            <p><strong>Ouvert à l'extension, fermé à la modification</strong></p>
+            <ul>
+              <li>Utilisation d'interfaces et d'abstractions</li>
+              <li>Extension par héritage/composition</li>
+              <li>Éviter les modifications de code existant</li>
+              <li>Favoriser l'injection de dépendances</li>
+            </ul>
+          </div>
+          
+          <div class="solid-item">
+            <h4 class="text-purple">L - Liskov Substitution</h4>
+            <p><strong>Substitution transparente</strong></p>
+            <ul>
+              <li>Les sous-classes remplacent les parentes</li>
+              <li>Respect des contrats d'interface</li>
+              <li>Pas d'exceptions inattendues</li>
+              <li>Comportement prévisible</li>
+            </ul>
+          </div>
+          
+          <div class="solid-item">
+            <h4 class="text-purple">I - Interface Segregation</h4>
+            <p><strong>Interfaces spécifiques et fines</strong></p>
+            <ul>
+              <li>Éviter les interfaces "obèses"</li>
+              <li>Segmentation par rôle/utilisateur</li>
+              <li>Clients ne dépendent que de ce qu'ils utilisent</li>
+              <li>Réduction du couplage</li>
+            </ul>
+          </div>
 
-            <!-- Processus d'audit structurel -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Processus d'audit de structure de code</h2>
+          <div class="solid-item">
+            <h4 class="text-purple">D - Dependency Inversion</h4>
+            <p><strong>Dépendre des abstractions</strong></p>
+            <ul>
+              <li>Modules haut niveau indépendants des bas niveau</li>
+              <li>Abstractions stables, implémentations changeantes</li>
+              <li>Inversion de contrôle (IoC)</li>
+              <li>Facilite les tests et la modularité</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-                <div class="process-step">
-                    <h3 class="text-purple">1. Analyse architecturale globale</h3>
-                    <p class="textExemple">
-                        Examiner le diagramme d'architecture, identifier les patterns utilisés
-                        et évaluer la cohérence d'ensemble.
-                    </p>
-                </div>
-
-                <div class="process-step">
-                    <h3 class="text-purple">2. Revue de la modularité</h3>
-                    <p class="textExemple">
-                        Analyser la structure des packages/modules, les dépendances circulaires
-                        et la séparation des responsabilités.
-                    </p>
-                </div>
-
-                <div class="process-step">
-                    <h3 class="text-purple">3. Évaluation des principes SOLID</h3>
-                    <p class="textExemple">
-                        Vérifier l'application des principes de conception orientée objet
-                        et identifier les violations structurelles.
-                    </p>
-                </div>
-
-                <div class="process-step">
-                    <h3 class="text-purple">4. Métriques et rapports</h3>
-                    <p class="textExemple">
-                        Calculer les métriques de complexité, générer des visualisations
-                        et documenter les recommandations d'amélioration.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Critères d'évaluation -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Critères d'évaluation de la structure</h2>
-
-                <div class="severity-grid">
-                    <div class="severity-item severity-critical">
-                        <h4 class="text-white">ARCHITECTURE DÉFAILLANTE</h4>
-                        <div class="severity-content">
-                            <p><strong>Impact :</strong> Remise en cause totale de la base code</p>
-                            <p><strong>Indicateurs :</strong></p>
-                            <ul>
-                                <li>God objects et classes omnipotentes</li>
-                                <li>Dépendances circulaires généralisées</li>
-                                <li>Absence de séparation des concerns</li>
-                                <li>Couplage fort entre tous les modules</li>
-                            </ul>
-                            <p><strong>Action :</strong> Refactorisation majeure nécessaire</p>
-                        </div>
-                    </div>
-
-                    <div class="severity-item severity-high">
-                        <h4 class="text-white">PROBLÈMES STRUCTURELS MAJEURS</h4>
-                        <div class="severity-content">
-                            <p><strong>Impact :</strong> Difficultés importantes de maintenance</p>
-                            <p><strong>Indicateurs :</strong></p>
-                            <ul>
-                                <li>Violations multiples des principes SOLID</li>
-                                <li>Modules trop gros et peu cohésifs</li>
-                                <li>Dépendances inappropriées</li>
-                                <li>Duplication de code structurelle</li>
-                            </ul>
-                            <p><strong>Action :</strong> Refactorisation ciblée requise</p>
-                        </div>
-                    </div>
-
-                    <div class="severity-item severity-medium">
-                        <h4 class="text-white">AMÉLIORATIONS RECOMMANDÉES</h4>
-                        <div class="severity-content">
-                            <p><strong>Impact :</strong> Opportunités d'optimisation</p>
-                            <p><strong>Indicateurs :</strong></p>
-                            <ul>
-                                <li>Certaines classes trop longues</li>
-                                <li>Interfaces peu spécifiques</li>
-                                <li>Opportunités de réutilisation</li>
-                                <li>Organisation sous-optimale</li>
-                            </ul>
-                            <p><strong>Action :</strong> Améliorations progressives</p>
-                        </div>
-                    </div>
-
-                    <div class="severity-item severity-low">
-                        <h4 class="text-white">STRUCTURE SATISFAISANTE</h4>
-                        <div class="severity-content">
-                            <p><strong>Impact :</strong> Excellente maintenabilité</p>
-                            <p><strong>Indicateurs :</strong></p>
-                            <ul>
-                                <li>Architecture cohérente et documentée</li>
-                                <li>Modules bien définis et cohésifs</li>
-                                <li>Faible couplage, forte cohésion</li>
-                                <li>Respect des principes SOLID</li>
-                            </ul>
-                            <p><strong>Action :</strong> Maintenance des bonnes pratiques</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Principes SOLID évalués -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Principes SOLID évalués</h2>
-
-                <div class="solid-grid">
-                    <div class="solid-item">
-                        <h4 class="text-purple">S - Single Responsibility</h4>
-                        <p><strong>Une classe = une responsabilité</strong></p>
-                        <ul>
-                            <li>Classes focalisées sur un métier précis</li>
-                            <li>Éviter les classes "fourre-tout"</li>
-                            <li>Facilite les tests unitaires</li>
-                            <li>Réduit l'impact des changements</li>
-                        </ul>
-                    </div>
-
-                    <div class="solid-item">
-                        <h4 class="text-purple">O - Open/Closed</h4>
-                        <p><strong>Ouvert à l'extension, fermé à la modification</strong></p>
-                        <ul>
-                            <li>Utilisation d'interfaces et d'abstractions</li>
-                            <li>Extension par héritage/composition</li>
-                            <li>Éviter les modifications de code existant</li>
-                            <li>Favoriser l'injection de dépendances</li>
-                        </ul>
-                    </div>
-
-                    <div class="solid-item">
-                        <h4 class="text-purple">L - Liskov Substitution</h4>
-                        <p><strong>Substitution transparente</strong></p>
-                        <ul>
-                            <li>Les sous-classes remplacent les parentes</li>
-                            <li>Respect des contrats d'interface</li>
-                            <li>Pas d'exceptions inattendues</li>
-                            <li>Comportement prévisible</li>
-                        </ul>
-                    </div>
-
-                    <div class="solid-item">
-                        <h4 class="text-purple">I - Interface Segregation</h4>
-                        <p><strong>Interfaces spécifiques et fines</strong></p>
-                        <ul>
-                            <li>Éviter les interfaces "obèses"</li>
-                            <li>Segmentation par rôle/utilisateur</li>
-                            <li>Clients ne dépendent que de ce qu'ils utilisent</li>
-                            <li>Réduction du couplage</li>
-                        </ul>
-                    </div>
-
-                    <div class="solid-item">
-                        <h4 class="text-purple">D - Dependency Inversion</h4>
-                        <p><strong>Dépendre des abstractions</strong></p>
-                        <ul>
-                            <li>Modules haut niveau indépendants des bas niveau</li>
-                            <li>Abstractions stables, implémentations changeantes</li>
-                            <li>Inversion de contrôle (IoC)</li>
-                            <li>Facilite les tests et la modularité</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Exemples de code -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Exemples de structures problématiques vs optimales</h2>
-
-                <div class="code-comparison">
-                    <div class="code-example">
-                        <h4 class="text-purple">Structure problématique - God Object</h4>
-                        <pre><code><span class="keyword">class</span> <span class="class-name">UserManager</span> {
+      <!-- Exemples de code -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Exemples de structures problématiques vs optimales</h2>
+        
+        <div class="code-comparison">
+          <div class="code-example">
+            <h4 class="text-purple">Structure problématique - God Object</h4>
+            <pre><code><span class="keyword">class</span> <span class="class-name">UserManager</span> {
   <span class="comment">// Violation SRP - Trop de responsabilités</span>
   <span class="function">createUser</span>() { <span class="comment">/*...*/</span> }
   <span class="function">deleteUser</span>() { <span class="comment">/*...*/</span> }
@@ -257,11 +251,11 @@
     <span class="comment">// Logique métier entremêlée...</span>
   }
 }</code></pre>
-                    </div>
-
-                    <div class="code-example">
-                        <h4 class="text-purple">Structure optimale - Séparation des concerns</h4>
-                        <pre><code><span class="comment">// Classes focalisées - Respect SRP</span>
+          </div>
+          
+          <div class="code-example">
+            <h4 class="text-purple">Structure optimale - Séparation des concerns</h4>
+            <pre><code><span class="comment">// Classes focalisées - Respect SRP</span>
 <span class="keyword">class</span> <span class="class-name">UserService</span> {
   <span class="function">constructor</span>(<span class="variable">userRepo</span>, <span class="variable">validator</span>) {}
   <span class="function">createUser</span>() { <span class="comment">/*...*/</span> }
@@ -286,142 +280,142 @@
     <span class="keyword">this</span>.<span class="variable">emailService</span>.<span class="function">sendConfirmation</span>(<span class="variable">user</span>, <span class="variable">order</span>);
   }
 }</code></pre>
-                    </div>
-                </div>
-            </section>
+          </div>
+        </div>
+      </section>
 
-            <!-- Métriques structurelles -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Métriques de qualité structurelle</h2>
+      <!-- Métriques structurelles -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Métriques de qualité structurelle</h2>
+        
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <h4 class="text-purple">Complexité cyclomatique</h4>
+            <p>Nombre de chemins indépendants dans une méthode. Cible : &lt; 10 par méthode.</p>
+          </div>
+          
+          <div class="metric-item">
+            <h4 class="text-purple">Couplage afférent</h4>
+            <p>Nombre de classes qui dépendent de la classe courante. Cible : faible.</p>
+          </div>
+          
+          <div class="metric-item">
+            <h4 class="text-purple">Cohésion LCOM</h4>
+            <p>Manque de cohésion dans les méthodes. Cible : &lt; 1.0.</p>
+          </div>
+          
+          <div class="metric-item">
+            <h4 class="text-purple">Profondeur d'héritage</h4>
+            <p>Nombre de niveaux dans la hiérarchie d'héritage. Cible : &lt; 4.</p>
+          </div>
+        </div>
 
-                <div class="metrics-grid">
-                    <div class="metric-item">
-                        <h4 class="text-purple">Complexité cyclomatique</h4>
-                        <p>Nombre de chemins indépendants dans une méthode. Cible : &lt; 10 par méthode.</p>
-                    </div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <h4 class="text-purple">Taille des classes (LOC)</h4>
+            <p>Nombre de lignes par classe. Cible : &lt; 200 lignes.</p>
+          </div>
+          
+          <div class="metric-item">
+            <h4 class="text-purple">Taille des méthodes</h4>
+            <p>Nombre de lignes par méthode. Cible : &lt; 20 lignes.</p>
+          </div>
+          
+          <div class="metric-item">
+            <h4 class="text-purple">Dépendances circulaires</h4>
+            <p>Présence de cycles dans le graphe de dépendances. Cible : 0.</p>
+          </div>
+          
+          <div class="metric-item">
+            <h4 class="text-purple">Duplication de code</h4>
+            <p>Pourcentage de code dupliqué. Cible : &lt; 3%.</p>
+          </div>
+        </div>
+      </section>
 
-                    <div class="metric-item">
-                        <h4 class="text-purple">Couplage afférent</h4>
-                        <p>Nombre de classes qui dépendent de la classe courante. Cible : faible.</p>
-                    </div>
+      <!-- Outils d'analyse -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Outils d'analyse structurelle</h2>
+        
+        <h3 class="text-purple">Analyse statique avancée</h3>
+        <ul>
+          <li><strong>SonarQube</strong> : Métriques complètes et détection de dette technique</li>
+          <li><strong>NDepend</strong> : Analyse approfondie des dépendances et métriques .NET</li>
+          <li><strong>Checkstyle/PMD</strong> : Règles architecturales pour Java</li>
+        </ul>
+        
+        <h3 class="text-purple">Visualisation d'architecture</h3>
+        <ul>
+          <li><strong>Structure101</strong> : Analyse et visualisation des dépendances</li>
+          <li><strong>Lattix</strong> : Modélisation et gestion de l'architecture</li>
+          <li><strong>PlantUML</strong> : Génération de diagrammes à partir du code</li>
+        </ul>
+        
+        <h3 class="text-purple">Analyse de dépendances</h3>
+        <ul>
+          <li><strong>JDepend</strong> : Métriques de qualité pour packages Java</li>
+          <li><strong>Depends</strong> : Analyse de dépendances multi-langages</li>
+          <li><strong>CodeMaT</strong> : Cartographie des dépendances et métriques</li>
+        </ul>
+      </section>
 
-                    <div class="metric-item">
-                        <h4 class="text-purple">Cohésion LCOM</h4>
-                        <p>Manque de cohésion dans les méthodes. Cible : &lt; 1.0.</p>
-                    </div>
+      <!-- Patterns architecturaux courants -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Patterns architecturaux évalués</h2>
+        
+        <div class="architecture-grid">
+          <div class="architecture-item">
+            <h4 class="text-purple">🏗️ Architecture en couches</h4>
+            <p><strong>Presentation → Business → Data</strong></p>
+            <ul>
+              <li>Facile à comprendre</li>
+              <li>Risque de couplage entre couches</li>
+              <li>Évolutivité limitée</li>
+              <li>Bon pour applications simples</li>
+            </ul>
+          </div>
+          
+          <div class="architecture-item">
+            <h4 class="text-purple">🔗 Architecture hexagonale</h4>
+            <p><strong>Domain au centre, adapters en périphérie</strong></p>
+            <ul>
+              <li>Isolation du domaine métier</li>
+              <li>Testabilité excellente</li>
+              <li>Complexité initiale plus élevée</li>
+              <li>Idéal pour DDD</li>
+            </ul>
+          </div>
+          
+          <div class="architecture-item">
+            <h4 class="text-purple">⚡ Microservices</h4>
+            <p><strong>Services indépendants et spécialisés</strong></p>
+            <ul>
+              <li>Évolutivité horizontale</li>
+              <li>Déploiements indépendants</li>
+              <li>Complexité opérationnelle</li>
+              <li>Nécessite maturité DevOps</li>
+            </ul>
+          </div>
+          
+          <div class="architecture-item">
+            <h4 class="text-purple">🎯 CQRS + Event Sourcing</h4>
+            <p><strong>Séparation lecture/écriture + événements</strong></p>
+            <ul>
+              <li>Performance lecture optimisée</li>
+              <li>Audit trail naturel</li>
+              <li>Complexité cognitive</li>
+              <li>Spécialisé pour systèmes complexes</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-                    <div class="metric-item">
-                        <h4 class="text-purple">Profondeur d'héritage</h4>
-                        <p>Nombre de niveaux dans la hiérarchie d'héritage. Cible : &lt; 4.</p>
-                    </div>
-                </div>
-
-                <div class="metrics-grid">
-                    <div class="metric-item">
-                        <h4 class="text-purple">Taille des classes (LOC)</h4>
-                        <p>Nombre de lignes par classe. Cible : &lt; 200 lignes.</p>
-                    </div>
-
-                    <div class="metric-item">
-                        <h4 class="text-purple">Taille des méthodes</h4>
-                        <p>Nombre de lignes par méthode. Cible : &lt; 20 lignes.</p>
-                    </div>
-
-                    <div class="metric-item">
-                        <h4 class="text-purple">Dépendances circulaires</h4>
-                        <p>Présence de cycles dans le graphe de dépendances. Cible : 0.</p>
-                    </div>
-
-                    <div class="metric-item">
-                        <h4 class="text-purple">Duplication de code</h4>
-                        <p>Pourcentage de code dupliqué. Cible : &lt; 3%.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Outils d'analyse -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Outils d'analyse structurelle</h2>
-
-                <h3 class="text-purple">Analyse statique avancée</h3>
-                <ul>
-                    <li><strong>SonarQube</strong> : Métriques complètes et détection de dette technique</li>
-                    <li><strong>NDepend</strong> : Analyse approfondie des dépendances et métriques .NET</li>
-                    <li><strong>Checkstyle/PMD</strong> : Règles architecturales pour Java</li>
-                </ul>
-
-                <h3 class="text-purple">Visualisation d'architecture</h3>
-                <ul>
-                    <li><strong>Structure101</strong> : Analyse et visualisation des dépendances</li>
-                    <li><strong>Lattix</strong> : Modélisation et gestion de l'architecture</li>
-                    <li><strong>PlantUML</strong> : Génération de diagrammes à partir du code</li>
-                </ul>
-
-                <h3 class="text-purple">Analyse de dépendances</h3>
-                <ul>
-                    <li><strong>JDepend</strong> : Métriques de qualité pour packages Java</li>
-                    <li><strong>Depends</strong> : Analyse de dépendances multi-langages</li>
-                    <li><strong>CodeMaT</strong> : Cartographie des dépendances et métriques</li>
-                </ul>
-            </section>
-
-            <!-- Patterns architecturaux courants -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Patterns architecturaux évalués</h2>
-
-                <div class="architecture-grid">
-                    <div class="architecture-item">
-                        <h4 class="text-purple">🏗️ Architecture en couches</h4>
-                        <p><strong>Presentation → Business → Data</strong></p>
-                        <ul>
-                            <li>Facile à comprendre</li>
-                            <li>Risque de couplage entre couches</li>
-                            <li>Évolutivité limitée</li>
-                            <li>Bon pour applications simples</li>
-                        </ul>
-                    </div>
-
-                    <div class="architecture-item">
-                        <h4 class="text-purple">🔗 Architecture hexagonale</h4>
-                        <p><strong>Domain au centre, adapters en périphérie</strong></p>
-                        <ul>
-                            <li>Isolation du domaine métier</li>
-                            <li>Testabilité excellente</li>
-                            <li>Complexité initiale plus élevée</li>
-                            <li>Idéal pour DDD</li>
-                        </ul>
-                    </div>
-
-                    <div class="architecture-item">
-                        <h4 class="text-purple">⚡ Microservices</h4>
-                        <p><strong>Services indépendants et spécialisés</strong></p>
-                        <ul>
-                            <li>Évolutivité horizontale</li>
-                            <li>Déploiements indépendants</li>
-                            <li>Complexité opérationnelle</li>
-                            <li>Nécessite maturité DevOps</li>
-                        </ul>
-                    </div>
-
-                    <div class="architecture-item">
-                        <h4 class="text-purple">🎯 CQRS + Event Sourcing</h4>
-                        <p><strong>Séparation lecture/écriture + événements</strong></p>
-                        <ul>
-                            <li>Performance lecture optimisée</li>
-                            <li>Audit trail naturel</li>
-                            <li>Complexité cognitive</li>
-                            <li>Spécialisé pour systèmes complexes</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Checklist d'audit -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Checklist d'audit de structure</h2>
-
-                <div class="code-example">
-                    <pre><code><span class="comment">// Checklist d'évaluation structurelle</span>
+      <!-- Checklist d'audit -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Checklist d'audit de structure</h2>
+        
+        <div class="code-example">
+          <pre><code><span class="comment">// Checklist d'évaluation structurelle</span>
 <span class="number">□</span> Architecture documentée et comprise par l'équipe
 <span class="number">□</span> Séparation claire des concerns (présentation, métier, données)
 <span class="number">□</span> Absence de dépendances circulaires
@@ -437,142 +431,134 @@
 <span class="number">□</span> Gestion des dépendances claire (IoC/DI)
 <span class="number">□</span> Absence de code dupliqué structurel
 <span class="number">□</span> Organisation cohérente des packages/namespaces</code></pre>
-                </div>
-            </section>
-
-            <!-- Exercice pratique -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Exercice pratique</h2>
-
-                <div class="exercise">
-                    <h3 class="text-purple">Audit d'une base de code existante</h3>
-                    <p class="textExemple">
-                        Vous devez réaliser un audit structurel sur un module de gestion des commandes.
-                        Le module contient 15 classes et 2 000 lignes de code. Réalisez les étapes suivantes :
-                    </p>
-                    <ol>
-                        <li>Analysez la structure des packages et des dépendances</li>
-                        <li>Identifiez les violations des principes SOLID</li>
-                        <li>Calculez les métriques de complexité principales</li>
-                        <li>Évaluez la qualité des abstractions et interfaces</li>
-                        <li>Proposez un plan de refactorisation priorisé</li>
-                    </ol>
-
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir un exemple de solution</summary>
-                        <div class="solution-content">
-                            <h4 class="text-purple">Rapport d'audit structurel - Module Commandes</h4>
-                            <p><strong>Module :</strong> Gestion des commandes "OrderManagement"</p>
-                            <p><strong>Taille :</strong> 15 classes, 2 150 LOC</p>
-
-                            <h4 class="text-purple">Problèmes structurels identifiés :</h4>
-                            <div class="structure-examples">
-                                <div class="structure-example critical">
-                                    <strong>CRITIQUE :</strong> Classe OrderProcessor (450 LOC) - God object violant SRP
-                                </div>
-                                <div class="structure-example high">
-                                    <strong>ÉLEVÉ :</strong> Dépendances circulaires entre OrderService et
-                                    PaymentService
-                                </div>
-                                <div class="structure-example medium">
-                                    <strong>MOYEN :</strong> Interface IOrderManager trop large (15 méthodes)
-                                </div>
-                                <div class="structure-example low">
-                                    <strong>FAIBLE :</strong> Organisation sous-optimale des packages
-                                </div>
-                            </div>
-
-                            <h4 class="text-purple">Métriques calculées :</h4>
-                            <ul>
-                                <li><strong>Complexité cyclomatique moyenne :</strong> 8.2 (cible : &lt; 10)</li>
-                                <li><strong>Couplage afférent moyen :</strong> 4.1 (cible : &lt; 5)</li>
-                                <li><strong>Taille moyenne des classes :</strong> 143 LOC (cible : &lt; 200)</li>
-                                <li><strong>Duplication de code :</strong> 5.8% (cible : &lt; 3%)</li>
-                            </ul>
-
-                            <h4 class="text-purple">Plan de refactorisation :</h4>
-                            <ul>
-                                <li><strong>Phase 1 (Urgent) :</strong> Découper OrderProcessor en 4 classes
-                                    spécialisées</li>
-                                <li><strong>Phase 2 (Important) :</strong> Introduire une interface pour briser les
-                                    dépendances circulaires</li>
-                                <li><strong>Phase 3 (Recommandé) :</strong> Segmente IOrderManager en 3 interfaces
-                                    spécifiques</li>
-                                <li><strong>Phase 4 (Amélioration) :</strong> Réorganiser les packages par feature</li>
-                            </ul>
-
-                            <h4 class="text-purple">Estimation d'effort :</h4>
-                            <ul>
-                                <li><strong>Refactorisation critique :</strong> 3-5 jours</li>
-                                <li><strong>Améliorations structurelles :</strong> 2-3 jours</li>
-                                <li><strong>Tests de non-régression :</strong> 2 jours</li>
-                                <li><strong>Total estimé :</strong> 7-10 jours</li>
-                            </ul>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <!-- Conclusion -->
-            <section class="lesson-section bg-gradient-primary">
-                <h2 class="text-white">Conclusion</h2>
-                <p class="text-white">
-                    L'audit de structure de code représente l'examen fondamental des fondations d'un système logiciel.
-                    Au-delà de la correction des bugs immédiats, il s'attaque aux causes profondes des difficultés
-                    de maintenance et des limitations d'évolutivité qui handicapent les projets à long terme.
-                </p>
-
-                <h3 class="text-white">Investissement stratégique</h3>
-                <p class="text-white">
-                    Les efforts consacrés à l'amélioration structurelle du code constituent un investissement
-                    stratégique
-                    qui paie des dividendes tout au long du cycle de vie du projet. Une architecture solide réduit
-                    les coûts de maintenance, accélère le développement de nouvelles fonctionnalités et améliore
-                    la satisfaction des équipes de développement.
-                </p>
-
-                <h3 class="text-white">Culture de qualité</h3>
-                <p class="text-white">
-                    Les audits structurels réguliers contribuent à instaurer une culture de qualité technique
-                    au sein des équipes. En sensibilisant aux principes de conception et en fournissant des retours
-                    concrets, ils transforment la dette technique d'un problème subi en une opportunité d'amélioration
-                    maîtrisée.
-                </p>
-
-                <h3 class="text-white">Approche pragmatique</h3>
-                <p class="text-white">
-                    L'audit structurel efficace ne recherche pas la perfection théorique mais l'optimisation
-                    pragmatique.
-                    Il identifie les problèmes ayant le plus d'impact sur la productivité et propose des plans de
-                    correction
-                    réalistes, priorisés en fonction du rapport coût/bénéfice pour l'organisation.
-                </p>
-
-                <p class="text-white">
-                    En intégrant l'audit de structure dans les pratiques courantes de développement, les organisations
-                    s'assurent non seulement de la qualité technique de leurs produits, mais aussi de leur capacité
-                    à évoluer durablement dans un environnement technologique en perpétuel changement.
-                </p>
-            </section>
         </div>
+      </section>
+
+      <!-- Exercice pratique -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Exercice pratique</h2>
+        
+        <div class="exercise">
+          <h3 class="text-purple">Audit d'une base de code existante</h3>
+          <p class="textExemple">
+            Vous devez réaliser un audit structurel sur un module de gestion des commandes. 
+            Le module contient 15 classes et 2 000 lignes de code. Réalisez les étapes suivantes :
+          </p>
+          <ol>
+            <li>Analysez la structure des packages et des dépendances</li>
+            <li>Identifiez les violations des principes SOLID</li>
+            <li>Calculez les métriques de complexité principales</li>
+            <li>Évaluez la qualité des abstractions et interfaces</li>
+            <li>Proposez un plan de refactorisation priorisé</li>
+          </ol>
+          
+          <details class="solution">
+            <summary class="btn-purple btn-hover">Voir un exemple de solution</summary>
+            <div class="solution-content">
+              <h4 class="text-purple">Rapport d'audit structurel - Module Commandes</h4>
+              <p><strong>Module :</strong> Gestion des commandes "OrderManagement"</p>
+              <p><strong>Taille :</strong> 15 classes, 2 150 LOC</p>
+              
+              <h4 class="text-purple">Problèmes structurels identifiés :</h4>
+              <div class="structure-examples">
+                <div class="structure-example critical">
+                  <strong>CRITIQUE :</strong> Classe OrderProcessor (450 LOC) - God object violant SRP
+                </div>
+                <div class="structure-example high">
+                  <strong>ÉLEVÉ :</strong> Dépendances circulaires entre OrderService et PaymentService
+                </div>
+                <div class="structure-example medium">
+                  <strong>MOYEN :</strong> Interface IOrderManager trop large (15 méthodes)
+                </div>
+                <div class="structure-example low">
+                  <strong>FAIBLE :</strong> Organisation sous-optimale des packages
+                </div>
+              </div>
+              
+              <h4 class="text-purple">Métriques calculées :</h4>
+              <ul>
+                <li><strong>Complexité cyclomatique moyenne :</strong> 8.2 (cible : &lt; 10)</li>
+                <li><strong>Couplage afférent moyen :</strong> 4.1 (cible : &lt; 5)</li>
+                <li><strong>Taille moyenne des classes :</strong> 143 LOC (cible : &lt; 200)</li>
+                <li><strong>Duplication de code :</strong> 5.8% (cible : &lt; 3%)</li>
+              </ul>
+
+              <h4 class="text-purple">Plan de refactorisation :</h4>
+              <ul>
+                <li><strong>Phase 1 (Urgent) :</strong> Découper OrderProcessor en 4 classes spécialisées</li>
+                <li><strong>Phase 2 (Important) :</strong> Introduire une interface pour briser les dépendances circulaires</li>
+                <li><strong>Phase 3 (Recommandé) :</strong> Segmente IOrderManager en 3 interfaces spécifiques</li>
+                <li><strong>Phase 4 (Amélioration) :</strong> Réorganiser les packages par feature</li>
+              </ul>
+
+              <h4 class="text-purple">Estimation d'effort :</h4>
+              <ul>
+                <li><strong>Refactorisation critique :</strong> 3-5 jours</li>
+                <li><strong>Améliorations structurelles :</strong> 2-3 jours</li>
+                <li><strong>Tests de non-régression :</strong> 2 jours</li>
+                <li><strong>Total estimé :</strong> 7-10 jours</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section class="lesson-section bg-gradient-primary">
+        <h2 class="text-white">Conclusion</h2>
+        <p class="text-white">
+          L'audit de structure de code représente l'examen fondamental des fondations d'un système logiciel. 
+          Au-delà de la correction des bugs immédiats, il s'attaque aux causes profondes des difficultés 
+          de maintenance et des limitations d'évolutivité qui handicapent les projets à long terme.
+        </p>
+        
+        <h3 class="text-white">Investissement stratégique</h3>
+        <p class="text-white">
+          Les efforts consacrés à l'amélioration structurelle du code constituent un investissement stratégique 
+          qui paie des dividendes tout au long du cycle de vie du projet. Une architecture solide réduit 
+          les coûts de maintenance, accélère le développement de nouvelles fonctionnalités et améliore 
+          la satisfaction des équipes de développement.
+        </p>
+        
+        <h3 class="text-white">Culture de qualité</h3>
+        <p class="text-white">
+          Les audits structurels réguliers contribuent à instaurer une culture de qualité technique 
+          au sein des équipes. En sensibilisant aux principes de conception et en fournissant des retours 
+          concrets, ils transforment la dette technique d'un problème subi en une opportunité d'amélioration maîtrisée.
+        </p>
+        
+        <h3 class="text-white">Approche pragmatique</h3>
+        <p class="text-white">
+          L'audit structurel efficace ne recherche pas la perfection théorique mais l'optimisation pragmatique. 
+          Il identifie les problèmes ayant le plus d'impact sur la productivité et propose des plans de correction 
+          réalistes, priorisés en fonction du rapport coût/bénéfice pour l'organisation.
+        </p>
+        
+        <p class="text-white">
+          En intégrant l'audit de structure dans les pratiques courantes de développement, les organisations 
+          s'assurent non seulement de la qualité technique de leurs produits, mais aussi de leur capacité 
+          à évoluer durablement dans un environnement technologique en perpétuel changement.
+        </p>
+      </section>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'CodeStructureAuditLesson',
-    head() {
-        return {
-            title: 'Structure de Code - Audit Technique',
-            meta: [
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: 'Leçon complète sur l\'audit de structure de code : principes SOLID, métriques, patterns architecturaux et bonnes pratiques.'
-                }
-            ]
+  name: 'CodeStructureAuditLesson',
+  head() {
+    return {
+      title: 'Structure de Code - Audit Technique',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Leçon complète sur l\'audit de structure de code : principes SOLID, métriques, patterns architecturaux et bonnes pratiques.'
         }
+      ]
     }
+  }
 }
 </script>
 
@@ -710,8 +696,7 @@ export default {
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example,
-.code-block {
+.code-example, .code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -738,19 +723,15 @@ pre {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap;
-    /* Permet le retour à la ligne */
-    word-wrap: break-word;
-    /* Casse les mots longs */
-    word-break: break-word;
-    /* Assure la césure des mots */
+    white-space: pre-wrap; /* Permet le retour à la ligne */
+    word-wrap: break-word; /* Casse les mots longs */
+    word-break: break-word; /* Assure la césure des mots */
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
-    white-space: pre-wrap;
-    /* Retour à la ligne automatique */
+    white-space: pre-wrap; /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -759,51 +740,15 @@ pre code {
 }
 
 /* Couleurs VS Code pour la syntaxe JavaScript */
-.keyword {
-    color: #c586c0 !important;
-}
-
-/* Mots-clés (for, while, if, function, etc.) */
-.variable {
-    color: #9cdcfe !important;
-}
-
-/* Variables et noms de fonctions */
-.string {
-    color: #ce9178 !important;
-}
-
-/* Chaînes de caractères */
-.comment {
-    color: #6a9955 !important;
-}
-
-/* Commentaires */
-.function {
-    color: #dcdcaa !important;
-}
-
-/* Noms de fonctions */
-.operator {
-    color: #d4d4d4 !important;
-}
-
-/* Opérateurs (+, -, =, =>, etc.) */
-.constant {
-    color: #4fc1ff !important;
-}
-
-/* Constantes */
-.number {
-    color: #b5cea8 !important;
-}
-
-/* Nombres */
-.class-name {
-    color: #4ec9b0 !important;
-}
-
-/* Noms de classes */
+.keyword { color: #c586c0 !important; } /* Mots-clés (for, while, if, function, etc.) */
+.variable { color: #9cdcfe !important; } /* Variables et noms de fonctions */
+.string { color: #ce9178 !important; } /* Chaînes de caractères */
+.comment { color: #6a9955 !important; } /* Commentaires */
+.function { color: #dcdcaa !important; } /* Noms de fonctions */
+.operator { color: #d4d4d4 !important; } /* Opérateurs (+, -, =, =>, etc.) */
+.constant { color: #4fc1ff !important; } /* Constantes */
+.number { color: #b5cea8 !important; } /* Nombres */
+.class-name { color: #4ec9b0 !important; } /* Noms de classes */
 
 /* Exercices et solutions */
 .exercise {
@@ -854,7 +799,7 @@ details summary {
     padding: 1rem;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .metric-item h4 {
@@ -872,7 +817,7 @@ details summary {
 .severity-item {
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
 
@@ -937,7 +882,7 @@ details summary {
     padding: 1.5rem;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border-left: 4px solid #8B5FBF;
 }
 
@@ -973,7 +918,7 @@ details summary {
     padding: 1.5rem;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border-left: 4px solid #8B5FBF;
 }
 
@@ -1036,41 +981,41 @@ details summary {
     .lesson-container {
         padding: 1rem;
     }
-
+    
     .lesson-header {
         padding: 2rem 1rem;
     }
-
+    
     .lesson-header h1 {
         font-size: 2rem;
     }
-
+    
     .lesson-section {
         padding: 1.5rem;
     }
-
+    
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-
+    
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
     }
-
+    
     .metrics-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .severity-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .solid-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .architecture-grid {
         grid-template-columns: 1fr;
     }
@@ -1082,19 +1027,19 @@ details summary {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-
+    
     .lesson-container {
         padding: 0.5rem;
     }
-
+    
     .lesson-section {
         padding: 1rem;
     }
-
+    
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-
+    
     .lesson-header h1 {
         font-size: 1.75rem;
     }
@@ -1113,7 +1058,6 @@ details summary {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1124,23 +1068,9 @@ details summary {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.lesson-section:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.lesson-section:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.lesson-section:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.lesson-section:nth-child(5) {
-    animation-delay: 0.5s;
-}
+.lesson-section:nth-child(1) { animation-delay: 0.1s; }
+.lesson-section:nth-child(2) { animation-delay: 0.2s; }
+.lesson-section:nth-child(3) { animation-delay: 0.3s; }
+.lesson-section:nth-child(4) { animation-delay: 0.4s; }
+.lesson-section:nth-child(5) { animation-delay: 0.5s; }
 </style>
