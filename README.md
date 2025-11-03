@@ -34,7 +34,6 @@
 - faille xss
 ================================================================================
 # Audit
-- audit de code
 - O1 On On2 Ologn
 - test unitaire
 - structure de code
@@ -45,7 +44,12 @@
 - commande bash de base
 - quest ce que sont les couche osi
 - choas monkey de netflix
-
+================================================================================
+# les outils site ou autre cool 
+- jira
+- trelo
+- code pen
+- n splash
 ================================================================================
 # Nuxt Minimal Starter
 

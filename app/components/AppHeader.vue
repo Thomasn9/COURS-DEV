@@ -27,6 +27,9 @@
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="/cyber_securiter/index_cybersecu">Cyber Sécurité</NuxtLink>
                 </li>
+                <li class="nav-item">
+                    <NuxtLink class="nav-link" to="/audit/index_audit">Audit</NuxtLink>
+                </li>
                 <!-- ===============================================\\FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">
                 <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
