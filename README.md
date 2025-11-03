@@ -28,12 +28,25 @@
 - rooting nuxt
 - nuxt link
 ================================================================================
-# Sécuriter
+# Cyber Sécuriter
 - buffer overflow
 - injection sql
 - faille xss
 ================================================================================
+# Audit
+- audit de code
+- O1 On On2 Ologn
+- test unitaire
+- structure de code
+- coverage
+- documentation technique et lisibilité du code
+================================================================================
+# devops
+- commande bash de base
+- quest ce que sont les couche osi
+- choas monkey de netflix
 
+================================================================================
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
