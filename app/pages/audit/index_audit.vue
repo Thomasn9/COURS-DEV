@@ -10,7 +10,8 @@
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Audit de code</h5>
                 <p class="card-text">Le role et l'utilité de l'audit de code dans la gestion d'un projet</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/audit_code">
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/audit_code">
                     Accès à la leçon
                 </NuxtLink>
             </div>
@@ -20,7 +21,8 @@
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Audit Conformité</h5>
                 <p class="card-text">Le role et l'utilité de l'audit de conformité dans la gestion d'un projet</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/audit_conformiter">
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/audit_conformiter">
                     Accès à la leçon
                 </NuxtLink>
             </div>
@@ -30,7 +32,40 @@
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Audit Fonctionel</h5>
                 <p class="card-text">Le role et l'utilité de l'audit Fonctionel dans la gestion d'un projet</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/audit_fonctionel">
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/audit_fonctionel">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\C//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">C</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Coverage</h5>
+                <p class="card-text">Qu'est ce que c'est le Coverage</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/coverage">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\S//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">S</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Structure de code</h5>
+                <p class="card-text">L'importance de structurer son code et comment le tester via l'audit</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/structure_code">
                     Accès à la leçon
                 </NuxtLink>
             </div>

@@ -37,8 +37,8 @@
 - O1 On On2 Ologn
 - test unitaire
 - structure de code
-- coverage
 - documentation technique et lisibilité du code
+- l'extension sonarQube sur vs code
 ================================================================================
 # devops
 - commande bash de base
