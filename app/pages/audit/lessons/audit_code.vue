@@ -91,6 +91,189 @@
         </div>
       </section>
 
+      <!-- Audit de Dépendances API -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Audit de Dépendances API</h2>
+        
+        <p class="textExemple">
+          L'audit des dépendances API est crucial dans les applications modernes qui reposent 
+          sur de nombreuses bibliothèques externes et services tiers. Cet audit vise à garantir 
+          la sécurité, la performance et la maintenabilité des dépendances utilisées.
+        </p>
+
+        <h3 class="text-purple">Pourquoi auditer les dépendances API ?</h3>
+        <ul>
+          <li><strong>Sécurité</strong> : Détecter les vulnérabilités connues dans les dépendances</li>
+          <li><strong>Compatibilité</strong> : Vérifier la compatibilité entre les différentes versions</li>
+          <li><strong>Performance</strong> : Identifier les dépendances lourdes ou obsolètes</li>
+          <li><strong>Licences</strong> : S'assurer de la conformité des licences logicielles</li>
+          <li><strong>Maintenance</strong> : Éviter les dépendances abandonnées ou non maintenues</li>
+        </ul>
+
+        <h3 class="text-purple">Méthodologie d'audit des dépendances</h3>
+        
+        <div class="process-step">
+          <h4 class="text-purple">1. Inventaire des dépendances</h4>
+          <p class="textExemple">
+            Lister toutes les dépendances directes et transitives de votre projet. 
+            Utiliser des outils comme <code>npm ls</code>, <code>yarn list</code>, ou <code>pipdeptree</code>.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <h4 class="text-purple">2. Analyse de sécurité</h4>
+          <p class="textExemple">
+            Scanner les dépendances pour détecter les vulnérabilités connues (CVE) 
+            en utilisant des bases de données comme NVD, Snyk, ou GitHub Security Advisories.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <h4 class="text-purple">3. Vérification des licences</h4>
+          <p class="textExemple">
+            Analyser la conformité des licences logicielles avec les exigences de votre organisation 
+            et identifier les conflits potentiels.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <h4 class="text-purple">4. Évaluation de la qualité</h4>
+          <p class="textExemple">
+            Examiner la santé des projets dépendants (fréquence des mises à jour, 
+            communauté active, documentation, etc.).
+          </p>
+        </div>
+
+        <h3 class="text-purple">Outils d'audit de dépendances</h3>
+        
+        <div class="tools-grid">
+          <div class="tool-item">
+            <h4 class="text-purple">Sécurité</h4>
+            <ul>
+              <li><strong>npm audit</strong> : Scanner natif pour les projets Node.js</li>
+              <li><strong>OWASP Dependency Check</strong> : Outil open-source multi-langages</li>
+              <li><strong>Snyk</strong> : Plateforme complète de sécurité des dépendances</li>
+              <li><strong>GitHub Dependabot</strong> : Intégré à GitHub, détection automatique</li>
+            </ul>
+          </div>
+
+          <div class="tool-item">
+            <h4 class="text-purple">Licences</h4>
+            <ul>
+              <li><strong>Licensee</strong> : Détection des licences open-source</li>
+              <li><strong>FOSSA</strong> : Gestion des conformités et licences</li>
+              <li><strong>WhiteSource</strong> : Analyse complète des licences</li>
+            </ul>
+          </div>
+
+          <div class="tool-item">
+            <h4 class="text-purple">Qualité</h4>
+            <ul>
+              <li><strong>BundlePhobia</strong> : Analyse de taille des packages JavaScript</li>
+              <li><strong>npm trends</strong> : Comparaison de popularité des packages</li>
+              <li><strong>Libraries.io</strong> : Métriques de santé des projets open-source</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-purple">Bonnes pratiques</h3>
+        
+        <div class="best-practices">
+          <div class="practice-item">
+            <h4 class="text-purple">🔒 Sécurisation du Supply Chain</h4>
+            <p>Utiliser des registres privés, signer les commits, et vérifier les intégrités des packages.</p>
+          </div>
+
+          <div class="practice-item">
+            <h4 class="text-purple">📦 Gestion des versions</h4>
+            <p>Épingler les versions exactes, utiliser les lockfiles, et mettre à jour régulièrement.</p>
+          </div>
+
+          <div class="practice-item">
+            <h4 class="text-purple">🛡️ Intégration continue</h4>
+            <p>Intégrer l'audit des dépendances dans la pipeline CI/CD pour une détection précoce.</p>
+          </div>
+
+          <div class="practice-item">
+            <h4 class="text-purple">📊 Monitoring continu</h4>
+            <p>Mettre en place un monitoring actif des nouvelles vulnérabilités.</p>
+          </div>
+        </div>
+
+        <h3 class="text-purple">Exemple de configuration d'audit</h3>
+        
+        <div class="code-comparison">
+          <div class="code-example">
+            <h4 class="text-purple">package.json non sécurisé</h4>
+            <pre><code>{
+  <span class="string">"dependencies"</span>: {
+    <span class="string">"express"</span>: <span class="string">"*"</span>,
+    <span class="string">"lodash"</span>: <span class="string">"^4.0.0"</span>,
+    <span class="string">"vulnerable-package"</span>: <span class="string">"1.0.0"</span>
+  },
+  <span class="string">"scripts"</span>: {
+    <span class="string">"start"</span>: <span class="string">"node app.js"</span>
+  }
+}</code></pre>
+          </div>
+          
+          <div class="code-example">
+            <h4 class="text-purple">package.json sécurisé</h4>
+            <pre><code>{
+  <span class="string">"dependencies"</span>: {
+    <span class="string">"express"</span>: <span class="string">"4.18.2"</span>,
+    <span class="string">"lodash"</span>: <span class="string">"4.17.21"</span>
+  },
+  <span class="string">"devDependencies"</span>: {
+    <span class="string">"npm-audit-resolver"</span>: <span class="string">"^3.0.0"</span>
+  },
+  <span class="string">"scripts"</span>: {
+    <span class="string">"start"</span>: <span class="string">"node app.js"</span>,
+    <span class="string">"audit"</span>: <span class="string">"npm audit"</span>,
+    <span class="string">"audit:fix"</span>: <span class="string">"npm audit fix"</span>,
+    <span class="string">"security-check"</span>: <span class="string">"npx audit-ci --moderate"</span>
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <h3 class="text-purple">Workflow d'audit automatisé</h3>
+        
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4 class="text-purple">Détection automatique</h4>
+              <p>Intégration dans la pipeline CI/CD avec des outils comme Dependabot ou Snyk</p>
+            </div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4 class="text-purple">Analyse des rapports</h4>
+              <p>Examen quotidien des alertes de sécurité et classification par criticité</p>
+            </div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4 class="text-purple">Correction priorisée</h4>
+              <p>Planification des mises à jour en fonction de la criticité des vulnérabilités</p>
+            </div>
+          </div>
+
+          <div class="workflow-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4 class="text-purple">Validation et déploiement</h4>
+              <p>Tests complets après mise à jour et déploiement sécurisé</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Degrés de gravité -->
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple">Degrés de gravité des problèmes identifiés</h2>
@@ -731,6 +914,89 @@ details summary {
     border-left-color: #28a745;
 }
 
+/* NOUVEAUX STYLES POUR LA SECTION AUDIT DE DÉPENDANCES */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.tool-item {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 4px solid #8B5FBF;
+}
+
+.tool-item h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #6A3093;
+}
+
+.best-practices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.practice-item {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border: 1px solid #e0d6ff;
+}
+
+.practice-item h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #6A3093;
+}
+
+.workflow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.workflow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.step-number {
+    background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #6A3093;
+}
+
 /* RESPONSIVE DESIGN AMÉLIORÉ */
 @media (max-width: 768px) {
     .lesson-container {
@@ -765,6 +1031,23 @@ details summary {
     
     .severity-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .best-practices {
+        grid-template-columns: 1fr;
+    }
+    
+    .workflow-step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-number {
+        align-self: center;
     }
 }
 

@@ -34,6 +34,7 @@
 - faille xss
 ================================================================================
 # Audit
+- audit de dépendances
 - O1 On On2 Ologn
 - test unitaire
 - structure de code
@@ -50,6 +51,9 @@
 - trelo
 - code pen
 - n splash
+- data dog
+- graphana
+- apache Jmetter
 ================================================================================
 # Nuxt Minimal Starter
 
