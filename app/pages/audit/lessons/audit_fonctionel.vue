@@ -217,42 +217,258 @@
         </ul>
       </section>
 
-      <!-- Exemples de scénarios de test -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exemples de scénarios de test fonctionnel</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h4 class="text-purple">Scénario e-commerce - Paiement</h4>
-            <pre><code><span class="comment">// Cas nominal - Paiement réussi</span>
-<span class="number">1.</span> Ajouter un produit au panier
-<span class="number">2.</span> Accéder au panier
-<span class="number">3.</span> Cliquer sur "Procéder au paiement"
-<span class="number">4.</span> Remplir les informations de livraison
-<span class="number">5.</span> Sélectionner le mode de livraison
-<span class="number">6.</span> Saisir les informations de carte valide
-<span class="number">7.</span> Confirmer la commande
-<span class="number">8.</span> <span class="keyword">VÉRIFIER</span> : Page de confirmation affichée
-<span class="number">9.</span> <span class="keyword">VÉRIFIER</span> : Email de confirmation reçu
-<span class="number">10.</span> <span class="keyword">VÉRIFIER</span> : Statut commande "Confirmée"</code></pre>
-          </div>
-          
-          <div class="code-example">
-            <h4 class="text-purple">Scénario CRM - Création client</h4>
-            <pre><code><span class="comment">// Cas d'erreur - Validation formulaire</span>
-<span class="number">1.</span> Naviguer vers "Nouveau client"
-<span class="number">2.</span> Laisser le champ "Nom" vide
-<span class="number">3.</span> Saisir un email invalide "email@invalide"
-<span class="number">4.</span> Cliquer sur "Enregistrer"
-<span class="number">5.</span> <span class="keyword">VÉRIFIER</span> : Message erreur "Nom obligatoire"
-<span class="number">6.</span> <span class="keyword">VÉRIFIER</span> : Message erreur "Email invalide"
-<span class="number">7.</span> <span class="keyword">VÉRIFIER</span> : Formulaire non soumis
-<span class="number">8.</span> Corriger les erreurs
-<span class="number">9.</span> <span class="keyword">VÉRIFIER</span> : Messages erreur disparus
-<span class="number">10.</span> <span class="keyword">VÉRIFIER</span> : Enregistrement réussi</code></pre>
-          </div>
+      <!-- Exemples de scénarios de test fonctionnel -->
+<section class="lesson-section bg-light-purple border-purple">
+  <h2 class="text-purple">Exemples de scénarios de test fonctionnel</h2>
+  
+  <div class="testing-intro">
+    <p class="textExemple">
+      Les scénarios de test fonctionnel décrivent des parcours utilisateur complets permettant de valider 
+      le comportement attendu d'une application. Ils couvrent les cas nominaux (fonctionnement normal), 
+      les cas d'erreur et les cas limites.
+    </p>
+  </div>
+
+  <!-- Catégories de tests -->
+  <div class="test-categories">
+    <h3 class="text-purple">Catégories de tests fonctionnels</h3>
+    <div class="categories-grid">
+      <div class="category-item">
+        <h4 class="text-purple">Tests de chemin heureux</h4>
+        <p>Parcours utilisateur idéal sans erreur</p>
+      </div>
+      <div class="category-item">
+        <h4 class="text-purple">Tests d'erreur</h4>
+        <p>Validation de la gestion des erreurs</p>
+      </div>
+      <div class="category-item">
+        <h4 class="text-purple">Tests de cas limites</h4>
+        <p>Comportement aux limites des spécifications</p>
+      </div>
+      <div class="category-item">
+        <h4 class="text-purple">Tests de workflow</h4>
+        <p>Validation des processus métier complets</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scénarios détaillés -->
+  <div class="detailed-scenarios">
+    
+    <!-- E-commerce -->
+    <div class="scenario-category">
+      <h3 class="text-purple">🏪 Domaine E-commerce</h3>
+      
+      <div class="code-comparison">
+        <div class="code-example">
+          <h4 class="text-purple">Scénario 1 - Paiement réussi (Chemin heureux)</h4>
+          <pre><code><span class="comment">// OBJECTIF : Valider le processus complet d'achat</span>
+<span class="comment">// PRÉCONDITIONS : Utilisateur connecté, produit en stock</span>
+
+<span class="number">1.</span> <span class="keyword">NAVIGUER</span> vers la page d'accueil
+<span class="number">2.</span> <span class="keyword">RECHERCHER</span> "iPhone 15" dans la barre de recherche
+<span class="number">3.</span> <span class="keyword">CLIQUER</span> sur le premier résultat
+<span class="number">4.</span> <span class="keyword">VÉRIFIER</span> : Page produit affiche prix, stock, description
+<span class="number">5.</span> <span class="keyword">SÉLECTIONNER</span> couleur "Noir" et capacité "128GB"
+<span class="number">6.</span> <span class="keyword">CLIQUER</span> "Ajouter au panier"
+<span class="number">7.</span> <span class="keyword">VÉRIFIER</span> : Message "Produit ajouté" affiché
+<span class="number">8.</span> <span class="keyword">ACCÉDER</span> au panier
+<span class="number">9.</span> <span class="keyword">VÉRIFIER</span> : Produit présent avec bon prix et quantité
+<span class="number">10.</span> <span class="keyword">CLIQUER</span> "Procéder au paiement"
+<span class="number">11.</span> <span class="keyword">REMER</span> formulaire livraison (adresse valide)
+<span class="number">12.</span> <span class="keyword">SÉLECTIONNER</span> livraison express
+<span class="number">13.</span> <span class="keyword">SAISIR</span> carte crédit valide : 4111 1111 1111 1111
+<span class="number">14.</span> <span class="keyword">CLIQUER</span> "Payer maintenant"
+<span class="number">15.</span> <span class="keyword">VÉRIFIER</span> : Page confirmation commande #12345
+<span class="number">16.</span> <span class="keyword">VÉRIFIER</span> : Email confirmation reçu sous 2min
+<span class="number">17.</span> <span class="keyword">VÉRIFIER</span> : Statut commande "Expédiée" dans 24h</code></pre>
         </div>
-      </section>
+        
+        <div class="code-example">
+          <h4 class="text-purple">Scénario 2 - Gestion stock (Cas limite)</h4>
+          <pre><code><span class="comment">// OBJECTIF : Tester le comportement quand stock insuffisant</span>
+<span class="comment">// PRÉCONDITIONS : Dernier produit en stock</span>
+
+<span class="number">1.</span> <span class="keyword">NAVIGUER</span> vers produit "Casque Audio Premium"
+<span class="number">2.</span> <span class="keyword">VÉRIFIER</span> : Message "Dernier en stock" affiché
+<span class="number">3.</span> <span class="keyword">AJOUTER</span> au panier
+<span class="number">4.</span> <span class="keyword">OUVRIR</span> nouvel onglet navigateur
+<span class="number">5.</span> <span class="keyword">ACCÉDER</span> au même produit
+<span class="number">6.</span> <span class="keyword">TENTER</span> d'ajouter au panier
+<span class="number">7.</span> <span class="keyword">VÉRIFIER</span> : Message "Produit en rupture de stock"
+<span class="number">8.</span> <span class="keyword">RETOURNER</span> premier onglet
+<span class="number">9.</span> <span class="keyword">FINALISER</span> commande normalement
+<span class="number">10.</span> <span class="keyword">VÉRIFIER</span> : Page confirmation affichée
+<span class="number">11.</span> <span class="keyword">RAFRAÎCHIR</span> page produit dans 2ème onglet
+<span class="number">12.</span> <span class="keyword">VÉRIFIER</span> : Statut "Rupture de stock" affiché
+<span class="number">13.</span> <span class="keyword">VÉRIFIER</span> : Bouton "Me prévenir" disponible</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application bancaire -->
+    <div class="scenario-category">
+      <h3 class="text-purple">🏦 Domaine Bancaire</h3>
+      
+      <div class="code-comparison">
+        <div class="code-example">
+          <h4 class="text-purple">Scénario 3 - Virement inter-comptes</h4>
+          <pre><code><span class="comment">// OBJECTIF : Valider le processus sécurisé de virement</span>
+<span class="comment">// PRÉCONDITIONS : Compte avec solde suffisant, 2FA activé</span>
+
+<span class="number">1.</span> <span class="keyword">SE CONNECTER</span> avec identifiant + mot de passe
+<span class="number">2.</span> <span class="keyword">SAISIR</span> code 2FA reçu par SMS
+<span class="number">3.</span> <span class="keyword">VÉRIFIER</span> : Tableau de bord affiché
+<span class="number">4.</span> <span class="keyword">NAVIGUER</span> section "Virements"
+<span class="number">5.</span> <span class="keyword">SÉLECTIONNER</span> "Virement entre mes comptes"
+<span class="number">6.</span> <span class="keyword">CHOISIR</span> compte source : Compte Courant (solde: 1500€)
+<span class="number">7.</span> <span class="keyword">CHOISIR</span> compte destination : Livret A
+<span class="number">8.</span> <span class="keyword">SAISIR</span> montant : 300€
+<span class="number">9.</span> <span class="keyword">SAISIR</span> libellé : "Épargne mensuelle"
+<span class="number">10.</span> <span class="keyword">CLIQUER</span> "Suivant"
+<span class="number">11.</span> <span class="keyword">VÉRIFIER</span> : Récapitulatif affiché
+<span class="number">12.</span> <span class="keyword">CONFIRMER</span> avec code de sécurité
+<span class="number">13.</span> <span class="keyword">VÉRIFIER</span> : Message "Virement exécuté"
+<span class="number">14.</span> <span class="keyword">VÉRIFIER</span> : Solde compte courant : 1200€
+<span class="number">15.</span> <span class="keyword">VÉRIFIER</span> : Solde livret A augmenté de 300€
+<span class="number">16.</span> <span class="keyword">VÉRIFIER</span> : Virement dans historique</code></pre>
+        </div>
+        
+        <div class="code-example">
+          <h4 class="text-purple">Scénario 4 - Sécurité et erreurs</h4>
+          <pre><code><span class="comment">// OBJECTIF : Tester les mécanismes de sécurité</span>
+
+<span class="number">1.</span> <span class="keyword">TENTER</span> connexion avec mauvais mot de passe
+<span class="number">2.</span> <span class="keyword">VÉRIFIER</span> : Message "Identifiants incorrects"
+<span class="number">3.</span> <span class="keyword">RÉPÉTER</span> 3 fois avec faux mot de passe
+<span class="number">4.</span> <span class="keyword">VÉRIFIER</span> : Compte bloqué temporairement
+<span class="number">5.</span> <span class="keyword">VÉRIFIER</span> : Email alerte sécurité reçu
+<span class="number">6.</span> <span class="keyword">ATTENDRE</span> 15 minutes (déblocage auto)
+<span class="number">7.</span> <span class="keyword">SE CONNECTER</span> avec bons identifiants
+<span class="number">8.</span> <span class="keyword">TENTER</span> virement supérieur au solde
+<span class="number">9.</span> <span class="keyword">VÉRIFIER</span> : Message "Solde insuffisant"
+<span class="number">10.</span> <span class="keyword">TENTER</span> virement montant négatif
+<span class="number">11.</span> <span class="keyword">VÉRIFIER</span> : Message "Montant invalide"
+<span class="number">12.</span> <span class="keyword">TESTER</span> timeout session (15min inactivité)
+<span class="number">13.</span> <span class="keyword">VÉRIFIER</span> : Déconnexion automatique
+<span class="number">14.</span> <span class="keyword">VÉRIFIER</span> : Page login affichée</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- SaaS Business -->
+    <div class="scenario-category">
+      <h3 class="text-purple">💼 Domaine SaaS Business</h3>
+      
+      <div class="code-comparison">
+        <div class="code-example">
+          <h4 class="text-purple">Scénario 5 - Gestion des utilisateurs</h4>
+          <pre><code><span class="comment">// OBJECTIF : Valider l'administration multi-utilisateurs</span>
+<span class="comment">// PRÉCONDITIONS : Compte administrateur actif</span>
+
+<span class="number">1.</span> <span class="keyword">SE CONNECTER</span> comme administrateur
+<span class="number">2.</span> <span class="keyword">NAVIGUER</span> section "Utilisateurs"
+<span class="number">3.</span> <span class="keyword">CLIQUER</span> "Ajouter un utilisateur"
+<span class="number">4.</span> <span class="keyword">REMER</span> formulaire :
+   - Nom : "Dupont"
+   - Prénom : "Marie"
+   - Email : "marie.dupont@entreprise.com"
+   - Rôle : "Manager"
+   - Département : "Ventes"
+<span class="number">5.</span> <span class="keyword">GÉNÉRER</span> mot de passe automatique
+<span class="number">6.</span> <span class="keyword">CLIQUER</span> "Inviter"
+<span class="number">7.</span> <span class="keyword">VÉRIFIER</span> : Message "Invitation envoyée"
+<span class="number">8.</span> <span class="keyword">VÉRIFIER</span> : Utilisateur dans liste "En attente"
+<span class="number">9.</span> <span class="keyword">VÉRIFIER</span> : Email invitation reçu par Marie
+<span class="number">10.</span> <span class="keyword">SE DÉCONNECTER</span>
+<span class="number">11.</span> <span class="keyword">CLIQUER</span> lien invitation dans email
+<span class="number">12.</span> <span class="keyword">CRÉER</span> mot de passe
+<span class="number">13.</span> <span class="keyword">VÉRIFIER</span> : Premier login réussi
+<span class="number">14.</span> <span class="keyword">VÉRIFIER</span> : Tutoriel onboarding affiché
+<span class="number">15.</span> <span class="keyword">VÉRIFIER</span> : Permissions "Manager" appliquées</code></pre>
+        </div>
+        
+        <div class="code-example">
+          <h4 class="text-purple">Scénario 6 - Reporting et export</h4>
+          <pre><code><span class="comment">// OBJECTIF : Tester les fonctionnalités d'export</span>
+
+<span class="number">1.</span> <span class="keyword">SE CONNECTER</span> compte utilisateur standard
+<span class="number">2.</span> <span class="keyword">NAVIGUER</span> section "Rapports"
+<span class="number">3.</span> <span class="keyword">APPLIQUER</span> filtres :
+   - Période : 1er Jan - 31 Jan 2024
+   - Département : Tous
+   - Métrique : Chiffre d'affaires
+<span class="number">4.</span> <span class="keyword">CLIQUER</span> "Générer le rapport"
+<span class="number">5.</span> <span class="keyword">ATTENDRE</span> chargement (max 30s)
+<span class="number">6.</span> <span class="keyword">VÉRIFIER</span> : Graphique affiché avec données
+<span class="number">7.</span> <span class="keyword">CLIQUER</span> "Exporter en PDF"
+<span class="number">8.</span> <span class="keyword">VÉRIFIER</span> : Téléchargement fichier .pdf
+<span class="number">9.</span> <span class="keyword">VÉRIFIER</span> : Fichier nommé "Rapport_CA_Jan2024.pdf"
+<span class="number">10.</span> <span class="keyword">OUVRIR</span> PDF
+<span class="number">11.</span> <span class="keyword">VÉRIFIER</span> : En-tête avec logo entreprise
+<span class="number">12.</span> <span class="keyword">VÉRIFIER</span> : Données cohérentes avec écran
+<span class="number">13.</span> <span class="keyword">VÉRIFIER</span> : Date génération incluse
+<span class="number">14.</span> <span class="keyword">RÉPÉTER</span> pour export Excel
+<span class="number">15.</span> <span class="keyword">VÉRIFIER</span> : Format .xlsx avec onglets</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checklist de validation -->
+  <div class="validation-checklist">
+    <h3 class="text-purple">Checklist de validation des scénarios</h3>
+    <div class="checklist-grid">
+      <div class="checklist-item">
+        <input type="checkbox" id="check1" checked>
+        <label for="check1">Chaque étape est claire et atomique</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check2" checked>
+        <label for="check2">Les vérifications sont spécifiques et mesurables</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check3" checked>
+        <label for="check3">Les préconditions sont explicitement définies</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check4" checked>
+        <label for="check4">Les données de test sont réalistes</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check5" checked>
+        <label for="check5">Les cas d'erreur sont couverts</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check6" checked>
+        <label for="check6">Les temps de réponse sont spécifiés</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bonnes pratiques -->
+  <div class="best-practices">
+    <h3 class="text-purple">Bonnes pratiques pour la rédaction</h3>
+    <div class="practices-grid">
+      <div class="practice-item">
+        <h4 class="text-purple">📝 Langage clair</h4>
+        <p>Utiliser un langage simple et des verbes d'action précis (Cliquer, Saisir, Vérifier...)</p>
+      </div>
+      <div class="practice-item">
+        <h4 class="text-purple">🎯 Objectif défini</h4>
+        <p>Chaque scénario doit avoir un objectif métier clair et mesurable</p>
+      </div>
+      <div class="practice-item">
+        <h4 class="text-purple">🔍 Données réalistes</h4>
+        <p>Utiliser des données de test réalistes qui simulent un usage réel</p>
+      </div>
+      <div class="practice-item">
+        <h4 class="text-purple">⚡ Indépendance</h4>
+        <p>Les scénarios doivent pouvoir s'exécuter dans n'importe quel ordre</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- Métriques fonctionnelles -->
       <section class="lesson-section bg-light-purple border-purple">
@@ -405,21 +621,6 @@
 </template>
 
 <script>
-export default {
-  name: 'FunctionalAuditLesson',
-  head() {
-    return {
-      title: 'Audit Fonctionnel - Gestion de Projet',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Leçon complète sur les audits fonctionnels dans la gestion de projet : méthodes, processus, outils et bonnes pratiques métier.'
-        }
-      ]
-    }
-  }
-}
 </script>
 
 <style scoped>
@@ -853,4 +1054,137 @@ details summary {
 .lesson-section:nth-child(3) { animation-delay: 0.3s; }
 .lesson-section:nth-child(4) { animation-delay: 0.4s; }
 .lesson-section:nth-child(5) { animation-delay: 0.5s; }
+
+/* Styles pour la section des scénarios de test enrichie */
+.testing-intro {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  border-left: 4px solid #8B5FBF;
+}
+
+.test-categories {
+  margin: 2rem 0;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.category-item {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+  transform: translateY(-3px);
+}
+
+.scenario-category {
+  margin: 3rem 0 2rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+}
+
+.scenario-category h3 {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0d6ff;
+}
+
+.validation-checklist {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e0d6ff;
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 1rem;
+  transform: scale(1.2);
+}
+
+.best-practices {
+  margin: 2rem 0;
+}
+
+.practices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.practice-item {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.practice-item h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+/* Améliorations responsives */
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .checklist-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .practices-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .scenario-category {
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+}
+
+/* Animation pour les items */
+.category-item, .practice-item, .checklist-item {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
