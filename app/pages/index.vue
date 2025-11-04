@@ -7,6 +7,7 @@
     </header>
 
     <main class="container-fluid bg-light min-vh-100 py-5">
+
         <div class="row justify-content-center g-4">
 
             <div class="col-md-4 col-lg-3 m-3">
@@ -202,11 +203,11 @@ header::before {
     .card {
         margin-bottom: 1.5rem;
     }
-    
+
     header h1 {
         font-size: 2rem;
     }
-    
+
     header h4 {
         font-size: 1.1rem;
     }
@@ -218,6 +219,7 @@ header::before {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -228,8 +230,19 @@ header::before {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.col-md-4:nth-child(1) { animation-delay: 0.1s; }
-.col-md-4:nth-child(2) { animation-delay: 0.2s; }
-.col-md-4:nth-child(3) { animation-delay: 0.3s; }
-.col-md-4:nth-child(4) { animation-delay: 0.4s; }
+.col-md-4:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.col-md-4:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.col-md-4:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.col-md-4:nth-child(4) {
+    animation-delay: 0.4s;
+}
 </style>

@@ -1,4 +1,10 @@
 <template>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours-Dev</title>
+<!-- =========================================================================================================================== -->
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img id="logo" src="/logo.png" alt="">
         <a class="navbar-brand" href="#">Cours Dev</a>
