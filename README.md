@@ -42,9 +42,7 @@
 - l'extension sonarQube sur vs code
 ================================================================================
 # devops
-- localhost
 - adresse ip
-- commande bash de base
 - gitea
 - jenkins
 - quest ce que sont les couche osi
