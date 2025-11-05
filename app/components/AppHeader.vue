@@ -34,7 +34,7 @@
                     <NuxtLink class="nav-link" to="/cyber_securiter/index_cybersecu">Cyber Sécurité</NuxtLink>
                 </li>
                 <li class="nav-item">
-
+                    <NuxtLink class="nav-link" to="/devops/index_devops">Devops</NuxtLink>
                 </li>
                 <!-- ===============================================\\FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">

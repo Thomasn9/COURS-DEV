@@ -45,6 +45,7 @@
 - commande bash de base
 - ssh
 - scp
+- gitea
 - quest ce que sont les couche osi
 - choas monkey de netflix
 ================================================================================
