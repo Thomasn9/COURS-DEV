@@ -42,9 +42,9 @@
 - l'extension sonarQube sur vs code
 ================================================================================
 # devops
+- localhost
+- adresse ip
 - commande bash de base
-- ssh
-- scp
 - gitea
 - jenkins
 - quest ce que sont les couche osi
@@ -58,6 +58,7 @@
 - data dog
 - graphana
 - apache Jmetter
+- vitest
 ================================================================================
 # Nuxt Minimal Starter
 

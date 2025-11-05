@@ -16,9 +16,36 @@
             </div>
         </div>
 
+                <!-- =============================================================\\L//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">S</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Local Host</h5>
+                <p class="card-text">Le Local host c'est quoi ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/local_host">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\S//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">S</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">SCP</h5>
+                <p class="card-text">Le protocole SCP c'est quoi ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/scp">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
         </div>
 
         <div class="card border-purple shadow-lg">
