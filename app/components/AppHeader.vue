@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours-Dev</title>
-<!-- =========================================================================================================================== -->
+    <!-- =========================================================================================================================== -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img id="logo" src="/logo.png" alt="">
@@ -34,7 +34,7 @@
                     <NuxtLink class="nav-link" to="/cyber_securiter/index_cybersecu">Cyber Sécurité</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/audit/index_audit">Audit</NuxtLink>
+
                 </li>
                 <!-- ===============================================\\FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">
@@ -58,6 +58,19 @@
                     <li>
                         <NuxtLink class="dropdown-item" to="#">Nuxt</NuxtLink>
                         <NuxtLink class="dropdown-item" to="#">Next</NuxtLink>
+                    </li>
+                </div>
+                </li>
+                <!-- ===============================================\\GESTION-PROJET//================================================= -->
+                <li class="nav-item dropdown">
+                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Gestion de projet
+                </li>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <NuxtLink class="nav-link" to="/audit/index_audit">Diagramme UML</NuxtLink>
+                        <NuxtLink class="nav-link" to="/audit/index_audit">Audit</NuxtLink>
                     </li>
                 </div>
                 </li>
