@@ -16,7 +16,23 @@
             </div>
         </div>
 
-                        <!-- =============================================================\\C//==================================================================== -->
+        <!-- =============================================================\\A//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">A</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Adresse IP</h5>
+                <p class="card-text">L'utilité d'une adresse IP</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/adresse_ip">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\C//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">C</h3>
         </div>
@@ -43,6 +59,22 @@
                 <p class="card-text">Le Local host c'est quoi ?</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/local_host">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\O//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">O</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">OSI</h5>
+                <p class="card-text">Le model OSI</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/osi">
                     Accès à la leçon
                 </NuxtLink>
             </div>

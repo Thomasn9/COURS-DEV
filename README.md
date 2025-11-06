@@ -41,10 +41,8 @@
 - l'extension sonarQube sur vs code
 ================================================================================
 # devops
-- adresse ip
 - gitea
 - jenkins
-- quest ce que sont les couche osi
 - choas monkey de netflix
 ================================================================================
 # les outils site ou autre cool 
