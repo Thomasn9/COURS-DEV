@@ -1,12 +1,13 @@
 <template>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours-Dev</title>
     <!-- =========================================================================================================================== -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img id="logo" src="/logo.png" alt="">
+        <NuxtLink to="/">
+            <img id="logo" src="/logo.png" alt="Logo Cours Dev">
+        </NuxtLink>
         <a class="navbar-brand" href="#">Cours Dev</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
