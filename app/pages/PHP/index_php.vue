@@ -16,6 +16,21 @@
       </div>
     </div>
 
+        <!-- =============================================================\\B//==================================================================== -->
+    <div class="section-header">
+      <h3 class="lettreSommaire">B</h3>
+    </div>
+
+    <div class="card border-purple shadow-lg">
+      <div class="card-body bg-light-purple">
+        <h5 class="card-title text-purple">Binding de param</h5>
+        <p class="card-text">Qu'elle est l'utilité des bindparam en PHP</p>
+        <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/bind_param">
+          Accès à la leçon
+        </NuxtLink>
+      </div>
+    </div>
+
     <!-- =============================================================\\C//==================================================================== -->
     <div class="section-header">
       <h3 class="lettreSommaire">C</h3>

@@ -1,49 +1,49 @@
 <template>
-  <div class="lesson-container">
-    <div class="lesson-content">
-      <!-- En-tête de la leçon -->
-      <header class="lesson-header">
-        <h1 class="text-white">Le Modèle OSI</h1>
-        <p class="lesson-meta text-white">
-          Comprendre les 7 couches du modèle OSI et leur rôle dans la communication réseau
-        </p>
-      </header>
+    <div class="lesson-container">
+        <div class="lesson-content">
+            <!-- En-tête de la leçon -->
+            <header class="lesson-header">
+                <h1 class="text-white">Le Modèle OSI</h1>
+                <p class="lesson-meta text-white">
+                    Comprendre les 7 couches du modèle OSI et leur rôle dans la communication réseau
+                </p>
+            </header>
 
-      <!-- Introduction -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Introduction au Modèle OSI</h2>
-        <p class="textExemple">
-          Le modèle OSI (Open Systems Interconnection) est un modèle de référence qui décrit 
-          comment les informations d'une application logicielle d'un ordinateur se déplacent 
-          à travers un support physique vers une application logicielle d'un autre ordinateur.
-        </p>
-        <p class="textExemple">
-          Développé par l'ISO en 1984, il divise le processus de communication réseau en 
-          7 couches abstraites, chacune ayant une fonction spécifique.
-        </p>
-      </section>
+            <!-- Introduction -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Introduction au Modèle OSI</h2>
+                <p class="textExemple">
+                    Le modèle OSI (Open Systems Interconnection) est un modèle de référence qui décrit
+                    comment les informations d'une application logicielle d'un ordinateur se déplacent
+                    à travers un support physique vers une application logicielle d'un autre ordinateur.
+                </p>
+                <p class="textExemple">
+                    Développé par l'ISO en 1984, il divise le processus de communication réseau en
+                    7 couches abstraites, chacune ayant une fonction spécifique.
+                </p>
+            </section>
 
-      <!-- Objectifs de la leçon -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Objectifs d'Apprentissage</h2>
-        <ul class="textExemple">
-          <li>Comprendre l'utilité du modèle OSI</li>
-          <li>Mémoriser les 7 couches dans l'ordre</li>
-          <li>Connaître la fonction de chaque couche</li>
-          <li>Identifier les protocoles associés à chaque couche</li>
-          <li>Comprendre l'encapsulation des données</li>
-          <li>Comparer avec le modèle TCP/IP</li>
-        </ul>
-      </section>
+            <!-- Objectifs de la leçon -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Objectifs d'Apprentissage</h2>
+                <ul class="textExemple">
+                    <li>Comprendre l'utilité du modèle OSI</li>
+                    <li>Mémoriser les 7 couches dans l'ordre</li>
+                    <li>Connaître la fonction de chaque couche</li>
+                    <li>Identifier les protocoles associés à chaque couche</li>
+                    <li>Comprendre l'encapsulation des données</li>
+                    <li>Comparer avec le modèle TCP/IP</li>
+                </ul>
+            </section>
 
-      <!-- Vue d'ensemble des 7 couches -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Les 7 Couches du Modèle OSI</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Couches Hautes (Host Layers)</h3>
-            <pre><code class="text">7. Application
+            <!-- Vue d'ensemble des 7 couches -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Les 7 Couches du Modèle OSI</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Couches Hautes (Host Layers)</h3>
+                        <pre><code class="text">7. Application
    → Interface utilisateur
 6. Présentation
    → Formatage des données
@@ -51,22 +51,22 @@
    → Gestion des sessions
 4. Transport
    → Fiabilité des données</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Couches Basses (Media Layers)</h3>
-            <pre><code class="text">3. Réseau
+                    <div class="code-example">
+                        <h3 class="text-purple">Couches Basses (Media Layers)</h3>
+                        <pre><code class="text">3. Réseau
    → Adressage logique
 2. Liaison de données
    → Adressage physique
 1. Physique
    → Signal électrique/optique</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h3 class="text-purple">Mnémonique pour retenir l'ordre</h3>
-          <pre><code class="text">APplication (7)
+                <div class="textExemple">
+                    <h3 class="text-purple">Mnémonique pour retenir l'ordre</h3>
+                    <pre><code class="text">APplication (7)
 Présentation (6)
 Session (5)
 Transport (4)
@@ -75,26 +75,26 @@ Liaison (2)
 Physique (1)
 
 → "APPele Ton Réseau Local Physiquement"</code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Couche 7 - Application -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Couche 7 : Application</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Fonctions Principales</h3>
-            <pre><code class="text">• Interface avec l'utilisateur
+            <!-- Couche 7 - Application -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Couche 7 : Application</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Fonctions Principales</h3>
+                        <pre><code class="text">• Interface avec l'utilisateur
 • Services réseau aux applications
 • Identification des partenaires
 • Synchronisation de la communication
 • Contrôle de l'intégrité des données</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Protocoles et Exemples</h3>
-            <pre><code class="text">HTTP (Web)
+                    <div class="code-example">
+                        <h3 class="text-purple">Protocoles et Exemples</h3>
+                        <pre><code class="text">HTTP (Web)
 HTTPS (Web sécurisé)
 FTP (Transfert de fichiers)
 SMTP (Email)
@@ -102,105 +102,106 @@ DNS (Résolution de noms)
 DHCP (Attribution d'IP)
 
 Exemples: Navigateurs, Clients email</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h4 class="text-purple">Unité de données : Données (Data)</h4>
-          <p>Cette couche fournit des services directement aux applications utilisateur.</p>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h4 class="text-purple">Unité de données : Données (Data)</h4>
+                    <p>Cette couche fournit des services directement aux applications utilisateur.</p>
+                </div>
+            </section>
 
-      <!-- Couche 6 - Présentation -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Couche 6 : Présentation</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Fonctions Principales</h3>
-            <pre><code class="text">• Traduction des données
+            <!-- Couche 6 - Présentation -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Couche 6 : Présentation</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Fonctions Principales</h3>
+                        <pre><code class="text">• Traduction des données
 • Chiffrement/Déchiffrement
 • Compression/Décompression
 • Conversion des formats
 • Encodage/décodage</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Exemples Concrets</h3>
-            <pre><code class="text">• Conversion ASCII → EBCDIC
+                    <div class="code-example">
+                        <h3 class="text-purple">Exemples Concrets</h3>
+                        <pre><code class="text">• Conversion ASCII → EBCDIC
 • Chiffrement SSL/TLS
 • Compression JPEG, MPEG
 • Encodage Base64
 • Sérialisation JSON/XML</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h4 class="text-purple">Unité de données : Données (Data)</h4>
-          <p>Cette couche s'assure que les données sont dans un format compréhensible par le système récepteur.</p>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h4 class="text-purple">Unité de données : Données (Data)</h4>
+                    <p>Cette couche s'assure que les données sont dans un format compréhensible par le système
+                        récepteur.</p>
+                </div>
+            </section>
 
-      <!-- Couche 5 - Session -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Couche 5 : Session</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Fonctions Principales</h3>
-            <pre><code class="text">• Établissement des sessions
+            <!-- Couche 5 - Session -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Couche 5 : Session</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Fonctions Principales</h3>
+                        <pre><code class="text">• Établissement des sessions
 • Maintien des sessions
 • Fermeture des sessions
 • Synchronisation du dialogue
 • Gestion des jetons (tokens)</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Protocoles et Technologies</h3>
-            <pre><code class="text">• RPC (Remote Procedure Call)
+                    <div class="code-example">
+                        <h3 class="text-purple">Protocoles et Technologies</h3>
+                        <pre><code class="text">• RPC (Remote Procedure Call)
 • NetBIOS
 • PPTP (Point-to-Point Tunneling)
 • Sessions HTTP
 • Authentification</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h4 class="text-purple">Unité de données : Données (Data)</h4>
-          <p>Cette couche gère les dialogues entre les applications des différents ordinateurs.</p>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h4 class="text-purple">Unité de données : Données (Data)</h4>
+                    <p>Cette couche gère les dialogues entre les applications des différents ordinateurs.</p>
+                </div>
+            </section>
 
-      <!-- Couche 4 - Transport -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Couche 4 : Transport</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Fonctions Principales</h3>
-            <pre><code class="text">• Segmentation des données
+            <!-- Couche 4 - Transport -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Couche 4 : Transport</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Fonctions Principales</h3>
+                        <pre><code class="text">• Segmentation des données
 • Contrôle de flux
 • Contrôle d'erreurs
 • Multiplexage des connexions
 • Fiabilité de bout en bout</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Protocoles Clés</h3>
-            <pre><code class="text">TCP (Transmission Control Protocol)
+                    <div class="code-example">
+                        <h3 class="text-purple">Protocoles Clés</h3>
+                        <pre><code class="text">TCP (Transmission Control Protocol)
 → Connexion, fiable, contrôlé
 
 UDP (User Datagram Protocol)
 → Sans connexion, non fiable, rapide
 
 SCTP, DCCP</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">TCP vs UDP</h3>
-            <pre><code class="text">TCP (Fiable)
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">TCP vs UDP</h3>
+                        <pre><code class="text">TCP (Fiable)
 • Accusé de réception
 • Retransmission
 • Contrôle de flux
@@ -212,11 +213,11 @@ UDP (Rapide)
 • Pas de retransmission
 • Pas de contrôle de flux
 Ex: DNS, VoIP, Streaming</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">En-tête TCP</h3>
-            <pre><code class="text">Port Source (16 bits)
+                    <div class="code-example">
+                        <h3 class="text-purple">En-tête TCP</h3>
+                        <pre><code class="text">Port Source (16 bits)
 Port Destination (16 bits)
 Numéro de Séquence (32 bits)
 Numéro d'Acquittement (32 bits)
@@ -224,43 +225,43 @@ Drapeaux (SYN, ACK, FIN, etc.)
 Fenêtre (16 bits)
 Checksum (16 bits)
 Urgent Pointer (16 bits)</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h4 class="text-purple">Unité de données : Segment (TCP) / Datagram (UDP)</h4>
-          <p>Cette couche assure le transport fiable des données entre les systèmes d'extrémité.</p>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h4 class="text-purple">Unité de données : Segment (TCP) / Datagram (UDP)</h4>
+                    <p>Cette couche assure le transport fiable des données entre les systèmes d'extrémité.</p>
+                </div>
+            </section>
 
-      <!-- Couche 3 - Réseau -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Couche 3 : Réseau</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Fonctions Principales</h3>
-            <pre><code class="text">• Adressage logique (IP)
+            <!-- Couche 3 - Réseau -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Couche 3 : Réseau</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Fonctions Principales</h3>
+                        <pre><code class="text">• Adressage logique (IP)
 • Routage des paquets
 • Découverte de chemin
 • Fragmentation des paquets
 • Contrôle de congestion</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Protocoles et Équipements</h3>
-            <pre><code class="text">• IP (Internet Protocol)
+                    <div class="code-example">
+                        <h3 class="text-purple">Protocoles et Équipements</h3>
+                        <pre><code class="text">• IP (Internet Protocol)
 • ICMP (Ping, Traceroute)
 • RIP, OSPF, BGP (Routage)
 • Routers (Routeurs)
 • Couche 3 Switches</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">En-tête IP</h3>
-            <pre><code class="text">Version (4 bits)
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">En-tête IP</h3>
+                        <pre><code class="text">Version (4 bits)
 IHL (4 bits)
 Type of Service (8 bits)
 Longueur Totale (16 bits)
@@ -272,11 +273,11 @@ Protocole (8 bits)
 Checksum (16 bits)
 IP Source (32 bits)
 IP Destination (32 bits)</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Routage vs Commutation</h3>
-            <pre><code class="text">Routage (Couche 3)
+                    <div class="code-example">
+                        <h3 class="text-purple">Routage vs Commutation</h3>
+                        <pre><code class="text">Routage (Couche 3)
 • Basé sur adresses IP
 • Entre différents réseaux
 • Prend des décisions
@@ -287,32 +288,32 @@ Commutation (Couche 2)
 • Au sein d'un réseau
 • Plus rapide
 • Moins intelligent</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h4 class="text-purple">Unité de données : Paquet (Packet)</h4>
-          <p>Cette couche gère l'adressage logique et le routage entre différents réseaux.</p>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h4 class="text-purple">Unité de données : Paquet (Packet)</h4>
+                    <p>Cette couche gère l'adressage logique et le routage entre différents réseaux.</p>
+                </div>
+            </section>
 
-      <!-- Couche 2 - Liaison de données -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Couche 2 : Liaison de Données</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Fonctions Principales</h3>
-            <pre><code class="text">• Adressage physique (MAC)
+            <!-- Couche 2 - Liaison de données -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Couche 2 : Liaison de Données</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Fonctions Principales</h3>
+                        <pre><code class="text">• Adressage physique (MAC)
 • Accès au média
 • Contrôle d'erreurs
 • Synchronisation des trames
 • Contrôle de flux local</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Sous-couches</h3>
-            <pre><code class="text">LLC (Logical Link Control)
+                    <div class="code-example">
+                        <h3 class="text-purple">Sous-couches</h3>
+                        <pre><code class="text">LLC (Logical Link Control)
 • Interface avec couche réseau
 • Contrôle de flux
 
@@ -320,13 +321,13 @@ MAC (Media Access Control)
 • Accès au média physique
 • Adressage MAC
 • Détection d'erreurs</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Adresse MAC</h3>
-            <pre><code class="text">Format: XX:XX:XX:XX:XX:XX
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Adresse MAC</h3>
+                        <pre><code class="text">Format: XX:XX:XX:XX:XX:XX
 Exemple: 00:1B:44:11:3A:B7
 
 • 48 bits (6 octets)
@@ -334,55 +335,55 @@ Exemple: 00:1B:44:11:3A:B7
 • 24 derniers bits: Numéro série
 • Unique mondiale
 • Couche 2 uniquement</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Protocoles et Équipements</h3>
-            <pre><code class="text">• Ethernet (802.3)
+                    <div class="code-example">
+                        <h3 class="text-purple">Protocoles et Équipements</h3>
+                        <pre><code class="text">• Ethernet (802.3)
 • Wi-Fi (802.11)
 • PPP (Point-to-Point)
 • Switches (Commutateurs)
 • Bridges (Ponts)
 • ARP (Address Resolution)</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h4 class="text-purple">Unité de données : Trame (Frame)</h4>
-          <p>Cette couche gère la communication entre les appareils sur le même réseau local.</p>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h4 class="text-purple">Unité de données : Trame (Frame)</h4>
+                    <p>Cette couche gère la communication entre les appareils sur le même réseau local.</p>
+                </div>
+            </section>
 
-      <!-- Couche 1 - Physique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Couche 1 : Physique</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Fonctions Principales</h3>
-            <pre><code class="text">• Transmission des bits
+            <!-- Couche 1 - Physique -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Couche 1 : Physique</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Fonctions Principales</h3>
+                        <pre><code class="text">• Transmission des bits
 • Caractéristiques électriques
 • Caractéristiques physiques
 • Débit binaire
 • Synchronisation des bits
 • Topologie physique</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Composants et Standards</h3>
-            <pre><code class="text">• Câbles (Cuivre, Fibre)
+                    <div class="code-example">
+                        <h3 class="text-purple">Composants et Standards</h3>
+                        <pre><code class="text">• Câbles (Cuivre, Fibre)
 • Connecteurs (RJ45, USB)
 • Hubs (Concentrateurs)
 • Répéteurs
 • Cartes réseau (NIC)
 • Signaux radio (Wi-Fi)</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Types de Câbles</h3>
-            <pre><code class="text">Cuivre:
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Types de Câbles</h3>
+                        <pre><code class="text">Cuivre:
 • UTP (Cat5e, Cat6, Cat7)
 • STP (Blindé)
 • Coaxial
@@ -395,73 +396,73 @@ Sans fil:
 • Radio (Wi-Fi)
 • Infrarouge
 • Bluetooth</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Caractéristiques</h3>
-            <pre><code class="text">• Bande passante
+                    <div class="code-example">
+                        <h3 class="text-purple">Caractéristiques</h3>
+                        <pre><code class="text">• Bande passante
 • Atténuation
 • Diaphonie (Crosstalk)
 • Immunité au bruit
 • Impédance
 • Longueur maximale</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h4 class="text-purple">Unité de données : Bit</h4>
-          <p>Cette couche transmet physiquement les bits bruts sur le support de communication.</p>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h4 class="text-purple">Unité de données : Bit</h4>
+                    <p>Cette couche transmet physiquement les bits bruts sur le support de communication.</p>
+                </div>
+            </section>
 
-      <!-- Processus d'encapsulation -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Processus d'Encapsulation</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Émission (Encapsulation)</h3>
-            <pre><code class="text">7. Données de l'application
+            <!-- Processus d'encapsulation -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Processus d'Encapsulation</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Émission (Encapsulation)</h3>
+                        <pre><code class="text">7. Données de l'application
 6. + En-tête Présentation
 5. + En-tête Session
 4. + En-tête Transport → Segment
 3. + En-tête Réseau → Paquet
 2. + En-tête Liaison → Trame
 1. Conversion en bits → Transmission</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Réception (Désencapsulation)</h3>
-            <pre><code class="text">1. Réception des bits
+                    <div class="code-example">
+                        <h3 class="text-purple">Réception (Désencapsulation)</h3>
+                        <pre><code class="text">1. Réception des bits
 2. - En-tête Liaison → Trame
 3. - En-tête Réseau → Paquet
 4. - En-tête Transport → Segment
 5. - En-tête Session
 6. - En-tête Présentation
 7. Données pour l'application</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h3 class="text-purple">Exemple Concret - Envoi d'un Email</h3>
-          <pre><code class="text">Application: Compose le message
+                <div class="textExemple">
+                    <h3 class="text-purple">Exemple Concret - Envoi d'un Email</h3>
+                    <pre><code class="text">Application: Compose le message
 Présentation: Chiffre le contenu
 Session: Établit la connexion SMTP
 Transport: Segmente en paquets TCP
 Réseau: Ajoute les adresses IP
 Liaison: Ajoute les adresses MAC
 Physique: Envoie les bits sur le câble</code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Comparaison OSI vs TCP/IP -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">OSI vs TCP/IP</h2>
-        
-        <div class="code-comparison">
-          <div class="code-example">
-            <h3 class="text-purple">Modèle OSI (7 couches)</h3>
-            <pre><code class="text">7. Application
+            <!-- Comparaison OSI vs TCP/IP -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">OSI vs TCP/IP</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h3 class="text-purple">Modèle OSI (7 couches)</h3>
+                        <pre><code class="text">7. Application
 6. Présentation
 5. Session
 4. Transport
@@ -473,11 +474,11 @@ Physique: Envoie les bits sur le câble</code></pre>
 → Standard international
 → Pédagogique
 → Moins utilisé en pratique</code></pre>
-          </div>
+                    </div>
 
-          <div class="code-example">
-            <h3 class="text-purple">Modèle TCP/IP (4 couches)</h3>
-            <pre><code class="text">Application
+                    <div class="code-example">
+                        <h3 class="text-purple">Modèle TCP/IP (4 couches)</h3>
+                        <pre><code class="text">Application
    (OSI 5-7)
 Transport
    (OSI 4)
@@ -490,12 +491,12 @@ Network Access
 → Implémentation réelle
 → Base d'Internet
 → Plus simple</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h3 class="text-purple">Correspondance des Couches</h3>
-          <pre><code class="text">OSI           TCP/IP
+                <div class="textExemple">
+                    <h3 class="text-purple">Correspondance des Couches</h3>
+                    <pre><code class="text">OSI           TCP/IP
 Application → Application
 Présentation
 Session
@@ -503,180 +504,180 @@ Transport   → Transport
 Réseau      → Internet
 Liaison     → Network Access
 Physique</code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Exercice pratique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exercice Pratique</h2>
-        
-        <div class="exercise">
-          <h3 class="text-purple">Énoncé</h3>
-          <p class="textExemple">
-            Vous êtes administrateur réseau et devez résoudre un problème de connexion. 
-            Un utilisateur ne peut pas accéder à un site web, mais peut ping l'adresse IP du site.
-          </p>
-          
-          <p class="textExemple">
-            En utilisant le modèle OSI, déterminez :
-          </p>
-          <ul class="textExemple">
-            <li>Quelles couches fonctionnent correctement ?</li>
-            <li>Sur quelle couche se situe probablement le problème ?</li>
-            <li>Quels diagnostics supplémentaires effectuer ?</li>
-            <li>Quelles solutions potentielles proposer ?</li>
-          </ul>
-        </div>
+            <!-- Exercice pratique -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exercice Pratique</h2>
 
-        <details class="solution">
-          <summary class="btn-purple btn-hover">Voir la Solution</summary>
-          <div class="solution-content">
-            <h4 class="text-purple">Analyse par Couches OSI</h4>
-            
-            <div class="textExemple">
-              <h5 class="text-purple">1. Couches fonctionnelles</h5>
-              <pre><code class="text">Ping réussi → Les couches basses fonctionnent:
+                <div class="exercise">
+                    <h3 class="text-purple">Énoncé</h3>
+                    <p class="textExemple">
+                        Vous êtes administrateur réseau et devez résoudre un problème de connexion.
+                        Un utilisateur ne peut pas accéder à un site web, mais peut ping l'adresse IP du site.
+                    </p>
+
+                    <p class="textExemple">
+                        En utilisant le modèle OSI, déterminez :
+                    </p>
+                    <ul class="textExemple">
+                        <li>Quelles couches fonctionnent correctement ?</li>
+                        <li>Sur quelle couche se situe probablement le problème ?</li>
+                        <li>Quels diagnostics supplémentaires effectuer ?</li>
+                        <li>Quelles solutions potentielles proposer ?</li>
+                    </ul>
+                </div>
+
+                <details class="solution">
+                    <summary class="btn-purple btn-hover">Voir la Solution</summary>
+                    <div class="solution-content">
+                        <h4 class="text-purple">Analyse par Couches OSI</h4>
+
+                        <div class="textExemple">
+                            <h5 class="text-purple">1. Couches fonctionnelles</h5>
+                            <pre><code class="text">Ping réussi → Les couches basses fonctionnent:
 • Physique (1): Câbles OK
 • Liaison (2): Connexion locale OK  
 • Réseau (3): Routage IP OK
 • Transport (4): ICMP (ping) fonctionne</code></pre>
-            </div>
+                        </div>
 
-            <div class="textExemple">
-              <h5 class="text-purple">2. Couche problématique</h5>
-              <pre><code class="text">Le problème se situe probablement à la:
+                        <div class="textExemple">
+                            <h5 class="text-purple">2. Couche problématique</h5>
+                            <pre><code class="text">Le problème se situe probablement à la:
 • Couche Application (7): HTTP/HTTPS
 • Ou Couche Session (5): Gestion session web
 • Ou Couche Présentation (6): Chiffrement SSL</code></pre>
-            </div>
+                        </div>
 
-            <div class="textExemple">
-              <h5 class="text-purple">3. Diagnostics supplémentaires</h5>
-              <pre><code class="text">• Tester avec HTTP vs HTTPS
+                        <div class="textExemple">
+                            <h5 class="text-purple">3. Diagnostics supplémentaires</h5>
+                            <pre><code class="text">• Tester avec HTTP vs HTTPS
 • Vérifier les paramètres proxy
 • Tester un autre navigateur
 • Vérifier le firewall
 • Tester le port 80/443: telnet site.com 80
 • Vérifier les certificats SSL
 • Analyser avec Wireshark</code></pre>
-            </div>
+                        </div>
 
-            <div class="textExemple">
-              <h5 class="text-purple">4. Solutions potentielles</h5>
-              <pre><code class="text">• Réinitialiser les paramètres navigateur
+                        <div class="textExemple">
+                            <h5 class="text-purple">4. Solutions potentielles</h5>
+                            <pre><code class="text">• Réinitialiser les paramètres navigateur
 • Vérifier la configuration proxy
 • Désactiver temporairement le firewall
 • Mettre à jour les certificats
 • Vérifier les paramètres DNS
 • Redémarrer les services réseau</code></pre>
-            </div>
-          </div>
-        </details>
-      </section>
+                        </div>
+                    </div>
+                </details>
+            </section>
 
-      <!-- Tableau récapitulatif -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Tableau Récapitulatif des Couches OSI</h2>
-        
-        <div class="textExemple">
-          <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
-            <thead>
-              <tr style="background: #6A3093; color: white;">
-                <th style="padding: 12px; border: 1px solid #ddd;">Couche</th>
-                <th style="padding: 12px; border: 1px solid #ddd;">Fonction</th>
-                <th style="padding: 12px; border: 1px solid #ddd;">Unité</th>
-                <th style="padding: 12px; border: 1px solid #ddd;">Protocoles</th>
-                <th style="padding: 12px; border: 1px solid #ddd;">Équipements</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">7. Application</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Interface utilisateur</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Données</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">HTTP, FTP, SMTP</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">PC, Serveurs</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">6. Présentation</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Formatage données</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Données</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">SSL, JPEG, MPEG</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Gateways</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">5. Session</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Gestion sessions</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Données</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">NetBIOS, RPC</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Gateways</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">4. Transport</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Fiabilité données</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Segment</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">TCP, UDP</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Gateways</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">3. Réseau</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Routage logique</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Paquet</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">IP, ICMP</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Routeurs</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">2. Liaison</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Accès média</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Trame</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Ethernet, Wi-Fi</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Switches</td>
-              </tr>
-              <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">1. Physique</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Transmission bits</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Bit</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">RJ45, Fiber</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">Hubs, Câbles</td>
-              </tr>
-            </tbody>
-          </table>
+            <!-- Tableau récapitulatif -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Tableau Récapitulatif des Couches OSI</h2>
+
+                <div class="textExemple">
+                    <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                        <thead>
+                            <tr style="background: #6A3093; color: white;">
+                                <th style="padding: 12px; border: 1px solid #ddd;">Couche</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Fonction</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Unité</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Protocoles</th>
+                                <th style="padding: 12px; border: 1px solid #ddd;">Équipements</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">7. Application</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Interface utilisateur</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Données</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">HTTP, FTP, SMTP</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">PC, Serveurs</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">6. Présentation</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Formatage données</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Données</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">SSL, JPEG, MPEG</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Gateways</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">5. Session</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Gestion sessions</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Données</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">NetBIOS, RPC</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Gateways</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">4. Transport</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Fiabilité données</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Segment</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">TCP, UDP</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Gateways</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">3. Réseau</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Routage logique</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Paquet</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">IP, ICMP</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Routeurs</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">2. Liaison</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Accès média</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Trame</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Ethernet, Wi-Fi</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Switches</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">1. Physique</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Transmission bits</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Bit</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">RJ45, Fiber</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Hubs, Câbles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Checklist de connaissances -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Checklist de Connaissances</h2>
+
+                <div class="textExemple">
+                    <ul>
+                        <li>✅ Nommer les 7 couches OSI dans l'ordre</li>
+                        <li>✅ Expliquer la fonction de chaque couche</li>
+                        <li>✅ Associer les protocoles aux couches appropriées</li>
+                        <li>✅ Différencier les unités de données par couche</li>
+                        <li>✅ Comprendre le processus d'encapsulation</li>
+                        <li>✅ Comparer OSI avec TCP/IP</li>
+                        <li>✅ Résoudre des problèmes réseau avec l'approche OSI</li>
+                        <li>✅ Identifier les équipements par couche</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Conclusion</h2>
+                <p class="textExemple">
+                    Le modèle OSI reste une référence fondamentale pour comprendre les réseaux informatiques.
+                    Bien que le modèle TCP/IP soit plus utilisé en pratique, la connaissance du modèle OSI
+                    est essentielle pour le dépannage, la conception et la compréhension des réseaux.
+                </p>
+                <p class="textExemple">
+                    L'approche par couches permet de modulariser les problèmes complexes et facilite
+                    l'interopérabilité entre les différents fabricants et technologies.
+                </p>
+            </section>
         </div>
-      </section>
-
-      <!-- Checklist de connaissances -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Checklist de Connaissances</h2>
-        
-        <div class="textExemple">
-          <ul>
-            <li>✅ Nommer les 7 couches OSI dans l'ordre</li>
-            <li>✅ Expliquer la fonction de chaque couche</li>
-            <li>✅ Associer les protocoles aux couches appropriées</li>
-            <li>✅ Différencier les unités de données par couche</li>
-            <li>✅ Comprendre le processus d'encapsulation</li>
-            <li>✅ Comparer OSI avec TCP/IP</li>
-            <li>✅ Résoudre des problèmes réseau avec l'approche OSI</li>
-            <li>✅ Identifier les équipements par couche</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Conclusion -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Conclusion</h2>
-        <p class="textExemple">
-          Le modèle OSI reste une référence fondamentale pour comprendre les réseaux informatiques. 
-          Bien que le modèle TCP/IP soit plus utilisé en pratique, la connaissance du modèle OSI 
-          est essentielle pour le dépannage, la conception et la compréhension des réseaux.
-        </p>
-        <p class="textExemple">
-          L'approche par couches permet de modulariser les problèmes complexes et facilite 
-          l'interopérabilité entre les différents fabricants et technologies.
-        </p>
-      </section>
     </div>
-  </div>
 </template>
 
 <script>
@@ -817,7 +818,8 @@ Physique</code></pre>
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example, .code-block {
+.code-example,
+.code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -844,15 +846,19 @@ pre {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap; /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Casse les mots longs */
-    word-break: break-word; /* Assure la césure des mots */
+    white-space: pre-wrap;
+    /* Permet le retour à la ligne */
+    word-wrap: break-word;
+    /* Casse les mots longs */
+    word-break: break-word;
+    /* Assure la césure des mots */
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
-    white-space: pre-wrap; /* Retour à la ligne automatique */
+    white-space: pre-wrap;
+    /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -861,20 +867,54 @@ pre code {
 }
 
 /* Couleurs pour différents types de code */
-.keyword { color: #c586c0 !important; }
-.variable { color: #9cdcfe !important; }
-.string { color: #ce9178 !important; }
-.comment { color: #6a9955 !important; }
-.function { color: #dcdcaa !important; }
-.operator { color: #d4d4d4 !important; }
-.constant { color: #4fc1ff !important; }
-.number { color: #b5cea8 !important; }
-.class-name { color: #4ec9b0 !important; }
+.keyword {
+    color: #c586c0 !important;
+}
+
+.variable {
+    color: #9cdcfe !important;
+}
+
+.string {
+    color: #ce9178 !important;
+}
+
+.comment {
+    color: #6a9955 !important;
+}
+
+.function {
+    color: #dcdcaa !important;
+}
+
+.operator {
+    color: #d4d4d4 !important;
+}
+
+.constant {
+    color: #4fc1ff !important;
+}
+
+.number {
+    color: #b5cea8 !important;
+}
+
+.class-name {
+    color: #4ec9b0 !important;
+}
 
 /* Styles spécifiques pour le texte réseau */
-.text { color: #d4d4d4 !important; }
-.cmd .keyword { color: #569cd6 !important; }
-.bash .keyword { color: #569cd6 !important; }
+.text {
+    color: #d4d4d4 !important;
+}
+
+.cmd .keyword {
+    color: #569cd6 !important;
+}
+
+.bash .keyword {
+    color: #569cd6 !important;
+}
 
 /* Exercices et solutions */
 .exercise {
@@ -917,10 +957,11 @@ table {
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     border: 1px solid #e0d6ff;
     text-align: left;
@@ -941,29 +982,29 @@ tr:nth-child(even) {
     .lesson-container {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 2rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 2rem;
     }
-    
+
     .lesson-section {
         padding: 1.5rem;
     }
-    
+
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
     }
-    
+
     /* Tableau responsive */
     table {
         display: block;
@@ -977,24 +1018,25 @@ tr:nth-child(even) {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-    
+
     .lesson-container {
         padding: 0.5rem;
     }
-    
+
     .lesson-section {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 1.75rem;
     }
-    
-    th, td {
+
+    th,
+    td {
         padding: 8px;
         font-size: 0.9rem;
     }
@@ -1013,6 +1055,7 @@ tr:nth-child(even) {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1023,9 +1066,23 @@ tr:nth-child(even) {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lesson-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
 </style>
