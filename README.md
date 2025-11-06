@@ -34,7 +34,6 @@
 - faille xss
 ================================================================================
 # Audit
-- audit de dépendances
 - O1 On On2 Ologn
 - test unitaire
 - structure de code

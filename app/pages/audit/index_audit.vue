@@ -104,6 +104,22 @@
             </div>
         </div>
 
+                <!-- =============================================================\\T//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">T</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Tests Unitaire</h5>
+                <p class="card-text">Les test unitaire dans un context d'audit</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/test_unitaire">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
 
 
 
