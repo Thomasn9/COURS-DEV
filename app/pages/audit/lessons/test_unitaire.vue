@@ -299,34 +299,13 @@ Time: 2.4s</code></pre>
           une approche professionnelle du développement et une préoccupation 
           pour la qualité à long terme.
         </p>
-        <a href="#" class="btn-purple btn-hover">Passer à la leçon suivante</a>
       </section>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'LessonUnitTestsAudit',
-  data() {
-    return {
-      lessonTitle: 'Tests Unitaires dans un Audit',
-      lessonDescription: 'Comprendre et implémenter des tests unitaires efficaces dans le cadre d\'un audit de code'
-    }
-  },
-  head() {
-    return {
-      title: this.lessonTitle,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.lessonDescription
-        }
-      ]
-    }
-  }
-}
+
 </script>
 
 <style scoped>
