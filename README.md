@@ -8,7 +8,6 @@
 - quest ce que c'est le DTO
 - jsonResponse
 - fil-get-content
-- Le rooting en MVC
 - rajouter au switch case le rooting
 ================================================================================
 # SQL
