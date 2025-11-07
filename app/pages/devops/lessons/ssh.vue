@@ -21,29 +21,83 @@
         </ul>
       </section>
 
-      <!-- Concepts fondamentaux -->
+      <!-- Guide complet de connexion -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Concepts fondamentaux</h2>
+        <h2 class="text-purple">Guide complet : Se connecter à un serveur SSH</h2>
         
         <div class="code-example">
-          <h3 class="text-purple">Architecture client-serveur</h3>
-          <p>SSH fonctionne selon un modèle client-serveur :</p>
-          <pre><code>Client SSH → Serveur SSH (sshd)</code></pre>
+          <h3 class="text-purple">Prérequis pour la connexion</h3>
+          <ul class="textExemple">
+            <li>Adresse IP ou nom de domaine du serveur</li>
+            <li>Nom d'utilisateur valide sur le serveur</li>
+            <li>Port SSH (généralement 22)</li>
+            <li>Mot de passe ou clé SSH pour l'authentification</li>
+          </ul>
         </div>
 
         <div class="code-example">
-          <h3 class="text-purple">Méthodes d'authentification</h3>
-          <ul>
-            <li>Authentification par mot de passe</li>
-            <li>Authentification par clé publique/privée (recommandée)</li>
-          </ul>
+          <h3 class="text-purple">Étape 1 : Vérifier l'accessibilité du serveur</h3>
+          <pre><code class="language-bash"><span class="comment"># Tester si le serveur est accessible</span>
+ping <span class="variable">adresse_du_serveur</span>
+
+<span class="comment"># Vérifier si le port SSH est ouvert</span>
+telnet <span class="variable">adresse_du_serveur</span> <span class="number">22</span>
+<span class="comment"># ou</span>
+nc -zv <span class="variable">adresse_du_serveur</span> <span class="number">22</span></code></pre>
+        </div>
+
+        <div class="code-example">
+          <h3 class="text-purple">Étape 2 : Première connexion</h3>
+          <pre><code class="language-bash"><span class="comment"># Syntaxe de base</span>
+ssh <span class="variable">utilisateur</span>@<span class="variable">adresse_du_serveur</span>
+
+<span class="comment"># Exemples concrets</span>
+ssh john@192.168.1.100
+ssh admin@monserveur.com
+
+<span class="comment"># Avec un port personnalisé</span>
+ssh -p <span class="number">2222</span> utilisateur@adresse_du_serveur</code></pre>
+          
+          <div class="textExemple">
+            <p><strong>Ce qui se passe lors de la première connexion :</strong></p>
+            <ul>
+              <li>Le client SSH vous avertit si c'est la première fois que vous vous connectez à ce serveur</li>
+              <li>L'empreinte cryptographique du serveur est affichée</li>
+              <li>Vous devez accepter cette empreinte pour continuer</li>
+              <li>Ensuite, vous serez invité à saisir votre mot de passe</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="code-example">
+          <h3 class="text-purple">Étape 3 : Comprendre l'empreinte SSH</h3>
+          <pre><code class="language-bash"><span class="comment"># Lors de la première connexion, vous verrez :</span>
+The authenticity of host '192.168.1.100 (192.168.1.100)' can't be established.
+ECDSA key fingerprint is SHA256:AbCdEfGhIjKlMnOpQrStUvWxYz0123456789.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?</code></pre>
+          
+          <p class="textExemple">
+            <strong>Important :</strong> Cette étape de vérification est cruciale pour éviter les attaques "man-in-the-middle". 
+            Si l'empreinte change ultérieurement, SSH vous avertira d'une possible attaque.
+          </p>
         </div>
       </section>
 
-      <!-- Installation et configuration -->
+      <!-- Installation et prérequis -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Installation et configuration</h2>
+        <h2 class="text-purple">Installation et prérequis</h2>
         
+        <div class="code-example">
+          <h3 class="text-purple">Prérequis importants</h3>
+          <div class="warning-box">
+            <p><strong>⚠️ Attention :</strong> Pour installer OpenSSH, vous devez être un utilisateur avec des droits <strong>sudo</strong>.</p>
+            <p>Si vous n'avez pas les droits sudo, consultez notre leçon sur <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="/devops/lessons/permission_utilisateur">
+                    la gestion des permissions et des utilisateurs Linux
+                </NuxtLink>pour apprendre comment les obtenir.</p>
+          </div>
+        </div>
+
         <div class="code-comparison">
           <div class="code-example">
             <h3 class="text-purple">Installation côté client</h3>
@@ -72,52 +126,52 @@
 <span class="keyword">sudo</span> systemctl enable ssh</code></pre>
           </div>
         </div>
-      </section>
-
-      <!-- Utilisation basique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Utilisation basique de SSH</h2>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Connexion simple</h3>
-          <pre><code class="language-bash"><span class="comment"># Syntaxe de base</span>
-ssh <span class="variable">utilisateur</span>@<span class="variable">hôte</span>
-
-<span class="comment"># Exemple</span>
-ssh john@192.168.1.100
-ssh admin@monserveur.com</code></pre>
-        </div>
 
         <div class="code-example">
-          <h3 class="text-purple">Spécifier un port différent</h3>
-          <pre><code class="language-bash"><span class="comment"># Le port par défaut est 22</span>
-<span class="comment"># Pour utiliser un port différent :</span>
-ssh -p <span class="number">2222</span> utilisateur@hôte</code></pre>
+          <h3 class="text-purple">Vérification des droits sudo</h3>
+          <pre><code class="language-bash"><span class="comment"># Vérifier si vous avez les droits sudo</span>
+<span class="keyword">sudo</span> -l
+
+<span class="comment"># Si vous recevez une erreur, vous n'avez pas les droits nécessaires</span>
+<span class="comment"># Consultez un administrateur système ou notre leçon sur les permissions</span></code></pre>
         </div>
       </section>
 
-      <!-- Clés SSH -->
+      <!-- Authentification par clés SSH -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Authentification par clés SSH</h2>
+        <h2 class="text-purple">Authentification par clés SSH (méthode recommandée)</h2>
         
         <div class="code-example">
-          <h3 class="text-purple">Génération de clés</h3>
-          <pre><code class="language-bash"><span class="comment"># Générer une paire de clés RSA (4096 bits)</span>
-ssh-keygen -t rsa -b <span class="number">4096</span> -C <span class="string">"votre_email@exemple.com"</span>
+          <h3 class="text-purple">Génération de clés SSH</h3>
+          <pre><code class="language-bash"><span class="comment"># Vérifier les clés existantes</span>
+ls -la ~/.ssh/
 
 <span class="comment"># Générer une paire de clés Ed25519 (plus sécurisée)</span>
-ssh-keygen -t ed25519 -C <span class="string">"votre_email@exemple.com"</span>
+ssh-keygen -t ed25519 -C "<span class="variable">votre_email@exemple.com</span>"
 
-<span class="comment"># Emplacement par défaut : ~/.ssh/id_rsa (privée) et ~/.ssh/id_rsa.pub (publique)</span></code></pre>
+<span class="comment"># Ou avec RSA (compatible avec les anciens systèmes)</span>
+ssh-keygen -t rsa -b <span class="number">4096</span> -C "<span class="variable">votre_email@exemple.com</span>"
+
+<span class="comment"># Pendant la génération :</span>
+<span class="comment">- Choisir un emplacement (Entrée pour ~/.ssh/id_ed25519)</span>
+<span class="comment">- Définir une passphrase (recommandé)</span></code></pre>
         </div>
 
         <div class="code-example">
           <h3 class="text-purple">Copie de la clé publique sur le serveur</h3>
           <pre><code class="language-bash"><span class="comment"># Méthode automatique</span>
-ssh-copy-id utilisateur@hôte
+ssh-copy-id -i ~/.ssh/id_ed25519.pub <span class="variable">utilisateur</span>@<span class="variable">adresse_du_serveur</span>
 
 <span class="comment"># Méthode manuelle</span>
-cat ~/.ssh/id_rsa.pub | ssh utilisateur@hôte <span class="string">"mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"</span></code></pre>
+cat ~/.ssh/id_ed25519.pub | ssh <span class="variable">utilisateur</span>@<span class="variable">adresse_du_serveur</span> "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"</code></pre>
+        </div>
+
+        <div class="code-example">
+          <h3 class="text-purple">Test de la connexion avec clé SSH</h3>
+          <pre><code class="language-bash"><span class="comment"># Se connecter sans mot de passe</span>
+ssh <span class="variable">utilisateur</span>@<span class="variable">adresse_du_serveur</span>
+
+<span class="comment"># Si vous avez utilisé une passphrase, vous la saisirez une fois par session</span></code></pre>
         </div>
       </section>
 
@@ -155,9 +209,9 @@ scp -r mondossier utilisateur@hôte:/chemin/destination/</code></pre>
         </div>
       </section>
 
-      <!-- Sécurité -->
+      <!-- Sécurité et bonnes pratiques -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Bonnes pratiques de sécurité</h2>
+        <h2 class="text-purple">Sécurité et bonnes pratiques</h2>
         
         <div class="code-example">
           <h3 class="text-purple">Renforcer la sécurité SSH</h3>
@@ -169,9 +223,7 @@ scp -r mondossier utilisateur@hôte:/chemin/destination/</code></pre>
 <span class="variable">PermitRootLogin</span> no           <span class="comment"># Interdire la connexion root directe</span>
 <span class="variable">PasswordAuthentication</span> no   <span class="comment"># Désactiver l'authentification par mot de passe</span>
 <span class="variable">PubkeyAuthentication</span> yes    <span class="comment"># Activer l'authentification par clé</span>
-<span class="variable">MaxAuthTries</span> <span class="number">3</span>               <span class="comment"># Limiter les tentatives d'authentification</span>
-<span class="variable">ClientAliveInterval</span> <span class="number">300</span>     <span class="comment"># Déconnexion automatique après inactivité</span>
-<span class="variable">ClientAliveCountMax</span> <span class="number">2</span></code></pre>
+<span class="variable">MaxAuthTries</span> <span class="number">3</span>               <span class="comment"># Limiter les tentatives d'authentification</span></code></pre>
         </div>
 
         <div class="code-example">
@@ -181,6 +233,40 @@ scp -r mondossier utilisateur@hôte:/chemin/destination/</code></pre>
 
 <span class="comment"># Vérifier le statut</span>
 <span class="keyword">sudo</span> systemctl status ssh</code></pre>
+        </div>
+      </section>
+
+      <!-- Résolution des problèmes -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Résolution des problèmes courants</h2>
+        
+        <div class="code-example">
+          <h3 class="text-purple">Problème : Connexion refusée</h3>
+          <pre><code class="language-bash"><span class="comment"># Vérifier le service SSH sur le serveur</span>
+ssh <span class="variable">utilisateur</span>@<span class="variable">adresse_du_serveur</span>
+<span class="comment"># Erreur : Connection refused</span>
+
+<span class="comment"># Solutions :</span>
+<span class="comment">- Vérifier que le serveur SSH est démarré</span>
+<span class="comment">- Vérifier le firewall</span>
+<span class="comment">- Vérifier le port SSH</span></code></pre>
+        </div>
+
+        <div class="code-example">
+          <h3 class="text-purple">Problème : Permission denied</h3>
+          <pre><code class="language-bash"><span class="comment"># Vérifier l'authentification</span>
+ssh -v <span class="variable">utilisateur</span>@<span class="variable">adresse_du_serveur</span>
+
+<span class="comment"># Solutions :</span>
+<span class="comment">- Vérifier le nom d'utilisateur/mot de passe</span>
+<span class="comment">- Vérifier les permissions des clés SSH</span>
+<span class="comment">- Vérifier que l'utilisateur existe sur le serveur</span></code></pre>
+        </div>
+
+        <div class="code-example">
+          <h3 class="text-purple">Mode debug pour diagnostiquer les problèmes</h3>
+          <pre><code class="language-bash"><span class="comment"># Afficher les informations de débogage détaillées</span>
+ssh -vvv <span class="variable">utilisateur</span>@<span class="variable">adresse_du_serveur</span></code></pre>
         </div>
       </section>
 
@@ -245,7 +331,7 @@ scp -r mondossier utilisateur@hôte:/chemin/destination/</code></pre>
           <ul>
             <li><a href="https://www.ssh.com/academy/ssh" class="btn-purple btn-hover" target="_blank">Documentation officielle SSH</a></li>
             <li><a href="https://man.openbsd.org/ssh" class="btn-purple btn-hover" target="_blank">Manuel SSH</a></li>
-            <li><a href="https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server" class="btn-purple btn-hover" target="_blank">Tutoriel DigitalOcean</a></li>
+            <li><a href="/lessons/linux-permissions" class="btn-purple btn-hover">Leçon sur les permissions Linux</a></li>
           </ul>
         </div>
       </section>
@@ -343,6 +429,21 @@ scp -r mondossier utilisateur@hôte:/chemin/destination/</code></pre>
     color: white !important;
 }
 
+/* Warning box */
+.warning-box {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid #fdcb6e;
+}
+
+.warning-box p {
+    margin-bottom: 0.5rem;
+    color: #856404;
+}
+
 /* Boutons */
 .btn-purple {
     background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
@@ -417,15 +518,15 @@ pre {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap; /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Casse les mots longs */
-    word-break: break-word; /* Assure la césure des mots */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
-    white-space: pre-wrap; /* Retour à la ligne automatique */
+    white-space: pre-wrap;
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -433,16 +534,16 @@ pre code {
     word-break: break-word;
 }
 
-/* Couleurs VS Code pour la syntaxe JavaScript */
-.keyword { color: #c586c0 !important; } /* Mots-clés (for, while, if, function, etc.) */
-.variable { color: #9cdcfe !important; } /* Variables et noms de fonctions */
-.string { color: #ce9178 !important; } /* Chaînes de caractères */
-.comment { color: #6a9955 !important; } /* Commentaires */
-.function { color: #dcdcaa !important; } /* Noms de fonctions */
-.operator { color: #d4d4d4 !important; } /* Opérateurs (+, -, =, =>, etc.) */
-.constant { color: #4fc1ff !important; } /* Constantes */
-.number { color: #b5cea8 !important; } /* Nombres */
-.class-name { color: #4ec9b0 !important; } /* Noms de classes */
+/* Couleurs VS Code pour la syntaxe */
+.keyword { color: #c586c0 !important; }
+.variable { color: #9cdcfe !important; }
+.string { color: #ce9178 !important; }
+.comment { color: #6a9955 !important; }
+.function { color: #dcdcaa !important; }
+.operator { color: #d4d4d4 !important; }
+.constant { color: #4fc1ff !important; }
+.number { color: #b5cea8 !important; }
+.class-name { color: #4ec9b0 !important; }
 
 /* Exercices et solutions */
 .exercise {
