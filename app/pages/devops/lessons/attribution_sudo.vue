@@ -84,6 +84,9 @@ su -
 <span class="comment"># Ajouter l'utilisateur au groupe sudo</span>
 usermod -aG sudo nom_utilisateur
 
+<span class="comment"># OU utiliser le chemin complet (si usermod n'est pas dans le PATH)</span>
+/sbin/usermod -aG sudo nom_utilisateur
+
 <span class="comment"># Vérifier l'ajout</span>
 groups nom_utilisateur</code></pre>
                 </div>
@@ -92,6 +95,9 @@ groups nom_utilisateur</code></pre>
                     <h3 class="text-purple">Pour CentOS/RHEL/Fedora</h3>
                     <pre><code class="language-bash"><span class="comment"># Sur les systèmes utilisant le groupe 'wheel'</span>
 usermod -aG wheel nom_utilisateur
+
+<span class="comment"># OU utiliser le chemin complet</span>
+/sbin/usermod -aG wheel nom_utilisateur
 
 <span class="comment"># Vérifier l'ajout</span>
 groups nom_utilisateur</code></pre>
@@ -102,8 +108,38 @@ groups nom_utilisateur</code></pre>
                     <pre><code class="language-bash"><span class="comment"># Ajouter au groupe wheel</span>
 usermod -aG wheel nom_utilisateur
 
+<span class="comment"># OU utiliser le chemin complet</span>
+/sbin/usermod -aG wheel nom_utilisateur
+
 <span class="comment"># Vérifier que wheel est configuré dans sudoers</span>
 grep wheel /etc/sudoers</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Utilisation de /sbin/usermod</h3>
+                    <pre><code class="language-bash"><span class="comment"># Pourquoi utiliser /sbin/usermod ?</span>
+<span class="comment"># - Garantit que la bonne commande est utilisée</span>
+<span class="comment"># - Évite les conflits avec des alias</span>
+<span class="comment"># - Fonctionne même si le PATH est mal configuré</span>
+
+<span class="comment"># Vérifier l'emplacement de usermod</span>
+which usermod
+<span class="comment"># ou</span>
+whereis usermod
+
+<span class="comment"># Sur la plupart des systèmes, usermod se trouve dans /sbin/ ou /usr/sbin/</span>
+ls -la /sbin/usermod
+ls -la /usr/sbin/usermod</code></pre>
+
+                    <div class="textExemple">
+                        <p><strong>Quand utiliser le chemin complet :</strong></p>
+                        <ul>
+                            <li>Dans les scripts système pour plus de fiabilité</li>
+                            <li>Quand vous travaillez avec des environnements shell restreints</li>
+                            <li>Si la commande <code>usermod</code> n'est pas trouvée</li>
+                            <li>Pour éviter les alias personnalisés</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="textExemple">
@@ -113,6 +149,7 @@ grep wheel /etc/sudoers</code></pre>
                         <li>✅ Gestion centralisée via les groupes</li>
                         <li>✅ Facile à auditer</li>
                         <li>✅ Moins de risques d'erreur</li>
+                        <li>✅ Compatible avec toutes les distributions</li>
                     </ul>
                 </div>
             </section>
