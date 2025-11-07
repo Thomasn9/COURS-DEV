@@ -39,9 +39,7 @@
 - l'extension sonarQube sur vs code
 ================================================================================
 # devops
-- gitea
-- jenkins
-- choas monkey de netflix
+- ansible
 ================================================================================
 # les outils site ou autre cool 
 - jira
@@ -52,6 +50,13 @@
 - graphana
 - apache Jmetter
 - vitest
+- gitea
+- jenkins
+- choas monkey de netflix
+================================================================================
+# Linux
+- quest ce que linux
+
 ================================================================================
 # Nuxt Minimal Starter
 
