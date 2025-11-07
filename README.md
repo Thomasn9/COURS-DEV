@@ -21,6 +21,10 @@
 - add-event-listner
 ================================================================================
 # Vue
+- v-if
+- v-on
+- v-for
+- v-pre
 - crée un projet vue via vite
 - variables
 - rooting vue

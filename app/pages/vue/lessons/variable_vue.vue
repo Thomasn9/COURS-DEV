@@ -28,7 +28,7 @@
                         class="variable">.value</code>.
                 </p>
 
-                <div class="code-example">
+                <div class="code-example" v-pre>
                     <pre>&lt;!-- Template --&gt;
 &lt;template&gt;
   &lt;div&gt;
@@ -55,14 +55,14 @@ const incrementerAge = () =&gt; {
                 </div>
 
                 <div class="code-comparison">
-                    <div class="code-example">
+                    <div class="code-example" v-pre>
                         <h4 class="text-purple">✅ Dans le Template</h4>
                         <pre>// Pas besoin de .value
 {{ nom }}
 {{ age }}</pre>
                     </div>
 
-                    <div class="code-example">
+                    <div class="code-example" v-pre>
                         <h4 class="text-purple">✅ Dans le Script</h4>
                         <pre>// Toujours utiliser .value
 nom.value = 'Nouveau nom'
@@ -80,7 +80,7 @@ age.value++</pre>
                     on accède directement aux propriétés sans utiliser <code class="variable">.value</code>.
                 </p>
 
-                <div class="code-example">
+                <div class="code-example" v-pre>
                     <pre>&lt;script setup&gt;
 import { reactive } from 'vue'
 
@@ -111,7 +111,7 @@ listeCourses.push('Fruits')
                         class="variable">reactive()</code> ?</h2>
 
                 <div class="code-comparison">
-                    <div class="code-example">
+                    <div class="code-example" v-pre>
                         <h4 class="text-purple">📌 Utiliser <code class="variable">ref()</code> pour :</h4>
                         <ul class="textExemple">
                             <li>Variables primitives (string, number, boolean)</li>
@@ -123,7 +123,7 @@ const message = ref('Hello')
 const isLoading = ref(false)</pre>
                     </div>
 
-                    <div class="code-example">
+                    <div class="code-example" v-pre>
                         <h4 class="text-purple">📦 Utiliser <code class="variable">reactive()</code> pour :</h4>
                         <ul class="textExemple">
                             <li>Objets avec plusieurs propriétés</li>
@@ -150,7 +150,7 @@ const isLoading = ref(false)</pre>
                     lorsque leurs dépendances changent. Elles sont en lecture seule par défaut.
                 </p>
 
-                <div class="code-example">
+                <div class="code-example" v-pre>
                     <pre>&lt;script setup&gt;
 import { ref, computed } from 'vue'
 
@@ -188,7 +188,7 @@ const messageBienvenue = computed(() =&gt; {
                     C'est utile pour les effets de bord, les appels API, ou la persistance des données.
                 </p>
 
-                <div class="code-example">
+                <div class="code-example" v-pre>
                     <pre>&lt;script setup&gt;
 import { ref, watch } from 'vue'
 
@@ -229,7 +229,7 @@ watch(recherche, (nouvelleValeur) =&gt; {
                 <h2 class="text-purple">Bonnes Pratiques</h2>
 
                 <div class="code-comparison">
-                    <div class="code-example">
+                    <div class="code-example" v-pre>
                         <h4 class="text-purple">✅ À Faire</h4>
                         <ul class="textExemple">
                             <li>Utiliser des noms explicites pour les variables</li>
@@ -245,7 +245,7 @@ const nombreArticles = ref(0)
 const { nom, age } = toRefs(utilisateur)</pre>
                     </div>
 
-                    <div class="code-example">
+                    <div class="code-example" v-pre>
                         <h4 class="text-purple">❌ À Éviter</h4>
                         <ul class="textExemple">
                             <li>Modifier directement les computed properties</li>
@@ -284,7 +284,8 @@ const { nom, age } = utilisateur</pre>
                     <summary class="btn-purple btn-hover">Voir la solution</summary>
                     <div class="solution-content">
                         <h4 class="text-purple">Solution Complète</h4>
-                        <pre>&lt;template&gt;
+                        <div class="code-example" v-pre>
+                            <pre>&lt;template&gt;
   &lt;div class="compteur"&gt;
     &lt;h2&gt;Compteur: {{ compteur }}&lt;/h2&gt;
     &lt;p&gt;Le nombre est {{ parite }}&lt;/p&gt;
@@ -352,6 +353,7 @@ watch(compteur, (nouvelleValeur) =&gt; {
   }
 })
 &lt;/script&gt;</pre>
+                        </div>
                     </div>
                 </details>
             </section>
@@ -378,7 +380,7 @@ watch(compteur, (nouvelleValeur) =&gt; {
 </template>
 
 <script setup>
-
+// Aucune logique nécessaire pour cette page de cours
 </script>
 
 <style scoped>
