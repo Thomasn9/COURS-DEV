@@ -2,7 +2,7 @@
     <div class="page-container">
 
                 <div class="section-header">
-            <h3 class="lettreSommaire">Introduction au framework VUE.JS</h3>
+            <h3 class="lettreSommaire">Framework VUE.JS</h3>
         </div>
 
         <div class="card border-purple shadow-lg">

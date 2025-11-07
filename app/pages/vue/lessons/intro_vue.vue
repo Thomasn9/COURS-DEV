@@ -5,10 +5,6 @@
       <header class="lesson-header">
         <h1 class="text-white">Introduction à Vue.js</h1>
         <p class="lesson-meta text-white">Découvrez le framework JavaScript progressif qui révolutionne le développement web</p>
-        <div class="lesson-duration">
-          <span class="duration-badge">Durée : 30 min</span>
-          <span class="level-badge">Niveau : Débutant</span>
-        </div>
       </header>
 
       <!-- Section Objectifs -->
@@ -119,10 +115,10 @@
           <div class="concept-card">
             <h3 class="text-purple">Instance Vue</h3>
             <p class="textExemple">Point d'entrée de toute application Vue</p>
-            <pre><code class="language-javascript">const app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
+            <pre><code class="language-javascript"><span class="keyword">const</span> <span class="variable">app</span> = <span class="keyword">new</span> <span class="class-name">Vue</span>({
+  <span class="property">el</span>: <span class="string">'#app'</span>,
+  <span class="property">data</span>: {
+    <span class="property">message</span>: <span class="string">'Hello Vue!'</span>
   }
 })</code></pre>
           </div>
@@ -130,28 +126,28 @@
           <div class="concept-card">
             <h3 class="text-purple">Liaison de données</h3>
             <p class="textExemple">Synchronisation automatique entre JS et HTML</p>
-            <pre><code class="language-html">&lt;div id="app"&gt;
+            <pre><code class="language-html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>
   {{ message }}
-&lt;/div&gt;</code></pre>
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span></code></pre>
           </div>
 
           <div class="concept-card">
             <h3 class="text-purple">Directives</h3>
             <p class="textExemple">Attributs spéciaux préfixés par v-</p>
-            <pre><code class="language-html">&lt;div v-if="visible"&gt;Conditionnel&lt;/div&gt;
-&lt;li v-for="item in items"&gt;{{ item }}&lt;/li&gt;
-&lt;button v-on:click="method"&gt;Click&lt;/button&gt;</code></pre>
+            <pre><code class="language-html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"visible"</span>&gt;</span>Conditionnel<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span>{{ item }}<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+<span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"method"</span>&gt;</span>Click<span class="tag">&lt;/<span class="name">button</span>&gt;</span></code></pre>
           </div>
 
           <div class="concept-card">
             <h3 class="text-purple">Réactivité</h3>
             <p class="textExemple">Mise à jour automatique de l'interface</p>
-            <pre><code class="language-javascript">data: {
-  count: 0  // Modifiable réactivement
+            <pre><code class="language-javascript"><span class="property">data</span>: {
+  <span class="property">count</span>: <span class="number">0</span>  <span class="comment">// Modifiable réactivement</span>
 },
-methods: {
-  increment() {
-    this.count++ // L'interface se met à jour automatiquement
+<span class="property">methods</span>: {
+  <span class="function">increment</span>() {
+    <span class="keyword">this</span>.<span class="property">count</span>++ <span class="comment">// L'interface se met à jour automatiquement</span>
   }
 }</code></pre>
           </div>
@@ -169,62 +165,62 @@ methods: {
           <div class="demo-container">
             <div class="code-editor">
               <h4 class="text-purple">HTML</h4>
-              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Ma Todo List Vue.js&lt;/title&gt;
-  &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div id="app"&gt;
-    &lt;h3&gt;Ma Liste de Tâches&lt;/h3&gt;
-    &lt;div class="input-group"&gt;
-      &lt;input v-model="newTask" 
-             placeholder="Nouvelle tâche"
-             @keyup.enter="addTask"&gt;
-      &lt;button @click="addTask"&gt;Ajouter&lt;/button&gt;
-    &lt;/div&gt;
+              <pre><code class="language-html"><span class="meta">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="name">html</span>&gt;</span>
+<span class="tag">&lt;<span class="name">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Ma Todo List Vue.js<span class="tag">&lt;/<span class="name">title</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">head</span>&gt;</span>
+<span class="tag">&lt;<span class="name">body</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Ma Liste de Tâches<span class="tag">&lt;/<span class="name">h3</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"newTask"</span> 
+             <span class="attr">placeholder</span>=<span class="string">"Nouvelle tâche"</span>
+             <span class="attr">@keyup.enter</span>=<span class="string">"addTask"</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">button</span> <span class="attr">@click</span>=<span class="string">"addTask"</span>&gt;</span>Ajouter<span class="tag">&lt;/<span class="name">button</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
     
-    &lt;ul class="task-list"&gt;
-      &lt;li v-for="(task, index) in tasks" 
-          :key="index"
-          class="task-item"&gt;
-        &lt;span&gt;{{ task }}&lt;/span&gt;
-        &lt;button @click="removeTask(index)"&gt;
+    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"task-list"</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(task, index) in tasks"</span> 
+          <span class="attr">:key</span>=<span class="string">"index"</span>
+          <span class="attr">class</span>=<span class="string">"task-item"</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">span</span>&gt;</span>{{ task }}<span class="tag">&lt;/<span class="name">span</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">button</span> <span class="attr">@click</span>=<span class="string">"removeTask(index)"</span>&gt;</span>
           Supprimer
-        &lt;/button&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
+        <span class="tag">&lt;/<span class="name">button</span>&gt;</span>
+      <span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span>
     
-    &lt;div v-if="tasks.length === 0" class="empty-state"&gt;
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"tasks.length === 0"</span> <span class="attr">class</span>=<span class="string">"empty-state"</span>&gt;</span>
       Aucune tâche pour le moment
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">html</span>&gt;</span></code></pre>
             </div>
             
             <div class="code-editor">
               <h4 class="text-purple">JavaScript</h4>
-              <pre><code class="language-javascript">new Vue({
-  el: '#app',
-  data: {
-    newTask: '',
-    tasks: ['Apprendre Vue.js', 'Créer une application']
+              <pre><code class="language-javascript"><span class="keyword">new</span> <span class="class-name">Vue</span>({
+  <span class="property">el</span>: <span class="string">'#app'</span>,
+  <span class="property">data</span>: {
+    <span class="property">newTask</span>: <span class="string">''</span>,
+    <span class="property">tasks</span>: [<span class="string">'Apprendre Vue.js'</span>, <span class="string">'Créer une application'</span>]
   },
-  methods: {
-    addTask() {
-      if (this.newTask.trim()) {
-        this.tasks.push(this.newTask.trim());
-        this.newTask = '';
+  <span class="property">methods</span>: {
+    <span class="function">addTask</span>() {
+      <span class="keyword">if</span> (<span class="keyword">this</span>.<span class="property">newTask</span>.<span class="property">trim</span>()) {
+        <span class="keyword">this</span>.<span class="property">tasks</span>.<span class="property">push</span>(<span class="keyword">this</span>.<span class="property">newTask</span>.<span class="property">trim</span>());
+        <span class="keyword">this</span>.<span class="property">newTask</span> = <span class="string">''</span>;
       }
     },
-    removeTask(index) {
-      this.tasks.splice(index, 1);
+    <span class="function">removeTask</span>(<span class="parameter">index</span>) {
+      <span class="keyword">this</span>.<span class="property">tasks</span>.<span class="property">splice</span>(<span class="parameter">index</span>, <span class="number">1</span>);
     }
   },
-  mounted() {
-    console.log('Application Vue.js démarrée !');
+  <span class="property">mounted</span>() {
+    <span class="variable">console</span>.<span class="property">log</span>(<span class="string">'Application Vue.js démarrée !'</span>);
   }
 });</code></pre>
             </div>
@@ -344,14 +340,7 @@ methods: {
 </template>
 
 <script>
-export default {
-  name: 'VueJsIntroductionLesson',
-  data() {
-    return {
-      lessonTitle: 'Introduction à Vue.js'
-    }
-  }
-}
+
 </script>
 
 <style scoped>
@@ -627,7 +616,7 @@ export default {
     color: white !important;
 }
 
-/* Styles pour les blocs de code */
+/* Styles pour les blocs de code avec coloration VS Code complète */
 pre {
     background: #1e1e1e !important;
     color: #d4d4d4 !important;
@@ -647,13 +636,9 @@ pre {
     margin: 1rem 0;
 }
 
-/* Coloration syntaxique VS Code améliorée */
-pre code {
-    display: block;
-    background: none !important;
-}
-
-.language-javascript .keyword { color: #c586c0 !important; }
+/* Coloration syntaxique VS Code complète */
+.language-javascript .keyword { color: #569cd6 !important; }
+.language-javascript .keyword.new { color: #569cd6 !important; }
 .language-javascript .variable { color: #9cdcfe !important; }
 .language-javascript .string { color: #ce9178 !important; }
 .language-javascript .comment { color: #6a9955 !important; }
@@ -661,11 +646,15 @@ pre code {
 .language-javascript .number { color: #b5cea8 !important; }
 .language-javascript .operator { color: #d4d4d4 !important; }
 .language-javascript .class-name { color: #4ec9b0 !important; }
+.language-javascript .property { color: #9cdcfe !important; }
+.language-javascript .parameter { color: #9cdcfe !important; }
 
 .language-html .tag { color: #569cd6 !important; }
+.language-html .tag .name { color: #569cd6 !important; }
 .language-html .attribute { color: #9cdcfe !important; }
 .language-html .string { color: #ce9178 !important; }
 .language-html .comment { color: #6a9955 !important; }
+.language-html .meta { color: #569cd6 !important; }
 
 .textExemple {
     margin-bottom: 1rem;
