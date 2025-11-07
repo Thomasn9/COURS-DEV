@@ -33,9 +33,7 @@
 ================================================================================
 # Audit
 - O1 On On2 Ologn
-- test unitaire
 - structure de code
-- documentation technique et lisibilité du code
 - l'extension sonarQube sur vs code
 ================================================================================
 # devops
@@ -54,10 +52,6 @@
 - gitea
 - jenkins
 - choas monkey de netflix
-================================================================================
-# Linux
-- quest ce que linux
-
 ================================================================================
 # Nuxt Minimal Starter
 
