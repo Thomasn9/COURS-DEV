@@ -20,7 +20,13 @@
 - console.log
 - add-event-listner
 ================================================================================
+# Vue
+- crée un projet vue via vite
+- variables
+- rooting vue
+================================================================================
 # Nuxt
+- introduction a nuxt
 - props
 - emits
 - rooting nuxt

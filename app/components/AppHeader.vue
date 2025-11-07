@@ -44,7 +44,7 @@
                     Framework
                 </li>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <NuxtLink class="dropdown-item" to="#">Vue</NuxtLink>
+                    <NuxtLink class="dropdown-item" to="vue/index_vue">Vue</NuxtLink>
                     <NuxtLink class="dropdown-item" to="#">React</NuxtLink>
                     <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
                 </div>
