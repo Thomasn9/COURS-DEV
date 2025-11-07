@@ -1,6 +1,21 @@
 <template>
     <div class="page-container">
 
+                <div class="section-header">
+            <h3 class="lettreSommaire">Introduction SQLs</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Intro SQL</h5>
+                <p class="card-text">Qu'est ce que SQl et quelle est sont utilité</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/intro_sql">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
 
         <!-- =============================================================\\A//==================================================================== -->
         <div class="section-header">
