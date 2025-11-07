@@ -92,8 +92,8 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?</code></pre
           <div class="warning-box">
             <p><strong>⚠️ Attention :</strong> Pour installer OpenSSH, vous devez être un utilisateur avec des droits <strong>sudo</strong>.</p>
             <p>Si vous n'avez pas les droits sudo, consultez notre leçon sur <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="/devops/lessons/permission_utilisateur">
-                    la gestion des permissions et des utilisateurs Linux
+                    to="/devops/lessons/attribution_sudo">
+                    attribution de SUDO pour un utilisateur linux
                 </NuxtLink>pour apprendre comment les obtenir.</p>
           </div>
         </div>

@@ -32,6 +32,17 @@
             </div>
         </div>
 
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Attribution des droit SUDO sous Linux</h5>
+                <p class="card-text">Comment donner les droits SUDO a un utilisateur sous linux</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/attribution_sudo">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\C//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">C</h3>
@@ -88,7 +99,7 @@
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Permission Utilisateur Linux</h5>
-                <p class="card-text">Le model OSI</p>
+                <p class="card-text">Les permission utilisateur sous linux et leur utilité + tuto mise en place</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/permission_utilisateur">
                     Accès à la leçon
