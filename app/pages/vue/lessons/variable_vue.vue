@@ -20,16 +20,16 @@
 
             <!-- Déclaration avec ref() -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Déclaration avec <code class="variable">ref()</code></h2>
+                <h2 class="text-purple">Déclaration avec <code>ref()</code></h2>
                 <p class="textExemple">
-                    <code class="variable">ref()</code> est utilisé pour créer des variables réactives avec des valeurs
+                    <code>ref()</code> est utilisé pour créer des variables réactives avec des valeurs
                     primitives
-                    (string, number, boolean) ou des objets. Pour accéder à la valeur, on utilise la propriété <code
-                        class="variable">.value</code>.
+                    (string, number, boolean) ou des objets. Pour accéder à la valeur, on utilise la propriété
+                    <code>.value</code>.
                 </p>
 
                 <div class="code-example" v-pre>
-                    <pre>&lt;!-- Template --&gt;
+                    <pre><code class="language-javascript">&lt;!-- Template --&gt;
 &lt;template&gt;
   &lt;div&gt;
     &lt;p&gt;Nom: {{ nom }}&lt;/p&gt;
@@ -40,104 +40,103 @@
 
 &lt;!-- Script --&gt;
 &lt;script setup&gt;
-import { ref } from 'vue'
+<span class="keyword">import</span> { <span class="variable">ref</span> } <span class="keyword">from</span> <span class="string">'vue'</span>
 
-// Déclaration de variables réactives
-const nom = ref('Jean Dupont')
-const age = ref(25)
-const estActif = ref(true)
+<span class="comment">// Déclaration de variables réactives</span>
+<span class="keyword">const</span> <span class="variable">nom</span> = <span class="function">ref</span>(<span class="string">'Jean Dupont'</span>)
+<span class="keyword">const</span> <span class="variable">age</span> = <span class="function">ref</span>(<span class="number">25</span>)
+<span class="keyword">const</span> <span class="variable">estActif</span> = <span class="function">ref</span>(<span class="keyword">true</span>)
 
-// Fonction pour modifier une variable réactive
-const incrementerAge = () =&gt; {
-  age.value++  // Note: on utilise .value dans le script
+<span class="comment">// Fonction pour modifier une variable réactive</span>
+<span class="keyword">const</span> <span class="function">incrementerAge</span> = () <span class="operator">=></span> {
+  <span class="variable">age</span>.<span class="property">value</span><span class="operator">++</span>  <span class="comment">// Note: on utilise .value dans le script</span>
 }
-&lt;/script&gt;</pre>
+&lt;/script&gt;</code></pre>
                 </div>
 
                 <div class="code-comparison">
                     <div class="code-example" v-pre>
                         <h4 class="text-purple">✅ Dans le Template</h4>
-                        <pre>// Pas besoin de .value
-{{ nom }}
-{{ age }}</pre>
+                        <pre><code class="language-javascript"><span class="comment">// Pas besoin de .value</span>
+{{ <span class="variable">nom</span> }}
+{{ <span class="variable">age</span> }}</code></pre>
                     </div>
 
                     <div class="code-example" v-pre>
                         <h4 class="text-purple">✅ Dans le Script</h4>
-                        <pre>// Toujours utiliser .value
-nom.value = 'Nouveau nom'
-age.value++</pre>
+                        <pre><code class="language-javascript"><span class="comment">// Toujours utiliser .value</span>
+<span class="variable">nom</span>.<span class="property">value</span> <span class="operator">=</span> <span class="string">'Nouveau nom'</span>
+<span class="variable">age</span>.<span class="property">value</span><span class="operator">++</span></code></pre>
                     </div>
                 </div>
             </section>
 
             <!-- Déclaration avec reactive() -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Déclaration avec <code class="variable">reactive()</code></h2>
+                <h2 class="text-purple">Déclaration avec <code>reactive()</code></h2>
                 <p class="textExemple">
-                    <code class="variable">reactive()</code> est optimisé pour les objets et les tableaux. Contrairement
-                    à <code class="variable">ref()</code>,
-                    on accède directement aux propriétés sans utiliser <code class="variable">.value</code>.
+                    <code>reactive()</code> est optimisé pour les objets et les tableaux. Contrairement
+                    à <code>ref()</code>,
+                    on accède directement aux propriétés sans utiliser <code>.value</code>.
                 </p>
 
                 <div class="code-example" v-pre>
-                    <pre>&lt;script setup&gt;
-import { reactive } from 'vue'
+                    <pre><code class="language-javascript">&lt;script setup&gt;
+<span class="keyword">import</span> { <span class="variable">reactive</span> } <span class="keyword">from</span> <span class="string">'vue'</span>
 
-// Objet réactif
-const utilisateur = reactive({
-  nom: 'Marie',
-  age: 30,
-  email: 'marie@example.com'
+<span class="comment">// Objet réactif</span>
+<span class="keyword">const</span> <span class="variable">utilisateur</span> = <span class="function">reactive</span>({
+  <span class="property">nom</span>: <span class="string">'Marie'</span>,
+  <span class="property">age</span>: <span class="number">30</span>,
+  <span class="property">email</span>: <span class="string">'marie@example.com'</span>
 })
 
-// Tableau réactif
-const listeCourses = reactive(['Lait', 'Œufs', 'Pain'])
+<span class="comment">// Tableau réactif</span>
+<span class="keyword">const</span> <span class="variable">listeCourses</span> = <span class="function">reactive</span>([<span class="string">'Lait'</span>, <span class="string">'Œufs'</span>, <span class="string">'Pain'</span>])
 
-// Modification directe sans .value
-utilisateur.age = 31
-listeCourses.push('Fruits')
+<span class="comment">// Modification directe sans .value</span>
+<span class="variable">utilisateur</span>.<span class="property">age</span> <span class="operator">=</span> <span class="number">31</span>
+<span class="variable">listeCourses</span>.<span class="function">push</span>(<span class="string">'Fruits'</span>)
 &lt;/script&gt;
 
 &lt;!-- Dans le template --&gt;
-&lt;p&gt;Utilisateur: {{ utilisateur.nom }}&lt;/p&gt;
-&lt;p&gt;Courses: {{ listeCourses.join(', ') }}&lt;/p&gt;</pre>
+&lt;p&gt;Utilisateur: {{ <span class="variable">utilisateur</span>.<span class="property">nom</span> }}&lt;/p&gt;
+&lt;p&gt;Courses: {{ <span class="variable">listeCourses</span>.<span class="function">join</span>(<span class="string">', '</span>) }}&lt;/p&gt;</code></pre>
                 </div>
             </section>
 
             <!-- Comparaison ref() vs reactive() -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Quand utiliser <code class="variable">ref()</code> vs <code
-                        class="variable">reactive()</code> ?</h2>
+                <h2 class="text-purple">Quand utiliser <code>ref()</code> vs <code>reactive()</code> ?</h2>
 
                 <div class="code-comparison">
                     <div class="code-example" v-pre>
-                        <h4 class="text-purple">📌 Utiliser <code class="variable">ref()</code> pour :</h4>
+                        <h4 class="text-purple">📌 Utiliser <code>ref()</code> pour :</h4>
                         <ul class="textExemple">
                             <li>Variables primitives (string, number, boolean)</li>
                             <li>Quand vous avez besoin de réaffecter toute la variable</li>
                             <li>Variables simples avec peu de propriétés</li>
                         </ul>
-                        <pre>const count = ref(0)
-const message = ref('Hello')
-const isLoading = ref(false)</pre>
+                        <pre><code class="language-javascript"><span class="keyword">const</span> <span class="variable">count</span> = <span class="function">ref</span>(<span class="number">0</span>)
+<span class="keyword">const</span> <span class="variable">message</span> = <span class="function">ref</span>(<span class="string">'Hello'</span>)
+<span class="keyword">const</span> <span class="variable">isLoading</span> = <span class="function">ref</span>(<span class="keyword">false</span>)</code></pre>
                     </div>
 
                     <div class="code-example" v-pre>
-                        <h4 class="text-purple">📦 Utiliser <code class="variable">reactive()</code> pour :</h4>
+                        <h4 class="text-purple">📦 Utiliser <code>reactive()</code> pour :</h4>
                         <ul class="textExemple">
                             <li>Objets avec plusieurs propriétés</li>
                             <li>Tableaux et structures de données complexes</li>
                             <li>Quand les propriétés sont liées logiquement</li>
                         </ul>
-                        <pre>const user = reactive({
-  name: 'John',
-  age: 25,
-  address: {
-    street: '123 Main St',
-    city: 'Paris'
+                        <pre><code class="language-javascript"><span class="keyword">const</span> <span class="variable">user</span> = <span class="function">reactive</span>({
+  <span class="property">name</span>: <span class="string">'John'</span>,
+  <span class="property">age</span>: <span class="number">25</span>,
+  <span class="property">address</span>: {
+    <span class="property">street</span>: <span class="string">'123 Main St'</span>,
+    <span class="property">city</span>: <span class="string">'Paris'</span>
   }
-})</pre>
+})</code></pre>
                     </div>
                 </div>
             </section>
@@ -151,76 +150,76 @@ const isLoading = ref(false)</pre>
                 </p>
 
                 <div class="code-example" v-pre>
-                    <pre>&lt;script setup&gt;
-import { ref, computed } from 'vue'
+                    <pre><code class="language-javascript">&lt;script setup&gt;
+<span class="keyword">import</span> { <span class="variable">ref</span>, <span class="variable">computed</span> } <span class="keyword">from</span> <span class="string">'vue'</span>
 
-const prenom = ref('Jean')
-const nom = ref('Dupont')
-const prix = ref(100)
-const quantite = ref(2)
+<span class="keyword">const</span> <span class="variable">prenom</span> = <span class="function">ref</span>(<span class="string">'Jean'</span>)
+<span class="keyword">const</span> <span class="variable">nom</span> = <span class="function">ref</span>(<span class="string">'Dupont'</span>)
+<span class="keyword">const</span> <span class="variable">prix</span> = <span class="function">ref</span>(<span class="number">100</span>)
+<span class="keyword">const</span> <span class="variable">quantite</span> = <span class="function">ref</span>(<span class="number">2</span>)
 
-// Computed property
-const nomComplet = computed(() =&gt; {
-  return `${prenom.value} ${nom.value}`
+<span class="comment">// Computed property</span>
+<span class="keyword">const</span> <span class="variable">nomComplet</span> = <span class="function">computed</span>(() <span class="operator">=></span> {
+  <span class="keyword">return</span> <span class="string">`</span><span class="variable">${prenom.value}</span> <span class="variable">${nom.value}</span><span class="string">`</span>
 })
 
-const total = computed(() =&gt; {
-  return prix.value * quantite.value
+<span class="keyword">const</span> <span class="variable">total</span> = <span class="function">computed</span>(() <span class="operator">=></span> {
+  <span class="keyword">return</span> <span class="variable">prix</span>.<span class="property">value</span> <span class="operator">*</span> <span class="variable">quantite</span>.<span class="property">value</span>
 })
 
-const messageBienvenue = computed(() =&gt; {
-  return `Bonjour ${nomComplet.value}, votre total est de ${total.value}€`
+<span class="keyword">const</span> <span class="variable">messageBienvenue</span> = <span class="function">computed</span>(() <span class="operator">=></span> {
+  <span class="keyword">return</span> <span class="string">`Bonjour </span><span class="variable">${nomComplet.value}</span><span class="string">, votre total est de </span><span class="variable">${total.value}</span><span class="string">€`</span>
 })
 &lt;/script&gt;
 
 &lt;!-- Utilisation dans le template --&gt;
-&lt;p&gt;{{ nomComplet }}&lt;/p&gt;
-&lt;p&gt;Total: {{ total }}€&lt;/p&gt;
-&lt;p&gt;{{ messageBienvenue }}&lt;/p&gt;</pre>
+&lt;p&gt;{{ <span class="variable">nomComplet</span> }}&lt;/p&gt;
+&lt;p&gt;Total: {{ <span class="variable">total</span> }}€&lt;/p&gt;
+&lt;p&gt;{{ <span class="variable">messageBienvenue</span> }}&lt;/p&gt;</code></pre>
                 </div>
             </section>
 
             <!-- Variables avec watch -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Surveillance avec <code class="variable">watch()</code></h2>
+                <h2 class="text-purple">Surveillance avec <code>watch()</code></h2>
                 <p class="textExemple">
                     <code class="variable">watch()</code> permet d'exécuter du code lorsqu'une variable réactive change.
                     C'est utile pour les effets de bord, les appels API, ou la persistance des données.
                 </p>
 
                 <div class="code-example" v-pre>
-                    <pre>&lt;script setup&gt;
-import { ref, watch } from 'vue'
+                    <pre><code class="language-javascript">&lt;script setup&gt;
+<span class="keyword">import</span> { <span class="variable">ref</span>, <span class="variable">watch</span> } <span class="keyword">from</span> <span class="string">'vue'</span>
 
-const recherche = ref('')
-const resultats = ref([])
-const chargement = ref(false)
+<span class="keyword">const</span> <span class="variable">recherche</span> = <span class="function">ref</span>(<span class="string">''</span>)
+<span class="keyword">const</span> <span class="variable">resultats</span> = <span class="function">ref</span>([])
+<span class="keyword">const</span> <span class="variable">chargement</span> = <span class="function">ref</span>(<span class="keyword">false</span>)
 
-// Surveiller les changements de 'recherche'
-watch(recherche, async (nouvelleValeur, ancienneValeur) =&gt; {
-  if (nouvelleValeur.length &lt; 3) {
-    resultats.value = []
-    return
+<span class="comment">// Surveiller les changements de 'recherche'</span>
+<span class="function">watch</span>(<span class="variable">recherche</span>, <span class="keyword">async</span> (<span class="variable">nouvelleValeur</span>, <span class="variable">ancienneValeur</span>) <span class="operator">=></span> {
+  <span class="keyword">if</span> (<span class="variable">nouvelleValeur</span>.<span class="property">length</span> <span class="operator"><</span> <span class="number">3</span>) {
+    <span class="variable">resultats</span>.<span class="property">value</span> <span class="operator">=</span> []
+    <span class="keyword">return</span>
   }
   
-  chargement.value = true
+  <span class="variable">chargement</span>.<span class="property">value</span> <span class="operator">=</span> <span class="keyword">true</span>
   
-  // Simuler un appel API
-  try {
-    const response = await fetch(`/api/search?q=${nouvelleValeur}`)
-    resultats.value = await response.json()
-  } catch (error) {
-    console.error('Erreur de recherche:', error)
-  } finally {
-    chargement.value = false
+  <span class="comment">// Simuler un appel API</span>
+  <span class="keyword">try</span> {
+    <span class="keyword">const</span> <span class="variable">response</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">`/api/search?q=</span><span class="variable">${nouvelleValeur}</span><span class="string">`</span>)
+    <span class="variable">resultats</span>.<span class="property">value</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="variable">response</span>.<span class="function">json</span>()
+  } <span class="keyword">catch</span> (<span class="variable">error</span>) {
+    <span class="function">console</span>.<span class="function">error</span>(<span class="string">'Erreur de recherche:'</span>, <span class="variable">error</span>)
+  } <span class="keyword">finally</span> {
+    <span class="variable">chargement</span>.<span class="property">value</span> <span class="operator">=</span> <span class="keyword">false</span>
   }
 })
 
-// Surveillance immédiate (exécuté au chargement)
-watch(recherche, (nouvelleValeur) =&gt; {
-  console.log('Recherche changée:', nouvelleValeur)
-}, { immediate: true })
-&lt;/script&gt;</pre>
+<span class="comment">// Surveillance immédiate (exécuté au chargement)</span>
+<span class="function">watch</span>(<span class="variable">recherche</span>, (<span class="variable">nouvelleValeur</span>) <span class="operator">=></span> {
+  <span class="function">console</span>.<span class="function">log</span>(<span class="string">'Recherche changée:'</span>, <span class="variable">nouvelleValeur</span>)
+}, { <span class="property">immediate</span>: <span class="keyword">true</span> })
+&lt;/script&gt;</code></pre>
                 </div>
             </section>
 
@@ -234,30 +233,30 @@ watch(recherche, (nouvelleValeur) =&gt; {
                         <ul class="textExemple">
                             <li>Utiliser des noms explicites pour les variables</li>
                             <li>Déstructurer les objets réactifs avec précaution</li>
-                            <li>Utiliser <code class="variable">computed()</code> pour les valeurs dérivées</li>
+                            <li>Utiliser <code>computed()</code> pour les valeurs dérivées</li>
                             <li>Typer vos variables avec TypeScript</li>
                         </ul>
-                        <pre>// Bon
-const utilisateurActif = ref(true)
-const nombreArticles = ref(0)
+                        <pre><code class="language-javascript"><span class="comment">// Bon</span>
+<span class="keyword">const</span> <span class="variable">utilisateurActif</span> = <span class="function">ref</span>(<span class="keyword">true</span>)
+<span class="keyword">const</span> <span class="variable">nombreArticles</span> = <span class="function">ref</span>(<span class="number">0</span>)
 
-// Déstructuration sécurisée
-const { nom, age } = toRefs(utilisateur)</pre>
+<span class="comment">// Déstructuration sécurisée</span>
+<span class="keyword">const</span> { <span class="variable">nom</span>, <span class="variable">age</span> } = <span class="function">toRefs</span>(<span class="variable">utilisateur</span>)</code></pre>
                     </div>
 
                     <div class="code-example" v-pre>
                         <h4 class="text-purple">❌ À Éviter</h4>
                         <ul class="textExemple">
                             <li>Modifier directement les computed properties</li>
-                            <li>Oublier <code class="variable">.value</code> dans le script</li>
-                            <li>Utiliser <code class="variable">reactive()</code> avec des primitives</li>
+                            <li>Oublier <code>.value</code> dans le script</li>
+                            <li>Utiliser <code>reactive()</code> avec des primitives</li>
                             <li>Muter des tableaux de façon non-réactive</li>
                         </ul>
-                        <pre>// Mauvais
-nomComplet.value = 'Nouveau nom' // Erreur!
+                        <pre><code class="language-javascript"><span class="comment">// Mauvais</span>
+<span class="variable">nomComplet</span>.<span class="property">value</span> <span class="operator">=</span> <span class="string">'Nouveau nom'</span> <span class="comment">// Erreur!</span>
 
-// Mauvais - perd la réactivité
-const { nom, age } = utilisateur</pre>
+<span class="comment">// Mauvais - perd la réactivité</span>
+<span class="keyword">const</span> { <span class="variable">nom</span>, <span class="variable">age</span> } = <span class="variable">utilisateur</span></code></pre>
                     </div>
                 </div>
             </section>
@@ -271,10 +270,10 @@ const { nom, age } = utilisateur</pre>
                     </p>
 
                     <ol class="textExemple">
-                        <li>Créez un compteur avec <code class="variable">ref()</code> qui commence à 0</li>
+                        <li>Créez un compteur avec <code>ref()</code> qui commence à 0</li>
                         <li>Ajoutez des boutons pour incrémenter et décrémenter</li>
                         <li>Créez une computed property pour afficher si le nombre est pair ou impair</li>
-                        <li>Utilisez <code class="variable">reactive()</code> pour stocker l'historique des changements
+                        <li>Utilisez <code>reactive()</code> pour stocker l'historique des changements
                         </li>
                         <li>Surveillez le compteur pour limiter sa valeur entre -10 et 10</li>
                     </ol>
@@ -285,7 +284,7 @@ const { nom, age } = utilisateur</pre>
                     <div class="solution-content">
                         <h4 class="text-purple">Solution Complète</h4>
                         <div class="code-example" v-pre>
-                            <pre>&lt;template&gt;
+                            <pre><code class="language-javascript">&lt;template&gt;
   &lt;div class="compteur"&gt;
     &lt;h2&gt;Compteur: {{ compteur }}&lt;/h2&gt;
     &lt;p&gt;Le nombre est {{ parite }}&lt;/p&gt;
@@ -306,53 +305,53 @@ const { nom, age } = utilisateur</pre>
 &lt;/template&gt;
 
 &lt;script setup&gt;
-import { ref, reactive, computed, watch } from 'vue'
+<span class="keyword">import</span> { <span class="variable">ref</span>, <span class="variable">reactive</span>, <span class="variable">computed</span>, <span class="variable">watch</span> } <span class="keyword">from</span> <span class="string">'vue'</span>
 
-// Variables avec ref()
-const compteur = ref(0)
+<span class="comment">// Variables avec ref()</span>
+<span class="keyword">const</span> <span class="variable">compteur</span> = <span class="function">ref</span>(<span class="number">0</span>)
 
-// Computed property
-const parite = computed(() =&gt; {
-  return compteur.value % 2 === 0 ? 'pair' : 'impair'
+<span class="comment">// Computed property</span>
+<span class="keyword">const</span> <span class="variable">parite</span> = <span class="function">computed</span>(() <span class="operator">=></span> {
+  <span class="keyword">return</span> <span class="variable">compteur</span>.<span class="property">value</span> <span class="operator">%</span> <span class="number">2</span> <span class="operator">===</span> <span class="number">0</span> <span class="operator">?</span> <span class="string">'pair'</span> : <span class="string">'impair'</span>
 })
 
-// Objet réactif avec reactive()
-const historique = reactive({
-  actions: []
+<span class="comment">// Objet réactif avec reactive()</span>
+<span class="keyword">const</span> <span class="variable">historique</span> = <span class="function">reactive</span>({
+  <span class="property">actions</span>: []
 })
 
-// Fonctions
-const incrementer = () =&gt; {
-  compteur.value++
-  ajouterHistorique('incrément')
+<span class="comment">// Fonctions</span>
+<span class="keyword">const</span> <span class="function">incrementer</span> = () <span class="operator">=></span> {
+  <span class="variable">compteur</span>.<span class="property">value</span><span class="operator">++</span>
+  <span class="function">ajouterHistorique</span>(<span class="string">'incrément'</span>)
 }
 
-const decrementer = () =&gt; {
-  compteur.value--
-  ajouterHistorique('décrément')
+<span class="keyword">const</span> <span class="function">decrementer</span> = () <span class="operator">=></span> {
+  <span class="variable">compteur</span>.<span class="property">value</span><span class="operator">--</span>
+  <span class="function">ajouterHistorique</span>(<span class="string">'décrément'</span>)
 }
 
-const reinitialiser = () =&gt; {
-  compteur.value = 0
-  ajouterHistorique('reset')
+<span class="keyword">const</span> <span class="function">reinitialiser</span> = () <span class="operator">=></span> {
+  <span class="variable">compteur</span>.<span class="property">value</span> <span class="operator">=</span> <span class="number">0</span>
+  <span class="function">ajouterHistorique</span>(<span class="string">'reset'</span>)
 }
 
-const ajouterHistorique = (type) =&gt; {
-  historique.actions.push({
-    type,
-    timestamp: new Date().toLocaleTimeString()
+<span class="keyword">const</span> <span class="function">ajouterHistorique</span> = (<span class="variable">type</span>) <span class="operator">=></span> {
+  <span class="variable">historique</span>.<span class="property">actions</span>.<span class="function">push</span>({
+    <span class="property">type</span>,
+    <span class="property">timestamp</span>: <span class="keyword">new</span> <span class="class-name">Date</span>().<span class="function">toLocaleTimeString</span>()
   })
 }
 
-// Surveillance avec watch()
-watch(compteur, (nouvelleValeur) =&gt; {
-  if (nouvelleValeur &gt; 10) {
-    compteur.value = 10
-  } else if (nouvelleValeur &lt; -10) {
-    compteur.value = -10
+<span class="comment">// Surveillance avec watch()</span>
+<span class="function">watch</span>(<span class="variable">compteur</span>, (<span class="variable">nouvelleValeur</span>) <span class="operator">=></span> {
+  <span class="keyword">if</span> (<span class="variable">nouvelleValeur</span> <span class="operator">></span> <span class="number">10</span>) {
+    <span class="variable">compteur</span>.<span class="property">value</span> <span class="operator">=</span> <span class="number">10</span>
+  } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="variable">nouvelleValeur</span> <span class="operator"><</span> <span class="operator">-</span><span class="number">10</span>) {
+    <span class="variable">compteur</span>.<span class="property">value</span> <span class="operator">=</span> <span class="operator">-</span><span class="number">10</span>
   }
 })
-&lt;/script&gt;</pre>
+&lt;/script&gt;</code></pre>
                         </div>
                     </div>
                 </details>
@@ -362,26 +361,22 @@ watch(compteur, (nouvelleValeur) =&gt; {
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Conclusion</h2>
                 <p class="textExemple">
-                    Les variables réactives sont au cœur de Vue.js. Maîtriser <code class="variable">ref()</code>, <code
-                        class="variable">reactive()</code>,
-                    <code class="variable">computed()</code> et <code class="variable">watch()</code> est essentiel pour
+                    Les variables réactives sont au cœur de Vue.js. Maîtriser <code>ref()</code>,
+                    <code>reactive()</code>,
+                    <code>computed()</code> et <code>watch()</code> est essentiel pour
                     créer des applications interactives et performantes.
                 </p>
                 <p class="textExemple">
                     Pour approfondir, consultez la
                     <a href="https://vuejs.org/guide/essentials/reactivity-fundamentals.html"
-                        class="btn-purple btn-hover" target="_blank">
+                        class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" target="_blank">
                         documentation officielle sur la réactivité
-                    </a>.
+                    </a>
                 </p>
             </section>
         </div>
     </div>
 </template>
-
-<script setup>
-// Aucune logique nécessaire pour cette page de cours
-</script>
 
 <style scoped>
 .lesson-container {
@@ -546,14 +541,18 @@ pre {
     width: 100%;
     box-sizing: border-box;
     white-space: pre-wrap;
+    /* Permet le retour à la ligne */
     word-wrap: break-word;
+    /* Casse les mots longs */
     word-break: break-word;
+    /* Assure la césure des mots */
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
     white-space: pre-wrap;
+    /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -561,42 +560,52 @@ pre code {
     word-break: break-word;
 }
 
-/* Couleurs VS Code pour la syntaxe */
+/* Couleurs VS Code pour la syntaxe JavaScript */
 .keyword {
     color: #c586c0 !important;
 }
 
+/* Mots-clés (for, while, if, function, etc.) */
 .variable {
     color: #9cdcfe !important;
 }
 
+/* Variables et noms de fonctions */
 .string {
     color: #ce9178 !important;
 }
 
+/* Chaînes de caractères */
 .comment {
     color: #6a9955 !important;
 }
 
+/* Commentaires */
 .function {
     color: #dcdcaa !important;
 }
 
+/* Noms de fonctions */
 .operator {
     color: #d4d4d4 !important;
 }
 
+/* Opérateurs (+, -, =, =>, etc.) */
 .constant {
     color: #4fc1ff !important;
 }
 
+/* Constantes */
 .number {
     color: #b5cea8 !important;
 }
 
+/* Nombres */
 .class-name {
     color: #4ec9b0 !important;
 }
+
+/* Noms de classes */
 
 /* Exercices et solutions */
 .exercise {
