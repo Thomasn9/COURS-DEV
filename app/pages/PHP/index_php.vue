@@ -1,5 +1,19 @@
 <template>
   <div class="page-container">
+    <div class="section-header">
+            <h3 class="lettreSommaire">Introduction a PHP</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Intro a PHP</h5>
+                <p class="card-text">Qu'est ce que PHP ce language et a quoi sert-il ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/intro_php">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
 
     <!-- =============================================================\\A//==================================================================== -->
     <div class="section-header">
