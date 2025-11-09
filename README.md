@@ -9,6 +9,7 @@
 - jsonResponse
 - fil-get-content
 - rajouter au switch case le rooting
+- echo
 ================================================================================
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
@@ -21,6 +22,7 @@
 - add-event-listner
 ================================================================================
 # Vue
+- les avantage de vue 
 - v-if
 - v-on
 - v-for
