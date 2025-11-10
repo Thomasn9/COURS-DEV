@@ -10,6 +10,7 @@
 - fil-get-content
 - rajouter au switch case le rooting
 - echo
+- api
 ================================================================================
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
@@ -62,6 +63,8 @@
 - gitea
 - jenkins
 - choas monkey de netflix
+- daisy ui 
+- boostrap
 ================================================================================
 # Nuxt Minimal Starter
 
