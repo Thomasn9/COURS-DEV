@@ -62,6 +62,19 @@
                     </li>
                 </div>
                 </li>
+                                <!-- ===============================================\\Outils//================================================= -->
+                <li class="nav-item dropdown">
+                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Outils
+                </li>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <NuxtLink class="dropdown-item" to="#">Librairie </NuxtLink>
+                        <NuxtLink class="dropdown-item" to="#">Outils</NuxtLink>
+                    </li>
+                </div>
+                </li>
                 <!-- ===============================================\\GESTION-PROJET//================================================= -->
                 <li class="nav-item dropdown">
                 <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -70,8 +83,8 @@
                 </li>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                        <NuxtLink class="nav-link" to="/audit/index_audit">Diagramme UML</NuxtLink>
-                        <NuxtLink class="nav-link" to="/audit/index_audit">Audit</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Diagramme UML</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit</NuxtLink>
                     </li>
                 </div>
                 </li>
