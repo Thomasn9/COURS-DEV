@@ -68,6 +68,7 @@
 - choas monkey de netflix
 - daisy ui 
 - boostrap
+- ansible
 ================================================================================
 # Nuxt Minimal Starter
 

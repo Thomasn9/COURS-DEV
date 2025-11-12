@@ -71,7 +71,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
                         <NuxtLink class="dropdown-item" to="#">Librairie </NuxtLink>
-                        <NuxtLink class="dropdown-item" to="#">Outils</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="#">Services Web</NuxtLink>
                     </li>
                 </div>
                 </li>
