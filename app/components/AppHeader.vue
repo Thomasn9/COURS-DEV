@@ -37,7 +37,7 @@
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="/devops/index_devops">Devops</NuxtLink>
                 </li>
-                <!-- ===============================================\\FRAMEWORK//================================================= -->
+    <!-- ===============================================\\FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">
                 <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -47,9 +47,11 @@
                     <NuxtLink class="dropdown-item" to="/vue/index_vue">Vue</NuxtLink>
                     <NuxtLink class="dropdown-item" to="#">React</NuxtLink>
                     <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
+                    <hr>
+                    <NuxtLink class="dropdown-item" to="/boostrap/index_boostrap">Bootstrap</NuxtLink>
                 </div>
                 </li>
-                <!-- ===============================================\\META-FRAMEWORK//================================================= -->
+    <!-- ===============================================\\META-FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">
                 <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -62,7 +64,7 @@
                     </li>
                 </div>
                 </li>
-                                <!-- ===============================================\\Outils//================================================= -->
+    <!-- ===============================================\\Outils//================================================= -->
                 <li class="nav-item dropdown">
                 <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
