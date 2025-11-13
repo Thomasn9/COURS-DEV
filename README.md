@@ -52,22 +52,25 @@
 - idempotence
 ================================================================================
 # Les librairie sympa 
-- decimal 
+- decimal
+- boostrap
+- tailwind
+- daisy ui 
 ================================================================================
-# les outils site ou autre cool 
-- jira
-- trelo
-- code pen
-- n splash
-- data dog
-- graphana
+# Service web
 - apache Jmetter
 - vitest
 - gitea
 - jenkins
+- code pen
+================================================================================
+# les jsp trop ou les mettre
+- jira
+- trelo
+- n splash
+- data dog
+- graphana
 - choas monkey de netflix
-- daisy ui 
-- boostrap
 - ansible
 ================================================================================
 # Nuxt Minimal Starter
