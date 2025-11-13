@@ -2,7 +2,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours-Dev</title>
-    <!-- =========================================================================================================================== -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <NuxtLink to="/">
@@ -16,82 +15,89 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item active">
                     <NuxtLink class="nav-link" to="/">Home</NuxtLink>
                 </li>
-                <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/JavaScript/index_javaSript">JavaScript</NuxtLink>
+
+                <!-- ===============================================\\Langages//================================================= -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLangages" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Langages
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownLangages">
+                        <NuxtLink class="dropdown-item" to="langages/Java/index_java">Java</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="langages/JavaScript/index_javaSript">JavaScript</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="langages/PHP/index_php">PHP</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="langages/SQL/index_sql">SQL</NuxtLink>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/PHP/index_php">PHP</NuxtLink>
+
+                <!-- ===============================================\\FRAMEWORK//================================================= -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFramework" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Framework
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownFramework">
+                        <NuxtLink class="dropdown-item" to="/vue/index_vue">Vue</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="#">React</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
+                        <div class="dropdown-divider"></div>
+                        <NuxtLink class="dropdown-item" to="/boostrap/index_boostrap">Bootstrap</NuxtLink>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/Java/index_java">Java</NuxtLink>
+
+                <!-- ===============================================\\META-FRAMEWORK//================================================= -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMeta" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Meta Framework
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMeta">
+                        <NuxtLink class="dropdown-item" to="#">Nuxt</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="#">Next</NuxtLink>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/SQL/index_sql">SQL</NuxtLink>
+
+                <!-- ===============================================\\Outils//================================================= -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOutils" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Outils
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownOutils">
+                        <NuxtLink class="dropdown-item" to="/application/index_application">Application</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/librairie/index_librairie">Librairie</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/services_web/index_services_web">Services Web et Design
+                        </NuxtLink>
+                    </div>
                 </li>
+
+                <!-- ===============================================\\GESTION-PROJET//================================================= -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGestion" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gestion de projet
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownGestion">
+                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Diagramme UML</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Outils</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit</NuxtLink>
+                    </div>
+                </li>
+
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="/cyber_securiter/index_cybersecu">Cyber Sécurité</NuxtLink>
                 </li>
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="/devops/index_devops">Devops</NuxtLink>
                 </li>
-    <!-- ===============================================\\FRAMEWORK//================================================= -->
-                <li class="nav-item dropdown">
-                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Framework
+                <li class="nav-item">
+                    <NuxtLink class="nav-link" to="#">Mise en place projet</NuxtLink>
                 </li>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <NuxtLink class="dropdown-item" to="/vue/index_vue">Vue</NuxtLink>
-                    <NuxtLink class="dropdown-item" to="#">React</NuxtLink>
-                    <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
-                    <hr>
-                    <NuxtLink class="dropdown-item" to="/boostrap/index_boostrap">Bootstrap</NuxtLink>
-                </div>
-                </li>
-    <!-- ===============================================\\META-FRAMEWORK//================================================= -->
-                <li class="nav-item dropdown">
-                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Meta Framework
-                </li>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li>
-                        <NuxtLink class="dropdown-item" to="#">Nuxt</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="#">Next</NuxtLink>
-                    </li>
-                </div>
-                </li>
-    <!-- ===============================================\\Outils//================================================= -->
-                <li class="nav-item dropdown">
-                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Outils
-                </li>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li>
-                        <NuxtLink class="dropdown-item" to="/application/index_application">Application</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/librairie/index_librairie">Librairie </NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/services_web/index_services_web">Services Web et Design</NuxtLink>
-                    </li>
-                </div>
-                </li>
-                <!-- ===============================================\\GESTION-PROJET//================================================= -->
-                <li class="nav-item dropdown">
-                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Gestion de projet
-                </li>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li>
-                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Diagramme UML</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Outils</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit</NuxtLink>
-                    </li>
-                </div>
-                </li>
+
             </ul>
         </div>
     </nav>
@@ -104,5 +110,9 @@
 #logo {
     width: 3vw;
     margin: 1cqw;
+}
+
+.navbar-brand {
+    margin-left: 10px;
 }
 </style>
