@@ -5,17 +5,6 @@
             <h3 class="lettreSommaire">Introduction SQLs</h3>
         </div>
 
-        <div class="card border-purple shadow-lg">
-            <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Intro SQL</h5>
-                <p class="card-text">Qu'est ce que SQl et quelle est sont utilité</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/intro_sql">
-                    Accès à la leçon
-                </NuxtLink>
-            </div>
-        </div>
-
 
         <!-- =============================================================\\G//==================================================================== -->
         <div class="section-header">
@@ -24,7 +13,7 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Git</h5>
+                <h5 class="card-title text-purple">Git (base)</h5>
                 <p class="card-text">L'utiliter de git dans un projet et comment s'en servir </p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/git">
