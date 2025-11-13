@@ -63,6 +63,13 @@
 - gitea
 - jenkins
 - code pen
+- mysql
+
+================================================================================
+# Appli
+- mysql workbench
+- virtual box
+- bruno
 ================================================================================
 # les jsp trop ou les mettre
 - jira

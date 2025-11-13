@@ -6,28 +6,17 @@
         </div>
 
 
-        <!-- =============================================================\\G//==================================================================== -->
+        <!-- =============================================================\\B//==================================================================== -->
         <div class="section-header">
-            <h3 class="lettreSommaire">G</h3>
+            <h3 class="lettreSommaire">B</h3>
         </div>
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Git (branche-merge)</h5>
-                <p class="card-text">Les possibilitée que git offre dans une equipe et les commande plus avancer </p>
+                <h5 class="card-title text-purple">Bruno</h5>
+                <p class="card-text">L'utilité de l'application Bruno pour les API</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/git_branche_merge">
-                    Accès à la leçon
-                </NuxtLink>
-            </div>
-        </div>
-
-        <div class="card border-purple shadow-lg">
-            <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Git (base)</h5>
-                <p class="card-text">L'utiliter de git dans un projet et comment s'en servir </p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/git">
+                    to="lessons/bruno">
                     Accès à la leçon
                 </NuxtLink>
             </div>
