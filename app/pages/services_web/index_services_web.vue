@@ -17,17 +17,17 @@
         </div>
 
 
-        <!-- =============================================================\\A//==================================================================== -->
+        <!-- =============================================================\\G//==================================================================== -->
         <div class="section-header">
-            <h3 class="lettreSommaire">A</h3>
+            <h3 class="lettreSommaire">G</h3>
         </div>
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Alter table </h5>
-                <p class="card-text">Les modification d'un table SQL</p>
+                <h5 class="card-title text-purple">Git</h5>
+                <p class="card-text">L'utiliter de git dans un projet et comment s'en servir </p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/alter_table">
+                    to="lessons/git">
                     Accès à la leçon
                 </NuxtLink>
             </div>
