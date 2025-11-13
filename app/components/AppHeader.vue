@@ -20,7 +20,7 @@
                     <NuxtLink class="nav-link" to="/">Home</NuxtLink>
                 </li>
 
-                <!-- ===============================================\\Langages//================================================= -->
+                <!-- ===============================================\\LANGAGES//================================================= -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLangages" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,6 +46,7 @@
                         <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
                         <div class="dropdown-divider"></div>
                         <NuxtLink class="dropdown-item" to="/boostrap/index_boostrap">Bootstrap</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/tailwind_css/index_tailwind_css">Tailwind CSS</NuxtLink>
                     </div>
                 </li>
 

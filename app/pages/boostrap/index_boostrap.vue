@@ -3,181 +3,286 @@
         <div class="lesson-content">
             <!-- En-tête de la leçon -->
             <header class="lesson-header">
-                <h1 class="text-white">Bootstrap - Framework CSS</h1>
-                <p class="lesson-meta text-white">Apprenez à utiliser Bootstrap pour créer des interfaces web modernes
-                    et responsives</p>
+                <h1 class="text-white">Bootstrap</h1>
+                <p class="lesson-meta text-white">Framework CSS populaire pour le développement front-end rapide</p>
             </header>
 
-            <!-- Introduction à Bootstrap -->
+            <!-- Introduction -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Qu'est-ce que Bootstrap ?</h2>
                 <p class="textExemple">
-                    Bootstrap est un framework CSS open-source développé par Twitter. Il permet de créer des sites web
+                    Bootstrap est un framework CSS open-source développé par Twitter qui permet de créer des sites web
                     responsives
-                    et mobiles-first rapidement grâce à son système de grille et ses composants prédéfinis.
+                    et mobiles-first rapidement. Il fournit une collection d'outils et de composants prédéfinis pour
+                    faciliter
+                    le développement front-end.
                 </p>
-
                 <div class="code-example">
-                    <h3 class="text-purple">Principales fonctionnalités :</h3>
+                    <h3 class="text-purple">Exemple simple</h3>
+                    <pre><code><span class="comment">&lt;!-- Avec Bootstrap --&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="keyword">&gt;</span>
+  Bouton stylisé
+<span class="keyword">&lt;/button&gt;</span>
+
+<span class="comment">&lt;!-- CSS traditionnel --&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">class</span>=<span class="string">"custom-button"</span><span class="keyword">&gt;</span>Bouton stylisé<span class="keyword">&lt;/button&gt;</span>
+
+<span class="keyword">&lt;style&gt;</span>
+<span class="variable">.custom-button</span> {
+  <span class="variable">background-color</span>: <span class="constant">#007bff</span>;
+  <span class="variable">color</span>: <span class="variable">white</span>;
+  <span class="variable">border</span>: <span class="number">1px</span> <span class="variable">solid</span> <span class="constant">#007bff</span>;
+  <span class="variable">padding</span>: <span class="number">0.375</span><span class="variable">rem</span> <span class="number">0.75</span><span class="variable">rem</span>;
+  <span class="variable">border-radius</span>: <span class="number">0.25</span><span class="variable">rem</span>;
+  <span class="variable">font-size</span>: <span class="number">1</span><span class="variable">rem</span>;
+}
+<span class="keyword">&lt;/style&gt;</span></code></pre>
+                </div>
+            </section>
+
+            <!-- Pourquoi utiliser Bootstrap -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Pourquoi utiliser Bootstrap ?</h2>
+                <div class="textExemple">
+                    <h3 class="text-purple">Avantages principaux :</h3>
                     <ul>
-                        <li><strong>Système de grille responsive</strong> - 12 colonnes qui s'adaptent à tous les écrans
-                        </li>
-                        <li><strong>Composants prêts à l'emploi</strong> - Boutons, formulaires, navigation, etc.</li>
-                        <li><strong>Classes utilitaires</strong> - Pour le spacing, les couleurs, la typographie</li>
-                        <li><strong>Compatibilité cross-browser</strong> - Fonctionne sur tous les navigateurs modernes
-                        </li>
+                        <li><strong>Développement rapide</strong> : Composants prêts à l'emploi</li>
+                        <li><strong>Design responsive</strong> : Système de grille mobile-first</li>
+                        <li><strong>Consistance visuelle</strong> : Design cohérent sur tous les composants</li>
+                        <li><strong>Documentation complète</strong> : Très bien documenté avec nombreux exemples</li>
+                        <li><strong>Communauté active</strong> : Large communauté et nombreux templates</li>
+                        <li><strong>Cross-browser</strong> : Compatible avec tous les navigateurs modernes</li>
                     </ul>
                 </div>
+                <div class="code-example">
+                    <h3 class="text-purple">Exemple de design responsive</h3>
+                    <pre><code><span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"container"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"row"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-12 col-md-6 col-lg-4"</span><span class="keyword">&gt;</span>
+      Colonne 1
+    <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-12 col-md-6 col-lg-4"</span><span class="keyword">&gt;</span>
+      Colonne 2
+    <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-12 col-md-12 col-lg-4"</span><span class="keyword">&gt;</span>
+      Colonne 3
+    <span class="keyword">&lt;/div&gt;</span>
+  <span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;/div&gt;</span></code></pre>
+                </div>
             </section>
 
-            <!-- Installation de Bootstrap -->
+            <!-- Installation -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Installation de Bootstrap</h2>
-                <p class="textExemple">
-                    Il existe plusieurs méthodes pour installer Bootstrap selon votre type de projet.
-                </p>
 
-                <!-- Méthode 1 : CDN -->
+                <div class="textExemple">
+                    <h3 class="text-purple">Méthode 1 : Via CDN (recommandé pour débuter)</h3>
+                    <p>Ajoutez ces lignes dans votre balise &lt;head&gt; :</p>
+                </div>
                 <div class="code-example">
-                    <h3 class="text-purple">1. Via CDN (méthode la plus simple)</h3>
-                    <p>Ajoutez ces liens dans le <code>&lt;head&gt;</code> de votre HTML :</p>
                     <pre><code><span class="comment">&lt;!-- CSS Bootstrap --&gt;</span>
-<span class="tag">&lt;link</span> <span class="variable">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"</span> <span class="variable">rel</span>=<span class="string">"stylesheet"</span><span class="tag">&gt;</span>
+<span class="keyword">&lt;link</span> 
+  <span class="variable">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"</span> 
+  <span class="variable">rel</span>=<span class="string">"stylesheet"</span> 
+  <span class="variable">integrity</span>=<span class="string">"sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"</span> 
+  <span class="variable">crossorigin</span>=<span class="string">"anonymous"</span>
+<span class="keyword">&gt;</span>
 
-<span class="comment">&lt;!-- JavaScript Bootstrap (optionnel) --&gt;</span>
-<span class="tag">&lt;script</span> <span class="variable">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"</span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
+<span class="comment">&lt;!-- JavaScript Bootstrap --&gt;</span>
+<span class="keyword">&lt;script</span> 
+  <span class="variable">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"</span> 
+  <span class="variable">integrity</span>=<span class="string">"sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"</span> 
+  <span class="variable">crossorigin</span>=<span class="string">"anonymous"</span>
+<span class="keyword">&gt;&lt;/script&gt;</span></code></pre>
                 </div>
 
-                <!-- Méthode 2 : NPM -->
+                <div class="textExemple">
+                    <h3 class="text-purple">Méthode 2 : Installation via npm</h3>
+                    <p>Pour les projets plus complexes :</p>
+                </div>
                 <div class="code-example">
-                    <h3 class="text-purple">2. Via NPM (pour les projets modernes)</h3>
-                    <p>Dans votre terminal, exécutez :</p>
-                    <pre><code><span class="function">npm install</span> bootstrap@5.3.2</code></pre>
+                    <pre><code><span class="comment"># Installer Bootstrap</span>
+<span class="variable">npm install bootstrap@5.3.2</span>
 
-                    <p>Puis importez dans votre fichier principal :</p>
-                    <pre><code><span class="comment">// Dans main.js ou app.js</span>
-<span class="keyword">import</span> <span class="string">'bootstrap/dist/css/bootstrap.min.css'</span>
-<span class="keyword">import</span> <span class="string">'bootstrap/dist/js/bootstrap.bundle.min.js'</span></code></pre>
+<span class="comment"># Installer les dépendances (si nécessaire)</span>
+<span class="variable">npm install @popperjs/core</span></code></pre>
                 </div>
 
-                <!-- Méthode 3 : Téléchargement -->
+                <div class="textExemple">
+                    <h3 class="text-purple">Configuration pour Nuxt</h3>
+                    <p>Dans Nuxt, vous pouvez utiliser Bootstrap via un module :</p>
+                </div>
                 <div class="code-example">
-                    <h3 class="text-purple">3. Téléchargement direct</h3>
-                    <p>Téléchargez les fichiers depuis le site officiel et incluez-les dans votre projet :</p>
-                    <pre><code><span class="tag">&lt;link</span> <span class="variable">href</span>=<span class="string">"chemin/vers/bootstrap.min.css"</span> <span class="variable">rel</span>=<span class="string">"stylesheet"</span><span class="tag">&gt;</span>
-<span class="tag">&lt;script</span> <span class="variable">src</span>=<span class="string">"chemin/vers/bootstrap.bundle.min.js"</span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
+                    <pre><code><span class="comment"># Installer le module Bootstrap pour Nuxt</span>
+<span class="variable">npm install bootstrap-vue@next</span></code></pre>
                 </div>
-            </section>
-
-            <!-- Installation spécifique à Nuxt -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Installation dans Nuxt</h2>
-                <p class="textExemple">
-                    Pour intégrer Bootstrap dans un projet Nuxt, voici la méthode recommandée :
-                </p>
-
-                <div class="code-comparison">
-                    <div>
-                        <h4 class="text-purple">Étape 1 : Installation</h4>
-                        <pre><code><span class="function">npm install</span> bootstrap @popperjs/core</code></pre>
-                    </div>
-
-                    <div>
-                        <h4 class="text-purple">Étape 2 : Configuration</h4>
-                        <pre><code><span class="comment">// Dans nuxt.config.js</span>
+                <div class="textExemple">
+                    <p>Ajoutez ensuite le module dans votre fichier <code>nuxt.config.js</code> :</p>
+                </div>
+                <div class="code-example">
+                    <pre><code><span class="comment">// nuxt.config.js</span>
 <span class="keyword">export</span> <span class="keyword">default</span> {
   <span class="variable">css</span>: [
     <span class="string">'bootstrap/dist/css/bootstrap.min.css'</span>
+  ],
+  <span class="variable">plugins</span>: [
+    { <span class="variable">src</span>: <span class="string">'~/plugins/bootstrap.js'</span>, <span class="variable">mode</span>: <span class="string">'client'</span> }
   ]
 }</code></pre>
-                    </div>
                 </div>
 
+                <div class="textExemple">
+                    <p>Créez le fichier plugin <code>plugins/bootstrap.js</code> :</p>
+                </div>
                 <div class="code-example">
-                    <h4 class="text-purple">Étape 3 : Plugin (pour JavaScript)</h4>
-                    <p>Créez un fichier <code>plugins/bootstrap.client.js</code> :</p>
-                    <pre><code><span class="keyword">import</span> bootstrap <span class="keyword">from</span> <span class="string">'bootstrap/dist/js/bootstrap.bundle.min.js'</span>
+                    <pre><code><span class="comment">// plugins/bootstrap.js</span>
+<span class="keyword">import</span> <span class="variable">bootstrap</span> <span class="keyword">from</span> <span class="string">'bootstrap/dist/js/bootstrap.bundle.min.js'</span>
 
-<span class="keyword">export</span> <span class="keyword">default</span> <span class="function">defineNuxtPlugin</span>(() <span class="operator">=></span> {
-  <span class="keyword">return</span> {
-    <span class="function">provide</span>: {
-      <span class="variable">bootstrap</span>: bootstrap
-    }
-  }
-})</code></pre>
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span>(<span class="variable">context</span>) {
+  <span class="variable">context</span>.<span class="variable">app</span>.<span class="variable">config</span>.<span class="variable">globalProperties</span>.<span class="variable">$bootstrap</span> = <span class="variable">bootstrap</span>
+}</code></pre>
                 </div>
             </section>
 
-            <!-- Exemples pratiques -->
+            <!-- Concepts de base -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Exemples pratiques avec Bootstrap</h2>
+                <h2 class="text-purple">Concepts de base de Bootstrap</h2>
 
+                <div class="textExemple">
+                    <h3 class="text-purple">1. Système de grille</h3>
+                    <p>Bootstrap utilise un système de grille responsive à 12 colonnes.</p>
+                </div>
                 <div class="code-example">
-                    <h3 class="text-purple">Système de grille</h3>
-                    <pre><code><span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"container"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"row"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4"</span><span class="tag">&gt;</span>Colonne 1<span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4"</span><span class="tag">&gt;</span>Colonne 2<span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4"</span><span class="tag">&gt;</span>Colonne 3<span class="tag">&lt;/div&gt;</span>
-  <span class="tag">&lt;/div&gt;</span>
-<span class="tag">&lt;/div&gt;</span></code></pre>
+                    <pre><code><span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"container"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"row"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-sm-6 col-md-4 col-lg-3"</span><span class="keyword">&gt;</span>
+      Colonne 1
+    <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-sm-6 col-md-4 col-lg-3"</span><span class="keyword">&gt;</span>
+      Colonne 2
+    <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-sm-6 col-md-4 col-lg-3"</span><span class="keyword">&gt;</span>
+      Colonne 3
+    <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-sm-6 col-md-4 col-lg-3"</span><span class="keyword">&gt;</span>
+      Colonne 4
+    <span class="keyword">&lt;/div&gt;</span>
+  <span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;/div&gt;</span></code></pre>
                 </div>
 
+                <div class="textExemple">
+                    <h3 class="text-purple">2. Composants prédéfinis</h3>
+                    <p>Bootstrap fournit de nombreux composants réutilisables.</p>
+                </div>
                 <div class="code-example">
-                    <h3 class="text-purple">Boutons avec différentes couleurs</h3>
-                    <pre><code><span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-secondary"</span><span class="tag">&gt;</span>Secondary<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-success"</span><span class="tag">&gt;</span>Success<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-danger"</span><span class="tag">&gt;</span>Danger<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-warning"</span><span class="tag">&gt;</span>Warning<span class="tag">&lt;/button&gt;</span>
-<span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-info"</span><span class="tag">&gt;</span>Info<span class="tag">&lt;/button&gt;</span></code></pre>
+                    <pre><code><span class="comment">&lt;!-- Navigation --&gt;</span>
+<span class="keyword">&lt;nav</span> <span class="variable">class</span>=<span class="string">"navbar navbar-expand-lg navbar-light bg-light"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"container-fluid"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;a</span> <span class="variable">class</span>=<span class="string">"navbar-brand"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="keyword">&gt;</span>Mon Site<span class="keyword">&lt;/a&gt;</span>
+    <span class="keyword">&lt;button</span> <span class="variable">class</span>=<span class="string">"navbar-toggler"</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">data-bs-toggle</span>=<span class="string">"collapse"</span> <span class="variable">data-bs-target</span>=<span class="string">"#navbarNav"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;span</span> <span class="variable">class</span>=<span class="string">"navbar-toggler-icon"</span><span class="keyword">&gt;&lt;/span&gt;</span>
+    <span class="keyword">&lt;/button&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"collapse navbar-collapse"</span> <span class="variable">id</span>=<span class="string">"navbarNav"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;ul</span> <span class="variable">class</span>=<span class="string">"navbar-nav"</span><span class="keyword">&gt;</span>
+        <span class="keyword">&lt;li</span> <span class="variable">class</span>=<span class="string">"nav-item"</span><span class="keyword">&gt;</span>
+          <span class="keyword">&lt;a</span> <span class="variable">class</span>=<span class="string">"nav-link active"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="keyword">&gt;</span>Accueil<span class="keyword">&lt;/a&gt;</span>
+        <span class="keyword">&lt;/li&gt;</span>
+        <span class="keyword">&lt;li</span> <span class="variable">class</span>=<span class="string">"nav-item"</span><span class="keyword">&gt;</span>
+          <span class="keyword">&lt;a</span> <span class="variable">class</span>=<span class="string">"nav-link"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="keyword">&gt;</span>Services<span class="keyword">&lt;/a&gt;</span>
+        <span class="keyword">&lt;/li&gt;</span>
+      <span class="keyword">&lt;/ul&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+  <span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;/nav&gt;</span></code></pre>
                 </div>
 
+                <div class="textExemple">
+                    <h3 class="text-purple">3. Classes utilitaires</h3>
+                    <p>Bootstrap inclut de nombreuses classes utilitaires pour le style rapide.</p>
+                </div>
                 <div class="code-example">
-                    <h3 class="text-purple">Navigation responsive</h3>
-                    <pre><code><span class="tag">&lt;nav</span> <span class="variable">class</span>=<span class="string">"navbar navbar-expand-lg navbar-light bg-light"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"container-fluid"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;a</span> <span class="variable">class</span>=<span class="string">"navbar-brand"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>MonSite<span class="tag">&lt;/a&gt;</span>
-    <span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"navbar-toggler"</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">data-bs-toggle</span>=<span class="string">"collapse"</span> <span class="variable">data-bs-target</span>=<span class="string">"#navbarNav"</span><span class="tag">&gt;</span>
-      <span class="tag">&lt;span</span> <span class="variable">class</span>=<span class="string">"navbar-toggler-icon"</span><span class="tag">&gt;</span><span class="tag">&lt;/span&gt;</span>
-    <span class="tag">&lt;/button&gt;</span>
-    <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"collapse navbar-collapse"</span> <span class="variable">id</span>=<span class="string">"navbarNav"</span><span class="tag">&gt;</span>
-      <span class="tag">&lt;ul</span> <span class="variable">class</span>=<span class="string">"navbar-nav"</span><span class="tag">&gt;</span>
-        <span class="tag">&lt;li</span> <span class="variable">class</span>=<span class="string">"nav-item"</span><span class="tag">&gt;</span><span class="tag">&lt;a</span> <span class="variable">class</span>=<span class="string">"nav-link active"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>Accueil<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span>
-        <span class="tag">&lt;li</span> <span class="variable">class</span>=<span class="string">"nav-item"</span><span class="tag">&gt;</span><span class="tag">&lt;a</span> <span class="variable">class</span>=<span class="string">"nav-link"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>Services<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span>
-        <span class="tag">&lt;li</span> <span class="variable">class</span>=<span class="string">"nav-item"</span><span class="tag">&gt;</span><span class="tag">&lt;a</span> <span class="variable">class</span>=<span class="string">"nav-link"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span>
-      <span class="tag">&lt;/ul&gt;</span>
-    <span class="tag">&lt;/div&gt;</span>
-  <span class="tag">&lt;/div&gt;</span>
-<span class="tag">&lt;/nav&gt;</span></code></pre>
+                    <pre><code><span class="comment">&lt;!-- Couleurs de texte --&gt;</span>
+<span class="keyword">&lt;p</span> <span class="variable">class</span>=<span class="string">"text-primary"</span><span class="keyword">&gt;</span>Texte primaire<span class="keyword">&lt;/p&gt;</span>
+<span class="keyword">&lt;p</span> <span class="variable">class</span>=<span class="string">"text-success"</span><span class="keyword">&gt;</span>Texte succès<span class="keyword">&lt;/p&gt;</span>
+<span class="keyword">&lt;p</span> <span class="variable">class</span>=<span class="string">"text-danger"</span><span class="keyword">&gt;</span>Texte danger<span class="keyword">&lt;/p&gt;</span>
+
+<span class="comment">&lt;!-- Backgrounds --&gt;</span>
+<span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"bg-primary text-white p-3"</span><span class="keyword">&gt;</span>Background primaire<span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"bg-light p-3"</span><span class="keyword">&gt;</span>Background light<span class="keyword">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Espacement --&gt;</span>
+<span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"m-3 p-4"</span><span class="keyword">&gt;</span>Margin 3, Padding 4<span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"mt-2 mb-4 ms-1 me-3"</span><span class="keyword">&gt;</span>Margins directionnels<span class="keyword">&lt;/div&gt;</span></code></pre>
                 </div>
             </section>
 
-            <!-- Avantages et inconvénients -->
+            <!-- Composants principaux -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Avantages et inconvénients</h2>
+                <h2 class="text-purple">Composants principaux de Bootstrap</h2>
 
-                <div class="code-comparison">
-                    <div>
-                        <h3 class="text-purple">Avantages</h3>
-                        <ul>
-                            <li>Développement rapide</li>
-                            <li>Design responsive intégré</li>
-                            <li>Grande communauté</li>
-                            <li>Documentation complète</li>
-                            <li>Compatibilité cross-browser</li>
-                        </ul>
-                    </div>
+                <div class="textExemple">
+                    <h3 class="text-purple">Boutons</h3>
+                </div>
+                <div class="code-example">
+                    <pre><code><span class="comment">&lt;!-- Types de boutons --&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="keyword">&gt;</span>Primaire<span class="keyword">&lt;/button&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">class</span>=<span class="string">"btn btn-secondary"</span><span class="keyword">&gt;</span>Secondaire<span class="keyword">&lt;/button&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">class</span>=<span class="string">"btn btn-success"</span><span class="keyword">&gt;</span>Succès<span class="keyword">&lt;/button&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">class</span>=<span class="string">"btn btn-danger"</span><span class="keyword">&gt;</span>Danger<span class="keyword">&lt;/button&gt;</span>
 
-                    <div>
-                        <h3 class="text-purple">Inconvénients</h3>
-                        <ul>
-                            <li>Taille du fichier CSS</li>
-                            <li>Design générique (sans personnalisation)</li>
-                            <li>Courbe d'apprentissage pour la personnalisation</li>
-                            <li>Peut ralentir les performances si mal utilisé</li>
-                        </ul>
-                    </div>
+<span class="comment">&lt;!-- Tailles --&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-primary btn-sm"</span><span class="keyword">&gt;</span>Petit<span class="keyword">&lt;/button&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-primary btn-lg"</span><span class="keyword">&gt;</span>Large<span class="keyword">&lt;/button&gt;</span>
+
+<span class="comment">&lt;!-- Boutons outline --&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-outline-primary"</span><span class="keyword">&gt;</span>Outline<span class="keyword">&lt;/button&gt;</span></code></pre>
+                </div>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Cartes (Cards)</h3>
+                </div>
+                <div class="code-example">
+                    <pre><code><span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"card"</span> <span class="variable">style</span>=<span class="string">"width: 18rem;"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;img</span> <span class="variable">src</span>=<span class="string">"..."</span> <span class="variable">class</span>=<span class="string">"card-img-top"</span> <span class="variable">alt</span>=<span class="string">"..."</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"card-body"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;h5</span> <span class="variable">class</span>=<span class="string">"card-title"</span><span class="keyword">&gt;</span>Titre de la carte<span class="keyword">&lt;/h5&gt;</span>
+    <span class="keyword">&lt;p</span> <span class="variable">class</span>=<span class="string">"card-text"</span><span class="keyword">&gt;</span>
+      Exemple de texte dans la carte.
+    <span class="keyword">&lt;/p&gt;</span>
+    <span class="keyword">&lt;a</span> <span class="variable">href</span>=<span class="string">"#"</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="keyword">&gt;</span>Aller quelque part<span class="keyword">&lt;/a&gt;</span>
+  <span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;/div&gt;</span></code></pre>
+                </div>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Modals</h3>
+                </div>
+                <div class="code-example">
+                    <pre><code><span class="comment">&lt;!-- Bouton pour ouvrir le modal --&gt;</span>
+<span class="keyword">&lt;button</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span> <span class="variable">data-bs-toggle</span>=<span class="string">"modal"</span> <span class="variable">data-bs-target</span>=<span class="string">"#exampleModal"</span><span class="keyword">&gt;</span>
+  Ouvrir le modal
+<span class="keyword">&lt;/button&gt;</span>
+
+<span class="comment">&lt;!-- Modal --&gt;</span>
+<span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"modal fade"</span> <span class="variable">id</span>=<span class="string">"exampleModal"</span> <span class="variable">tabindex</span>=<span class="string">"-1"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"modal-dialog"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"modal-content"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"modal-header"</span><span class="keyword">&gt;</span>
+        <span class="keyword">&lt;h5</span> <span class="variable">class</span>=<span class="string">"modal-title"</span><span class="keyword">&gt;</span>Titre du modal<span class="keyword">&lt;/h5&gt;</span>
+        <span class="keyword">&lt;button</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">class</span>=<span class="string">"btn-close"</span> <span class="variable">data-bs-dismiss</span>=<span class="string">"modal"</span><span class="keyword">&gt;&lt;/button&gt;</span>
+      <span class="keyword">&lt;/div&gt;</span>
+      <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"modal-body"</span><span class="keyword">&gt;</span>
+        <span class="keyword">&lt;p</span><span class="keyword">&gt;</span>Contenu du modal...<span class="keyword">&lt;/p&gt;</span>
+      <span class="keyword">&lt;/div&gt;</span>
+      <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"modal-footer"</span><span class="keyword">&gt;</span>
+        <span class="keyword">&lt;button</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">class</span>=<span class="string">"btn btn-secondary"</span> <span class="variable">data-bs-dismiss</span>=<span class="string">"modal"</span><span class="keyword">&gt;</span>Fermer<span class="keyword">&lt;/button&gt;</span>
+        <span class="keyword">&lt;button</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="keyword">&gt;</span>Sauvegarder<span class="keyword">&lt;/button&gt;</span>
+      <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+  <span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;/div&gt;</span></code></pre>
                 </div>
             </section>
 
@@ -186,47 +291,125 @@
                 <h2 class="text-purple">Exercice pratique</h2>
 
                 <div class="exercise">
-                    <h3 class="text-purple">Créer une carte produit responsive</h3>
-                    <p>Utilisez Bootstrap pour créer une carte de produit avec :</p>
+                    <h3 class="text-purple">Objectif</h3>
+                    <p>
+                        Créez une page de profil utilisateur responsive avec Bootstrap contenant :
+                    </p>
                     <ul>
-                        <li>Une image</li>
-                        <li>Un titre</li>
-                        <li>Une description</li>
-                        <li>Un prix</li>
-                        <li>Un bouton "Ajouter au panier"</li>
+                        <li>Une navbar responsive</li>
+                        <li>Une section de profil avec avatar</li>
+                        <li>Une grille de cartes pour les compétences</li>
+                        <li>Un formulaire de contact</li>
+                        <li>Un footer</li>
                     </ul>
 
                     <details class="solution">
                         <summary class="btn-purple btn-hover">Voir la solution</summary>
                         <div class="solution-content">
-                            <pre><code><span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"card"</span> <span class="variable">style</span>=<span class="string">"width: 18rem;"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;img</span> <span class="variable">src</span>=<span class="string">"produit.jpg"</span> <span class="variable">class</span>=<span class="string">"card-img-top"</span> <span class="variable">alt</span>=<span class="string">"Nom du produit"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"card-body"</span><span class="tag">&gt;</span>
-    <span class="tag">&lt;h5</span> <span class="variable">class</span>=<span class="string">"card-title"</span><span class="tag">&gt;</span>Nom du produit<span class="tag">&lt;/h5&gt;</span>
-    <span class="tag">&lt;p</span> <span class="variable">class</span>=<span class="string">"card-text"</span><span class="tag">&gt;</span>Description courte du produit.<span class="tag">&lt;/p&gt;</span>
-    <span class="tag">&lt;p</span> <span class="variable">class</span>=<span class="string">"h4 text-primary"</span><span class="tag">&gt;</span>29,99 €<span class="tag">&lt;/p&gt;</span>
-    <span class="tag">&lt;a</span> <span class="variable">href</span>=<span class="string">"#"</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="tag">&gt;</span>Ajouter au panier<span class="tag">&lt;/a&gt;</span>
-  <span class="tag">&lt;/div&gt;</span>
-<span class="tag">&lt;/div&gt;</span></code></pre>
+                            <h4 class="text-purple">Solution avec Bootstrap</h4>
+                            <pre><code><span class="comment">&lt;!-- Navbar --&gt;</span>
+<span class="keyword">&lt;nav</span> <span class="variable">class</span>=<span class="string">"navbar navbar-expand-lg navbar-dark bg-dark"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"container"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;a</span> <span class="variable">class</span>=<span class="string">"navbar-brand"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="keyword">&gt;</span>Mon Portfolio<span class="keyword">&lt;/a&gt;</span>
+    <span class="keyword">&lt;button</span> <span class="variable">class</span>=<span class="string">"navbar-toggler"</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">data-bs-toggle</span>=<span class="string">"collapse"</span> <span class="variable">data-bs-target</span>=<span class="string">"#navbarNav"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;span</span> <span class="variable">class</span>=<span class="string">"navbar-toggler-icon"</span><span class="keyword">&gt;&lt;/span&gt;</span>
+    <span class="keyword">&lt;/button&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"collapse navbar-collapse"</span> <span class="variable">id</span>=<span class="string">"navbarNav"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;ul</span> <span class="variable">class</span>=<span class="string">"navbar-nav ms-auto"</span><span class="keyword">&gt;</span>
+        <span class="keyword">&lt;li</span> <span class="variable">class</span>=<span class="string">"nav-item"</span><span class="keyword">&gt;</span>
+          <span class="keyword">&lt;a</span> <span class="variable">class</span>=<span class="string">"nav-link active"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="keyword">&gt;</span>Profil<span class="keyword">&lt;/a&gt;</span>
+        <span class="keyword">&lt;/li&gt;</span>
+        <span class="keyword">&lt;li</span> <span class="variable">class</span>=<span class="string">"nav-item"</span><span class="keyword">&gt;</span>
+          <span class="keyword">&lt;a</span> <span class="variable">class</span>=<span class="string">"nav-link"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="keyword">&gt;</span>Compétences<span class="keyword">&lt;/a&gt;</span>
+        <span class="keyword">&lt;/li&gt;</span>
+        <span class="keyword">&lt;li</span> <span class="variable">class</span>=<span class="string">"nav-item"</span><span class="keyword">&gt;</span>
+          <span class="keyword">&lt;a</span> <span class="variable">class</span>=<span class="string">"nav-link"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="keyword">&gt;</span>Contact<span class="keyword">&lt;/a&gt;</span>
+        <span class="keyword">&lt;/li&gt;</span>
+      <span class="keyword">&lt;/ul&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+  <span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;/nav&gt;</span>
+
+<span class="comment">&lt;!-- Section Profil --&gt;</span>
+<span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"container my-5"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"row align-items-center"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4 text-center"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;img</span> <span class="variable">src</span>=<span class="string">"avatar.jpg"</span> <span class="variable">class</span>=<span class="string">"rounded-circle img-fluid"</span> <span class="variable">width</span>=<span class="string">"200"</span> <span class="variable">alt</span>=<span class="string">"Avatar"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-8"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;h1</span> <span class="variable">class</span>=<span class="string">"display-4"</span><span class="keyword">&gt;</span>John Doe<span class="keyword">&lt;/h1&gt;</span>
+      <span class="keyword">&lt;p</span> <span class="variable">class</span>=<span class="string">"lead text-muted"</span><span class="keyword">&gt;</span>Développeur Full Stack<span class="keyword">&lt;/p&gt;</span>
+      <span class="keyword">&lt;p</span><span class="keyword">&gt;</span>Passionné par le développement web et les nouvelles technologies.<span class="keyword">&lt;/p&gt;</span>
+      <span class="keyword">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-primary btn-lg"</span><span class="keyword">&gt;</span>Me contacter<span class="keyword">&lt;/button&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+  <span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Section Compétences --&gt;</span>
+<span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"container my-5"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;h2</span> <span class="variable">class</span>=<span class="string">"text-center mb-4"</span><span class="keyword">&gt;</span>Mes Compétences<span class="keyword">&lt;/h2&gt;</span>
+  <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"row"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4 mb-3"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"card h-100"</span><span class="keyword">&gt;</span>
+        <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"card-body text-center"</span><span class="keyword">&gt;</span>
+          <span class="keyword">&lt;h5</span> <span class="variable">class</span>=<span class="string">"card-title"</span><span class="keyword">&gt;</span>Frontend<span class="keyword">&lt;/h5&gt;</span>
+          <span class="keyword">&lt;p</span> <span class="variable">class</span>=<span class="string">"card-text"</span><span class="keyword">&gt;</span>HTML, CSS, JavaScript, React, Vue.js<span class="keyword">&lt;/p&gt;</span>
+        <span class="keyword">&lt;/div&gt;</span>
+      <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4 mb-3"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"card h-100"</span><span class="keyword">&gt;</span>
+        <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"card-body text-center"</span><span class="keyword">&gt;</span>
+          <span class="keyword">&lt;h5</span> <span class="variable">class</span>=<span class="string">"card-title"</span><span class="keyword">&gt;</span>Backend<span class="keyword">&lt;/h5&gt;</span>
+          <span class="keyword">&lt;p</span> <span class="variable">class</span>=<span class="string">"card-text"</span><span class="keyword">&gt;</span>Node.js, Express, MongoDB, MySQL<span class="keyword">&lt;/p&gt;</span>
+        <span class="keyword">&lt;/div&gt;</span>
+      <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4 mb-3"</span><span class="keyword">&gt;</span>
+      <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"card h-100"</span><span class="keyword">&gt;</span>
+        <span class="keyword">&lt;div</span> <span class="variable">class</span>=<span class="string">"card-body text-center"</span><span class="keyword">&gt;</span>
+          <span class="keyword">&lt;h5</span> <span class="variable">class</span>=<span class="string">"card-title"</span><span class="keyword">&gt;</span>Outils<span class="keyword">&lt;/h5&gt;</span>
+          <span class="keyword">&lt;p</span> <span class="variable">class</span>=<span class="string">"card-text"</span><span class="keyword">&gt;</span>Git, Docker, Webpack, Figma<span class="keyword">&lt;/p&gt;</span>
+        <span class="keyword">&lt;/div&gt;</span>
+      <span class="keyword">&lt;/div&gt;</span>
+    <span class="keyword">&lt;/div&gt;</span>
+  <span class="keyword">&lt;/div&gt;</span>
+<span class="keyword">&lt;/div&gt;</span></code></pre>
                         </div>
                     </details>
                 </div>
             </section>
 
-            <!-- Ressources supplémentaires -->
+            <!-- Conclusion -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Ressources supplémentaires</h2>
+                <h2 class="text-purple">Conclusion</h2>
+                <div class="textExemple">
+                    <p>
+                        Bootstrap reste l'un des frameworks CSS les plus populaires et les plus utilisés dans le monde
+                        du développement web.
+                        Sa simplicité d'utilisation, sa documentation complète et sa large communauté en font un
+                        excellent choix pour
+                        démarrer rapidement un projet ou pour des applications nécessitant une interface utilisateur
+                        cohérente et professionnelle.
+                    </p>
+                    <p>
+                        Bien que des frameworks comme Tailwind CSS gagnent en popularité pour leur flexibilité,
+                        Bootstrap continue d'évoluer
+                        et reste une solution solide pour de nombreux projets.
+                    </p>
+                </div>
 
-                <div class="code-example">
+                <div class="textExemple">
+                    <h3 class="text-purple">Ressources supplémentaires</h3>
                     <ul>
-                        <li><a href="https://getbootstrap.com/docs/" target="_blank"
-                                class="btn-purple btn-hover">Documentation officielle</a></li>
-                        <li><a href="https://getbootstrap.com/docs/5.3/examples/" target="_blank"
-                                class="btn-purple btn-hover">Exemples et templates</a></li>
-                        <li><a href="https://icons.getbootstrap.com/" target="_blank"
-                                class="btn-purple btn-hover">Bootstrap Icons</a></li>
-                        <li><a href="https://themes.getbootstrap.com/" target="_blank"
-                                class="btn-purple btn-hover">Thèmes premium</a></li>
+                        <li><a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/"
+                                class="btn-purple btn-hover" target="_blank">Documentation officielle</a></li>
+                        <li><a href="https://getbootstrap.com/docs/5.3/examples/" class="btn-purple btn-hover"
+                                target="_blank">Exemples et templates</a></li>
+                        <li><a href="https://github.com/twbs/bootstrap" class="btn-purple btn-hover"
+                                target="_blank">Code source sur GitHub</a></li>
+                        <li><a href="https://bootswatch.com/" class="btn-purple btn-hover" target="_blank">Bootswatch -
+                                Thèmes gratuits</a></li>
                     </ul>
                 </div>
             </section>
@@ -234,7 +417,7 @@
     </div>
 </template>
 
-<script setup>
+<script>
 
 </script>
 
@@ -420,59 +603,57 @@ pre code {
     word-break: break-word;
 }
 
-/* COULEURS VS CODE AMÉLIORÉES */
-.comment {
-    color: #6a9955 !important;
-    font-style: italic;
-}
-
-.tag {
-    color: #569cd6 !important;
-}
-
-.variable {
-    color: #9cdcfe !important;
-}
-
-.string {
-    color: #ce9178 !important;
-}
-
+/* Couleurs VS Code pour la syntaxe */
 .keyword {
     color: #c586c0 !important;
 }
 
+/* Mots-clés HTML/JS (div, export, function, etc.) */
+.variable {
+    color: #9cdcfe !important;
+}
+
+/* Variables, attributs, noms de classes */
+.string {
+    color: #ce9178 !important;
+}
+
+/* Chaînes de caractères */
+.comment {
+    color: #6a9955 !important;
+}
+
+/* Commentaires */
 .function {
     color: #dcdcaa !important;
 }
 
+/* Noms de fonctions */
 .operator {
     color: #d4d4d4 !important;
 }
 
+/* Opérateurs (+, -, =, =>, etc.) */
 .constant {
     color: #4fc1ff !important;
 }
 
+/* Constantes, couleurs */
 .number {
     color: #b5cea8 !important;
 }
 
+/* Nombres */
 .class-name {
     color: #4ec9b0 !important;
 }
 
-.attribute {
-    color: #9cdcfe !important;
+/* Noms de classes CSS */
+.selector {
+    color: #d7ba7d !important;
 }
 
-.property {
-    color: #9cdcfe !important;
-}
-
-.punctuation {
-    color: #d4d4d4 !important;
-}
+/* Sélecteurs CSS */
 
 /* Exercices et solutions */
 .exercise {
