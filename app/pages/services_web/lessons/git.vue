@@ -1,118 +1,118 @@
 <template>
-  <div class="lesson-container">
-    <div class="lesson-content">
-      <!-- En-tête de la leçon -->
-      <header class="lesson-header">
-        <h1 class="text-white">Git : Gestion de version</h1>
-        <p class="lesson-meta text-white">Maîtrisez les bases de Git pour vos projets de développement</p>
-      </header>
+    <div class="lesson-container">
+        <div class="lesson-content">
+            <!-- En-tête de la leçon -->
+            <header class="lesson-header">
+                <h1 class="text-white">Git : Gestion de version</h1>
+                <p class="lesson-meta text-white">Maîtrisez les bases de Git pour vos projets de développement</p>
+            </header>
 
-      <!-- Introduction à Git -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Qu'est-ce que Git ?</h2>
-        <p class="textExemple">
-          Git est un système de contrôle de version distribué qui permet de suivre les modifications 
-          apportées aux fichiers d'un projet au fil du temps. Il est largement utilisé dans le 
-          développement logiciel pour collaborer efficacement et gérer les différentes versions d'un projet.
-        </p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Avantages de Git :</h3>
-          <ul>
-            <li>Historique complet des modifications</li>
-            <li>Collaboration simplifiée entre développeurs</li>
-            <li>Possibilité de travailler sur différentes fonctionnalités simultanément (branches)</li>
-            <li>Restauration facile de versions antérieures</li>
-            <li>Intégration avec les plateformes comme GitHub, GitLab, Bitbucket</li>
-          </ul>
-        </div>
-      </section>
+            <!-- Introduction à Git -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Qu'est-ce que Git ?</h2>
+                <p class="textExemple">
+                    Git est un système de contrôle de version distribué qui permet de suivre les modifications
+                    apportées aux fichiers d'un projet au fil du temps. Il est largement utilisé dans le
+                    développement logiciel pour collaborer efficacement et gérer les différentes versions d'un projet.
+                </p>
 
-      <!-- Utilité de Git dans un projet -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Utilité de Git dans un projet</h2>
-        <p class="textExemple">
-          Git est essentiel dans tout projet de développement, qu'il soit personnel ou professionnel. 
-          Voici pourquoi il est indispensable :
-        </p>
-        
-        <div class="code-comparison">
-          <div>
-            <h4 class="text-purple">Sans Git :</h4>
-            <ul>
-              <li>Fichiers sauvegardés manuellement (v1, v2, v3_final, v3_final_reel...)</li>
-              <li>Difficile de collaborer sans écraser le travail des autres</li>
-              <li>Impossible de savoir qui a modifié quoi et quand</li>
-              <li>Risque de perdre des modifications importantes</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 class="text-purple">Avec Git :</h4>
-            <ul>
-              <li>Historique organisé et détaillé de toutes les modifications</li>
-              <li>Collaboration simultanée sans conflits</li>
-              <li>Traçabilité complète des changements</li>
-              <li>Sécurité et possibilité de revenir en arrière à tout moment</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+                <div class="code-example">
+                    <h3 class="text-purple">Avantages de Git :</h3>
+                    <ul>
+                        <li>Historique complet des modifications</li>
+                        <li>Collaboration simplifiée entre développeurs</li>
+                        <li>Possibilité de travailler sur différentes fonctionnalités simultanément (branches)</li>
+                        <li>Restauration facile de versions antérieures</li>
+                        <li>Intégration avec les plateformes comme GitHub, GitLab, Bitbucket</li>
+                    </ul>
+                </div>
+            </section>
 
-      <!-- Étapes pour lier un projet à un dépôt -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Étapes pour lier un projet à un dépôt Git</h2>
-        <p class="textExemple">
-          Voici comment initialiser Git dans un projet existant et le lier à un dépôt distant :
-        </p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">1. Initialiser Git dans votre projet</h3>
-          <p>Ouvrez votre terminal dans le dossier de votre projet et exécutez :</p>
-          <pre><code class="language-bash">git init</code></pre>
-          <p>Cette commande crée un nouveau dépôt Git local.</p>
-        </div>
-        
-        <div class="code-example">
-          <h3 class="text-purple">2. Ajouter tous les fichiers au suivi de Git</h3>
-          <pre><code class="language-bash">git add .</code></pre>
-          <p>Ou pour ajouter un fichier spécifique :</p>
-          <pre><code class="language-bash">git add nom_du_fichier</code></pre>
-        </div>
-        
-        <div class="code-example">
-          <h3 class="text-purple">3. Effectuer le premier commit</h3>
-          <pre><code class="language-bash">git commit -m "Message décrivant les modifications"</code></pre>
-          <p>Exemple :</p>
-          <pre><code class="language-bash">git commit -m "Initial commit - configuration du projet"</code></pre>
-        </div>
-        
-        <div class="code-example">
-          <h3 class="text-purple">4. Lier au dépôt distant (GitHub, GitLab, etc.)</h3>
-          <pre><code class="language-bash">git remote add origin https://github.com/votre-utilisateur/votre-depot.git</code></pre>
-          <p>Remplacez l'URL par celle de votre propre dépôt.</p>
-        </div>
-        
-        <div class="code-example">
-          <h3 class="text-purple">5. Pousser le code vers le dépôt distant</h3>
-          <pre><code class="language-bash">git push -u origin main</code></pre>
-          <p>Ou selon le nom de votre branche par défaut :</p>
-          <pre><code class="language-bash">git push -u origin master</code></pre>
-        </div>
-      </section>
+            <!-- Utilité de Git dans un projet -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Utilité de Git dans un projet</h2>
+                <p class="textExemple">
+                    Git est essentiel dans tout projet de développement, qu'il soit personnel ou professionnel.
+                    Voici pourquoi il est indispensable :
+                </p>
 
-      <!-- Créer un nouveau dépôt -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Créer un nouveau dépôt Git</h2>
-        <p class="textExemple">
-          Vous pouvez créer un nouveau dépôt Git de deux manières : en initialisant un projet existant 
-          ou en créant un nouveau dépôt sur une plateforme comme GitHub.
-        </p>
-        
-        <div class="code-comparison">
-          <div>
-            <h4 class="text-purple">Méthode 1 : Initialiser un projet existant</h4>
-            <pre><code class="language-bash"># Se placer dans le dossier du projet
+                <div class="code-comparison">
+                    <div>
+                        <h4 class="text-purple">Sans Git :</h4>
+                        <ul>
+                            <li>Fichiers sauvegardés manuellement (v1, v2, v3_final, v3_final_reel...)</li>
+                            <li>Difficile de collaborer sans écraser le travail des autres</li>
+                            <li>Impossible de savoir qui a modifié quoi et quand</li>
+                            <li>Risque de perdre des modifications importantes</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-purple">Avec Git :</h4>
+                        <ul>
+                            <li>Historique organisé et détaillé de toutes les modifications</li>
+                            <li>Collaboration simultanée sans conflits</li>
+                            <li>Traçabilité complète des changements</li>
+                            <li>Sécurité et possibilité de revenir en arrière à tout moment</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Étapes pour lier un projet à un dépôt -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Étapes pour lier un projet à un dépôt Git</h2>
+                <p class="textExemple">
+                    Voici comment initialiser Git dans un projet existant et le lier à un dépôt distant :
+                </p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">1. Initialiser Git dans votre projet</h3>
+                    <p>Ouvrez votre terminal dans le dossier de votre projet et exécutez :</p>
+                    <pre><code class="language-bash">git init</code></pre>
+                    <p>Cette commande crée un nouveau dépôt Git local.</p>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">2. Ajouter tous les fichiers au suivi de Git</h3>
+                    <pre><code class="language-bash">git add .</code></pre>
+                    <p>Ou pour ajouter un fichier spécifique :</p>
+                    <pre><code class="language-bash">git add nom_du_fichier</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">3. Effectuer le premier commit</h3>
+                    <pre><code class="language-bash">git commit -m "Message décrivant les modifications"</code></pre>
+                    <p>Exemple :</p>
+                    <pre><code class="language-bash">git commit -m "Initial commit - configuration du projet"</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">4. Lier au dépôt distant (GitHub, GitLab, etc.)</h3>
+                    <pre><code class="language-bash">git remote add origin https://github.com/votre-utilisateur/votre-depot.git</code></pre>
+                    <p>Remplacez l'URL par celle de votre propre dépôt.</p>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">5. Pousser le code vers le dépôt distant</h3>
+                    <pre><code class="language-bash">git push -u origin main</code></pre>
+                    <p>Ou selon le nom de votre branche par défaut :</p>
+                    <pre><code class="language-bash">git push -u origin master</code></pre>
+                </div>
+            </section>
+
+            <!-- Créer un nouveau dépôt -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Créer un nouveau dépôt Git</h2>
+                <p class="textExemple">
+                    Vous pouvez créer un nouveau dépôt Git de deux manières : en initialisant un projet existant
+                    ou en créant un nouveau dépôt sur une plateforme comme GitHub.
+                </p>
+
+                <div class="code-comparison">
+                    <div>
+                        <h4 class="text-purple">Méthode 1 : Initialiser un projet existant</h4>
+                        <pre><code class="language-bash"># Se placer dans le dossier du projet
 cd mon-projet
 
 # Initialiser Git
@@ -128,11 +128,11 @@ git commit -m "Initial commit"
 # Puis lier le dépôt local au distant
 git remote add origin https://github.com/utilisateur/mon-projet.git
 git push -u origin main</code></pre>
-          </div>
-          
-          <div>
-            <h4 class="text-purple">Méthode 2 : Créer d'abord sur GitHub</h4>
-            <pre><code class="language-bash"># Créer le dépôt sur GitHub (via l'interface web)
+                    </div>
+
+                    <div>
+                        <h4 class="text-purple">Méthode 2 : Créer d'abord sur GitHub</h4>
+                        <pre><code class="language-bash"># Créer le dépôt sur GitHub (via l'interface web)
 # Puis cloner le dépôt vide
 git clone https://github.com/utilisateur/mon-projet.git
 
@@ -144,20 +144,20 @@ cd mon-projet
 git add .
 git commit -m "Ajout des fichiers du projet"
 git push origin main</code></pre>
-          </div>
-        </div>
-      </section>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Commandes Git essentielles -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Commandes Git essentielles</h2>
-        <p class="textExemple">
-          Voici les commandes Git de base que vous utiliserez quotidiennement :
-        </p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Workflow de base</h3>
-          <pre><code class="language-bash"># Vérifier l'état des fichiers
+            <!-- Commandes Git essentielles -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Commandes Git essentielles</h2>
+                <p class="textExemple">
+                    Voici les commandes Git de base que vous utiliserez quotidiennement :
+                </p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Workflow de base</h3>
+                    <pre><code class="language-bash"># Vérifier l'état des fichiers
 git status
 
 # Ajouter des fichiers à l'index
@@ -169,11 +169,11 @@ git commit -m "Description des changements"
 
 # Envoyer les modifications vers le dépôt distant
 git push</code></pre>
-        </div>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Récupérer les modifications</h3>
-          <pre><code class="language-bash"># Télécharger les dernières modifications
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Récupérer les modifications</h3>
+                    <pre><code class="language-bash"># Télécharger les dernières modifications
 git pull
 
 # Voir l'historique des commits
@@ -181,92 +181,93 @@ git log
 
 # Voir les différences entre les fichiers
 git diff</code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Exercice pratique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exercice pratique</h2>
-        <div class="exercise">
-          <p class="textExemple">
-            <strong>Objectif :</strong> Créer un nouveau projet, l'initialiser avec Git et le pousser sur GitHub.
-          </p>
-          
-          <ol>
-            <li>Créez un nouveau dossier pour votre projet</li>
-            <li>Initialisez Git dans ce dossier</li>
-            <li>Créez un fichier README.md avec une brève description</li>
-            <li>Ajoutez ce fichier à l'index Git</li>
-            <li>Effectuez un premier commit</li>
-            <li>Créez un nouveau dépôt sur GitHub</li>
-            <li>Lie votre dépôt local au dépôt distant</li>
-            <li>Poussez votre code vers GitHub</li>
-          </ol>
-          
-          <details class="solution">
-            <summary class="btn-purple btn-hover">Voir la solution</summary>
-            <div class="solution-content">
-              <h4 class="text-purple">Solution étape par étape :</h4>
-              
-              <p>1. Créer et se déplacer dans le dossier :</p>
-              <pre><code class="language-bash">mkdir mon-nouveau-projet
+            <!-- Exercice pratique -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exercice pratique</h2>
+                <div class="exercise">
+                    <p class="textExemple">
+                        <strong>Objectif :</strong> Créer un nouveau projet, l'initialiser avec Git et le pousser sur
+                        GitHub.
+                    </p>
+
+                    <ol>
+                        <li>Créez un nouveau dossier pour votre projet</li>
+                        <li>Initialisez Git dans ce dossier</li>
+                        <li>Créez un fichier README.md avec une brève description</li>
+                        <li>Ajoutez ce fichier à l'index Git</li>
+                        <li>Effectuez un premier commit</li>
+                        <li>Créez un nouveau dépôt sur GitHub</li>
+                        <li>Lie votre dépôt local au dépôt distant</li>
+                        <li>Poussez votre code vers GitHub</li>
+                    </ol>
+
+                    <details class="solution">
+                        <summary class="btn-purple btn-hover">Voir la solution</summary>
+                        <div class="solution-content">
+                            <h4 class="text-purple">Solution étape par étape :</h4>
+
+                            <p>1. Créer et se déplacer dans le dossier :</p>
+                            <pre><code class="language-bash">mkdir mon-nouveau-projet
 cd mon-nouveau-projet</code></pre>
-              
-              <p>2. Initialiser Git :</p>
-              <pre><code class="language-bash">git init</code></pre>
-              
-              <p>3. Créer le fichier README.md :</p>
-              <pre><code class="language-bash">echo "# Mon Nouveau Projet" >> README.md
-echo "Ceci est mon premier projet versionné avec Git." >> README.md</code></pre>
-              
-              <p>4. Ajouter le fichier à l'index :</p>
-              <pre><code class="language-bash">git add README.md</code></pre>
-              
-              <p>5. Effectuer le premier commit :</p>
-              <pre><code class="language-bash">git commit -m "Ajout du fichier README"</code></pre>
-              
-              <p>6. Créer le dépôt sur GitHub (via l'interface web)</p>
-              
-              <p>7. Lier le dépôt local au distant :</p>
-              <pre><code class="language-bash">git remote add origin https://github.com/votre-utilisateur/mon-nouveau-projet.git</code></pre>
-              
-              <p>8. Pousser le code :</p>
-              <pre><code class="language-bash">git push -u origin main</code></pre>
-            </div>
-          </details>
-        </div>
-      </section>
 
-      <!-- Navigation -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Pour aller plus loin</h2>
-        <p class="textExemple">
-          Maintenant que vous maîtrisez les bases de Git, vous pouvez explorer des concepts plus avancés :
-        </p>
-        
-        <div class="code-example">
-          <ul>
-            <li>Les branches et les fusions (git branch, git merge)</li>
-            <li>La résolution de conflits</li>
-            <li>Les tags pour marquer des versions (git tag)</li>
-            <li>Git stash pour sauvegarder temporairement des modifications</li>
-            <li>Les hooks Git pour automatiser des tâches</li>
-          </ul>
+                            <p>2. Initialiser Git :</p>
+                            <pre><code class="language-bash">git init</code></pre>
+
+                            <p>3. Créer le fichier README.md :</p>
+                            <pre><code class="language-bash">echo "# Mon Nouveau Projet" >> README.md
+echo "Ceci est mon premier projet versionné avec Git." >> README.md</code></pre>
+
+                            <p>4. Ajouter le fichier à l'index :</p>
+                            <pre><code class="language-bash">git add README.md</code></pre>
+
+                            <p>5. Effectuer le premier commit :</p>
+                            <pre><code class="language-bash">git commit -m "Ajout du fichier README"</code></pre>
+
+                            <p>6. Créer le dépôt sur GitHub (via l'interface web)</p>
+
+                            <p>7. Lier le dépôt local au distant :</p>
+                            <pre><code class="language-bash">git remote add origin https://github.com/votre-utilisateur/mon-nouveau-projet.git</code></pre>
+
+                            <p>8. Pousser le code :</p>
+                            <pre><code class="language-bash">git push -u origin main</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Pour aller plus loin</h2>
+                <p class="textExemple">
+                    Maintenant que vous maîtrisez les bases de Git, vous pouvez explorer des concepts plus avancés :
+                </p>
+
+                <div class="code-example">
+                    <ul>
+                        <li>Les branches et les fusions (git branch, git merge)</li>
+                        <li>La résolution de conflits</li>
+                        <li>Les tags pour marquer des versions (git tag)</li>
+                        <li>Git stash pour sauvegarder temporairement des modifications</li>
+                        <li>Les hooks Git pour automatiser des tâches</li>
+                    </ul>
+                </div>
+            </section>
         </div>
-      </section>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: 'GitLesson',
-  // Si vous utilisez la composition API
-  setup() {
-    return {
-      // Données ou méthodes si nécessaires
+    name: 'GitLesson',
+    // Si vous utilisez la composition API
+    setup() {
+        return {
+            // Données ou méthodes si nécessaires
+        }
     }
-  }
 }
 </script>
 
@@ -404,7 +405,8 @@ export default {
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example, .code-block {
+.code-example,
+.code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -431,15 +433,19 @@ pre {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap; /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Casse les mots longs */
-    word-break: break-word; /* Assure la césure des mots */
+    white-space: pre-wrap;
+    /* Permet le retour à la ligne */
+    word-wrap: break-word;
+    /* Casse les mots longs */
+    word-break: break-word;
+    /* Assure la césure des mots */
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
-    white-space: pre-wrap; /* Retour à la ligne automatique */
+    white-space: pre-wrap;
+    /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -448,15 +454,51 @@ pre code {
 }
 
 /* Couleurs VS Code pour la syntaxe JavaScript */
-.keyword { color: #c586c0 !important; } /* Mots-clés (for, while, if, function, etc.) */
-.variable { color: #9cdcfe !important; } /* Variables et noms de fonctions */
-.string { color: #ce9178 !important; } /* Chaînes de caractères */
-.comment { color: #6a9955 !important; } /* Commentaires */
-.function { color: #dcdcaa !important; } /* Noms de fonctions */
-.operator { color: #d4d4d4 !important; } /* Opérateurs (+, -, =, =>, etc.) */
-.constant { color: #4fc1ff !important; } /* Constantes */
-.number { color: #b5cea8 !important; } /* Nombres */
-.class-name { color: #4ec9b0 !important; } /* Noms de classes */
+.keyword {
+    color: #c586c0 !important;
+}
+
+/* Mots-clés (for, while, if, function, etc.) */
+.variable {
+    color: #9cdcfe !important;
+}
+
+/* Variables et noms de fonctions */
+.string {
+    color: #ce9178 !important;
+}
+
+/* Chaînes de caractères */
+.comment {
+    color: #6a9955 !important;
+}
+
+/* Commentaires */
+.function {
+    color: #dcdcaa !important;
+}
+
+/* Noms de fonctions */
+.operator {
+    color: #d4d4d4 !important;
+}
+
+/* Opérateurs (+, -, =, =>, etc.) */
+.constant {
+    color: #4fc1ff !important;
+}
+
+/* Constantes */
+.number {
+    color: #b5cea8 !important;
+}
+
+/* Nombres */
+.class-name {
+    color: #4ec9b0 !important;
+}
+
+/* Noms de classes */
 
 /* Exercices et solutions */
 .exercise {
@@ -496,24 +538,24 @@ details summary {
     .lesson-container {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 2rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 2rem;
     }
-    
+
     .lesson-section {
         padding: 1.5rem;
     }
-    
+
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
@@ -526,19 +568,19 @@ details summary {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-    
+
     .lesson-container {
         padding: 0.5rem;
     }
-    
+
     .lesson-section {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 1.75rem;
     }
@@ -557,6 +599,7 @@ details summary {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -567,9 +610,23 @@ details summary {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lesson-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
 </style>
