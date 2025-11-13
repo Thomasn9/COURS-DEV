@@ -1,98 +1,102 @@
 <template>
-  <div class="lesson-container">
-    <div class="lesson-content">
-      <!-- En-tête de la leçon -->
-      <header class="lesson-header">
-        <h1 class="text-white">Bootstrap - Framework CSS</h1>
-        <p class="lesson-meta text-white">Apprenez à utiliser Bootstrap pour créer des interfaces web modernes et responsives</p>
-      </header>
+    <div class="lesson-container">
+        <div class="lesson-content">
+            <!-- En-tête de la leçon -->
+            <header class="lesson-header">
+                <h1 class="text-white">Bootstrap - Framework CSS</h1>
+                <p class="lesson-meta text-white">Apprenez à utiliser Bootstrap pour créer des interfaces web modernes
+                    et responsives</p>
+            </header>
 
-      <!-- Introduction à Bootstrap -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Qu'est-ce que Bootstrap ?</h2>
-        <p class="textExemple">
-          Bootstrap est un framework CSS open-source développé par Twitter. Il permet de créer des sites web responsives 
-          et mobiles-first rapidement grâce à son système de grille et ses composants prédéfinis.
-        </p>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Principales fonctionnalités :</h3>
-          <ul>
-            <li><strong>Système de grille responsive</strong> - 12 colonnes qui s'adaptent à tous les écrans</li>
-            <li><strong>Composants prêts à l'emploi</strong> - Boutons, formulaires, navigation, etc.</li>
-            <li><strong>Classes utilitaires</strong> - Pour le spacing, les couleurs, la typographie</li>
-            <li><strong>Compatibilité cross-browser</strong> - Fonctionne sur tous les navigateurs modernes</li>
-          </ul>
-        </div>
-      </section>
+            <!-- Introduction à Bootstrap -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Qu'est-ce que Bootstrap ?</h2>
+                <p class="textExemple">
+                    Bootstrap est un framework CSS open-source développé par Twitter. Il permet de créer des sites web
+                    responsives
+                    et mobiles-first rapidement grâce à son système de grille et ses composants prédéfinis.
+                </p>
 
-      <!-- Installation de Bootstrap -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Installation de Bootstrap</h2>
-        <p class="textExemple">
-          Il existe plusieurs méthodes pour installer Bootstrap selon votre type de projet.
-        </p>
+                <div class="code-example">
+                    <h3 class="text-purple">Principales fonctionnalités :</h3>
+                    <ul>
+                        <li><strong>Système de grille responsive</strong> - 12 colonnes qui s'adaptent à tous les écrans
+                        </li>
+                        <li><strong>Composants prêts à l'emploi</strong> - Boutons, formulaires, navigation, etc.</li>
+                        <li><strong>Classes utilitaires</strong> - Pour le spacing, les couleurs, la typographie</li>
+                        <li><strong>Compatibilité cross-browser</strong> - Fonctionne sur tous les navigateurs modernes
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-        <!-- Méthode 1 : CDN -->
-        <div class="code-example">
-          <h3 class="text-purple">1. Via CDN (méthode la plus simple)</h3>
-          <p>Ajoutez ces liens dans le <code>&lt;head&gt;</code> de votre HTML :</p>
-          <pre><code><span class="comment">&lt;!-- CSS Bootstrap --&gt;</span>
+            <!-- Installation de Bootstrap -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Installation de Bootstrap</h2>
+                <p class="textExemple">
+                    Il existe plusieurs méthodes pour installer Bootstrap selon votre type de projet.
+                </p>
+
+                <!-- Méthode 1 : CDN -->
+                <div class="code-example">
+                    <h3 class="text-purple">1. Via CDN (méthode la plus simple)</h3>
+                    <p>Ajoutez ces liens dans le <code>&lt;head&gt;</code> de votre HTML :</p>
+                    <pre><code><span class="comment">&lt;!-- CSS Bootstrap --&gt;</span>
 <span class="tag">&lt;link</span> <span class="variable">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"</span> <span class="variable">rel</span>=<span class="string">"stylesheet"</span><span class="tag">&gt;</span>
 
 <span class="comment">&lt;!-- JavaScript Bootstrap (optionnel) --&gt;</span>
 <span class="tag">&lt;script</span> <span class="variable">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"</span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
-        </div>
+                </div>
 
-        <!-- Méthode 2 : NPM -->
-        <div class="code-example">
-          <h3 class="text-purple">2. Via NPM (pour les projets modernes)</h3>
-          <p>Dans votre terminal, exécutez :</p>
-          <pre><code><span class="function">npm install</span> bootstrap@5.3.2</code></pre>
-          
-          <p>Puis importez dans votre fichier principal :</p>
-          <pre><code><span class="comment">// Dans main.js ou app.js</span>
+                <!-- Méthode 2 : NPM -->
+                <div class="code-example">
+                    <h3 class="text-purple">2. Via NPM (pour les projets modernes)</h3>
+                    <p>Dans votre terminal, exécutez :</p>
+                    <pre><code><span class="function">npm install</span> bootstrap@5.3.2</code></pre>
+
+                    <p>Puis importez dans votre fichier principal :</p>
+                    <pre><code><span class="comment">// Dans main.js ou app.js</span>
 <span class="keyword">import</span> <span class="string">'bootstrap/dist/css/bootstrap.min.css'</span>
 <span class="keyword">import</span> <span class="string">'bootstrap/dist/js/bootstrap.bundle.min.js'</span></code></pre>
-        </div>
+                </div>
 
-        <!-- Méthode 3 : Téléchargement -->
-        <div class="code-example">
-          <h3 class="text-purple">3. Téléchargement direct</h3>
-          <p>Téléchargez les fichiers depuis le site officiel et incluez-les dans votre projet :</p>
-          <pre><code><span class="tag">&lt;link</span> <span class="variable">href</span>=<span class="string">"chemin/vers/bootstrap.min.css"</span> <span class="variable">rel</span>=<span class="string">"stylesheet"</span><span class="tag">&gt;</span>
+                <!-- Méthode 3 : Téléchargement -->
+                <div class="code-example">
+                    <h3 class="text-purple">3. Téléchargement direct</h3>
+                    <p>Téléchargez les fichiers depuis le site officiel et incluez-les dans votre projet :</p>
+                    <pre><code><span class="tag">&lt;link</span> <span class="variable">href</span>=<span class="string">"chemin/vers/bootstrap.min.css"</span> <span class="variable">rel</span>=<span class="string">"stylesheet"</span><span class="tag">&gt;</span>
 <span class="tag">&lt;script</span> <span class="variable">src</span>=<span class="string">"chemin/vers/bootstrap.bundle.min.js"</span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Installation spécifique à Nuxt -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Installation dans Nuxt</h2>
-        <p class="textExemple">
-          Pour intégrer Bootstrap dans un projet Nuxt, voici la méthode recommandée :
-        </p>
+            <!-- Installation spécifique à Nuxt -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Installation dans Nuxt</h2>
+                <p class="textExemple">
+                    Pour intégrer Bootstrap dans un projet Nuxt, voici la méthode recommandée :
+                </p>
 
-        <div class="code-comparison">
-          <div>
-            <h4 class="text-purple">Étape 1 : Installation</h4>
-            <pre><code><span class="function">npm install</span> bootstrap @popperjs/core</code></pre>
-          </div>
-          
-          <div>
-            <h4 class="text-purple">Étape 2 : Configuration</h4>
-            <pre><code><span class="comment">// Dans nuxt.config.js</span>
+                <div class="code-comparison">
+                    <div>
+                        <h4 class="text-purple">Étape 1 : Installation</h4>
+                        <pre><code><span class="function">npm install</span> bootstrap @popperjs/core</code></pre>
+                    </div>
+
+                    <div>
+                        <h4 class="text-purple">Étape 2 : Configuration</h4>
+                        <pre><code><span class="comment">// Dans nuxt.config.js</span>
 <span class="keyword">export</span> <span class="keyword">default</span> {
   <span class="variable">css</span>: [
     <span class="string">'bootstrap/dist/css/bootstrap.min.css'</span>
   ]
 }</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="code-example">
-          <h4 class="text-purple">Étape 3 : Plugin (pour JavaScript)</h4>
-          <p>Créez un fichier <code>plugins/bootstrap.client.js</code> :</p>
-          <pre><code><span class="keyword">import</span> bootstrap <span class="keyword">from</span> <span class="string">'bootstrap/dist/js/bootstrap.bundle.min.js'</span>
+                <div class="code-example">
+                    <h4 class="text-purple">Étape 3 : Plugin (pour JavaScript)</h4>
+                    <p>Créez un fichier <code>plugins/bootstrap.client.js</code> :</p>
+                    <pre><code><span class="keyword">import</span> bootstrap <span class="keyword">from</span> <span class="string">'bootstrap/dist/js/bootstrap.bundle.min.js'</span>
 
 <span class="keyword">export</span> <span class="keyword">default</span> <span class="function">defineNuxtPlugin</span>(() <span class="operator">=></span> {
   <span class="keyword">return</span> {
@@ -101,37 +105,37 @@
     }
   }
 })</code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Exemples pratiques -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exemples pratiques avec Bootstrap</h2>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Système de grille</h3>
-          <pre><code><span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"container"</span><span class="tag">&gt;</span>
+            <!-- Exemples pratiques -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exemples pratiques avec Bootstrap</h2>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Système de grille</h3>
+                    <pre><code><span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"container"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"row"</span><span class="tag">&gt;</span>
     <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4"</span><span class="tag">&gt;</span>Colonne 1<span class="tag">&lt;/div&gt;</span>
     <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4"</span><span class="tag">&gt;</span>Colonne 2<span class="tag">&lt;/div&gt;</span>
     <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"col-md-4"</span><span class="tag">&gt;</span>Colonne 3<span class="tag">&lt;/div&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
-        </div>
+                </div>
 
-        <div class="code-example">
-          <h3 class="text-purple">Boutons avec différentes couleurs</h3>
-          <pre><code><span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/button&gt;</span>
+                <div class="code-example">
+                    <h3 class="text-purple">Boutons avec différentes couleurs</h3>
+                    <pre><code><span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-secondary"</span><span class="tag">&gt;</span>Secondary<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-success"</span><span class="tag">&gt;</span>Success<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-danger"</span><span class="tag">&gt;</span>Danger<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-warning"</span><span class="tag">&gt;</span>Warning<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"btn btn-info"</span><span class="tag">&gt;</span>Info<span class="tag">&lt;/button&gt;</span></code></pre>
-        </div>
+                </div>
 
-        <div class="code-example">
-          <h3 class="text-purple">Navigation responsive</h3>
-          <pre><code><span class="tag">&lt;nav</span> <span class="variable">class</span>=<span class="string">"navbar navbar-expand-lg navbar-light bg-light"</span><span class="tag">&gt;</span>
+                <div class="code-example">
+                    <h3 class="text-purple">Navigation responsive</h3>
+                    <pre><code><span class="tag">&lt;nav</span> <span class="variable">class</span>=<span class="string">"navbar navbar-expand-lg navbar-light bg-light"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"container-fluid"</span><span class="tag">&gt;</span>
     <span class="tag">&lt;a</span> <span class="variable">class</span>=<span class="string">"navbar-brand"</span> <span class="variable">href</span>=<span class="string">"#"</span><span class="tag">&gt;</span>MonSite<span class="tag">&lt;/a&gt;</span>
     <span class="tag">&lt;button</span> <span class="variable">class</span>=<span class="string">"navbar-toggler"</span> <span class="variable">type</span>=<span class="string">"button"</span> <span class="variable">data-bs-toggle</span>=<span class="string">"collapse"</span> <span class="variable">data-bs-target</span>=<span class="string">"#navbarNav"</span><span class="tag">&gt;</span>
@@ -146,56 +150,56 @@
     <span class="tag">&lt;/div&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/nav&gt;</span></code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Avantages et inconvénients -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Avantages et inconvénients</h2>
-        
-        <div class="code-comparison">
-          <div>
-            <h3 class="text-purple">Avantages</h3>
-            <ul>
-              <li>Développement rapide</li>
-              <li>Design responsive intégré</li>
-              <li>Grande communauté</li>
-              <li>Documentation complète</li>
-              <li>Compatibilité cross-browser</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 class="text-purple">Inconvénients</h3>
-            <ul>
-              <li>Taille du fichier CSS</li>
-              <li>Design générique (sans personnalisation)</li>
-              <li>Courbe d'apprentissage pour la personnalisation</li>
-              <li>Peut ralentir les performances si mal utilisé</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+            <!-- Avantages et inconvénients -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Avantages et inconvénients</h2>
 
-      <!-- Exercice pratique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exercice pratique</h2>
-        
-        <div class="exercise">
-          <h3 class="text-purple">Créer une carte produit responsive</h3>
-          <p>Utilisez Bootstrap pour créer une carte de produit avec :</p>
-          <ul>
-            <li>Une image</li>
-            <li>Un titre</li>
-            <li>Une description</li>
-            <li>Un prix</li>
-            <li>Un bouton "Ajouter au panier"</li>
-          </ul>
-          
-          <details class="solution">
-            <summary class="btn-purple btn-hover">Voir la solution</summary>
-            <div class="solution-content">
-              <pre><code><span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"card"</span> <span class="variable">style</span>=<span class="string">"width: 18rem;"</span><span class="tag">&gt;</span>
+                <div class="code-comparison">
+                    <div>
+                        <h3 class="text-purple">Avantages</h3>
+                        <ul>
+                            <li>Développement rapide</li>
+                            <li>Design responsive intégré</li>
+                            <li>Grande communauté</li>
+                            <li>Documentation complète</li>
+                            <li>Compatibilité cross-browser</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-purple">Inconvénients</h3>
+                        <ul>
+                            <li>Taille du fichier CSS</li>
+                            <li>Design générique (sans personnalisation)</li>
+                            <li>Courbe d'apprentissage pour la personnalisation</li>
+                            <li>Peut ralentir les performances si mal utilisé</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exercice pratique -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exercice pratique</h2>
+
+                <div class="exercise">
+                    <h3 class="text-purple">Créer une carte produit responsive</h3>
+                    <p>Utilisez Bootstrap pour créer une carte de produit avec :</p>
+                    <ul>
+                        <li>Une image</li>
+                        <li>Un titre</li>
+                        <li>Une description</li>
+                        <li>Un prix</li>
+                        <li>Un bouton "Ajouter au panier"</li>
+                    </ul>
+
+                    <details class="solution">
+                        <summary class="btn-purple btn-hover">Voir la solution</summary>
+                        <div class="solution-content">
+                            <pre><code><span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"card"</span> <span class="variable">style</span>=<span class="string">"width: 18rem;"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;img</span> <span class="variable">src</span>=<span class="string">"produit.jpg"</span> <span class="variable">class</span>=<span class="string">"card-img-top"</span> <span class="variable">alt</span>=<span class="string">"Nom du produit"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="variable">class</span>=<span class="string">"card-body"</span><span class="tag">&gt;</span>
     <span class="tag">&lt;h5</span> <span class="variable">class</span>=<span class="string">"card-title"</span><span class="tag">&gt;</span>Nom du produit<span class="tag">&lt;/h5&gt;</span>
@@ -204,26 +208,30 @@
     <span class="tag">&lt;a</span> <span class="variable">href</span>=<span class="string">"#"</span> <span class="variable">class</span>=<span class="string">"btn btn-primary"</span><span class="tag">&gt;</span>Ajouter au panier<span class="tag">&lt;/a&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
-            </div>
-          </details>
-        </div>
-      </section>
+                        </div>
+                    </details>
+                </div>
+            </section>
 
-      <!-- Ressources supplémentaires -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Ressources supplémentaires</h2>
-        
-        <div class="code-example">
-          <ul>
-            <li><a href="https://getbootstrap.com/docs/" target="_blank" class="btn-purple btn-hover">Documentation officielle</a></li>
-            <li><a href="https://getbootstrap.com/docs/5.3/examples/" target="_blank" class="btn-purple btn-hover">Exemples et templates</a></li>
-            <li><a href="https://icons.getbootstrap.com/" target="_blank" class="btn-purple btn-hover">Bootstrap Icons</a></li>
-            <li><a href="https://themes.getbootstrap.com/" target="_blank" class="btn-purple btn-hover">Thèmes premium</a></li>
-          </ul>
+            <!-- Ressources supplémentaires -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Ressources supplémentaires</h2>
+
+                <div class="code-example">
+                    <ul>
+                        <li><a href="https://getbootstrap.com/docs/" target="_blank"
+                                class="btn-purple btn-hover">Documentation officielle</a></li>
+                        <li><a href="https://getbootstrap.com/docs/5.3/examples/" target="_blank"
+                                class="btn-purple btn-hover">Exemples et templates</a></li>
+                        <li><a href="https://icons.getbootstrap.com/" target="_blank"
+                                class="btn-purple btn-hover">Bootstrap Icons</a></li>
+                        <li><a href="https://themes.getbootstrap.com/" target="_blank"
+                                class="btn-purple btn-hover">Thèmes premium</a></li>
+                    </ul>
+                </div>
+            </section>
         </div>
-      </section>
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -364,7 +372,8 @@
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example, .code-block {
+.code-example,
+.code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -391,15 +400,19 @@ pre {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap; /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Casse les mots longs */
-    word-break: break-word; /* Assure la césure des mots */
+    white-space: pre-wrap;
+    /* Permet le retour à la ligne */
+    word-wrap: break-word;
+    /* Casse les mots longs */
+    word-break: break-word;
+    /* Assure la césure des mots */
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
-    white-space: pre-wrap; /* Retour à la ligne automatique */
+    white-space: pre-wrap;
+    /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -408,57 +421,57 @@ pre code {
 }
 
 /* COULEURS VS CODE AMÉLIORÉES */
-.comment { 
-    color: #6a9955 !important; 
+.comment {
+    color: #6a9955 !important;
     font-style: italic;
 }
 
-.tag { 
-    color: #569cd6 !important; 
+.tag {
+    color: #569cd6 !important;
 }
 
-.variable { 
-    color: #9cdcfe !important; 
+.variable {
+    color: #9cdcfe !important;
 }
 
-.string { 
-    color: #ce9178 !important; 
+.string {
+    color: #ce9178 !important;
 }
 
-.keyword { 
-    color: #c586c0 !important; 
+.keyword {
+    color: #c586c0 !important;
 }
 
-.function { 
-    color: #dcdcaa !important; 
+.function {
+    color: #dcdcaa !important;
 }
 
-.operator { 
-    color: #d4d4d4 !important; 
+.operator {
+    color: #d4d4d4 !important;
 }
 
-.constant { 
-    color: #4fc1ff !important; 
+.constant {
+    color: #4fc1ff !important;
 }
 
-.number { 
-    color: #b5cea8 !important; 
+.number {
+    color: #b5cea8 !important;
 }
 
-.class-name { 
-    color: #4ec9b0 !important; 
+.class-name {
+    color: #4ec9b0 !important;
 }
 
-.attribute { 
-    color: #9cdcfe !important; 
+.attribute {
+    color: #9cdcfe !important;
 }
 
-.property { 
-    color: #9cdcfe !important; 
+.property {
+    color: #9cdcfe !important;
 }
 
-.punctuation { 
-    color: #d4d4d4 !important; 
+.punctuation {
+    color: #d4d4d4 !important;
 }
 
 /* Exercices et solutions */
@@ -499,24 +512,24 @@ details summary {
     .lesson-container {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 2rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 2rem;
     }
-    
+
     .lesson-section {
         padding: 1.5rem;
     }
-    
+
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
@@ -529,19 +542,19 @@ details summary {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-    
+
     .lesson-container {
         padding: 0.5rem;
     }
-    
+
     .lesson-section {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 1.75rem;
     }
@@ -560,6 +573,7 @@ details summary {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -570,9 +584,23 @@ details summary {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lesson-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
 </style>
