@@ -37,6 +37,11 @@
 - rooting nuxt
 - nuxt link
 ================================================================================
+# Frameworks
+- boostrap
+- tailwind
+- daisy ui 
+================================================================================
 # Cyber Sécuriter
 - buffer overflow
 - injection sql
@@ -51,29 +56,28 @@
 - ansible
 - idempotence
 ================================================================================
-# Les librairie sympa 
+# Les librairie
 - decimal
-- boostrap
-- tailwind
-- daisy ui 
 ================================================================================
 # Service web
 - apache Jmetter
 - vitest
 - gitea
 - jenkins
-- code pen
 - mysql
-
+- docker
+- code pen
+- figma
 ================================================================================
 # Appli
 - mysql workbench
 - virtual box
 ================================================================================
-# les jsp trop ou les mettre
+# Outils gestion projet
 - jira
 - trelo
-- n splash
+================================================================================
+# les jsp trop ou les mettre
 - data dog
 - graphana
 - choas monkey de netflix

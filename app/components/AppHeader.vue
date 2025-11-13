@@ -72,7 +72,7 @@
                     <li>
                         <NuxtLink class="dropdown-item" to="/application/index_application">Application</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/librairie/index_librairie">Librairie </NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/services_web/index_services_web">Services Web</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/services_web/index_services_web">Services Web et Design</NuxtLink>
                     </li>
                 </div>
                 </li>
@@ -85,6 +85,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
                         <NuxtLink class="dropdown-item" to="/audit/index_audit">Diagramme UML</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Outils</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit</NuxtLink>
                     </li>
                 </div>

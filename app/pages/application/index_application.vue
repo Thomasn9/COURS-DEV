@@ -2,7 +2,7 @@
     <div class="page-container">
 
                 <div class="section-header">
-            <h3 class="lettreSommaire">Les Services Web</h3>
+            <h3 class="lettreSommaire">Application</h3>
         </div>
 
 
