@@ -607,6 +607,212 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Nouvelle section: Exemple avec validation de SKU -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exemple pratique : Validation de SKU avec expressions régulières</h2>
+                <p class="textExemple">
+                    Voyons maintenant un exemple concret de test unitaire pour une fonction de validation de SKU (Stock
+                    Keeping Unit) utilisant une expression régulière.
+                </p>
+
+                <div class="code-comparison">
+                    <div>
+                        <h4 class="text-purple">Fichier isValidSku.js</h4>
+                        <pre><code class="language-javascript"><span class="comment">// isValidSku.js</span>
+<span class="keyword">export function</span> <span class="function">isValidSku</span>(<span class="variable">sku</span>) {
+  <span class="keyword">return</span> <span class="regex">/^[A-Z]{3}-\d{4}$/</span>.<span class="function">test</span>(<span class="variable">sku</span>);
+}</code></pre>
+                    </div>
+                    <div>
+                        <h4 class="text-purple">Fichier isValidSku.test.js</h4>
+                        <pre><code class="language-javascript"><span class="keyword">import</span> { <span class="variable">isValidSku</span> } <span class="keyword">from</span> <span class="string">"./isValidSku"</span>;
+<span class="keyword">import</span> { <span class="variable">describe</span>, <span class="variable">expect</span>, <span class="variable">test</span> } <span class="keyword">from</span> <span class="string">"vitest"</span>;
+
+
+<span class="function">describe</span>(<span class="string">'test de la function isValidSku'</span>,()=>{
+    
+    <span class="comment">// Tests qui passent</span>
+    <span class="function">test</span>(<span class="string">'test nominal'</span>,()=>{
+        <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="string">'ADS-1234'</span>)).<span class="function">toBe</span>(<span class="keyword">true</span>)
+    })
+
+
+    <span class="comment">// Tests qui ne passent pas :</span>
+    <span class="function">test</span>(<span class="string">'test avec des minuscules '</span>,()=>{
+        <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="string">'aaa-1234'</span>)).<span class="function">toBe</span>(<span class="keyword">false</span>)
+    })
+
+
+    <span class="function">test</span>(<span class="string">'test avec trop de caractères '</span>,()=>{
+        <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="string">'aAa-1234'</span>)).<span class="function">toBe</span>(<span class="keyword">false</span>)
+    })
+
+
+    <span class="function">test</span>(<span class="string">'test avec que des chiffre'</span>,()=>{
+        <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="string">'13454'</span>)).<span class="function">toBe</span>(<span class="keyword">false</span>)
+    })
+    
+
+    <span class="function">test</span>(<span class="string">'sans tiret'</span>,()=>{
+        <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="string">'AAA1234'</span>)).<span class="function">toBe</span>(<span class="keyword">false</span>)
+    })
+
+})</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nouvelle section: Analyse de l'expression régulière -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Analyse de l'expression régulière</h2>
+
+                <div class="function-explanation">
+                    <h3 class="text-purple">Comprendre le pattern <code>/^[A-Z]{3}-\d{4}$/</code></h3>
+                    <p class="textExemple">
+                        Décortiquons l'expression régulière utilisée dans notre fonction <code>isValidSku</code> :
+                    </p>
+
+                    <div class="code-example">
+                        <pre><code class="language-javascript"><span class="regex">/^[A-Z]{3}-\d{4}$/</span></code></pre>
+                    </div>
+
+                    <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                        <thead>
+                            <tr style="background: #6A3093; color: white;">
+                                <th style="padding: 12px; text-align: left;">Élément</th>
+                                <th style="padding: 12px; text-align: left;">Signification</th>
+                                <th style="padding: 12px; text-align: left;">Exemple</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #e0d6ff;">
+                                <td style="padding: 12px;"><code>^</code></td>
+                                <td style="padding: 12px;">Début de la chaîne</td>
+                                <td style="padding: 12px;">Doit commencer au début</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0d6ff;">
+                                <td style="padding: 12px;"><code>[A-Z]</code></td>
+                                <td style="padding: 12px;">Lettres majuscules de A à Z</td>
+                                <td style="padding: 12px;">A, B, C, ..., Z</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0d6ff;">
+                                <td style="padding: 12px;"><code>{3}</code></td>
+                                <td style="padding: 12px;">Exactement 3 caractères</td>
+                                <td style="padding: 12px;">"ABC", "XYZ"</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0d6ff;">
+                                <td style="padding: 12px;"><code>-</code></td>
+                                <td style="padding: 12px;">Tiret littéral</td>
+                                <td style="padding: 12px;">"-"</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0d6ff;">
+                                <td style="padding: 12px;"><code>\d</code></td>
+                                <td style="padding: 12px;">Chiffre (0-9)</td>
+                                <td style="padding: 12px;">0, 1, 2, ..., 9</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0d6ff;">
+                                <td style="padding: 12px;"><code>{4}</code></td>
+                                <td style="padding: 12px;">Exactement 4 chiffres</td>
+                                <td style="padding: 12px;">"1234", "0001"</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px;"><code>$</code></td>
+                                <td style="padding: 12px;">Fin de la chaîne</td>
+                                <td style="padding: 12px;">Doit se terminer à la fin</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="function-explanation">
+                    <h3 class="text-purple">Cas de test expliqués</h3>
+
+                    <div class="code-comparison">
+                        <div>
+                            <h4 class="text-purple">Tests valides</h4>
+                            <ul class="textExemple">
+                                <li><strong>'ADS-1234'</strong> : ✅ 3 majuscules + tiret + 4 chiffres</li>
+                                <li><strong>'XYZ-0001'</strong> : ✅ Format correct</li>
+                                <li><strong>'ABC-9999'</strong> : ✅ Pattern respecté</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-purple">Tests invalides</h4>
+                            <ul class="textExemple">
+                                <li><strong>'aaa-1234'</strong> : ❌ Lettres minuscules</li>
+                                <li><strong>'aAa-1234'</strong> : ❌ Mix majuscules/minuscules</li>
+                                <li><strong>'13454'</strong> : ❌ Pas de lettres ni de tiret</li>
+                                <li><strong>'AAA1234'</strong> : ❌ Pas de tiret</li>
+                                <li><strong>'AB-1234'</strong> : ❌ Seulement 2 lettres</li>
+                                <li><strong>'ABCD-1234'</strong> : ❌ 4 lettres au lieu de 3</li>
+                                <li><strong>'ABC-123'</strong> : ❌ Seulement 3 chiffres</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nouvelle section: Bonnes pratiques pour les tests regex -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Bonnes pratiques pour tester les expressions régulières</h2>
+
+                <div class="function-explanation">
+                    <h3 class="text-purple">Stratégie de test complète</h3>
+                    <p class="textExemple">
+                        Lorsque vous testez des fonctions utilisant des expressions régulières, assurez-vous de couvrir
+                        :
+                    </p>
+
+                    <div class="code-comparison">
+                        <div>
+                            <h4 class="text-purple">Cas positifs</h4>
+                            <ul class="textExemple">
+                                <li>Le cas nominal standard</li>
+                                <li>Les valeurs aux limites</li>
+                                <li>Différentes combinaisons valides</li>
+                                <li>Cas avec zéros et nombres spéciaux</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-purple">Cas négatifs</h4>
+                            <ul class="textExemple">
+                                <li>Valeurs trop courtes/longues</li>
+                                <li>Caractères interdits</li>
+                                <li>Mauvais format</li>
+                                <li>Cas limites (chaînes vides, null)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="function-explanation">
+                    <h3 class="text-purple">Amélioration des tests existants</h3>
+                    <p class="textExemple">
+                        Pour rendre nos tests encore plus robustes, nous pourrions ajouter :
+                    </p>
+
+                    <div class="code-example">
+                        <pre><code class="language-javascript"><span class="comment">// Tests supplémentaires pour isValidSku</span>
+<span class="function">test</span>(<span class="string">'chaîne vide retourne false'</span>, () => {
+    <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="string">''</span>)).<span class="function">toBe</span>(<span class="keyword">false</span>);
+});
+
+<span class="function">test</span>(<span class="string">'null retourne false'</span>, () => {
+    <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="keyword">null</span>)).<span class="function">toBe</span>(<span class="keyword">false</span>);
+});
+
+<span class="function">test</span>(<span class="string">'undefined retourne false'</span>, () => {
+    <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="keyword">undefined</span>)).<span class="function">toBe</span>(<span class="keyword">false</span>);
+});
+
+<span class="function">test</span>(<span class="string">'format avec espaces retourne false'</span>, () => {
+    <span class="function">expect</span>(<span class="function">isValidSku</span>(<span class="string">'ABC 1234'</span>)).<span class="function">toBe</span>(<span class="keyword">false</span>);
+});</code></pre>
+                    </div>
+                </div>
+            </section>
+
             <!-- Conclusion -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Conclusion</h2>
@@ -675,20 +881,6 @@
                     </div>
                 </div>
 
-                <div class="function-explanation">
-                    <h3 class="text-purple">Prochaines étapes</h3>
-                    <p class="textExemple">
-                        Pour approfondir vos connaissances, explorez ces concepts avancés :
-                    </p>
-
-                    <ul class="textExemple">
-                        <li><strong>Tests asynchrones</strong> : Fonctions async/await avec Vitest</li>
-                        <li><strong>Mocks et spies</strong> : Simuler des dépendances externes</li>
-                        <li><strong>Tests de composants</strong> : Testing Library pour les composants Vue</li>
-                        <li><strong>Couverture de code</strong> : Mesurer l'efficacité de vos tests</li>
-                        <li><strong>Tests d'intégration</strong> : Tester plusieurs modules ensemble</li>
-                    </ul>
-                </div>
 
                 <p class="textExemple">
                     <strong>Rappel important</strong> : Les tests ne sont pas une fin en soi, mais un moyen d'atteindre

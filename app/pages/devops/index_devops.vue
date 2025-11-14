@@ -177,9 +177,6 @@
             </div>
         </div>
 
-
-
-
     </div>
 </template>
 
