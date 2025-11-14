@@ -3,66 +3,114 @@
     <div class="lesson-content">
       <!-- En-tête de la leçon -->
       <header class="lesson-header">
-        <h1 class="text-white">Couverture dans le Contexte d'un Audit</h1>
+        <h1 class="text-white">Coverage dans le Contexte d'un Audit</h1>
         <p class="lesson-meta text-white">Audit • Métriques • Exhaustivité • Qualité de l'évaluation</p>
       </header>
 
       <!-- Introduction -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Introduction à la couverture d'audit</h2>
+        <h2 class="text-purple">Introduction au coverage d'audit</h2>
         <p class="textExemple">
-          La couverture d'audit représente l'étendue et la profondeur de l'examen réalisé lors d'un processus d'audit.
-          Elle mesure le degré d'exhaustivité avec lequel les différents aspects du système, processus ou produit
+          Le coverage d'audit représente l'étendue et la profondeur de l'examen réalisé lors d'un processus d'audit.
+          Il mesure le degré d'exhaustivité avec lequel les différents aspects du système, processus ou produit
           ont été évalués par rapport au périmètre défini.
         </p>
         <p class="textExemple">
-          Une couverture adéquate est essentielle pour garantir la fiabilité des conclusions d'audit
+          Un coverage adéquat est essentiel pour garantir la fiabilité des conclusions d'audit
           et la détection effective des risques et non-conformités.
         </p>
       </section>
 
-      <!-- Objectifs de la couverture d'audit -->
+      <!-- Minimal Coverage -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Objectifs de la mesure de couverture</h2>
+        <h2 class="text-purple">Minimal Coverage</h2>
+        <p class="textExemple">
+          Le <strong>minimal coverage</strong> représente le niveau de coverage le plus bas acceptable pour qu'un audit 
+          puisse être considéré comme valide et fournir des conclusions significatives. Il s'agit du seuil en dessous 
+          duquel les résultats de l'audit ne peuvent pas être considérés comme fiables.
+        </p>
+
+        <h3 class="text-purple">Caractéristiques du minimal coverage</h3>
+        <ul>
+          <li><strong>Seuil critique :</strong> Niveau minimum requis pour une confiance acceptable</li>
+          <li><strong>Focus sur l'essentiel :</strong> Couvre uniquement les éléments les plus critiques</li>
+          <li><strong>Base de décision :</strong> Permet des conclusions limitées mais valides</li>
+          <li><strong>Référence :</strong> Point de départ pour toute évaluation de coverage</li>
+        </ul>
+
+        <h3 class="text-purple">Cas d'utilisation du minimal coverage</h3>
+        <div class="coverage-examples">
+          <div class="coverage-example critical">
+            <strong>Audits exploratoires :</strong> Évaluation préliminaire avec ressources limitées
+          </div>
+          <div class="coverage-example high">
+            <strong>Contrôles de routine :</strong> Vérifications périodiques rapides
+          </div>
+          <div class="coverage-example medium">
+            <strong>Tests de faisabilité :</strong> Validation initiale des approches d'audit
+          </div>
+          <div class="coverage-example low">
+            <strong>Surveillance continue :</strong> Points de contrôle réguliers minimaux
+          </div>
+        </div>
+
+        <h3 class="text-purple">Calcul du minimal coverage</h3>
+        <div class="code-example">
+          <pre><code><span class="comment">// Définition du minimal coverage basé sur la criticité</span>
+<span class="variable">Éléments critiques</span> = <span class="number">100%</span> du périmètre critique
+<span class="variable">Éléments majeurs</span> = <span class="number">50%</span> du périmètre majeur
+<span class="variable">Éléments mineurs</span> = <span class="number">20%</span> du périmètre mineur
+
+<span class="comment">// Exemple : Système avec 10 éléments critiques, 30 majeurs, 60 mineurs</span>
+<span class="variable">Coverage minimal</span> = (10/10 × 100%) + (15/30 × 50%) + (12/60 × 20%)
+<span class="variable">Coverage minimal</span> = <span class="number">100%</span> + <span class="number">25%</span> + <span class="number">4%</span> = <span class="number">43%</span> coverage global
+
+<span class="comment">// Même avec 43% de coverage global, les éléments critiques sont couverts à 100%</span></code></pre>
+        </div>
+      </section>
+
+      <!-- Objectifs du coverage d'audit -->
+      <section class="lesson-section bg-light-purple border-purple">
+        <h2 class="text-purple">Objectifs de la mesure de coverage</h2>
         <ul>
           <li><strong>Évaluer l'exhaustivité</strong> : Mesurer la proportion du périmètre effectivement audité</li>
           <li><strong>Garantir la représentativité</strong> : S'assurer que l'échantillon couvre tous les aspects
             critiques</li>
           <li><strong>Optimiser les ressources</strong> : Allouer efficacement le temps et les moyens d'audit</li>
           <li><strong>Démontrer la diligence</strong> : Fournir des preuves de l'étendue des vérifications</li>
-          <li><strong>Améliorer la planification</strong> : Ajuster les futurs audits basés sur les couvertures
-            réalisées</li>
+          <li><strong>Améliorer la planification</strong> : Ajuster les futurs audits basés sur les coverages
+            réalisés</li>
         </ul>
       </section>
 
-      <!-- Types de couverture -->
+      <!-- Types de coverage -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Types de couverture d'audit</h2>
+        <h2 class="text-purple">Types de coverage d'audit</h2>
 
-        <h3 class="text-purple">1. Couverture fonctionnelle</h3>
+        <h3 class="text-purple">1. Coverage fonctionnel</h3>
         <p class="textExemple">
           Pourcentage des fonctionnalités, processus métier ou cas d'usage couverts par les tests d'audit.
         </p>
 
-        <h3 class="text-purple">2. Couverture technique</h3>
+        <h3 class="text-purple">2. Coverage technique</h3>
         <p class="textExemple">
           Étendue de l'examen des composants techniques, de l'infrastructure et des aspects architecturaux.
         </p>
 
-        <h3 class="text-purple">3. Couverture des risques</h3>
+        <h3 class="text-purple">3. Coverage des risques</h3>
         <p class="textExemple">
           Proportion des risques identifiés dans la cartographie qui ont fait l'objet de vérifications spécifiques.
         </p>
 
-        <h3 class="text-purple">4. Couverture réglementaire</h3>
+        <h3 class="text-purple">4. Coverage réglementaire</h3>
         <p class="textExemple">
           Pourcentage des exigences légales et normatives applicables qui ont été vérifiées durant l'audit.
         </p>
       </section>
 
-      <!-- Processus de mesure de couverture -->
+      <!-- Processus de mesure de coverage -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Processus de mesure de la couverture</h2>
+        <h2 class="text-purple">Processus de mesure du coverage</h2>
 
         <div class="process-step">
           <h3 class="text-purple">1. Définition du périmètre total</h3>
@@ -73,7 +121,15 @@
         </div>
 
         <div class="process-step">
-          <h3 class="text-purple">2. Échantillonnage et planification</h3>
+          <h3 class="text-purple">2. Établissement du minimal coverage</h3>
+          <p class="textExemple">
+            Définir le niveau de coverage minimum acceptable basé sur la criticité des éléments
+            et les objectifs de l'audit.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <h3 class="text-purple">3. Échantillonnage et planification</h3>
           <p class="textExemple">
             Sélectionner les éléments à auditer en fonction des critères de risque,
             de criticité et de représentativité.
@@ -81,7 +137,7 @@
         </div>
 
         <div class="process-step">
-          <h3 class="text-purple">3. Exécution et traçabilité</h3>
+          <h3 class="text-purple">4. Exécution et traçabilité</h3>
           <p class="textExemple">
             Réaliser les vérifications d'audit tout en documentant systématiquement
             les éléments couverts et les preuves collectées.
@@ -89,23 +145,23 @@
         </div>
 
         <div class="process-step">
-          <h3 class="text-purple">4. Calcul et analyse</h3>
+          <h3 class="text-purple">5. Calcul et analyse</h3>
           <p class="textExemple">
-            Mesurer les taux de couverture obtenus, analyser les écarts
+            Mesurer les taux de coverage obtenus, analyser les écarts
             et évaluer l'impact sur la confiance dans les conclusions.
           </p>
         </div>
       </section>
 
-      <!-- Niveaux de couverture acceptables -->
+      <!-- Niveaux de coverage acceptables -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Niveaux de couverture acceptables</h2>
+        <h2 class="text-purple">Niveaux de coverage acceptables</h2>
 
         <div class="severity-grid">
           <div class="severity-item severity-excellent">
-            <h4 class="text-white">EXCELLENTE</h4>
+            <h4 class="text-white">EXCELLENT</h4>
             <div class="severity-content">
-              <p><strong>Couverture :</strong> 90-100%</p>
+              <p><strong>Coverage :</strong> 90-100%</p>
               <p><strong>Contexte d'application :</strong></p>
               <ul>
                 <li>Audits réglementaires critiques</li>
@@ -118,9 +174,9 @@
           </div>
 
           <div class="severity-item severity-good">
-            <h4 class="text-white">BONNE</h4>
+            <h4 class="text-white">BON</h4>
             <div class="severity-content">
-              <p><strong>Couverture :</strong> 75-89%</p>
+              <p><strong>Coverage :</strong> 75-89%</p>
               <p><strong>Contexte d'application :</strong></p>
               <ul>
                 <li>Audits internes standards</li>
@@ -133,9 +189,9 @@
           </div>
 
           <div class="severity-item severity-moderate">
-            <h4 class="text-white">MODÉRÉE</h4>
+            <h4 class="text-white">MODÉRÉ</h4>
             <div class="severity-content">
-              <p><strong>Couverture :</strong> 50-74%</p>
+              <p><strong>Coverage :</strong> 50-74%</p>
               <p><strong>Contexte d'application :</strong></p>
               <ul>
                 <li>Audits exploratoires</li>
@@ -147,16 +203,33 @@
             </div>
           </div>
 
-          <div class="severity-item severity-poor">
-            <h4 class="text-white">INSUFFISANTE</h4>
+          <div class="severity-item severity-minimal">
+            <h4 class="text-white">MINIMAL COVERAGE</h4>
             <div class="severity-content">
-              <p><strong>Couverture :</strong> &lt; 50%</p>
+              <p><strong>Coverage :</strong> 25-49%</p>
               <p><strong>Contexte d'application :</strong></p>
               <ul>
                 <li>Échantillons pilotes</li>
                 <li>Tests de faisabilité</li>
                 <li>Audits limités par le temps</li>
                 <li>Évaluations à haut niveau</li>
+                <li>Surveillance rapide</li>
+              </ul>
+              <p><strong>Confiance :</strong> Limitée - conclusions préliminaires uniquement</p>
+              <p><strong>Condition :</strong> Doit couvrir 100% des éléments critiques</p>
+            </div>
+          </div>
+
+          <div class="severity-item severity-poor">
+            <h4 class="text-white">INSUFFISANT</h4>
+            <div class="severity-content">
+              <p><strong>Coverage :</strong> &lt; 25%</p>
+              <p><strong>Contexte d'application :</strong></p>
+              <ul>
+                <li>Évaluations très limitées</li>
+                <li>Tests conceptuels</li>
+                <li>Revues documentaires basiques</li>
+                <li>Pré-audits informels</li>
               </ul>
               <p><strong>Confiance :</strong> Faible - conclusions non définitives</p>
             </div>
@@ -166,7 +239,7 @@
 
       <!-- Techniques d'échantillonnage -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Techniques d'échantillonnage pour optimiser la couverture</h2>
+        <h2 class="text-purple">Techniques d'échantillonnage pour optimiser le coverage</h2>
 
         <div class="sampling-grid">
           <div class="sampling-item">
@@ -176,7 +249,7 @@
               <li>Sélection aléatoire d'éléments</li>
               <li>Représentativité statistique</li>
               <li>Risque de manquer des éléments critiques</li>
-              <li>Calcul simple de la couverture</li>
+              <li>Calcul simple du coverage</li>
             </ul>
           </div>
 
@@ -185,9 +258,9 @@
             <p><strong>Utilisation :</strong> Optimisation des ressources</p>
             <ul>
               <li>Focus sur les zones à haut risque</li>
-              <li>Couverture prioritaire des éléments critiques</li>
+              <li>Coverage prioritaire des éléments critiques</li>
               <li>Efficacité accrue de l'audit</li>
-              <li>Calcul de couverture pondéré</li>
+              <li>Calcul de coverage pondéré</li>
             </ul>
           </div>
 
@@ -196,7 +269,7 @@
             <p><strong>Utilisation :</strong> Grands volumes</p>
             <ul>
               <li>Sélection à intervalle régulier</li>
-              <li>Couverture étendue de la population</li>
+              <li>Coverage étendu de la population</li>
               <li>Répartition uniforme</li>
               <li>Facile à planifier et exécuter</li>
             </ul>
@@ -209,7 +282,7 @@
               <li>Division en sous-groupes homogènes</li>
               <li>Échantillonnage par strate</li>
               <li>Représentativité garantie</li>
-              <li>Calcul de couverture par segment</li>
+              <li>Calcul de coverage par segment</li>
             </ul>
           </div>
         </div>
@@ -217,68 +290,82 @@
 
       <!-- Méthodes de calcul -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Méthodes de calcul de la couverture</h2>
+        <h2 class="text-purple">Méthodes de calcul du coverage</h2>
 
-        <h3 class="text-purple">Couverture simple</h3>
+        <h3 class="text-purple">Coverage simple</h3>
         <div class="code-example">
           <pre><code><span class="comment">// Calcul de base</span>
-<span class="variable">Couverture</span> = (<span class="variable">Éléments vérifiés</span> / <span class="variable">Éléments totaux</span>) × 100
+<span class="variable">Coverage</span> = (<span class="variable">Éléments vérifiés</span> / <span class="variable">Éléments totaux</span>) × 100
 
 <span class="comment">// Exemple : Audit d'une application avec 150 fonctionnalités</span>
 <span class="variable">Fonctionnalités totales</span> = 150
 <span class="variable">Fonctionnalités testées</span> = 112
-<span class="variable">Couverture fonctionnelle</span> = (112 / 150) × 100 = <span class="number">74.7%</span></code></pre>
+<span class="variable">Coverage fonctionnel</span> = (112 / 150) × 100 = <span class="number">74.7%</span></code></pre>
         </div>
 
-        <h3 class="text-purple">Couverture pondérée</h3>
+        <h3 class="text-purple">Coverage pondéré</h3>
         <div class="code-example">
           <pre><code><span class="comment">// Prise en compte de la criticité</span>
-<span class="variable">Couverture pondérée</span> = Σ(<span class="variable">Poids</span> × <span class="variable">Couverture segment</span>)
+<span class="variable">Coverage pondéré</span> = Σ(<span class="variable">Poids</span> × <span class="variable">Coverage segment</span>)
 
 <span class="comment">// Exemple avec pondération par risque</span>
 <span class="variable">Fonctionnalités critiques</span> (poids 0.6) : 20/20 testées → 100%
 <span class="variable">Fonctionnalités majeures</span> (poids 0.3) : 45/60 testées → 75%
 <span class="variable">Fonctionnalités mineures</span> (poids 0.1) : 47/70 testées → 67%
 
-<span class="variable">Couverture pondérée</span> = (0.6×100) + (0.3×75) + (0.1×67) = <span class="number">87.7%</span></code></pre>
+<span class="variable">Coverage pondéré</span> = (0.6×100) + (0.3×75) + (0.1×67) = <span class="number">87.7%</span></code></pre>
+        </div>
+
+        <h3 class="text-purple">Calcul du minimal coverage</h3>
+        <div class="code-example">
+          <pre><code><span class="comment">// Définition basée sur les éléments critiques</span>
+<span class="variable">Minimal Coverage</span> = (<span class="variable">Éléments critiques vérifiés</span> / <span class="variable">Éléments critiques totaux</span>) × 100
+
+<span class="comment">// Exemple : Système avec éléments classés par criticité</span>
+<span class="variable">Critiques</span> (niveau 1) : 15/15 → 100%
+<span class="variable">Majeurs</span> (niveau 2) : 8/20 → 40%
+<span class="variable">Mineurs</span> (niveau 3) : 5/40 → 12.5%
+
+<span class="variable">Coverage global</span> = (15+8+5)/(15+20+40) × 100 = 28/75 × 100 = <span class="number">37.3%</span>
+<span class="variable">Minimal Coverage atteint</span> = <span class="number">OUI</span> (car 100% des éléments critiques couverts)</code></pre>
         </div>
       </section>
 
       <!-- Outils de mesure -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Outils de mesure et suivi de la couverture</h2>
+        <h2 class="text-purple">Outils de mesure et suivi du coverage</h2>
 
         <h3 class="text-purple">Gestion des tests</h3>
         <ul>
-          <li><strong>JIRA + Xray</strong> : Suivi de la couverture des exigences</li>
-          <li><strong>TestRail</strong> : Reporting avancé de couverture de test</li>
-          <li><strong>qTest</strong> : Métriques de couverture en temps réel</li>
+          <li><strong>JIRA + Xray</strong> : Suivi du coverage des exigences</li>
+          <li><strong>TestRail</strong> : Reporting avancé de coverage de test</li>
+          <li><strong>qTest</strong> : Métriques de coverage en temps réel</li>
         </ul>
 
         <h3 class="text-purple">Analyse de code</h3>
         <ul>
-          <li><strong>SonarQube</strong> : Couverture du code et des branches</li>
-          <li><strong>JaCoCo</strong> : Couverture des tests unitaires</li>
-          <li><strong>Coverage.py</strong> : Couverture Python</li>
+          <li><strong>SonarQube</strong> : Coverage du code et des branches</li>
+          <li><strong>JaCoCo</strong> : Coverage des tests unitaires</li>
+          <li><strong>Coverage.py</strong> : Coverage Python</li>
         </ul>
 
         <h3 class="text-purple">Tableaux de bord</h3>
         <ul>
-          <li><strong>Power BI</strong> : Visualisation des métriques de couverture</li>
+          <li><strong>Power BI</strong> : Visualisation des métriques de coverage</li>
           <li><strong>Grafana</strong> : Monitoring en temps réel</li>
           <li><strong>Excel avancé</strong> : Calculs personnalisés et rapports</li>
         </ul>
       </section>
 
-      <!-- Exemples de matrices de couverture -->
+      <!-- Exemples de matrices de coverage -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exemples de matrices de couverture</h2>
+        <h2 class="text-purple">Exemples de matrices de coverage</h2>
 
         <div class="code-comparison">
           <div class="code-example">
-            <h4 class="text-purple">Matrice de couverture fonctionnelle</h4>
+            <h4 class="text-purple">Matrice de coverage fonctionnel</h4>
             <pre><code><span class="comment">// Application de gestion des ventes</span>
-<span class="variable">Module</span>          | <span class="variable">Fonctionnalités</span> | <span class="variable">Testées</span> | <span class="variable">Couverture</span>
+<span class="variable">Module</span>          | <span class="variable">Fonctionnalités</span> | <span class="variable">Testées</span> | <span class="variable">Coverage</span>
 <span class="variable">Gestion clients</span>  | 25              | 22       | <span class="number">88%</span>
 <span class="variable">Gestion produits</span> | 18              | 15       | <span class="number">83%</span>
 <span class="variable">Ventes</span>           | 35              | 28       | <span class="number">80%</span>
@@ -287,9 +374,9 @@
           </div>
 
           <div class="code-example">
-            <h4 class="text-purple">Matrice de couverture des risques</h4>
+            <h4 class="text-purple">Matrice de coverage des risques</h4>
             <pre><code><span class="comment">// Audit de sécurité informatique</span>
-<span class="variable">Catégorie de risque</span> | <span class="variable">Risques</span> | <span class="variable">Contrôlés</span> | <span class="variable">Couverture</span>
+<span class="variable">Catégorie de risque</span> | <span class="variable">Risques</span> | <span class="variable">Contrôlés</span> | <span class="variable">Coverage</span>
 <span class="variable">Accès illégitime</span>   | 8       | 7          | <span class="number">88%</span>
 <span class="variable">Perte de données</span>   | 6       | 4          | <span class="number">67%</span>
 <span class="variable">Non-conformité</span>     | 5       | 3          | <span class="number">60%</span>
@@ -301,39 +388,49 @@
 
       <!-- Métriques de performance -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Métriques de performance de couverture</h2>
+        <h2 class="text-purple">Métriques de performance de coverage</h2>
 
         <div class="metrics-grid">
           <div class="metric-item">
-            <h4 class="text-purple">Taux de couverture global</h4>
-            <p>Pourcentage moyen de couverture sur l'ensemble du périmètre d'audit.</p>
+            <h4 class="text-purple">Taux de coverage global</h4>
+            <p>Pourcentage moyen de coverage sur l'ensemble du périmètre d'audit.</p>
           </div>
 
           <div class="metric-item">
-            <h4 class="text-purple">Couverture des éléments critiques</h4>
-            <p>Pourcentage spécifique de couverture des éléments à haut risque ou haute criticité.</p>
+            <h4 class="text-purple">Coverage des éléments critiques</h4>
+            <p>Pourcentage spécifique de coverage des éléments à haut risque ou haute criticité.</p>
           </div>
 
           <div class="metric-item">
-            <h4 class="text-purple">Densité de couverture</h4>
+            <h4 class="text-purple">Densité de coverage</h4>
             <p>Nombre de tests ou vérifications par élément audité, mesurant la profondeur.</p>
           </div>
 
           <div class="metric-item">
-            <h4 class="text-purple">Écart de couverture</h4>
-            <p>Différence entre la couverture planifiée et la couverture réellement atteinte.</p>
+            <h4 class="text-purple">Écart de coverage</h4>
+            <p>Différence entre le coverage planifié et le coverage réellement atteint.</p>
+          </div>
+
+          <div class="metric-item">
+            <h4 class="text-purple">Niveau de minimal coverage</h4>
+            <p>Indicateur binaire indiquant si le coverage minimum acceptable a été atteint.</p>
+          </div>
+
+          <div class="metric-item">
+            <h4 class="text-purple">Coverage pondéré par risque</h4>
+            <p>Coverage calculé en fonction de la criticité des éléments audités.</p>
           </div>
         </div>
       </section>
 
-      <!-- Facteurs influençant la couverture -->
+      <!-- Facteurs influençant le coverage -->
       <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Facteurs influençant la couverture d'audit</h2>
+        <h2 class="text-purple">Facteurs influençant le coverage d'audit</h2>
 
         <h3 class="text-purple">Contraintes de ressources</h3>
         <p class="textExemple">
           Le temps disponible, le budget alloué et les compétences de l'équipe d'audit
-          impactent directement l'étendue de la couverture réalisable.
+          impactent directement l'étendue du coverage réalisable.
         </p>
 
         <h3 class="text-purple">Complexité du sujet</h3>
@@ -351,7 +448,13 @@
         <h3 class="text-purple">Objectifs de l'audit</h3>
         <p class="textExemple">
           La nature de l'audit (réglementaire, interne, certification) détermine
-          le niveau de couverture requis et acceptable.
+          le niveau de coverage requis et acceptable.
+        </p>
+
+        <h3 class="text-purple">Seuil de minimal coverage</h3>
+        <p class="textExemple">
+          La définition claire du minimal coverage influence la planification et l'exécution
+          de l'audit, garantissant que les éléments essentiels sont toujours couverts.
         </p>
       </section>
 
@@ -360,7 +463,7 @@
         <h2 class="text-purple">Exercice pratique</h2>
 
         <div class="exercise">
-          <h3 class="text-purple">Planification de la couverture d'audit</h3>
+          <h3 class="text-purple">Planification du coverage d'audit</h3>
           <p class="textExemple">
             Vous devez planifier un audit de sécurité pour une application web de commerce électronique.
             L'audit doit être réalisé en 5 jours avec une équipe de 2 auditeurs. Réalisez les étapes suivantes :
@@ -369,18 +472,19 @@
             <li>Identifiez les 5 domaines principaux à couvrir</li>
             <li>Estimez le nombre d'éléments par domaine</li>
             <li>Définissez une stratégie d'échantillonnage adaptée</li>
-            <li>Calculez la couverture cible réaliste</li>
+            <li>Calculez le coverage cible réaliste</li>
             <li>Établissez un plan de priorisation</li>
+            <li>Déterminez le minimal coverage acceptable</li>
           </ol>
 
           <details class="solution">
             <summary class="btn-purple btn-hover">Voir un exemple de solution</summary>
             <div class="solution-content">
-              <h4 class="text-purple">Plan de couverture - Audit sécurité e-commerce</h4>
+              <h4 class="text-purple">Plan de coverage - Audit sécurité e-commerce</h4>
               <p><strong>Application :</strong> Plateforme "ShopSecure"</p>
               <p><strong>Contraintes :</strong> 5 jours × 2 auditeurs = 80 heures-homme</p>
 
-              <h4 class="text-purple">Domaines et couverture planifiée :</h4>
+              <h4 class="text-purple">Domaines et coverage planifié :</h4>
               <div class="coverage-examples">
                 <div class="coverage-example critical">
                   <strong>Authentification (CRITIQUE) :</strong> 15 éléments → 100% cible (15 éléments)
@@ -396,12 +500,20 @@
                 </div>
               </div>
 
+              <h4 class="text-purple">Minimal Coverage défini :</h4>
+              <ul>
+                <li><strong>Éléments critiques :</strong> 100% (15 éléments)</li>
+                <li><strong>Éléments majeurs :</strong> 50% (10 éléments)</li>
+                <li><strong>Coverage global minimal :</strong> 35%</li>
+                <li><strong>Condition de succès :</strong> Atteindre 100% des éléments critiques</li>
+              </ul>
+
               <h4 class="text-purple">Stratégie d'échantillonnage :</h4>
               <ul>
                 <li><strong>Échantillonnage dirigé par le risque</strong> pour les domaines critiques</li>
                 <li><strong>Échantillonnage systématique</strong> pour les domaines à volume élevé</li>
-                <li><strong>Couverture pondérée cible :</strong> 85% (basé sur la criticité)</li>
-                <li><strong>Éléments totaux à auditer :</strong> 58 sur 90 (64% de couverture brute)</li>
+                <li><strong>Coverage pondéré cible :</strong> 85% (basé sur la criticité)</li>
+                <li><strong>Éléments totaux à auditer :</strong> 58 sur 90 (64% de coverage brute)</li>
               </ul>
 
               <h4 class="text-purple">Répartition temporelle :</h4>
@@ -420,36 +532,44 @@
       <section class="lesson-section bg-gradient-primary">
         <h2 class="text-white">Conclusion</h2>
         <p class="text-white">
-          La couverture d'audit est bien plus qu'une simple métrique quantitative - elle représente
-          l'épine dorsale de la crédibilité et de la fiabilité des conclusions d'audit. Une couverture
-          bien planifiée et correctement mesurée transforme un exercice de conformité en une évaluation
+          Le coverage d'audit est bien plus qu'une simple métrique quantitative - il représente
+          l'épine dorsale de la crédibilité et de la fiabilité des conclusions d'audit. Un coverage
+          bien planifié et correctement mesuré transforme un exercice de conformité en une évaluation
           stratégique porteuse de valeur ajoutée.
+        </p>
+
+        <h3 class="text-white">Importance du Minimal Coverage</h3>
+        <p class="text-white">
+          Le concept de minimal coverage est crucial pour garantir que même dans des conditions
+          de ressources limitées, les éléments les plus critiques sont systématiquement examinés.
+          Il établit une base solide pour des conclusions valides, même lorsque le coverage global
+          est réduit.
         </p>
 
         <h3 class="text-white">Équilibre optimal</h3>
         <p class="text-white">
-          L'art de l'audit consiste à trouver l'équilibre parfait entre l'exhaustivité de la couverture
-          et l'efficacité des ressources. Une couverture à 100% n'est ni toujours nécessaire, ni souvent
-          réalisable, mais une couverture ciblée et stratégique garantit que les risques majeurs sont
+          L'art de l'audit consiste à trouver l'équilibre parfait entre l'exhaustivité du coverage
+          et l'efficacité des ressources. Un coverage à 100% n'est ni toujours nécessaire, ni souvent
+          réalisable, mais un coverage ciblé et stratégique garantit que les risques majeurs sont
           identifiés et que les conclusions sont fondées.
         </p>
 
         <h3 class="text-white">Approche adaptative</h3>
         <p class="text-white">
-          Les auditeurs expérimentés adaptent continuellement leur approche de couverture en fonction
+          Les auditeurs expérimentés adaptent continuellement leur approche de coverage en fonction
           des découvertes faites durant l'audit. Cette flexibilité permet de réallouer les efforts
           vers les zones présentant le plus grand potentiel de risque ou de non-conformité.
         </p>
 
         <h3 class="text-white">Transparence et communication</h3>
         <p class="text-white">
-          La communication claire des limites de couverture et des méthodologies d'échantillonnage
+          La communication claire des limites de coverage et des méthodologies d'échantillonnage
           utilisées renforce la confiance dans les résultats d'audit. Cette transparence permet
           aux parties prenantes de comprendre précisément la portée et les limites des conclusions présentées.
         </p>
 
         <p class="text-white">
-          En maîtrisant les concepts de couverture d'audit, les professionnels transforment une contrainte
+          En maîtrisant les concepts de coverage d'audit, les professionnels transforment une contrainte
           opérationnelle en un levier stratégique, garantissant que chaque heure d'audit contribue
           maximalement à la réduction des risques et à l'amélioration des processus organisationnels.
         </p>
@@ -463,12 +583,12 @@ export default {
   name: 'AuditCoverageLesson',
   head() {
     return {
-      title: 'Couverture d\'Audit - Gestion de Projet',
+      title: 'Coverage d\'Audit - Gestion de Projet',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Leçon complète sur la couverture dans le contexte d\'audit : méthodes de mesure, échantillonnage, métriques et bonnes pratiques.'
+          content: 'Leçon complète sur le coverage dans le contexte d\'audit : minimal coverage, méthodes de mesure, échantillonnage, métriques et bonnes pratiques.'
         }
       ]
     }
@@ -761,7 +881,7 @@ details summary {
   margin-top: 0;
 }
 
-/* Niveaux de couverture */
+/* Niveaux de coverage */
 .severity-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -817,6 +937,14 @@ details summary {
   color: #212529 !important;
 }
 
+.severity-minimal {
+  border: 2px solid #6f42c1;
+}
+
+.severity-minimal h4 {
+  background: #6f42c1;
+}
+
 .severity-poor {
   border: 2px solid #fd7e14;
 }
@@ -861,7 +989,7 @@ details summary {
   margin-bottom: 0.3rem;
 }
 
-/* Exemples de couverture dans la solution */
+/* Exemples de coverage dans la solution */
 .coverage-examples {
   display: flex;
   flex-direction: column;

@@ -85,7 +85,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownGestion">
                         <NuxtLink class="dropdown-item" to="/audit/index_audit">Diagramme UML</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/audit/index_audit">Outils</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit et Testing</NuxtLink>
                     </div>
                 </li>
 
@@ -96,7 +96,7 @@
                     <NuxtLink class="nav-link" to="/devops/index_devops">Devops</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="#">Mise en place projet</NuxtLink>
+                    <NuxtLink class="nav-link" to="/mise_en_place_projet/index_mise_en_place_projet">Mise en place projet</NuxtLink>
                 </li>
 
             </ul>

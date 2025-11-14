@@ -46,10 +46,12 @@
 - injection sql
 - faille xss
 ================================================================================
-# Audit
+# Audit + testing
 - O1 On On2 Ologn
 - structure de code
 - l'extension sonarQube sur vs code
+- TDD
+- quality gate
 ================================================================================
 # devops
 - ansible
