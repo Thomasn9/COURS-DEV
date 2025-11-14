@@ -29,7 +29,7 @@
                 <div class="code-example">
                     <h4 class="text-purple">Initialisation du projet</h4>
                     <pre><code class="language-bash"><span class="comment"># Crée un nouveau projet</span>
-<span class="function">npm init -y</span></code></pre>
+<span class="function">npm init</span></code></pre>
                 </div>
 
                 <p class="textExemple">
@@ -607,26 +607,120 @@
                     </div>
                 </div>
             </section>
-
             <!-- Conclusion -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Conclusion</h2>
                 <p class="textExemple">
-                    Félicitations! Vous avez maintenant les bases pour configurer et utiliser Vitest dans vos projets
-                    JavaScript. Vous savez:
+                    Félicitations ! Vous avez maintenant acquis une compréhension approfondie des tests unitaires avec
+                    Vitest. Vous maîtrisez désormais :
                 </p>
 
                 <ul class="textExemple">
-                    <li>Initialiser un projet avec Vitest</li>
-                    <li>Créer des fonctions testables</li>
-                    <li>Écrire des tests unitaires avec <code>test</code>, <code>expect</code> et <code>toBe</code></li>
-                    <li>Exécuter et surveiller vos tests</li>
-                    <li>Organiser vos tests efficacement</li>
+                    <li><strong>Les bases de Vitest</strong> : Configuration, écriture et exécution de tests</li>
+                    <li><strong>Les fonctions essentielles</strong> : <code>test()</code>, <code>expect()</code> et les
+                        principaux matchers comme <code>toBe()</code></li>
+                    <li><strong>L'organisation des tests</strong> : Utilisation de <code>describe()</code> pour
+                        structurer vos suites de tests</li>
+                    <li><strong>La gestion des erreurs avancée</strong> : Tests avec <code>toThrowError()</code> pour
+                        différents types d'erreurs</li>
                 </ul>
 
+                <div class="function-explanation">
+                    <h3 class="text-purple">Points clés sur la gestion d'erreurs</h3>
+                    <p class="textExemple">
+                        Vous avez appris à tester spécifiquement différents types d'erreurs :
+                    </p>
+
+                    <div class="code-comparison">
+                        <div>
+                            <h4 class="text-purple">TypeError</h4>
+                            <ul class="textExemple">
+                                <li>Pour les types de données incorrects</li>
+                                <li>Exemple : arguments non numériques</li>
+                                <li>Test : <code>toThrowError(TypeError)</code></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-purple">RangeError</h4>
+                            <ul class="textExemple">
+                                <li>Pour les valeurs hors plage autorisée</li>
+                                <li>Exemple : pourcentages invalides</li>
+                                <li>Test : <code>toThrowError(RangeError)</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="function-explanation">
+                    <h3 class="text-purple">Bonnes pratiques consolidées</h3>
+                    <div class="code-comparison">
+                        <div>
+                            <h4 class="text-purple">Écriture des tests</h4>
+                            <ul class="textExemple">
+                                <li>Nommez les tests de manière descriptive</li>
+                                <li>Testez les cas nominaux ET les cas d'erreur</li>
+                                <li>Utilisez <code>describe</code> pour organiser les tests</li>
+                                <li>Créez un fichier de test par fonction/module</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-purple">Gestion des erreurs</h4>
+                            <ul class="textExemple">
+                                <li>Utilisez des types d'erreur spécifiques</li>
+                                <li>Testez tous les scénarios d'erreur possibles</li>
+                                <li>Vérifiez les messages d'erreur pour la clarté</li>
+                                <li>Utilisez des fonctions fléchées pour tester les erreurs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="function-explanation">
+                    <h3 class="text-purple">Prochaines étapes</h3>
+                    <p class="textExemple">
+                        Pour approfondir vos connaissances, explorez ces concepts avancés :
+                    </p>
+
+                    <ul class="textExemple">
+                        <li><strong>Tests asynchrones</strong> : Fonctions async/await avec Vitest</li>
+                        <li><strong>Mocks et spies</strong> : Simuler des dépendances externes</li>
+                        <li><strong>Tests de composants</strong> : Testing Library pour les composants Vue</li>
+                        <li><strong>Couverture de code</strong> : Mesurer l'efficacité de vos tests</li>
+                        <li><strong>Tests d'intégration</strong> : Tester plusieurs modules ensemble</li>
+                    </ul>
+                </div>
+
                 <p class="textExemple">
-                    Continuez à pratiquer en ajoutant des tests à vos projets existants. Plus vous écrirez de tests,
-                    plus vous deviendrez efficace pour détecter et prévenir les bugs!
+                    <strong>Rappel important</strong> : Les tests ne sont pas une fin en soi, mais un moyen d'atteindre
+                    plusieurs objectifs cruciaux :
+                </p>
+
+                <div class="code-comparison">
+                    <div>
+                        <h4 class="text-purple">Avantages des tests</h4>
+                        <ul class="textExemple">
+                            <li>✅ Détection précoce des bugs</li>
+                            <li>✅ Documentation vivante du code</li>
+                            <li>✅ Confiance lors des refactorisations</li>
+                            <li>✅ Meilleure conception du code</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-purple">Dans votre projet</h4>
+                        <ul class="textExemple">
+                            <li> Testez vos fonctions utilitaires</li>
+                            <li> Vérifiez les cas limites</li>
+                            <li> Couvrez les chemins d'erreur</li>
+                            <li> Maintenez vos tests à jour</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="textExemple">
+                    Continuez à pratiquer en ajoutant des tests à vos projets existants. Commencez par les fonctions les
+                    plus critiques, puis étendez progressivement votre couverture de tests. Plus vous écrirez de tests,
+                    plus vous développerez votre intuition pour anticiper les cas problématiques et créer du code plus
+                    robuste et maintenable !
                 </p>
             </section>
         </div>

@@ -59,10 +59,11 @@
 ================================================================================
 # Les librairie
 - decimal
+- vitest
+- jest
 ================================================================================
 # Service web et design
 - apache Jmetter
-- vitest
 - gitea
 - jenkins
 - mysql
