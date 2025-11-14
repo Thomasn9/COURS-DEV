@@ -123,6 +123,22 @@
             </div>
         </div>
 
+        <!-- =============================================================\\Q//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">Q</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Quality Gates</h5>
+                <p class="card-text">Les différents types de Quality Gates et leurs utilité</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/quality_gate">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\S//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">S</h3>
@@ -150,7 +166,7 @@
             </div>
         </div>
 
-        <!-- =============================================================\\S//==================================================================== -->
+        <!-- =============================================================\\T//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">T</h3>
         </div>
