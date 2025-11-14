@@ -40,6 +40,17 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Git (flow)</h5>
+                <p class="card-text">Qu'est ce que le git flow et son utilité ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/git_flow">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Git (base)</h5>
                 <p class="card-text">L'utiliter de git dans un projet et comment s'en servir </p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/git">

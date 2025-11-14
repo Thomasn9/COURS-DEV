@@ -49,13 +49,10 @@
 - O1 On On2 Ologn
 - structure de code
 - l'extension sonarQube sur vs code
-- quality gate
 ================================================================================
 # devops
 - ansible
 - idempotence
-- git flow
-- version sémentique des commit 
 ================================================================================
 # Les librairie
 - decimal
