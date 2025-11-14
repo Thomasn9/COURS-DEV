@@ -1,49 +1,54 @@
 <template>
-  <div class="lesson-container">
-    <div class="lesson-content">
-      <!-- En-tête de la leçon -->
-      <header class="lesson-header">
-        <h1 class="text-white">Git Flow - Gestion des branches</h1>
-        <p class="lesson-meta text-white">Maîtrisez le workflow de développement collaboratif avec Git</p>
-      </header>
+    <div class="lesson-container">
+        <div class="lesson-content">
+            <!-- En-tête de la leçon -->
+            <header class="lesson-header">
+                <h1 class="text-white">Git Flow - Gestion des branches</h1>
+                <p class="lesson-meta text-white">Maîtrisez le workflow de développement collaboratif avec Git</p>
+            </header>
 
-      <!-- Introduction -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Introduction à Git Flow</h2>
-        <p class="textExemple">
-          Git Flow est un modèle de workflow de branchement pour Git, créé par Vincent Driessen. 
-          Il fournit un ensemble robuste de commandes pour accomplir des tâches de branchement et de fusion de haut niveau.
-        </p>
-        <p class="textExemple">
-          Ce modèle définit une structure de branchement stricte conçue autour du cycle de publication du projet. 
-          Il attribue des rôles très spécifiques à différentes branches et définit comment et quand elles doivent interagir.
-        </p>
-      </section>
+            <!-- Introduction -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Introduction à Git Flow</h2>
+                <p class="textExemple">
+                    Git Flow est un modèle de workflow de branchement pour Git, créé par Vincent Driessen.
+                    Il fournit un ensemble robuste de commandes pour accomplir des tâches de branchement et de fusion de
+                    haut niveau.
+                </p>
+                <p class="textExemple">
+                    Ce modèle définit une structure de branchement stricte conçue autour du cycle de publication du
+                    projet.
+                    Il attribue des rôles très spécifiques à différentes branches et définit comment et quand elles
+                    doivent interagir.
+                </p>
+            </section>
 
-      <!-- Les branches principales -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Les branches principales</h2>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Branche master/main</h3>
-          <p class="textExemple">
-            La branche <strong>master</strong> (ou <strong>main</strong> dans les projets récents) contient le code de production.
-            Chaque commit sur cette branche représente une nouvelle version publiée.
-          </p>
-        </div>
+            <!-- Les branches principales -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Les branches principales</h2>
 
-        <div class="code-example">
-          <h3 class="text-purple">Branche develop</h3>
-          <p class="textExemple">
-            La branche <strong>develop</strong> sert d'intégration pour les fonctionnalités. 
-            C'est la branche où le code est fusionné après le développement des fonctionnalités et avant la préparation d'une release.
-          </p>
-        </div>
+                <div class="code-example">
+                    <h3 class="text-purple">Branche master/main</h3>
+                    <p class="textExemple">
+                        La branche <strong>master</strong> (ou <strong>main</strong> dans les projets récents) contient
+                        le code de production.
+                        Chaque commit sur cette branche représente une nouvelle version publiée.
+                    </p>
+                </div>
 
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">Créer la branche develop</h4>
-            <pre><code class="language-bash"><span class="comment"># Se positionner sur master</span>
+                <div class="code-example">
+                    <h3 class="text-purple">Branche develop</h3>
+                    <p class="textExemple">
+                        La branche <strong>develop</strong> sert d'intégration pour les fonctionnalités.
+                        C'est la branche où le code est fusionné après le développement des fonctionnalités et avant la
+                        préparation d'une release.
+                    </p>
+                </div>
+
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">Créer la branche develop</h4>
+                        <pre><code class="language-bash"><span class="comment"># Se positionner sur master</span>
 <span class="keyword">git checkout</span> master
 
 <span class="comment"># Créer et basculer sur develop</span>
@@ -51,70 +56,71 @@
 
 <span class="comment"># Pousser develop sur le dépôt distant</span>
 <span class="keyword">git push</span> -u origin develop</code></pre>
-          </div>
-          <div class="code-block">
-            <h4 class="text-purple">Vérifier les branches</h4>
-            <pre><code class="language-bash"><span class="comment"># Lister toutes les branches</span>
+                    </div>
+                    <div class="code-block">
+                        <h4 class="text-purple">Vérifier les branches</h4>
+                        <pre><code class="language-bash"><span class="comment"># Lister toutes les branches</span>
 <span class="keyword">git branch</span> -a
 
 <span class="comment"># Voir le dernier commit sur chaque branche</span>
 <span class="keyword">git branch</span> -v</code></pre>
-          </div>
-        </div>
-      </section>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Les branches de support -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Les branches de support</h2>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Branches de fonctionnalités (feature)</h3>
-          <p class="textExemple">
-            Les branches de fonctionnalités sont utilisées pour développer de nouvelles fonctionnalités pour les prochaines releases.
-            Elles partent de <strong>develop</strong> et doivent y être fusionnées.
-          </p>
-        </div>
+            <!-- Les branches de support -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Les branches de support</h2>
 
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">Créer une feature</h4>
-            <pre><code class="language-bash"><span class="comment"># Se positionner sur develop</span>
+                <div class="code-example">
+                    <h3 class="text-purple">Branches de fonctionnalités (feature)</h3>
+                    <p class="textExemple">
+                        Les branches de fonctionnalités sont utilisées pour développer de nouvelles fonctionnalités pour
+                        les prochaines releases.
+                        Elles partent de <strong>develop</strong> et doivent y être fusionnées.
+                    </p>
+                </div>
+
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">Créer une feature</h4>
+                        <pre><code class="language-bash"><span class="comment"># Se positionner sur develop</span>
 <span class="keyword">git checkout</span> develop
 
 <span class="comment"># Créer une branche feature</span>
 <span class="keyword">git checkout</span> -b feature/nouvelle-fonctionnalite</code></pre>
-          </div>
-          <div class="code-block">
-            <h4 class="text-purple">Fusionner une feature</h4>
-            <pre><code class="language-bash"><span class="comment"># Une fois le développement terminé</span>
+                    </div>
+                    <div class="code-block">
+                        <h4 class="text-purple">Fusionner une feature</h4>
+                        <pre><code class="language-bash"><span class="comment"># Une fois le développement terminé</span>
 <span class="keyword">git checkout</span> develop
 <span class="keyword">git merge</span> --no-ff feature/nouvelle-fonctionnalite
 
 <span class="comment"># Supprimer la branche feature (optionnel)</span>
 <span class="keyword">git branch</span> -d feature/nouvelle-fonctionnalite</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="code-example">
-          <h3 class="text-purple">Branches de release</h3>
-          <p class="textExemple">
-            Les branches de release préparent une nouvelle version de production. 
-            Elles permettent les derniers ajustements mineurs et les corrections de bugs.
-          </p>
-        </div>
+                <div class="code-example">
+                    <h3 class="text-purple">Branches de release</h3>
+                    <p class="textExemple">
+                        Les branches de release préparent une nouvelle version de production.
+                        Elles permettent les derniers ajustements mineurs et les corrections de bugs.
+                    </p>
+                </div>
 
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">Créer une release</h4>
-            <pre><code class="language-bash"><span class="comment"># Se positionner sur develop</span>
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">Créer une release</h4>
+                        <pre><code class="language-bash"><span class="comment"># Se positionner sur develop</span>
 <span class="keyword">git checkout</span> develop
 
 <span class="comment"># Créer une branche release</span>
 <span class="keyword">git checkout</span> -b release/1.2.0</code></pre>
-          </div>
-          <div class="code-block">
-            <h4 class="text-purple">Finaliser une release</h4>
-            <pre><code class="language-bash"><span class="comment"># Fusionner dans master</span>
+                    </div>
+                    <div class="code-block">
+                        <h4 class="text-purple">Finaliser une release</h4>
+                        <pre><code class="language-bash"><span class="comment"># Fusionner dans master</span>
 <span class="keyword">git checkout</span> master
 <span class="keyword">git merge</span> --no-ff release/1.2.0
 
@@ -124,29 +130,31 @@
 <span class="comment"># Fusionner dans develop</span>
 <span class="keyword">git checkout</span> develop
 <span class="keyword">git merge</span> --no-ff release/1.2.0</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="code-example">
-          <h3 class="text-purple">Branches de correctif (hotfix)</h3>
-          <p class="textExemple">
-            Les branches de correctif sont nécessaires pour agir immédiatement sur un problème en production.
-            Elles partent de <strong>master</strong> et doivent être fusionnées à la fois dans <strong>master</strong> et <strong>develop</strong>.
-          </p>
-        </div>
+                <div class="code-example">
+                    <h3 class="text-purple">Branches de correctif (hotfix)</h3>
+                    <p class="textExemple">
+                        Les branches de correctif sont nécessaires pour agir immédiatement sur un problème en
+                        production.
+                        Elles partent de <strong>master</strong> et doivent être fusionnées à la fois dans
+                        <strong>master</strong> et <strong>develop</strong>.
+                    </p>
+                </div>
 
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">Créer un hotfix</h4>
-            <pre><code class="language-bash"><span class="comment"># Se positionner sur master</span>
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">Créer un hotfix</h4>
+                        <pre><code class="language-bash"><span class="comment"># Se positionner sur master</span>
 <span class="keyword">git checkout</span> master
 
 <span class="comment"># Créer un hotfix</span>
 <span class="keyword">git checkout</span> -b hotfix/urgence-production</code></pre>
-          </div>
-          <div class="code-block">
-            <h4 class="text-purple">Finaliser un hotfix</h4>
-            <pre><code class="language-bash"><span class="comment"># Fusionner dans master</span>
+                    </div>
+                    <div class="code-block">
+                        <h4 class="text-purple">Finaliser un hotfix</h4>
+                        <pre><code class="language-bash"><span class="comment"># Fusionner dans master</span>
 <span class="keyword">git checkout</span> master
 <span class="keyword">git merge</span> --no-ff hotfix/urgence-production
 
@@ -156,20 +164,20 @@
 <span class="comment"># Fusionner dans develop</span>
 <span class="keyword">git checkout</span> develop
 <span class="keyword">git merge</span> --no-ff hotfix/urgence-production</code></pre>
-          </div>
-        </div>
-      </section>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Workflow complet -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Workflow Git Flow complet</h2>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Installation de Git Flow</h3>
-          <p class="textExemple">
-            Git Flow peut être utilisé avec des extensions qui simplifient les commandes.
-          </p>
-          <pre><code class="language-bash"><span class="comment"># Installation sur macOS avec Homebrew</span>
+            <!-- Workflow complet -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Workflow Git Flow complet</h2>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Installation de Git Flow</h3>
+                    <p class="textExemple">
+                        Git Flow peut être utilisé avec des extensions qui simplifient les commandes.
+                    </p>
+                    <pre><code class="language-bash"><span class="comment"># Installation sur macOS avec Homebrew</span>
 brew install git-flow
 
 <span class="comment"># Installation sur Linux</span>
@@ -177,85 +185,87 @@ apt-get install git-flow
 
 <span class="comment"># Initialisation dans un dépôt existant</span>
 git flow init</code></pre>
-        </div>
+                </div>
 
-        <div class="code-example">
-          <h3 class="text-purple">Commandes Git Flow simplifiées</h3>
-          <div class="code-comparison">
-            <div class="code-block">
-              <h4 class="text-purple">Démarrer une feature</h4>
-              <pre><code class="language-bash">git flow feature start nouvelle-fonctionnalite</code></pre>
-            </div>
-            <div class="code-block">
-              <h4 class="text-purple">Terminer une feature</h4>
-              <pre><code class="language-bash">git flow feature finish nouvelle-fonctionnalite</code></pre>
-            </div>
-          </div>
-          
-          <div class="code-comparison">
-            <div class="code-block">
-              <h4 class="text-purple">Démarrer une release</h4>
-              <pre><code class="language-bash">git flow release start 1.3.0</code></pre>
-            </div>
-            <div class="code-block">
-              <h4 class="text-purple">Terminer une release</h4>
-              <pre><code class="language-bash">git flow release finish 1.3.0</code></pre>
-            </div>
-          </div>
-          
-          <div class="code-comparison">
-            <div class="code-block">
-              <h4 class="text-purple">Démarrer un hotfix</h4>
-              <pre><code class="language-bash">git flow hotfix start 1.3.1</code></pre>
-            </div>
-            <div class="code-block">
-              <h4 class="text-purple">Terminer un hotfix</h4>
-              <pre><code class="language-bash">git flow hotfix finish 1.3.1</code></pre>
-            </div>
-          </div>
-        </div>
-      </section>
+                <div class="code-example">
+                    <h3 class="text-purple">Commandes Git Flow simplifiées</h3>
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <h4 class="text-purple">Démarrer une feature</h4>
+                            <pre><code class="language-bash">git flow feature start nouvelle-fonctionnalite</code></pre>
+                        </div>
+                        <div class="code-block">
+                            <h4 class="text-purple">Terminer une feature</h4>
+                            <pre><code class="language-bash">git flow feature finish nouvelle-fonctionnalite</code></pre>
+                        </div>
+                    </div>
 
-      <!-- Bonnes pratiques -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Bonnes pratiques Git Flow</h2>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Conventions de nommage</h3>
-          <ul class="textExemple">
-            <li><strong>feature/</strong> : pour les nouvelles fonctionnalités (ex: feature/user-authentication)</li>
-            <li><strong>release/</strong> : pour les préparations de release (ex: release/1.2.0)</li>
-            <li><strong>hotfix/</strong> : pour les correctifs urgents (ex: hotfix/critical-security-fix)</li>
-            <li><strong>bugfix/</strong> : pour les corrections de bugs non critiques</li>
-          </ul>
-        </div>
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <h4 class="text-purple">Démarrer une release</h4>
+                            <pre><code class="language-bash">git flow release start 1.3.0</code></pre>
+                        </div>
+                        <div class="code-block">
+                            <h4 class="text-purple">Terminer une release</h4>
+                            <pre><code class="language-bash">git flow release finish 1.3.0</code></pre>
+                        </div>
+                    </div>
 
-        <div class="code-example">
-          <h3 class="text-purple">Règles importantes</h3>
-          <ul class="textExemple">
-            <li>Ne jamais pousser directement sur <strong>master</strong> ou <strong>develop</strong></li>
-            <li>Utiliser des messages de commit clairs et descriptifs</li>
-            <li>Fusionner avec <code>--no-ff</code> pour garder l'historique des branches</li>
-            <li>Supprimer les branches de support après fusion</li>
-            <li>Taguer systématiquement les releases sur master</li>
-          </ul>
-        </div>
-      </section>
+                    <div class="code-comparison">
+                        <div class="code-block">
+                            <h4 class="text-purple">Démarrer un hotfix</h4>
+                            <pre><code class="language-bash">git flow hotfix start 1.3.1</code></pre>
+                        </div>
+                        <div class="code-block">
+                            <h4 class="text-purple">Terminer un hotfix</h4>
+                            <pre><code class="language-bash">git flow hotfix finish 1.3.1</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Exercices pratiques -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exercices pratiques</h2>
-        
-        <div class="exercise">
-          <h3 class="text-purple">Exercice 1 : Mise en place de Git Flow</h3>
-          <p class="textExemple">
-            Initialisez Git Flow dans un dépôt Git existant et configurez les branches principales.
-          </p>
-          
-          <details class="solution">
-            <summary class="btn-purple btn-hover">Voir la solution</summary>
-            <div class="solution-content">
-              <pre><code class="language-bash"><span class="comment"># Se positionner dans votre dépôt</span>
+            <!-- Bonnes pratiques -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Bonnes pratiques Git Flow</h2>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Conventions de nommage</h3>
+                    <ul class="textExemple">
+                        <li><strong>feature/</strong> : pour les nouvelles fonctionnalités (ex:
+                            feature/user-authentication)</li>
+                        <li><strong>release/</strong> : pour les préparations de release (ex: release/1.2.0)</li>
+                        <li><strong>hotfix/</strong> : pour les correctifs urgents (ex: hotfix/critical-security-fix)
+                        </li>
+                        <li><strong>bugfix/</strong> : pour les corrections de bugs non critiques</li>
+                    </ul>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Règles importantes</h3>
+                    <ul class="textExemple">
+                        <li>Ne jamais pousser directement sur <strong>master</strong> ou <strong>develop</strong></li>
+                        <li>Utiliser des messages de commit clairs et descriptifs</li>
+                        <li>Fusionner avec <code>--no-ff</code> pour garder l'historique des branches</li>
+                        <li>Supprimer les branches de support après fusion</li>
+                        <li>Taguer systématiquement les releases sur master</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Exercices pratiques -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exercices pratiques</h2>
+
+                <div class="exercise">
+                    <h3 class="text-purple">Exercice 1 : Mise en place de Git Flow</h3>
+                    <p class="textExemple">
+                        Initialisez Git Flow dans un dépôt Git existant et configurez les branches principales.
+                    </p>
+
+                    <details class="solution">
+                        <summary class="btn-purple btn-hover">Voir la solution</summary>
+                        <div class="solution-content">
+                            <pre><code class="language-bash"><span class="comment"># Se positionner dans votre dépôt</span>
 <span class="keyword">cd</span> mon-projet
 
 <span class="comment"># Initialiser Git Flow</span>
@@ -270,88 +280,92 @@ git flow init
 <span class="comment"># - Préfixe hotfix : hotfix/</span>
 <span class="comment"># - Préfixe support : support/</span>
 <span class="comment"># - Préfixe versiontag : (vide)</span></code></pre>
-            </div>
-          </details>
-        </div>
+                        </div>
+                    </details>
+                </div>
 
-        <div class="exercise">
-          <h3 class="text-purple">Exercice 2 : Cycle de développement complet</h3>
-          <p class="textExemple">
-            Réalisez un cycle complet de développement avec Git Flow :
-          </p>
-          <ol class="textExemple">
-            <li>Créez une nouvelle fonctionnalité</li>
-            <li>Préparez une release</li>
-            <li>Corrigez un bug en production avec un hotfix</li>
-          </ol>
-          
-          <details class="solution">
-            <summary class="btn-purple btn-hover">Voir la solution</summary>
-            <div class="solution-content">
-              <h4>1. Création d'une fonctionnalité</h4>
-              <pre><code class="language-bash">git flow feature start ajout-panier
+                <div class="exercise">
+                    <h3 class="text-purple">Exercice 2 : Cycle de développement complet</h3>
+                    <p class="textExemple">
+                        Réalisez un cycle complet de développement avec Git Flow :
+                    </p>
+                    <ol class="textExemple">
+                        <li>Créez une nouvelle fonctionnalité</li>
+                        <li>Préparez une release</li>
+                        <li>Corrigez un bug en production avec un hotfix</li>
+                    </ol>
+
+                    <details class="solution">
+                        <summary class="btn-purple btn-hover">Voir la solution</summary>
+                        <div class="solution-content">
+                            <h4>1. Création d'une fonctionnalité</h4>
+                            <pre><code class="language-bash">git flow feature start ajout-panier
 <span class="comment"># Développez votre fonctionnalité...</span>
 <span class="keyword">git add</span> .
 <span class="keyword">git commit</span> -m <span class="string">"Ajout du panier d'achat"</span>
 git flow feature finish ajout-panier</code></pre>
 
-              <h4>2. Préparation d'une release</h4>
-              <pre><code class="language-bash">git flow release start 1.0.0
+                            <h4>2. Préparation d'une release</h4>
+                            <pre><code class="language-bash">git flow release start 1.0.0
 <span class="comment"># Effectuez les derniers ajustements...</span>
 git flow release finish 1.0.0</code></pre>
 
-              <h4>3. Correction d'un bug en production</h4>
-              <pre><code class="language-bash">git flow hotfix start correction-prix
+                            <h4>3. Correction d'un bug en production</h4>
+                            <pre><code class="language-bash">git flow hotfix start correction-prix
 <span class="comment"># Corrigez le bug...</span>
 <span class="keyword">git add</span> .
 <span class="keyword">git commit</span> -m <span class="string">"Correction du calcul des prix"</span>
 git flow hotfix finish correction-prix</code></pre>
-            </div>
-          </details>
-        </div>
-      </section>
+                        </div>
+                    </details>
+                </div>
+            </section>
 
-      <!-- Ressources supplémentaires -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Ressources supplémentaires</h2>
-        
-        <div class="code-example">
-          <h3 class="text-purple">Liens utiles</h3>
-          <ul class="textExemple">
-            <li><a href="https://nvie.com/posts/a-successful-git-branching-model/" class="btn-purple btn-hover" target="_blank">Article original de Vincent Driessen</a></li>
-            <li><a href="https://github.com/nvie/gitflow" class="btn-purple btn-hover" target="_blank">Extension Git Flow officielle</a></li>
-            <li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" class="btn-purple btn-hover" target="_blank">Tutoriel Git Flow par Atlassian</a></li>
-          </ul>
-        </div>
+            <!-- Ressources supplémentaires -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Ressources supplémentaires</h2>
 
-        <div class="code-example">
-          <h3 class="text-purple">Outils complémentaires</h3>
-          <ul class="textExemple">
-            <li><strong>GitKraken</strong> : Client Git avec support visuel de Git Flow</li>
-            <li><strong>SourceTree</strong> : Client Git gratuit d'Atlassian</li>
-            <li><strong>GitHub Desktop</strong> : Client officiel GitHub avec workflow simplifié</li>
-          </ul>
+                <div class="code-example">
+                    <h3 class="text-purple">Liens utiles</h3>
+                    <ul class="textExemple">
+                        <li><a href="https://nvie.com/posts/a-successful-git-branching-model/"
+                                class="btn-purple btn-hover" target="_blank">Article original de Vincent Driessen</a>
+                        </li>
+                        <li><a href="https://github.com/nvie/gitflow" class="btn-purple btn-hover"
+                                target="_blank">Extension Git Flow officielle</a></li>
+                        <li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow"
+                                class="btn-purple btn-hover" target="_blank">Tutoriel Git Flow par Atlassian</a></li>
+                    </ul>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">Outils complémentaires</h3>
+                    <ul class="textExemple">
+                        <li><strong>GitKraken</strong> : Client Git avec support visuel de Git Flow</li>
+                        <li><strong>SourceTree</strong> : Client Git gratuit d'Atlassian</li>
+                        <li><strong>GitHub Desktop</strong> : Client officiel GitHub avec workflow simplifié</li>
+                    </ul>
+                </div>
+            </section>
         </div>
-      </section>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: 'GitFlowLesson',
-  head() {
-    return {
-      title: 'Git Flow - Leçon sur la gestion des branches',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Apprenez à utiliser Git Flow pour une gestion efficace des branches dans vos projets de développement.'
+    name: 'GitFlowLesson',
+    head() {
+        return {
+            title: 'Git Flow - Leçon sur la gestion des branches',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Apprenez à utiliser Git Flow pour une gestion efficace des branches dans vos projets de développement.'
+                }
+            ]
         }
-      ]
     }
-  }
 }
 </script>
 
@@ -489,7 +503,8 @@ export default {
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example, .code-block {
+.code-example,
+.code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -516,15 +531,19 @@ pre {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap; /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Casse les mots longs */
-    word-break: break-word; /* Assure la césure des mots */
+    white-space: pre-wrap;
+    /* Permet le retour à la ligne */
+    word-wrap: break-word;
+    /* Casse les mots longs */
+    word-break: break-word;
+    /* Assure la césure des mots */
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
-    white-space: pre-wrap; /* Retour à la ligne automatique */
+    white-space: pre-wrap;
+    /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -533,14 +552,46 @@ pre code {
 }
 
 /* Couleurs VS Code pour la syntaxe Bash */
-.keyword { color: #c586c0 !important; } /* Mots-clés Git (checkout, branch, merge, etc.) */
-.comment { color: #6a9955 !important; } /* Commentaires */
-.string { color: #ce9178 !important; } /* Chaînes de caractères */
-.function { color: #dcdcaa !important; } /* Noms de fonctions/commandes */
-.operator { color: #d4d4d4 !important; } /* Opérateurs (+, -, =, etc.) */
-.constant { color: #4fc1ff !important; } /* Constantes */
-.number { color: #b5cea8 !important; } /* Nombres */
-.variable { color: #9cdcfe !important; } /* Variables */
+.keyword {
+    color: #c586c0 !important;
+}
+
+/* Mots-clés Git (checkout, branch, merge, etc.) */
+.comment {
+    color: #6a9955 !important;
+}
+
+/* Commentaires */
+.string {
+    color: #ce9178 !important;
+}
+
+/* Chaînes de caractères */
+.function {
+    color: #dcdcaa !important;
+}
+
+/* Noms de fonctions/commandes */
+.operator {
+    color: #d4d4d4 !important;
+}
+
+/* Opérateurs (+, -, =, etc.) */
+.constant {
+    color: #4fc1ff !important;
+}
+
+/* Constantes */
+.number {
+    color: #b5cea8 !important;
+}
+
+/* Nombres */
+.variable {
+    color: #9cdcfe !important;
+}
+
+/* Variables */
 
 /* Exercices et solutions */
 .exercise {
@@ -580,24 +631,24 @@ details summary {
     .lesson-container {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 2rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 2rem;
     }
-    
+
     .lesson-section {
         padding: 1.5rem;
     }
-    
+
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
@@ -610,19 +661,19 @@ details summary {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-    
+
     .lesson-container {
         padding: 0.5rem;
     }
-    
+
     .lesson-section {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 1.75rem;
     }
@@ -641,6 +692,7 @@ details summary {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -651,9 +703,23 @@ details summary {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lesson-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
 </style>
