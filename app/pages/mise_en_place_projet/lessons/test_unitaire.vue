@@ -222,18 +222,18 @@
                 <div class="code-example">
                     <h4 class="text-purple">Configuration du package.json</h4>
                     <pre><code class="language-json">{
-  <span class="property">"name"</span>: <span class="string">"testing"</span>,
-  <span class="property">"version"</span>: <span class="string">"1.0.0"</span>,
-  <span class="property">"description"</span>: <span class="string">""</span>,
-  <span class="property">"main"</span>: <span class="string">"index.js"</span>,
-  <span class="property">"scripts"</span>: {
-    <span class="property">"test"</span>: <span class="string">"vitest"</span>
-  },
-  <span class="property">"author"</span>: <span class="string">""</span>,
-  <span class="property">"license"</span>: <span class="string">"ISC"</span>,
-  <span class="property">"devDependencies"</span>: {
-    <span class="property">"vitest"</span>: <span class="string">"^4.0.9"</span>
-  }
+    <span class="property">"name"</span>: <span class="string">"testing"</span>,
+    <span class="property">"version"</span>: <span class="string">"1.0.0"</span>,
+    <span class="property">"description"</span>: <span class="string">""</span>,
+    <span class="property">"main"</span>: <span class="string">"index.js"</span>,
+    <span class="property">"scripts"</span>: {
+        <span class="property">"test"</span>: <span class="string">"vitest"</span>
+    },
+    <span class="property">"author"</span>: <span class="string">""</span>,
+    <span class="property">"license"</span>: <span class="string">"ISC"</span>,
+    <span class="property">"devDependencies"</span>: {
+        <span class="property">"vitest"</span>: <span class="string">"^4.0.9"</span>
+    }
 }</code></pre>
                 </div>
 
@@ -895,15 +895,6 @@
                             <li>✅ Documentation vivante du code</li>
                             <li>✅ Confiance lors des refactorisations</li>
                             <li>✅ Meilleure conception du code</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-purple">Dans votre projet</h4>
-                        <ul class="textExemple">
-                            <li> Testez vos fonctions utilitaires</li>
-                            <li> Vérifiez les cas limites</li>
-                            <li> Couvrez les chemins d'erreur</li>
-                            <li> Maintenez vos tests à jour</li>
                         </ul>
                     </div>
                 </div>
