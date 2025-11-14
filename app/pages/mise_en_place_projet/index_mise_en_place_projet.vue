@@ -12,7 +12,7 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Testes unitaire dans un projet</h5>
+                <h5 class="card-title text-purple">Tests unitaire dans un projet</h5>
                 <p class="card-text">crée un projet et y intégrer des tests unitaire</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/test_unitaire">
