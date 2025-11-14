@@ -56,6 +56,8 @@
 # devops
 - ansible
 - idempotence
+- git flow
+- version sémentique des commit 
 ================================================================================
 # Les librairie
 - decimal

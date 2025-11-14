@@ -157,6 +157,17 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Version Sementique des Commits</h5>
+                <p class="card-text">Comment versionner ses commits et pourquoi ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/version_sementique_commit">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Virtual Box</h5>
                 <p class="card-text">Comment ce servire de Virtual box</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
