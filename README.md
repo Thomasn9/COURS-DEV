@@ -21,6 +21,8 @@
 - fonction fléché
 - console.log
 - add-event-listner
+- import
+- exporte 
 ================================================================================
 # Vue
 - les avantage de vue 
