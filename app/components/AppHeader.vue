@@ -71,7 +71,6 @@
                         Outils
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownOutils">
-                        <NuxtLink class="dropdown-item" to="/application/index_application">Application</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/librairie/index_librairie">Librairie</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/services_web/index_services_web">Services Web et Design
                         </NuxtLink>

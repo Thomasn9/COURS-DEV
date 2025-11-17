@@ -59,8 +59,9 @@
 # Les librairie
 - jest
 ================================================================================
-# Service web et design
+# Service web et design et application
 - apache Jmetter
+- bruno
 - gitea
 - jenkins
 - mysql
