@@ -9,7 +9,7 @@
         <NuxtLink to="/">
             <img id="logo" src="/logo.png" alt="Logo Cours Dev">
         </NuxtLink>
-        <h1 class="orbitron-font fw-semibold">Cours Dev</h1>
+        <h1 class="orbitron-font-h1 fw-semibold">Cours Dev</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,12 +19,12 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item active">
-                    <NuxtLink class="nav-link" to="/">Home</NuxtLink>
+                    <NuxtLink class="orbitron-font nav-link" to="/">Home</NuxtLink>
                 </li>
 
                 <!-- ===============================================\\LANGAGES//================================================= -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLangages" role="button"
+                    <a class="orbitron-font nav-link dropdown-toggle" href="#" id="navbarDropdownLangages" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Langages
                     </a>
@@ -38,7 +38,7 @@
 
                 <!-- ===============================================\\FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFramework" role="button"
+                    <a class="orbitron-font nav-link dropdown-toggle" href="#" id="navbarDropdownFramework" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Framework
                     </a>
@@ -54,7 +54,7 @@
 
                 <!-- ===============================================\\META-FRAMEWORK//================================================= -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMeta" role="button"
+                    <a class="orbitron-font nav-link dropdown-toggle" href="#" id="navbarDropdownMeta" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Meta Framework
                     </a>
@@ -66,7 +66,7 @@
 
                 <!-- ===============================================\\Outils//================================================= -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOutils" role="button"
+                    <a class="orbitron-font nav-link dropdown-toggle" href="#" id="navbarDropdownOutils" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Outils
                     </a>
@@ -80,7 +80,7 @@
 
                 <!-- ===============================================\\GESTION-PROJET//================================================= -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGestion" role="button"
+                    <a class="orbitron-font nav-link dropdown-toggle" href="#" id="navbarDropdownGestion" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gestion de projet
                     </a>
@@ -92,13 +92,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/cyber_securiter/index_cybersecu">Cyber Sécurité</NuxtLink>
+                    <NuxtLink class="orbitron-font nav-link" to="/cyber_securiter/index_cybersecu">Cyber Sécurité</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/devops/index_devops">Devops</NuxtLink>
+                    <NuxtLink class="orbitron-font nav-link" to="/devops/index_devops">Devops</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/mise_en_place_projet/index_mise_en_place_projet">Mise en place
+                    <NuxtLink class="orbitron-font nav-link" to="/mise_en_place_projet/index_mise_en_place_projet">Mise en place
                         projet</NuxtLink>
                 </li>
 
@@ -111,9 +111,13 @@
 </script>
 
 <style scoped>
-.orbitron-font {
+.orbitron-font-h1{
     font-family: 'Orbitron', sans-serif;
     margin-right: 1vw;
+}
+.orbitron-font{
+    font-family: 'Orbitron', sans-serif;
+    font-size: medium;
 }
 
 #logo {
