@@ -1,50 +1,53 @@
 <template>
-  <div class="lesson-container">
-    <div class="lesson-content">
-      <!-- En-tête de la leçon -->
-      <header class="lesson-header">
-        <h1 class="text-white">Les Mocks dans le Testing</h1>
-        <p class="lesson-meta text-white">Maîtrisez l'art de simuler des dépendances pour des tests plus efficaces</p>
-      </header>
+    <div class="lesson-container">
+        <div class="lesson-content">
+            <!-- En-tête de la leçon -->
+            <header class="lesson-header">
+                <h1 class="text-white">Les Mocks dans le Testing</h1>
+                <p class="lesson-meta text-white">Maîtrisez l'art de simuler des dépendances pour des tests plus
+                    efficaces</p>
+            </header>
 
-      <!-- Introduction -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Introduction aux Mocks</h2>
-        <p class="textExemple">
-          Les mocks sont des objets simulés qui imitent le comportement de composants réels dans un environnement contrôlé. 
-          Ils sont essentiels pour isoler le code testé de ses dépendances externes.
-        </p>
-        <p class="textExemple">
-          Dans cette leçon, nous explorerons pourquoi et comment utiliser les mocks, les différents types de mocks, 
-          et les bonnes pratiques pour les implémenter efficacement.
-        </p>
-      </section>
+            <!-- Introduction -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Introduction aux Mocks</h2>
+                <p class="textExemple">
+                    Les mocks sont des objets simulés qui imitent le comportement de composants réels dans un
+                    environnement contrôlé.
+                    Ils sont essentiels pour isoler le code testé de ses dépendances externes.
+                </p>
+                <p class="textExemple">
+                    Dans cette leçon, nous explorerons pourquoi et comment utiliser les mocks, les différents types de
+                    mocks,
+                    et les bonnes pratiques pour les implémenter efficacement.
+                </p>
+            </section>
 
-      <!-- Pourquoi utiliser les mocks -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Pourquoi utiliser des Mocks ?</h2>
-        <div class="textExemple">
-          <p>Les mocks sont particulièrement utiles pour :</p>
-          <ul>
-            <li>Isoler le code testé de ses dépendances externes</li>
-            <li>Rendre les tests plus rapides en évitant les appels réseau ou bases de données</li>
-            <li>Simuler des scénarios difficiles à reproduire (erreurs réseau, timeout, etc.)</li>
-            <li>Vérifier que certaines méthodes sont appelées avec les bons paramètres</li>
-            <li>Rendre les tests plus fiables et reproductibles</li>
-          </ul>
-        </div>
-      </section>
+            <!-- Pourquoi utiliser les mocks -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Pourquoi utiliser des Mocks ?</h2>
+                <div class="textExemple">
+                    <p>Les mocks sont particulièrement utiles pour :</p>
+                    <ul>
+                        <li>Isoler le code testé de ses dépendances externes</li>
+                        <li>Rendre les tests plus rapides en évitant les appels réseau ou bases de données</li>
+                        <li>Simuler des scénarios difficiles à reproduire (erreurs réseau, timeout, etc.)</li>
+                        <li>Vérifier que certaines méthodes sont appelées avec les bons paramètres</li>
+                        <li>Rendre les tests plus fiables et reproductibles</li>
+                    </ul>
+                </div>
+            </section>
 
-      <!-- Types de mocks -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Types de Mocks</h2>
-        
-        <div class="textExemple">
-          <h3 class="text-purple">1. Stubs</h3>
-          <p>Fournissent des réponses prédéfinies aux appels de méthodes.</p>
-          
-          <div class="code-example">
-            <pre><code class="javascript">// Exemple de stub avec Jest
+            <!-- Types de mocks -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Types de Mocks</h2>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">1. Stubs</h3>
+                    <p>Fournissent des réponses prédéfinies aux appels de méthodes.</p>
+
+                    <div class="code-example">
+                        <pre><code class="javascript">// Exemple de stub avec Jest
 <span class="keyword">const</span> <span class="variable">apiStub</span> = {
   <span class="variable">getUser</span>: <span class="function">jest</span>.<span class="variable">fn</span>().<span class="function">mockReturnValue</span>({
     <span class="variable">id</span>: <span class="number">1</span>,
@@ -52,15 +55,15 @@
     <span class="variable">email</span>: <span class="string">'john@example.com'</span>
   })
 };</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h3 class="text-purple">2. Spies</h3>
-          <p>Enregistrent les informations sur les appels de fonctions sans modifier leur comportement.</p>
-          
-          <div class="code-example">
-            <pre><code class="javascript">// Exemple de spy avec Jest
+                <div class="textExemple">
+                    <h3 class="text-purple">2. Spies</h3>
+                    <p>Enregistrent les informations sur les appels de fonctions sans modifier leur comportement.</p>
+
+                    <div class="code-example">
+                        <pre><code class="javascript">// Exemple de spy avec Jest
 <span class="keyword">const</span> <span class="variable">userService</span> = {
   <span class="variable">sendEmail</span>: <span class="function">jest</span>.<span class="variable">fn</span>()
 };
@@ -70,15 +73,15 @@
   <span class="comment">// Implémentation personnalisée si nécessaire</span>
   <span class="keyword">return</span> <span class="keyword">true</span>;
 });</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <h3 class="text-purple">3. Mocks complets</h3>
-          <p>Simulent entièrement un module ou une dépendance externe.</p>
-          
-          <div class="code-example">
-            <pre><code class="javascript">// Mock d'un module externe avec Jest
+                <div class="textExemple">
+                    <h3 class="text-purple">3. Mocks complets</h3>
+                    <p>Simulent entièrement un module ou une dépendance externe.</p>
+
+                    <div class="code-example">
+                        <pre><code class="javascript">// Mock d'un module externe avec Jest
 <span class="function">jest</span>.<span class="function">mock</span>(<span class="string">'../api/userApi'</span>, () <span class="operator">=></span> ({
   <span class="variable">fetchUser</span>: <span class="function">jest</span>.<span class="variable">fn</span>().<span class="function">mockResolvedValue</span>({
     <span class="variable">id</span>: <span class="number">123</span>,
@@ -86,19 +89,19 @@
   }),
   <span class="variable">updateUser</span>: <span class="function">jest</span>.<span class="variable">fn</span>().<span class="function">mockResolvedValue</span>(<span class="keyword">true</span>)
 }));</code></pre>
-          </div>
-        </div>
-      </section>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Exemple pratique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exemple Pratique</h2>
-        
-        <div class="textExemple">
-          <p>Imaginons un service qui récupère des utilisateurs et envoie des notifications :</p>
-          
-          <div class="code-example">
-            <pre><code class="javascript"><span class="comment">// Code à tester</span>
+            <!-- Exemple pratique -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exemple Pratique</h2>
+
+                <div class="textExemple">
+                    <p>Imaginons un service qui récupère des utilisateurs et envoie des notifications :</p>
+
+                    <div class="code-example">
+                        <pre><code class="javascript"><span class="comment">// Code à tester</span>
 <span class="keyword">class</span> <span class="class-name">UserService</span> {
   <span class="function">constructor</span>(<span class="variable">userApi</span>, <span class="variable">notificationService</span>) {
     <span class="keyword">this</span>.<span class="variable">userApi</span> = <span class="variable">userApi</span>;
@@ -111,14 +114,14 @@
     <span class="keyword">return</span> <span class="keyword">await</span> <span class="keyword">this</span>.<span class="variable">notificationService</span>.<span class="function">sendEmail</span>(<span class="variable">user</span>.<span class="variable">email</span>, <span class="variable">message</span>);
   }
 }</code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="textExemple">
-          <p>Test avec mocks :</p>
-          
-          <div class="code-example">
-            <pre><code class="javascript"><span class="comment">// Test avec Jest</span>
+                <div class="textExemple">
+                    <p>Test avec mocks :</p>
+
+                    <div class="code-example">
+                        <pre><code class="javascript"><span class="comment">// Test avec Jest</span>
 <span class="function">describe</span>(<span class="string">'UserService'</span>, () <span class="operator">=></span> {
   <span class="function">it</span>(<span class="string">'should send welcome email to user'</span>, <span class="keyword">async</span> () <span class="operator">=></span> {
     <span class="comment">// Arrange - Configuration des mocks</span>
@@ -148,45 +151,45 @@
     <span class="function">expect</span>(<span class="variable">result</span>).<span class="function">toBe</span>(<span class="keyword">true</span>);
   });
 });</code></pre>
-          </div>
-        </div>
-      </section>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Bonnes pratiques -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Bonnes Pratiques</h2>
-        
-        <div class="textExemple">
-          <h3 class="text-purple">À faire :</h3>
-          <ul>
-            <li>Mockez seulement ce qui est nécessaire pour le test</li>
-            <li>Utilisez des mocks réalistes qui reflètent le comportement réel</li>
-            <li>Vérifiez les interactions avec les mocks (appels, paramètres)</li>
-            <li>Documentez pourquoi vous utilisez un mock particulier</li>
-            <li>Nettoyez les mocks entre les tests pour éviter les interférences</li>
-          </ul>
-        </div>
+            <!-- Bonnes pratiques -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Bonnes Pratiques</h2>
 
-        <div class="textExemple">
-          <h3 class="text-purple">À éviter :</h3>
-          <ul>
-            <li>Ne mockez pas excessivement - testez le code réel quand c'est possible</li>
-            <li>Évitez les mocks trop complexes qui deviennent difficiles à maintenir</li>
-            <li>Ne testez pas l'implémentation des mocks, testez le comportement</li>
-            <li>N'utilisez pas de mocks pour cacher des problèmes de conception</li>
-          </ul>
-        </div>
-      </section>
+                <div class="textExemple">
+                    <h3 class="text-purple">À faire :</h3>
+                    <ul>
+                        <li>Mockez seulement ce qui est nécessaire pour le test</li>
+                        <li>Utilisez des mocks réalistes qui reflètent le comportement réel</li>
+                        <li>Vérifiez les interactions avec les mocks (appels, paramètres)</li>
+                        <li>Documentez pourquoi vous utilisez un mock particulier</li>
+                        <li>Nettoyez les mocks entre les tests pour éviter les interférences</li>
+                    </ul>
+                </div>
 
-      <!-- Exercice -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exercice Pratique</h2>
-        
-        <div class="exercise">
-          <p>Créez un test pour la fonction suivante en utilisant des mocks appropriés :</p>
-          
-          <div class="code-example">
-            <pre><code class="javascript"><span class="keyword">async</span> <span class="function">processOrder</span>(<span class="variable">orderId</span>) {
+                <div class="textExemple">
+                    <h3 class="text-purple">À éviter :</h3>
+                    <ul>
+                        <li>Ne mockez pas excessivement - testez le code réel quand c'est possible</li>
+                        <li>Évitez les mocks trop complexes qui deviennent difficiles à maintenir</li>
+                        <li>Ne testez pas l'implémentation des mocks, testez le comportement</li>
+                        <li>N'utilisez pas de mocks pour cacher des problèmes de conception</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Exercice -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exercice Pratique</h2>
+
+                <div class="exercise">
+                    <p>Créez un test pour la fonction suivante en utilisant des mocks appropriés :</p>
+
+                    <div class="code-example">
+                        <pre><code class="javascript"><span class="keyword">async</span> <span class="function">processOrder</span>(<span class="variable">orderId</span>) {
   <span class="keyword">const</span> <span class="variable">order</span> = <span class="keyword">await</span> <span class="keyword">this</span>.<span class="variable">orderRepository</span>.<span class="function">findById</span>(<span class="variable">orderId</span>);
   
   <span class="keyword">if</span> (!<span class="variable">order</span>) {
@@ -207,13 +210,13 @@
 
   <span class="keyword">return</span> <span class="variable">order</span>;
 }</code></pre>
-          </div>
+                    </div>
 
-          <details class="solution">
-            <summary class="btn-purple btn-hover">Voir la solution</summary>
-            <div class="solution-content">
-              <h4>Solution proposée :</h4>
-              <pre><code class="javascript"><span class="function">describe</span>(<span class="string">'processOrder'</span>, () <span class="operator">=></span> {
+                    <details class="solution">
+                        <summary class="btn-purple btn-hover">Voir la solution</summary>
+                        <div class="solution-content">
+                            <h4>Solution proposée :</h4>
+                            <pre><code class="javascript"><span class="function">describe</span>(<span class="string">'processOrder'</span>, () <span class="operator">=></span> {
   <span class="function">it</span>(<span class="string">'should process order successfully when payment is approved'</span>, <span class="keyword">async</span> () <span class="operator">=></span> {
     <span class="comment">// Arrange</span>
     <span class="keyword">const</span> <span class="variable">mockOrder</span> = {
@@ -253,29 +256,29 @@
     <span class="function">expect</span>(<span class="variable">result</span>.<span class="variable">status</span>).<span class="function">toBe</span>(<span class="string">'processed'</span>);
   });
 });</code></pre>
-            </div>
-          </details>
-        </div>
-      </section>
+                        </div>
+                    </details>
+                </div>
+            </section>
 
-      <!-- Conclusion -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Conclusion</h2>
-        <div class="textExemple">
-          <p>
-            Les mocks sont des outils puissants dans l'arsenal du développeur de tests. 
-            Ils permettent d'isoler le code testé, de simuler des scénarios complexes, 
-            et de rendre les tests plus rapides et fiables.
-          </p>
-          <p>
-            Cependant, il est important de les utiliser judicieusement et de ne pas 
-            tomber dans le piège du sur-mocking, qui peut masquer des problèmes de conception 
-            et rendre les tests moins significatifs.
-          </p>
+            <!-- Conclusion -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Conclusion</h2>
+                <div class="textExemple">
+                    <p>
+                        Les mocks sont des outils puissants dans l'arsenal du développeur de tests.
+                        Ils permettent d'isoler le code testé, de simuler des scénarios complexes,
+                        et de rendre les tests plus rapides et fiables.
+                    </p>
+                    <p>
+                        Cependant, il est important de les utiliser judicieusement et de ne pas
+                        tomber dans le piège du sur-mocking, qui peut masquer des problèmes de conception
+                        et rendre les tests moins significatifs.
+                    </p>
+                </div>
+            </section>
         </div>
-      </section>
     </div>
-  </div>
 </template>
 
 <script>
@@ -416,7 +419,8 @@
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example, .code-block {
+.code-example,
+.code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -443,15 +447,19 @@ pre {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap; /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Casse les mots longs */
-    word-break: break-word; /* Assure la césure des mots */
+    white-space: pre-wrap;
+    /* Permet le retour à la ligne */
+    word-wrap: break-word;
+    /* Casse les mots longs */
+    word-break: break-word;
+    /* Assure la césure des mots */
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
-    white-space: pre-wrap; /* Retour à la ligne automatique */
+    white-space: pre-wrap;
+    /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -460,15 +468,51 @@ pre code {
 }
 
 /* Couleurs VS Code pour la syntaxe JavaScript */
-.keyword { color: #c586c0 !important; } /* Mots-clés (for, while, if, function, etc.) */
-.variable { color: #9cdcfe !important; } /* Variables et noms de fonctions */
-.string { color: #ce9178 !important; } /* Chaînes de caractères */
-.comment { color: #6a9955 !important; } /* Commentaires */
-.function { color: #dcdcaa !important; } /* Noms de fonctions */
-.operator { color: #d4d4d4 !important; } /* Opérateurs (+, -, =, =>, etc.) */
-.constant { color: #4fc1ff !important; } /* Constantes */
-.number { color: #b5cea8 !important; } /* Nombres */
-.class-name { color: #4ec9b0 !important; } /* Noms de classes */
+.keyword {
+    color: #c586c0 !important;
+}
+
+/* Mots-clés (for, while, if, function, etc.) */
+.variable {
+    color: #9cdcfe !important;
+}
+
+/* Variables et noms de fonctions */
+.string {
+    color: #ce9178 !important;
+}
+
+/* Chaînes de caractères */
+.comment {
+    color: #6a9955 !important;
+}
+
+/* Commentaires */
+.function {
+    color: #dcdcaa !important;
+}
+
+/* Noms de fonctions */
+.operator {
+    color: #d4d4d4 !important;
+}
+
+/* Opérateurs (+, -, =, =>, etc.) */
+.constant {
+    color: #4fc1ff !important;
+}
+
+/* Constantes */
+.number {
+    color: #b5cea8 !important;
+}
+
+/* Nombres */
+.class-name {
+    color: #4ec9b0 !important;
+}
+
+/* Noms de classes */
 
 /* Exercices et solutions */
 .exercise {
@@ -508,24 +552,24 @@ details summary {
     .lesson-container {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 2rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 2rem;
     }
-    
+
     .lesson-section {
         padding: 1.5rem;
     }
-    
+
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
@@ -538,19 +582,19 @@ details summary {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-    
+
     .lesson-container {
         padding: 0.5rem;
     }
-    
+
     .lesson-section {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 1.75rem;
     }
@@ -569,6 +613,7 @@ details summary {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -579,9 +624,23 @@ details summary {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lesson-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
 </style>

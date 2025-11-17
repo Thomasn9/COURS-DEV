@@ -109,8 +109,14 @@
 
 <style scoped>
 #logo {
-    width: 3vw;
+    width: 4vw;
     margin: 1cqw;
+}
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+    #logo {
+        width: 12vw ;
+    }
 }
 
 .navbar-brand {
