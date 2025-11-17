@@ -1,13 +1,15 @@
 <template>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <title>Cours-Dev</title>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <NuxtLink to="/">
             <img id="logo" src="/logo.png" alt="Logo Cours Dev">
         </NuxtLink>
-        <a class="navbar-brand" href="#">Cours Dev</a>
+        <h1 class="orbitron-font fw-semibold">Cours Dev</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -96,7 +98,8 @@
                     <NuxtLink class="nav-link" to="/devops/index_devops">Devops</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/mise_en_place_projet/index_mise_en_place_projet">Mise en place projet</NuxtLink>
+                    <NuxtLink class="nav-link" to="/mise_en_place_projet/index_mise_en_place_projet">Mise en place
+                        projet</NuxtLink>
                 </li>
 
             </ul>
@@ -108,14 +111,20 @@
 </script>
 
 <style scoped>
+.orbitron-font {
+    font-family: 'Orbitron', sans-serif;
+    margin-right: 1vw;
+}
+
 #logo {
     width: 4vw;
     margin: 1cqw;
 }
+
 /* Responsive adjustments */
 @media (max-width: 1000px) {
     #logo {
-        width: 12vw ;
+        width: 12vw;
     }
 }
 
