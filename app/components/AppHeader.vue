@@ -29,10 +29,10 @@
                         Langages
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownLangages">
-                        <NuxtLink class="dropdown-item" to="langages/Java/index_java">Java</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="langages/JavaScript/index_javaSript">JavaScript</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="langages/PHP/index_php">PHP</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="langages/SQL/index_sql">SQL</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/langages/Java/index_java">Java</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/langages/JavaScript/index_javaSript">JavaScript</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/langages/PHP/index_php">PHP</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/langages/SQL/index_sql">SQL</NuxtLink>
                     </div>
                 </li>
 
@@ -84,7 +84,7 @@
                         Gestion de projet
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownGestion">
-                        <NuxtLink class="dropdown-item" to="/audit/index_audit">Diagramme UML</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="#">Diagramme UML</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/audit/index_audit">Outils</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit et Testing</NuxtLink>
                     </div>
