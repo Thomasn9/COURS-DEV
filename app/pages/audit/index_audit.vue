@@ -135,7 +135,7 @@
             </div>
         </div>
 
-                <!-- =============================================================\\T//==================================================================== -->
+        <!-- =============================================================\\T//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">T</h3>
         </div>
@@ -146,6 +146,22 @@
                 <p class="card-text">Les test unitaire dans un context d'audit</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/test_unitaire">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\V//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">V</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Vitest</h5>
+                <p class="card-text">L'utilité de la librairie Vitest pour le testing dans un projet</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/vitest">
                     Accès à la leçon
                 </NuxtLink>
             </div>
