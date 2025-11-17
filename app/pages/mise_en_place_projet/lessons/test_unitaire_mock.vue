@@ -65,7 +65,7 @@
                 </div>
             </section>
 
-            <!-- Création du fichier à tester -->
+            <!-- Création du fichier à tester - VERSION DÉTAILLÉE -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Étape 2 : Création du fichier à tester "OrderService.js"</h2>
 
@@ -86,6 +86,160 @@
 }</code></pre>
                 </div>
 
+                <!-- NOUVELLE SECTION DÉTAILLÉE SUR LA CLASSE -->
+                <div class="textExemple">
+                    <h3 class="text-purple">Analyse approfondie de la classe OrderService</h3>
+                    
+                    <h4 class="text-purple">1. Le Pattern "Dependency Injection" (Injection de Dépendances)</h4>
+                    <div class="code-block">
+                        <pre><code><span class="function">constructor</span>(<span class="variable">repo</span>) { 
+  <span class="keyword">this</span>.<span class="variable">repo</span> = <span class="variable">repo</span>; 
+}</code></pre>
+                    </div>
+                    <p><strong>Ce que c'est :</strong> Un pattern de conception où les dépendances d'une classe sont "injectées" depuis l'extérieur plutôt que créées en interne.</p>
+                    
+                    <div class="code-comparison">
+                        <div>
+                            <h5 class="text-purple">MAUVAISE APPROCHE</h5>
+                            <pre><code><span class="keyword">class</span> <span class="class-name">OrderService</span> {
+  <span class="function">constructor</span>() {
+    <span class="comment">// Dépendance créée en interne</span>
+    <span class="keyword">this</span>.<span class="variable">repo</span> = <span class="keyword">new</span> <span class="class-name">DatabaseRepository</span>();
+  }
+}</code></pre>
+                            <p><strong>Problèmes :</strong></p>
+                            <ul>
+                                <li>Difficile à tester</li>
+                                <li>Couplage fort avec l'implémentation</li>
+                                <li>Impossible de changer le repository</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="text-purple">BONNE APPROCHE</h5>
+                            <pre><code><span class="keyword">class</span> <span class="class-name">OrderService</span> {
+  <span class="function">constructor</span>(<span class="variable">repo</span>) {
+    <span class="comment">// Dépendance injectée de l'extérieur</span>
+    <span class="keyword">this</span>.<span class="variable">repo</span> = <span class="variable">repo</span>;
+  }
+}</code></pre>
+                            <p><strong>Avantages :</strong></p>
+                            <ul>
+                                <li>Facile à tester avec des mocks</li>
+                                <li>Découplage des implémentations</li>
+                                <li>Flexibilité pour changer le repository</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4 class="text-purple">2. Le Concept de "Repository Pattern"</h4>
+                    <p>Le repository est une abstraction qui cache les détails techniques de l'accès aux données :</p>
+                    <div class="code-block">
+                        <pre><code><span class="comment">// Interface typique d'un repository</span>
+<span class="keyword">interface</span> <span class="class-name">OrderRepository</span> {
+  <span class="function">get</span>(<span class="variable">id</span>): <span class="class-name">Promise</span>&lt;<span class="class-name">Order</span>&gt;      <span class="comment">// Récupérer une commande</span>
+  <span class="function">save</span>(<span class="variable">order</span>): <span class="class-name">Promise</span>&lt;<span class="keyword">void</span>&gt;   <span class="comment">// Sauvegarder</span>
+  <span class="function">delete</span>(<span class="variable">id</span>): <span class="class-name">Promise</span>&lt;<span class="keyword">void</span>&gt;    <span class="comment">// Supprimer</span>
+  <span class="function">findAll</span>(): <span class="class-name">Promise</span>&lt;<span class="class-name">Order</span>[]&gt;  <span class="comment">// Trouver toutes</span>
+}</code></pre>
+                    </div>
+
+                    <h4 class="text-purple">3. Analyse détaillée de la méthode totalPrice</h4>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">async</span> <span class="function">totalPrice</span>(<span class="variable">orderId</span>) {
+  <span class="comment">// Étape 1: Récupération asynchrone de la commande</span>
+  <span class="keyword">const</span> <span class="variable">order</span> = <span class="keyword">await</span> <span class="keyword">this</span>.<span class="variable">repo</span>.<span class="function">get</span>(<span class="variable">orderId</span>);
+  
+  <span class="comment">// Étape 2: Calcul du prix total</span>
+  <span class="keyword">return</span> <span class="variable">order</span>.<span class="variable">items</span>.<span class="function">reduce</span>((<span class="variable">sum</span>, <span class="variable">it</span>) =<span class="operator">&gt;</span> <span class="variable">sum</span> + <span class="variable">it</span>.<span class="variable">price</span> * <span class="variable">it</span>.<span class="variable">qty</span>, <span class="number">0</span>);
+}</code></pre>
+                    </div>
+
+                    <div class="textExemple">
+                        <h5 class="text-purple">Décomposition étape par étape :</h5>
+                        
+                        <p><strong>Étape 1 : <code>await this.repo.get(orderId)</code></strong></p>
+                        <p>Ce qui se passe réellement :</p>
+                        <ol>
+                            <li>Appel asynchrone au repository</li>
+                            <li>Attente de la résolution de la Promise</li>
+                            <li>Récupération de l'objet order</li>
+                        </ol>
+
+                        <div class="code-block">
+                            <pre><code><span class="comment">// Structure typique d'une commande retournée</span>
+<span class="keyword">const</span> <span class="variable">order</span> = {
+  <span class="variable">id</span>: <span class="string">"order-001"</span>,
+  <span class="variable">customerId</span>: <span class="string">"cust-123"</span>,
+  <span class="variable">items</span>: [
+    { 
+      <span class="variable">productId</span>: <span class="string">"prod-456"</span>,
+      <span class="variable">name</span>: <span class="string">"Laptop"</span>,
+      <span class="variable">price</span>: <span class="number">1000</span>,
+      <span class="variable">qty</span>: <span class="number">1</span>
+    },
+    { 
+      <span class="variable">productId</span>: <span class="string">"prod-789"</span>,
+      <span class="variable">name</span>: <span class="string">"Souris"</span>,
+      <span class="variable">price</span>: <span class="number">50</span>,
+      <span class="variable">qty</span>: <span class="number">2</span>
+    }
+  ],
+  <span class="variable">status</span>: <span class="string">"pending"</span>
+};</code></pre>
+                        </div>
+
+                        <p><strong>Étape 2 : <code>order.items.reduce(...)</code></strong></p>
+                        <p>Exemple de calcul détaillé :</p>
+                        <div class="code-block">
+                            <pre><code><span class="comment">// Données d'exemple :</span>
+<span class="keyword">const</span> <span class="variable">items</span> = [
+  { <span class="variable">price</span>: <span class="number">1000</span>, <span class="variable">qty</span>: <span class="number">1</span> },  <span class="comment">// 1000 * 1 = 1000</span>
+  { <span class="variable">price</span>: <span class="number">50</span>, <span class="variable">qty</span>: <span class="number">2</span> }     <span class="comment">// 50 * 2 = 100</span>
+];
+
+<span class="comment">// Premier passage : sum = 0, it = premier item</span>
+<span class="comment">// 0 + (1000 * 1) = 1000</span>
+
+<span class="comment">// Deuxième passage : sum = 1000, it = deuxième item</span>  
+<span class="comment">// 1000 + (50 * 2) = 1100</span>
+
+<span class="comment">// Résultat final : 1100</span></code></pre>
+                        </div>
+                    </div>
+
+                    <h4 class="text-purple">4. Structure de données sous-jacente</h4>
+                    <p>Voici la structure complète typique d'une commande :</p>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">interface</span> <span class="class-name">Order</span> {
+  <span class="variable">id</span>: <span class="class-name">string</span>;                    <span class="comment">// Identifiant unique</span>
+  <span class="variable">customerId</span>: <span class="class-name">string</span>;             <span class="comment">// Référence client</span>
+  <span class="variable">createdAt</span>: <span class="class-name">Date</span>;               <span class="comment">// Date de création</span>
+  <span class="variable">status</span>: <span class="string">"pending"</span> | <span class="string">"confirmed"</span> | <span class="string">"shipped"</span> | <span class="string">"delivered"</span>;
+  <span class="variable">items</span>: <span class="class-name">OrderItem</span>[];            <span class="comment">// Tableau d'articles</span>
+  <span class="variable">total</span>?: <span class="class-name">number</span>;                <span class="comment">// Total calculé (optionnel)</span>
+}
+
+<span class="keyword">interface</span> <span class="class-name">OrderItem</span> {
+  <span class="variable">productId</span>: <span class="class-name">string</span>;           <span class="comment">// Référence produit</span>
+  <span class="variable">name</span>: <span class="class-name">string</span>;                 <span class="comment">// Nom du produit</span>
+  <span class="variable">price</span>: <span class="class-name">number</span>;                <span class="comment">// Prix unitaire</span>
+  <span class="variable">qty</span>: <span class="class-name">number</span>;                  <span class="comment">// Quantité</span>
+  <span class="variable">taxRate</span>: <span class="class-name">number</span>;              <span class="comment">// Taux de TVA</span>
+}</code></pre>
+                    </div>
+
+                    <h4 class="text-purple">5. Pourquoi cette conception est idéale pour les tests</h4>
+                    <div class="textExemple">
+                        <ul>
+                            <li><strong>Separation of Concerns</strong> : La logique métier (calcul) est séparée de l'accès aux données</li>
+                            <li><strong>Single Responsibility</strong> : Chaque classe a une seule responsabilité</li>
+                            <li><strong>Dependency Inversion</strong> : On dépend d'abstractions, pas d'implémentations</li>
+                            <li><strong>Testabilité</strong> : On peut facilement remplacer le repository par un mock</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ANCIENNE EXPLICATION (conservée) -->
                 <div class="textExemple">
                     <h3 class="text-purple">Explication du code :</h3>
                     <ul>
