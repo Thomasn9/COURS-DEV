@@ -5,12 +5,28 @@
             <h3 class="lettreSommaire">Ici vous aurez de la mise en place de projet avec les explication pour pratiquer</h3>
         </div>
 
+        <!-- =============================================================\\M//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">M</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Merges de branches Git</h5>
+                <p class="card-text">Créer une branche feature et la merge sur les branche main</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/merge">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\T//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">T</h3>
         </div>
 
-         <div class="card border-purple shadow-lg">
+        <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Tests unitaire avec des mocks</h5>
                 <p class="card-text">Crée des test unitaire a base de mock dans un projet</p>
@@ -31,7 +47,6 @@
                 </NuxtLink>
             </div>
         </div>
-
 
     </div>
 </template>

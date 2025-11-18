@@ -35,41 +35,41 @@
         <div class="code-comparison">
           <div>
             <h4 class="text-purple">Création et navigation</h4>
-            <pre><code class="language-bash"># Lister toutes les branches
-git branch
+            <pre><code class="language-bash"><span class="comment"># Lister toutes les branches</span>
+<span class="function">git branch</span>
 
-# Créer une nouvelle branche
-git branch nouvelle-branche
+<span class="comment"># Créer une nouvelle branche</span>
+<span class="function">git branch</span> nouvelle-branche
 
-# Se déplacer vers une branche
-git checkout nouvelle-branche
+<span class="comment"># Se déplacer vers une branche</span>
+<span class="function">git checkout</span> nouvelle-branche
 
-# Créer et se déplacer vers une nouvelle branche
-git checkout -b nouvelle-branche
+<span class="comment"># Créer et se déplacer vers une nouvelle branche</span>
+<span class="function">git checkout -b</span> nouvelle-branche
 
-# Supprimer une branche (locale)
-git branch -d branche-a-supprimer
+<span class="comment"># Supprimer une branche (locale)</span>
+<span class="function">git branch -d</span> branche-a-supprimer
 
-# Supprimer une branche (forcée)
-git branch -D branche-a-supprimer</code></pre>
+<span class="comment"># Supprimer une branche (forcée)</span>
+<span class="function">git branch -D</span> branche-a-supprimer</code></pre>
           </div>
           
           <div>
             <h4 class="text-purple">Branches distantes</h4>
-            <pre><code class="language-bash"># Lister les branches distantes
-git branch -r
+            <pre><code class="language-bash"><span class="comment"># Lister les branches distantes</span>
+<span class="function">git branch -r</span>
 
-# Lister toutes les branches (locales et distantes)
-git branch -a
+<span class="comment"># Lister toutes les branches (locales et distantes)</span>
+<span class="function">git branch -a</span>
 
-# Pousser une branche vers le dépôt distant
-git push -u origin ma-branche
+<span class="comment"># Pousser une branche vers le dépôt distant</span>
+<span class="function">git push -u origin</span> ma-branche
 
-# Récupérer les branches distantes
-git fetch --all
+<span class="comment"># Récupérer les branches distantes</span>
+<span class="function">git fetch --all</span>
 
-# Supprimer une branche distante
-git push origin --delete branche-distante</code></pre>
+<span class="comment"># Supprimer une branche distante</span>
+<span class="function">git push origin --delete</span> branche-distante</code></pre>
           </div>
         </div>
       </section>
@@ -94,20 +94,20 @@ git push origin --delete branche-distante</code></pre>
         
         <div class="code-example">
           <h3 class="text-purple">Exemple de workflow avec branches</h3>
-          <pre><code class="language-bash"># Créer une branche pour une nouvelle fonctionnalité
-git checkout -b feature/ajout-paiement
+          <pre><code class="language-bash"><span class="comment"># Créer une branche pour une nouvelle fonctionnalité</span>
+<span class="function">git checkout -b</span> feature/ajout-paiement
 
-# Travailler sur la fonctionnalité...
-git add .
-git commit -m "Ajout du système de paiement"
+<span class="comment"># Travailler sur la fonctionnalité...</span>
+<span class="function">git add</span> .
+<span class="function">git commit -m</span> <span class="string">"Ajout du système de paiement"</span>
 
-# Une fois terminé, merger dans develop
-git checkout develop
-git merge feature/ajout-paiement
+<span class="comment"># Une fois terminé, merger dans develop</span>
+<span class="function">git checkout</span> develop
+<span class="function">git merge</span> feature/ajout-paiement
 
-# Pour une release
-git checkout -b release/v1.2.0
-# Préparer la release, puis merger dans main et develop</code></pre>
+<span class="comment"># Pour une release</span>
+<span class="function">git checkout -b</span> release/v1.2.0
+<span class="comment"># Préparer la release, puis merger dans main et develop</span></code></pre>
         </div>
       </section>
 
@@ -121,41 +121,41 @@ git checkout -b release/v1.2.0
         
         <div class="code-example">
           <h3 class="text-purple">Types de fusion</h3>
-          <pre><code class="language-bash"># Fusion simple (fast-forward si possible)
-git merge nom-branche
+          <pre><code class="language-bash"><span class="comment"># Fusion simple (fast-forward si possible)</span>
+<span class="function">git merge</span> nom-branche
 
-# Fusion avec création d'un commit de merge
-git merge --no-ff nom-branche
+<span class="comment"># Fusion avec création d'un commit de merge</span>
+<span class="function">git merge --no-ff</span> nom-branche
 
-# Fusion avec stratégie spécifique
-git merge -s recursive nom-branche
+<span class="comment"># Fusion avec stratégie spécifique</span>
+<span class="function">git merge -s recursive</span> nom-branche
 
-# Annuler une fusion en cours (en cas de conflit)
-git merge --abort</code></pre>
+<span class="comment"># Annuler une fusion en cours (en cas de conflit)</span>
+<span class="function">git merge --abort</span></code></pre>
         </div>
         
         <div class="code-comparison">
           <div>
             <h4 class="text-purple">Fast-Forward Merge</h4>
             <p>Se produit quand il n'y a pas de nouveaux commits sur la branche de destination.</p>
-            <pre><code class="language-bash"># Avant fusion
+            <pre><code class="language-text"><span class="comment"># Avant fusion</span>
 A---B---C main
          \
           D---E feature
 
-# Après fusion fast-forward
+<span class="comment"># Après fusion fast-forward</span>
 A---B---C---D---E main</code></pre>
           </div>
           
           <div>
             <h4 class="text-purple">3-Way Merge</h4>
             <p>Se produit quand les deux branches ont de nouveaux commits.</p>
-            <pre><code class="language-bash"># Avant fusion
+            <pre><code class="language-text"><span class="comment"># Avant fusion</span>
 A---B---C---F main
          \
           D---E feature
 
-# Après fusion 3-way
+<span class="comment"># Après fusion 3-way</span>
 A---B---C---F---G main
          \       /
           D---E</code></pre>
@@ -173,26 +173,26 @@ A---B---C---F---G main
         
         <div class="code-example">
           <h3 class="text-purple">Processus de résolution</h3>
-          <pre><code class="language-bash"># Tentative de fusion qui génère un conflit
-git merge feature/conflit
+          <pre><code class="language-bash"><span class="comment"># Tentative de fusion qui génère un conflit</span>
+<span class="function">git merge</span> feature/conflit
 
-# Git vous indique les fichiers en conflit
-# Éditez les fichiers et résolvez les conflits
+<span class="comment"># Git vous indique les fichiers en conflit</span>
+<span class="comment"># Éditez les fichiers et résolvez les conflits</span>
 
-# Marquez les conflits comme résolus
-git add fichier-conflit.txt
+<span class="comment"># Marquez les conflits comme résolus</span>
+<span class="function">git add</span> fichier-conflit.txt
 
-# Finalisez la fusion
-git commit</code></pre>
+<span class="comment"># Finalisez la fusion</span>
+<span class="function">git commit</span></code></pre>
         </div>
         
         <div class="code-example">
           <h3 class="text-purple">Exemple de conflit dans un fichier</h3>
-          <pre><code class="language-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+          <pre><code class="language-text"><span class="error">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
 Ceci est le contenu de la branche principale.
-=======
+<span class="error">=======</span>
 Ceci est le contenu de la branche feature.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/conflit</code></pre>
+<span class="error">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> feature/conflit</code></pre>
           
           <p>Pour résoudre, choisissez une version ou combinez les deux :</p>
           <pre><code class="language-text">Ceci est le contenu combiné des deux branches.
@@ -212,12 +212,12 @@ Ceci est le contenu de la branche feature.</code></pre>
         <div class="code-comparison">
           <div>
             <h4 class="text-purple">Git Merge</h4>
-            <pre><code class="language-bash"># Historique avant
+            <pre><code class="language-bash"><span class="comment"># Historique avant</span>
 A---B---C main
          \
           D---E feature
 
-# Après git merge feature
+<span class="comment"># Après git merge feature</span>
 A---B---C---F main
          \   /
           D---E</code></pre>
@@ -231,12 +231,12 @@ A---B---C---F main
           
           <div>
             <h4 class="text-purple">Git Rebase</h4>
-            <pre><code class="language-bash"># Historique avant
+            <pre><code class="language-bash"><span class="comment"># Historique avant</span>
 A---B---C main
          \
           D---E feature
 
-# Après git rebase main (depuis feature)
+<span class="comment"># Après git rebase main (depuis feature)</span>
 A---B---C---D'---E' main
                  feature</code></pre>
             <p><strong>Avantages :</strong></p>
@@ -250,17 +250,17 @@ A---B---C---D'---E' main
         
         <div class="code-example">
           <h3 class="text-purple">Commandes Rebase</h3>
-          <pre><code class="language-bash"># Rebase interactif
-git rebase -i main
+          <pre><code class="language-bash"><span class="comment"># Rebase interactif</span>
+<span class="function">git rebase -i</span> main
 
-# Rebase simple
-git rebase main
+<span class="comment"># Rebase simple</span>
+<span class="function">git rebase</span> main
 
-# Continuer après résolution de conflit
-git rebase --continue
+<span class="comment"># Continuer après résolution de conflit</span>
+<span class="function">git rebase --continue</span>
 
-# Annuler un rebase
-git rebase --abort</code></pre>
+<span class="comment"># Annuler un rebase</span>
+<span class="function">git rebase --abort</span></code></pre>
         </div>
       </section>
 
@@ -270,19 +270,19 @@ git rebase --abort</code></pre>
         
         <div class="code-example">
           <h3 class="text-purple">Conventions de nommage</h3>
-          <pre><code class="language-bash"># Fonctionnalités
+          <pre><code class="language-bash"><span class="comment"># Fonctionnalités</span>
 feature/nom-fonctionnalite
 feature/user-authentication
 
-# Corrections de bugs
+<span class="comment"># Corrections de bugs</span>
 fix/nom-bug
 fix/login-error
 
-# Corrections urgentes
+<span class="comment"># Corrections urgentes</span>
 hotfix/nom-urgence
 hotfix/security-patch
 
-# Releases
+<span class="comment"># Releases</span>
 release/version
 release/v1.2.0</code></pre>
         </div>
@@ -323,37 +323,37 @@ release/v1.2.0</code></pre>
               <h4 class="text-purple">Solution étape par étape :</h4>
               
               <p>1. Créer et se déplacer vers la nouvelle branche :</p>
-              <pre><code class="language-bash">git checkout -b feature/contact-form</code></pre>
+              <pre><code class="language-bash"><span class="function">git checkout -b</span> feature/contact-form</code></pre>
               
               <p>2. Créer le fichier contact.html :</p>
-              <pre><code class="language-bash">echo "&lt;form&gt;&lt;input placeholder='Nom'&gt;&lt;/form&gt;" > contact.html
-git add contact.html
-git commit -m "Ajout structure basique formulaire contact"</code></pre>
+              <pre><code class="language-bash"><span class="function">echo</span> <span class="string">"&lt;form&gt;&lt;input placeholder='Nom'&gt;&lt;/form&gt;"</span> > contact.html
+<span class="function">git add</span> contact.html
+<span class="function">git commit -m</span> <span class="string">"Ajout structure basique formulaire contact"</span></code></pre>
               
               <p>3. Ajouter des styles et validation :</p>
-              <pre><code class="language-bash">echo "&lt;style&gt;form { margin: 20px; }&lt;/style&gt;" >> contact.html
-git add contact.html
-git commit -m "Ajout styles pour le formulaire"</code></pre>
+              <pre><code class="language-bash"><span class="function">echo</span> <span class="string">"&lt;style&gt;form { margin: 20px; }&lt;/style&gt;"</span> >> contact.html
+<span class="function">git add</span> contact.html
+<span class="function">git commit -m</span> <span class="string">"Ajout styles pour le formulaire"</span></code></pre>
               
               <p>4. Revenir sur main et modifier README :</p>
-              <pre><code class="language-bash">git checkout main
-echo "Projet avec formulaire de contact" >> README.md
-git add README.md
-git commit -m "Mise à jour documentation"</code></pre>
+              <pre><code class="language-bash"><span class="function">git checkout</span> main
+<span class="function">echo</span> <span class="string">"Projet avec formulaire de contact"</span> >> README.md
+<span class="function">git add</span> README.md
+<span class="function">git commit -m</span> <span class="string">"Mise à jour documentation"</span></code></pre>
               
               <p>5. Revenir sur feature et merger main :</p>
-              <pre><code class="language-bash">git checkout feature/contact-form
-git merge main</code></pre>
+              <pre><code class="language-bash"><span class="function">git checkout</span> feature/contact-form
+<span class="function">git merge</span> main</code></pre>
               
               <p>6. Si conflit dans README.md, résoudre :</p>
-              <pre><code class="language-bash"># Éditer README.md pour combiner les contenus
-git add README.md
-git commit -m "Résolution conflit README"</code></pre>
+              <pre><code class="language-bash"><span class="comment"># Éditer README.md pour combiner les contenus</span>
+<span class="function">git add</span> README.md
+<span class="function">git commit -m</span> <span class="string">"Résolution conflit README"</span></code></pre>
               
               <p>7. Fusionner feature dans main :</p>
-              <pre><code class="language-bash">git checkout main
-git merge feature/contact-form
-git branch -d feature/contact-form</code></pre>
+              <pre><code class="language-bash"><span class="function">git checkout</span> main
+<span class="function">git merge</span> feature/contact-form
+<span class="function">git branch -d</span> feature/contact-form</code></pre>
             </div>
           </details>
         </div>
@@ -365,26 +365,26 @@ git branch -d feature/contact-form</code></pre>
         
         <div class="code-example">
           <h3 class="text-purple">Stash pour sauvegarder temporairement</h3>
-          <pre><code class="language-bash"># Sauvegarder les modifications en cours
-git stash
+          <pre><code class="language-bash"><span class="comment"># Sauvegarder les modifications en cours</span>
+<span class="function">git stash</span>
 
-# Appliquer les modifications sauvegardées
-git stash pop
+<span class="comment"># Appliquer les modifications sauvegardées</span>
+<span class="function">git stash pop</span>
 
-# Lister tous les stash
-git stash list
+<span class="comment"># Lister tous les stash</span>
+<span class="function">git stash list</span>
 
-# Supprimer un stash spécifique
-git stash drop stash@{0}</code></pre>
+<span class="comment"># Supprimer un stash spécifique</span>
+<span class="function">git stash drop</span> stash@{0}</code></pre>
         </div>
         
         <div class="code-example">
           <h3 class="text-purple">Cherry-pick pour prendre des commits spécifiques</h3>
-          <pre><code class="language-bash"># Prendre un commit spécifique d'une autre branche
-git cherry-pick abc123
+          <pre><code class="language-bash"><span class="comment"># Prendre un commit spécifique d'une autre branche</span>
+<span class="function">git cherry-pick</span> abc123
 
-# Prendre plusieurs commits
-git cherry-pick abc123 def456</code></pre>
+<span class="comment"># Prendre plusieurs commits</span>
+<span class="function">git cherry-pick</span> abc123 def456</code></pre>
         </div>
       </section>
 
@@ -589,7 +589,7 @@ pre code {
     word-break: break-word;
 }
 
-/* Couleurs VS Code pour la syntaxe JavaScript */
+/* Couleurs VS Code pour la syntaxe */
 .keyword { color: #c586c0 !important; } /* Mots-clés (for, while, if, function, etc.) */
 .variable { color: #9cdcfe !important; } /* Variables et noms de fonctions */
 .string { color: #ce9178 !important; } /* Chaînes de caractères */
@@ -599,6 +599,7 @@ pre code {
 .constant { color: #4fc1ff !important; } /* Constantes */
 .number { color: #b5cea8 !important; } /* Nombres */
 .class-name { color: #4ec9b0 !important; } /* Noms de classes */
+.error { color: #f44747 !important; } /* Conflits Git */
 
 /* Exercices et solutions */
 .exercise {
