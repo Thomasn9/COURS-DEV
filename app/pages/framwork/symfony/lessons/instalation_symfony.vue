@@ -292,21 +292,6 @@ symfony server:start</code></pre>
 </template>
 
 <script>
-export default {
-    name: 'SymfonyInstallationLesson',
-    head() {
-        return {
-            title: 'Installation Symfony - Leçons Symfony',
-            meta: [
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: 'Apprenez à installer et créer votre premier projet Symfony étape par étape'
-                }
-            ]
-        }
-    }
-}
 </script>
 
 <style scoped>
