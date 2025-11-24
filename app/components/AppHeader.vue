@@ -43,15 +43,15 @@
                         Framework
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownFramework">
-                        <NuxtLink class="dropdown-item" to="/vue/index_vue">Vue</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/framwork/vue/index_vue">Vue</NuxtLink>
                         <NuxtLink class="dropdown-item" to="#">React</NuxtLink>
                         <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
                         <div class="dropdown-divider"></div>
-                        <NuxtLink class="dropdown-item" to="/vue/index_vue">Symfony</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/framwork/symfony/index_symfony">Symfony</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/vue/index_vue">Spring</NuxtLink>
                         <div class="dropdown-divider"></div>
-                        <NuxtLink class="dropdown-item" to="/boostrap/index_boostrap">Bootstrap</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/tailwind_css/index_tailwind_css">Tailwind CSS</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/framwork/boostrap/index_boostrap">Bootstrap</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/framwork/tailwind_css/index_tailwind_css">Tailwind CSS</NuxtLink>
                     </div>
                 </li>
 
