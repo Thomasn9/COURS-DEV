@@ -35,10 +35,21 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">V-IF</h5>
+                <h5 class="card-title text-purple">v-if</h5>
                 <p class="card-text">Les v-if dans vue</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/v_if">
+                    to="lessons/v-if">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">v-model</h5>
+                <p class="card-text">Le v-model son role et utilité dans un projet vue </p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/v-model">
                     Accès à la leçon
                 </NuxtLink>
             </div>
