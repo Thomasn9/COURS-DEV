@@ -47,6 +47,9 @@
                         <NuxtLink class="dropdown-item" to="#">React</NuxtLink>
                         <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
                         <div class="dropdown-divider"></div>
+                        <NuxtLink class="dropdown-item" to="/vue/index_vue">Symfony</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/vue/index_vue">Spring</NuxtLink>
+                        <div class="dropdown-divider"></div>
                         <NuxtLink class="dropdown-item" to="/boostrap/index_boostrap">Bootstrap</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/tailwind_css/index_tailwind_css">Tailwind CSS</NuxtLink>
                     </div>

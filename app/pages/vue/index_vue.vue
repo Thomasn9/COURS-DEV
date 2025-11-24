@@ -35,6 +35,17 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">V-IF</h5>
+                <p class="card-text">Les v-if dans vue</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/v_if">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Variables </h5>
                 <p class="card-text">Les variables dans vue</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
