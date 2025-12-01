@@ -1,35 +1,37 @@
 <template>
-  <div class="lesson-container">
-    <div class="lesson-content">
-      <!-- En-tête de la leçon -->
-      <header class="lesson-header">
-        <h1 class="text-white">Les v-model en Vue.js</h1>
-        <p class="lesson-meta text-white">Maîtrisez la liaison bidirectionnelle des données</p>
-      </header>
+    <div class="lesson-container">
+        <div class="lesson-content">
+            <!-- En-tête de la leçon -->
+            <header class="lesson-header">
+                <h1 class="text-white">Les v-model en Vue.js</h1>
+                <p class="lesson-meta text-white">Maîtrisez la liaison bidirectionnelle des données</p>
+            </header>
 
-      <!-- Introduction -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Introduction aux v-model</h2>
-        <p class="textExemple">
-          Le <code v-pre>v-model</code> est une directive de Vue.js qui permet de créer une liaison bidirectionnelle 
-          entre les éléments de formulaire (input, textarea, select) et les données de l'application. 
-          C'est l'une des fonctionnalités les plus puissantes de Vue.js pour la gestion des formulaires.
-        </p>
-        <p class="textExemple">
-          En arrière-plan, <code v-pre>v-model</code> est essentiellement un sucre syntaxique qui combine 
-          <code v-pre>v-bind</code> pour lier la valeur et <code v-pre>v-on</code> pour écouter les événements d'entrée.
-        </p>
-      </section>
+            <!-- Introduction -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Introduction aux v-model</h2>
+                <p class="textExemple">
+                    Le <code v-pre>v-model</code> est une directive de Vue.js qui permet de créer une liaison
+                    bidirectionnelle
+                    entre les éléments de formulaire (input, textarea, select) et les données de l'application.
+                    C'est l'une des fonctionnalités les plus puissantes de Vue.js pour la gestion des formulaires.
+                </p>
+                <p class="textExemple">
+                    En arrière-plan, <code v-pre>v-model</code> est essentiellement un sucre syntaxique qui combine
+                    <code v-pre>v-bind</code> pour lier la valeur et <code v-pre>v-on</code> pour écouter les événements
+                    d'entrée.
+                </p>
+            </section>
 
-      <!-- Syntaxe de base -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Syntaxe de base</h2>
-        <p class="textExemple">
-          La syntaxe de base de <code v-pre>v-model</code> est très simple :
-        </p>
-        
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;template&gt;</span>
+            <!-- Syntaxe de base -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Syntaxe de base</h2>
+                <p class="textExemple">
+                    La syntaxe de base de <code v-pre>v-model</code> est très simple :
+                </p>
+
+                <div class="code-example">
+                    <pre v-pre><code><span class="html-tag">&lt;template&gt;</span>
   <span class="html-tag">&lt;div&gt;</span>
     <span class="html-tag">&lt;input</span> <span class="vue-directive">v-model</span>=<span class="string">"message"</span> <span class="html-attribute">placeholder</span>=<span class="string">"Éditez-moi"</span><span class="html-tag">&gt;</span>
     <span class="html-tag">&lt;p&gt;</span>Message est: {{ message }}<span class="html-tag">&lt;/p&gt;</span>
@@ -45,96 +47,107 @@
   }
 }
 <span class="html-tag">&lt;/script&gt;</span></code></pre>
-        </div>
-        
-        <p class="textExemple">
-          Dans cet exemple, chaque fois que l'utilisateur tape dans l'input, la propriété <code v-pre>message</code> 
-          est automatiquement mise à jour, et vice versa.
-        </p>
-      </section>
+                </div>
 
-      <!-- Utilisation avec différents éléments -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Utilisation avec différents éléments de formulaire</h2>
-        
-        <h3 class="text-purple">Input texte</h3>
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;input</span> <span class="html-attribute">type</span>=<span class="string">"text"</span> <span class="vue-directive">v-model</span>=<span class="string">"nom"</span><span class="html-tag">&gt;</span></code></pre>
-        </div>
-        
-        <h3 class="text-purple">Textarea</h3>
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;textarea</span> <span class="vue-directive">v-model</span>=<span class="string">"message"</span><span class="html-tag">&gt;</span><span class="html-tag">&lt;/textarea&gt;</span></code></pre>
-        </div>
-        
-        <h3 class="text-purple">Checkbox</h3>
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;input</span> <span class="html-attribute">type</span>=<span class="string">"checkbox"</span> <span class="html-attribute">id</span>=<span class="string">"checkbox"</span> <span class="vue-directive">v-model</span>=<span class="string">"accepte"</span><span class="html-tag">&gt;</span>
+                <p class="textExemple">
+                    Dans cet exemple, chaque fois que l'utilisateur tape dans l'input, la propriété <code
+                        v-pre>message</code>
+                    est automatiquement mise à jour, et vice versa.
+                </p>
+            </section>
+
+            <!-- Utilisation avec différents éléments -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Utilisation avec différents éléments de formulaire</h2>
+
+                <h3 class="text-purple">Input texte</h3>
+                <div class="code-example">
+                    <pre
+                        v-pre><code><span class="html-tag">&lt;input</span> <span class="html-attribute">type</span>=<span class="string">"text"</span> <span class="vue-directive">v-model</span>=<span class="string">"nom"</span><span class="html-tag">&gt;</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Textarea</h3>
+                <div class="code-example">
+                    <pre
+                        v-pre><code><span class="html-tag">&lt;textarea</span> <span class="vue-directive">v-model</span>=<span class="string">"message"</span><span class="html-tag">&gt;</span><span class="html-tag">&lt;/textarea&gt;</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Checkbox</h3>
+                <div class="code-example">
+                    <pre
+                        v-pre><code><span class="html-tag">&lt;input</span> <span class="html-attribute">type</span>=<span class="string">"checkbox"</span> <span class="html-attribute">id</span>=<span class="string">"checkbox"</span> <span class="vue-directive">v-model</span>=<span class="string">"accepte"</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;label</span> <span class="html-attribute">for</span>=<span class="string">"checkbox"</span><span class="html-tag">&gt;</span>J'accepte les conditions<span class="html-tag">&lt;/label&gt;</span></code></pre>
-        </div>
-        
-        <h3 class="text-purple">Boutons radio</h3>
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;input</span> <span class="html-attribute">type</span>=<span class="string">"radio"</span> <span class="html-attribute">id</span>=<span class="string">"un"</span> <span class="html-attribute">value</span>=<span class="string">"Un"</span> <span class="vue-directive">v-model</span>=<span class="string">"choix"</span><span class="html-tag">&gt;</span>
+                </div>
+
+                <h3 class="text-purple">Boutons radio</h3>
+                <div class="code-example">
+                    <pre
+                        v-pre><code><span class="html-tag">&lt;input</span> <span class="html-attribute">type</span>=<span class="string">"radio"</span> <span class="html-attribute">id</span>=<span class="string">"un"</span> <span class="html-attribute">value</span>=<span class="string">"Un"</span> <span class="vue-directive">v-model</span>=<span class="string">"choix"</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;label</span> <span class="html-attribute">for</span>=<span class="string">"un"</span><span class="html-tag">&gt;</span>Un<span class="html-tag">&lt;/label&gt;</span>
 <span class="html-tag">&lt;input</span> <span class="html-attribute">type</span>=<span class="string">"radio"</span> <span class="html-attribute">id</span>=<span class="string">"deux"</span> <span class="html-attribute">value</span>=<span class="string">"Deux"</span> <span class="vue-directive">v-model</span>=<span class="string">"choix"</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;label</span> <span class="html-attribute">for</span>=<span class="string">"deux"</span><span class="html-tag">&gt;</span>Deux<span class="html-tag">&lt;/label&gt;</span></code></pre>
-        </div>
-        
-        <h3 class="text-purple">Select</h3>
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;select</span> <span class="vue-directive">v-model</span>=<span class="string">"selectionne"</span><span class="html-tag">&gt;</span>
+                </div>
+
+                <h3 class="text-purple">Select</h3>
+                <div class="code-example">
+                    <pre v-pre><code><span class="html-tag">&lt;select</span> <span class="vue-directive">v-model</span>=<span class="string">"selectionne"</span><span class="html-tag">&gt;</span>
   <span class="html-tag">&lt;option</span> <span class="html-attribute">disabled</span> <span class="html-attribute">value</span>=<span class="string">""</span><span class="html-tag">&gt;</span>Choisissez une option<span class="html-tag">&lt;/option&gt;</span>
   <span class="html-tag">&lt;option&gt;</span>A<span class="html-tag">&lt;/option&gt;</span>
   <span class="html-tag">&lt;option&gt;</span>B<span class="html-tag">&lt;/option&gt;</span>
   <span class="html-tag">&lt;option&gt;</span>C<span class="html-tag">&lt;/option&gt;</span>
 <span class="html-tag">&lt;/select&gt;</span></code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Modificateurs -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Modificateurs de v-model</h2>
-        
-        <h3 class="text-purple">.lazy</h3>
-        <p class="textExemple">
-          Par défaut, <code v-pre>v-model</code> synchronise l'input après chaque événement <code v-pre>input</code>. 
-          Avec <code v-pre>.lazy</code>, la synchronisation se fait après l'événement <code v-pre>change</code>.
-        </p>
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;input</span> <span class="vue-directive">v-model.lazy</span>=<span class="string">"message"</span><span class="html-tag">&gt;</span></code></pre>
-        </div>
-        
-        <h3 class="text-purple">.number</h3>
-        <p class="textExemple">
-          Convertit automatiquement l'entrée utilisateur en nombre.
-        </p>
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;input</span> <span class="vue-directive">v-model.number</span>=<span class="string">"age"</span> <span class="html-attribute">type</span>=<span class="string">"number"</span><span class="html-tag">&gt;</span></code></pre>
-        </div>
-        
-        <h3 class="text-purple">.trim</h3>
-        <p class="textExemple">
-          Supprime automatiquement les espaces blancs au début et à la fin de l'entrée.
-        </p>
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;input</span> <span class="vue-directive">v-model.trim</span>=<span class="string">"message"</span><span class="html-tag">&gt;</span></code></pre>
-        </div>
-      </section>
+            <!-- Modificateurs -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Modificateurs de v-model</h2>
 
-      <!-- v-model avec les composants -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">v-model avec les composants personnalisés</h2>
-        <p class="textExemple">
-          Dans Vue 3, <code v-pre>v-model</code> peut être utilisé avec des composants personnalisés. 
-          Par défaut, <code v-pre>v-model</code> sur un composant utilise <code v-pre>modelValue</code> comme prop 
-          et <code v-pre>update:modelValue</code> comme événement.
-        </p>
-        
-        <div class="code-comparison">
-          <div>
-            <h4 class="text-purple">Composant enfant</h4>
-            <pre v-pre><code><span class="html-tag">&lt;template&gt;</span>
+                <h3 class="text-purple">.lazy</h3>
+                <p class="textExemple">
+                    Par défaut, <code v-pre>v-model</code> synchronise l'input après chaque événement <code
+                        v-pre>input</code>.
+                    Avec <code v-pre>.lazy</code>, la synchronisation se fait après l'événement <code
+                        v-pre>change</code>.
+                </p>
+                <div class="code-example">
+                    <pre
+                        v-pre><code><span class="html-tag">&lt;input</span> <span class="vue-directive">v-model.lazy</span>=<span class="string">"message"</span><span class="html-tag">&gt;</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">.number</h3>
+                <p class="textExemple">
+                    Convertit automatiquement l'entrée utilisateur en nombre.
+                </p>
+                <div class="code-example">
+                    <pre
+                        v-pre><code><span class="html-tag">&lt;input</span> <span class="vue-directive">v-model.number</span>=<span class="string">"age"</span> <span class="html-attribute">type</span>=<span class="string">"number"</span><span class="html-tag">&gt;</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">.trim</h3>
+                <p class="textExemple">
+                    Supprime automatiquement les espaces blancs au début et à la fin de l'entrée.
+                </p>
+                <div class="code-example">
+                    <pre
+                        v-pre><code><span class="html-tag">&lt;input</span> <span class="vue-directive">v-model.trim</span>=<span class="string">"message"</span><span class="html-tag">&gt;</span></code></pre>
+                </div>
+            </section>
+
+            <!-- v-model avec les composants -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">v-model avec les composants personnalisés</h2>
+                <p class="textExemple">
+                    Dans Vue 3, <code v-pre>v-model</code> peut être utilisé avec des composants personnalisés.
+                    Par défaut, <code v-pre>v-model</code> sur un composant utilise <code v-pre>modelValue</code> comme
+                    prop
+                    et <code v-pre>update:modelValue</code> comme événement.
+                </p>
+
+                <div class="code-comparison">
+                    <div>
+                        <h4 class="text-purple">Composant enfant</h4>
+                        <pre v-pre><code><span class="html-tag">&lt;template&gt;</span>
   <span class="html-tag">&lt;input</span>
     <span class="vue-directive">:value</span>=<span class="string">"modelValue"</span>
     <span class="vue-directive">@input</span>=<span class="string">"$emit('update:modelValue', $event.target.value)"</span>
@@ -147,24 +160,25 @@
   <span class="variable">emits</span>: [<span class="string">'update:modelValue'</span>]
 }
 <span class="html-tag">&lt;/script&gt;</span></code></pre>
-          </div>
-          
-          <div>
-            <h4 class="text-purple">Utilisation du composant</h4>
-            <pre v-pre><code><span class="html-tag">&lt;CustomInput</span> <span class="vue-directive">v-model</span>=<span class="string">"searchText"</span> <span class="html-tag">/&gt;</span></code></pre>
-          </div>
-        </div>
-      </section>
+                    </div>
 
-      <!-- Exemple pratique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exemple pratique complet</h2>
-        <p class="textExemple">
-          Voici un exemple complet utilisant plusieurs types d'inputs avec <code v-pre>v-model</code> :
-        </p>
-        
-        <div class="code-example">
-          <pre v-pre><code><span class="html-tag">&lt;template&gt;</span>
+                    <div>
+                        <h4 class="text-purple">Utilisation du composant</h4>
+                        <pre
+                            v-pre><code><span class="html-tag">&lt;CustomInput</span> <span class="vue-directive">v-model</span>=<span class="string">"searchText"</span> <span class="html-tag">/&gt;</span></code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exemple pratique -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exemple pratique complet</h2>
+                <p class="textExemple">
+                    Voici un exemple complet utilisant plusieurs types d'inputs avec <code v-pre>v-model</code> :
+                </p>
+
+                <div class="code-example">
+                    <pre v-pre><code><span class="html-tag">&lt;template&gt;</span>
   <span class="html-tag">&lt;div&gt;</span>
     <span class="html-tag">&lt;h3&gt;</span>Formulaire d'inscription<span class="html-tag">&lt;/h3&gt;</span>
     
@@ -238,30 +252,32 @@
   }
 }
 <span class="html-tag">&lt;/script&gt;</span></code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Exercice pratique -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Exercice pratique</h2>
-        <div class="exercise">
-          <p class="textExemple">
-            <strong>Objectif :</strong> Créez un composant de recherche avec un champ de saisie et un bouton de réinitialisation.
-          </p>
-          <p class="textExemple">
-            <strong>Consignes :</strong>
-          </p>
-          <ul class="textExemple">
-            <li>Utilisez <code v-pre>v-model</code> pour lier le champ de recherche à une donnée réactive</li>
-            <li>Ajoutez un bouton qui réinitialise la recherche quand on clique dessus</li>
-            <li>Affichez le nombre de caractères saisis en temps réel</li>
-            <li>Utilisez le modificateur <code v-pre>.trim</code> pour ignorer les espaces</li>
-          </ul>
-          
-          <details class="solution">
-            <summary class="btn-purple btn-hover">Voir la solution</summary>
-            <div class="solution-content">
-              <pre v-pre><code><span class="html-tag">&lt;template&gt;</span>
+            <!-- Exercice pratique -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Exercice pratique</h2>
+                <div class="exercise">
+                    <p class="textExemple">
+                        <strong>Objectif :</strong> Créez un composant de recherche avec un champ de saisie et un bouton
+                        de réinitialisation.
+                    </p>
+                    <p class="textExemple">
+                        <strong>Consignes :</strong>
+                    </p>
+                    <ul class="textExemple">
+                        <li>Utilisez <code v-pre>v-model</code> pour lier le champ de recherche à une donnée réactive
+                        </li>
+                        <li>Ajoutez un bouton qui réinitialise la recherche quand on clique dessus</li>
+                        <li>Affichez le nombre de caractères saisis en temps réel</li>
+                        <li>Utilisez le modificateur <code v-pre>.trim</code> pour ignorer les espaces</li>
+                    </ul>
+
+                    <details class="solution">
+                        <summary class="btn-purple btn-hover">Voir la solution</summary>
+                        <div class="solution-content">
+                            <pre v-pre><code><span class="html-tag">&lt;template&gt;</span>
   <span class="html-tag">&lt;div&gt;</span>
     <span class="html-tag">&lt;h3&gt;</span>Composant de recherche<span class="html-tag">&lt;/h3&gt;</span>
     <span class="html-tag">&lt;input</span> 
@@ -289,67 +305,80 @@
   }
 }
 <span class="html-tag">&lt;/script&gt;</span></code></pre>
-            </div>
-          </details>
-        </div>
-      </section>
+                        </div>
+                    </details>
+                </div>
+            </section>
 
-      <!-- Points clés à retenir -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple">Points clés à retenir</h2>
-        <ul class="textExemple">
-          <li><code v-pre>v-model</code> crée une liaison bidirectionnelle entre les données et les éléments de formulaire</li>
-          <li>Il fonctionne avec <code v-pre>input</code>, <code v-pre>textarea</code>, <code v-pre>select</code>, et les composants personnalisés</li>
-          <li>Les modificateurs <code v-pre>.lazy</code>, <code v-pre>.number</code> et <code v-pre>.trim</code> permettent de modifier le comportement par défaut</li>
-          <li>Dans Vue 3, <code v-pre>v-model</code> sur les composants utilise <code v-pre>modelValue</code> et <code v-pre>update:modelValue</code></li>
-          <li><code v-pre>v-model</code> est un sucre syntaxique pour <code v-pre>v-bind:value</code> et <code v-pre>v-on:input</code></li>
-        </ul>
-      </section>
+            <!-- Points clés à retenir -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Points clés à retenir</h2>
+                <ul class="textExemple">
+                    <li><code v-pre>v-model</code> crée une liaison bidirectionnelle entre les données et les éléments
+                        de formulaire</li>
+                    <li>Il fonctionne avec <code v-pre>input</code>, <code v-pre>textarea</code>, <code
+                            v-pre>select</code>, et les composants personnalisés</li>
+                    <li>Les modificateurs <code v-pre>.lazy</code>, <code v-pre>.number</code> et <code
+                            v-pre>.trim</code> permettent de modifier le comportement par défaut</li>
+                    <li>Dans Vue 3, <code v-pre>v-model</code> sur les composants utilise <code v-pre>modelValue</code>
+                        et <code v-pre>update:modelValue</code></li>
+                    <li><code v-pre>v-model</code> est un sucre syntaxique pour <code v-pre>v-bind:value</code> et <code
+                            v-pre>v-on:input</code></li>
+                </ul>
+            </section>
 
-      <!-- Conclusion -->
-      <section class="lesson-section bg-gradient-primary border-purple">
-        <h2 class="text-white">Conclusion</h2>
-        <div class="text-white">
-          <p class="textExemple">
-            Le <code v-pre>v-model</code> est sans conteste l'une des fonctionnalités les plus élégantes et pratiques de Vue.js. 
-            Tout au long de cette leçon, nous avons exploré comment cette directive simplifie considérablement 
-            la gestion des formulaires et la synchronisation des données.
-          </p>
-          
-          <div class="conclusion-points">
-            <h4 class="text-white">Ce que vous maîtrisez maintenant :</h4>
-            <ul>
-              <li>La syntaxe de base de <code v-pre>v-model</code> avec différents types d'inputs</li>
-              <li>L'utilisation des modificateurs pour adapter le comportement selon vos besoins</li>
-              <li>L'intégration de <code v-pre>v-model</code> avec des composants personnalisés</li>
-              <li>La création d'interfaces utilisateur réactives et intuitives</li>
-            </ul>
-          </div>
-          
-          <div class="conclusion-benefits">
-            <h4 class="text-white">Les avantages principaux :</h4>
-            <ul>
-              <li><strong>Productivité accrue</strong> : Moins de code à écrire pour gérer la liaison de données</li>
-              <li><strong>Code plus lisible</strong> : La syntaxe est intuitive et facile à comprendre</li>
-              <li><strong>Maintenance simplifiée</strong> : Les modifications sont propagées automatiquement</li>
-              <li><strong>Expérience développeur améliorée</strong> : Moins de bugs liés à la gestion manuelle des états</li>
-            </ul>
-          </div>
-          
-          <p class="textExemple">
-            En maîtrisant <code v-pre>v-model</code>, vous disposez d'un outil puissant pour créer des applications 
-            Vue.js modernes, réactives et maintenables. Cette connaissance constitue une base solide 
-            pour aborder des concepts plus avancés comme la gestion d'état global avec Pinia ou Vuex.
-          </p>
-          
-          <p class="textExemple">
-            <strong>Prochaine étape :</strong> Pratiquez ces concepts en créant vos propres composants 
-            avec <code v-pre>v-model</code> et explorez les v-model multiples dans Vue 3 pour des cas d'usage complexes.
-          </p>
+            <!-- Conclusion -->
+            <section class="lesson-section bg-gradient-primary border-purple">
+                <h2 class="text-white">Conclusion</h2>
+                <div class="text-white">
+                    <p class="textExemple">
+                        Le <code v-pre>v-model</code> est sans conteste l'une des fonctionnalités les plus élégantes et
+                        pratiques de Vue.js.
+                        Tout au long de cette leçon, nous avons exploré comment cette directive simplifie
+                        considérablement
+                        la gestion des formulaires et la synchronisation des données.
+                    </p>
+
+                    <div class="conclusion-points">
+                        <h4 class="text-white">Ce que vous maîtrisez maintenant :</h4>
+                        <ul>
+                            <li>La syntaxe de base de <code v-pre>v-model</code> avec différents types d'inputs</li>
+                            <li>L'utilisation des modificateurs pour adapter le comportement selon vos besoins</li>
+                            <li>L'intégration de <code v-pre>v-model</code> avec des composants personnalisés</li>
+                            <li>La création d'interfaces utilisateur réactives et intuitives</li>
+                        </ul>
+                    </div>
+
+                    <div class="conclusion-benefits">
+                        <h4 class="text-white">Les avantages principaux :</h4>
+                        <ul>
+                            <li><strong>Productivité accrue</strong> : Moins de code à écrire pour gérer la liaison de
+                                données</li>
+                            <li><strong>Code plus lisible</strong> : La syntaxe est intuitive et facile à comprendre
+                            </li>
+                            <li><strong>Maintenance simplifiée</strong> : Les modifications sont propagées
+                                automatiquement</li>
+                            <li><strong>Expérience développeur améliorée</strong> : Moins de bugs liés à la gestion
+                                manuelle des états</li>
+                        </ul>
+                    </div>
+
+                    <p class="textExemple">
+                        En maîtrisant <code v-pre>v-model</code>, vous disposez d'un outil puissant pour créer des
+                        applications
+                        Vue.js modernes, réactives et maintenables. Cette connaissance constitue une base solide
+                        pour aborder des concepts plus avancés comme la gestion d'état global avec Pinia ou Vuex.
+                    </p>
+
+                    <p class="textExemple">
+                        <strong>Prochaine étape :</strong> Pratiquez ces concepts en créant vos propres composants
+                        avec <code v-pre>v-model</code> et explorez les v-model multiples dans Vue 3 pour des cas
+                        d'usage complexes.
+                    </p>
+                </div>
+            </section>
         </div>
-      </section>
     </div>
-  </div>
 </template>
 
 <script>
@@ -490,7 +519,8 @@
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example, .code-block {
+.code-example,
+.code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -534,21 +564,73 @@ pre code {
 }
 
 /* COULEURS VS CODE COMPLÈTES */
-.keyword { color: #c586c0 !important; } /* Mots-clés JavaScript */
-.variable { color: #9cdcfe !important; } /* Variables et noms de fonctions */
-.string { color: #ce9178 !important; } /* Chaînes de caractères */
-.comment { color: #6a9955 !important; } /* Commentaires */
-.function { color: #dcdcaa !important; } /* Noms de fonctions */
-.operator { color: #d4d4d4 !important; } /* Opérateurs */
-.constant { color: #4fc1ff !important; } /* Constantes */
-.number { color: #b5cea8 !important; } /* Nombres */
-.class-name { color: #4ec9b0 !important; } /* Noms de classes */
+.keyword {
+    color: #c586c0 !important;
+}
+
+/* Mots-clés JavaScript */
+.variable {
+    color: #9cdcfe !important;
+}
+
+/* Variables et noms de fonctions */
+.string {
+    color: #ce9178 !important;
+}
+
+/* Chaînes de caractères */
+.comment {
+    color: #6a9955 !important;
+}
+
+/* Commentaires */
+.function {
+    color: #dcdcaa !important;
+}
+
+/* Noms de fonctions */
+.operator {
+    color: #d4d4d4 !important;
+}
+
+/* Opérateurs */
+.constant {
+    color: #4fc1ff !important;
+}
+
+/* Constantes */
+.number {
+    color: #b5cea8 !important;
+}
+
+/* Nombres */
+.class-name {
+    color: #4ec9b0 !important;
+}
+
+/* Noms de classes */
 
 /* NOUVELLES CLASSES POUR HTML/VUE */
-.html-tag { color: #569cd6 !important; } /* Balises HTML */
-.html-attribute { color: #9cdcfe !important; } /* Attributs HTML */
-.vue-directive { color: #c586c0 !important; } /* Directives Vue */
-.interpolation { color: #d7ba7d !important; } /* Interpolations {{ }} */
+.html-tag {
+    color: #569cd6 !important;
+}
+
+/* Balises HTML */
+.html-attribute {
+    color: #9cdcfe !important;
+}
+
+/* Attributs HTML */
+.vue-directive {
+    color: #c586c0 !important;
+}
+
+/* Directives Vue */
+.interpolation {
+    color: #d7ba7d !important;
+}
+
+/* Interpolations {{ }} */
 
 /* Exercices et solutions */
 .exercise {
@@ -609,29 +691,29 @@ details summary {
     .lesson-container {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 2rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 2rem;
     }
-    
+
     .lesson-section {
         padding: 1.5rem;
     }
-    
+
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
     }
-    
+
     .conclusion-points ul,
     .conclusion-benefits ul {
         margin-left: 1rem;
@@ -644,19 +726,19 @@ details summary {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-    
+
     .lesson-container {
         padding: 0.5rem;
     }
-    
+
     .lesson-section {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 1.75rem;
     }
@@ -675,6 +757,7 @@ details summary {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -685,11 +768,31 @@ details summary {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
-.lesson-section:nth-child(6) { animation-delay: 0.6s; }
-.lesson-section:nth-child(7) { animation-delay: 0.7s; }
+.lesson-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lesson-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.lesson-section:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.lesson-section:nth-child(7) {
+    animation-delay: 0.7s;
+}
 </style>
