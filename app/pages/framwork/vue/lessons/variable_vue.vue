@@ -56,14 +56,14 @@
 
                 <div class="code-comparison">
                     <div class="code-example" v-pre>
-                        <h4 class="text-purple">✅ Dans le Template</h4>
+                        <h4 class="text-purple">Dans le Template</h4>
                         <pre><code class="language-javascript"><span class="comment">// Pas besoin de .value</span>
 {{ <span class="variable">nom</span> }}
 {{ <span class="variable">age</span> }}</code></pre>
                     </div>
 
                     <div class="code-example" v-pre>
-                        <h4 class="text-purple">✅ Dans le Script</h4>
+                        <h4 class="text-purple">Dans le Script</h4>
                         <pre><code class="language-javascript"><span class="comment">// Toujours utiliser .value</span>
 <span class="variable">nom</span>.<span class="property">value</span> <span class="operator">=</span> <span class="string">'Nouveau nom'</span>
 <span class="variable">age</span>.<span class="property">value</span><span class="operator">++</span></code></pre>
@@ -111,7 +111,7 @@
 
                 <div class="code-comparison">
                     <div class="code-example" v-pre>
-                        <h4 class="text-purple">📌 Utiliser <code>ref()</code> pour :</h4>
+                        <h4 class="text-purple">Utiliser <code>ref()</code> pour :</h4>
                         <ul class="textExemple">
                             <li>Variables primitives (string, number, boolean)</li>
                             <li>Quand vous avez besoin de réaffecter toute la variable</li>
@@ -123,7 +123,7 @@
                     </div>
 
                     <div class="code-example" v-pre>
-                        <h4 class="text-purple">📦 Utiliser <code>reactive()</code> pour :</h4>
+                        <h4 class="text-purple">Utiliser <code>reactive()</code> pour :</h4>
                         <ul class="textExemple">
                             <li>Objets avec plusieurs propriétés</li>
                             <li>Tableaux et structures de données complexes</li>
@@ -229,7 +229,7 @@
 
                 <div class="code-comparison">
                     <div class="code-example" v-pre>
-                        <h4 class="text-purple">✅ À Faire</h4>
+                        <h4 class="text-purple">À Faire</h4>
                         <ul class="textExemple">
                             <li>Utiliser des noms explicites pour les variables</li>
                             <li>Déstructurer les objets réactifs avec précaution</li>
@@ -245,7 +245,7 @@
                     </div>
 
                     <div class="code-example" v-pre>
-                        <h4 class="text-purple">❌ À Éviter</h4>
+                        <h4 class="text-purple">À Éviter</h4>
                         <ul class="textExemple">
                             <li>Modifier directement les computed properties</li>
                             <li>Oublier <code>.value</code> dans le script</li>
@@ -273,8 +273,7 @@
                         <li>Créez un compteur avec <code>ref()</code> qui commence à 0</li>
                         <li>Ajoutez des boutons pour incrémenter et décrémenter</li>
                         <li>Créez une computed property pour afficher si le nombre est pair ou impair</li>
-                        <li>Utilisez <code>reactive()</code> pour stocker l'historique des changements
-                        </li>
+                        <li>Utilisez <code>reactive()</code> pour stocker l'historique des changements</li>
                         <li>Surveillez le compteur pour limiter sa valeur entre -10 et 10</li>
                     </ol>
                 </div>
