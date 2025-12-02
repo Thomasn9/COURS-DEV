@@ -71,7 +71,10 @@ $ symfony console make:controller
 
  Next: Open your new controller class and add some pages!
 
- - 
+ 
+- les étapes pour utiliser et crée unne base de donnée avec doctrine
+- orm fixture
+- faker php
 ================================================================================
 # Cyber Sécuriter
 - buffer overflow
