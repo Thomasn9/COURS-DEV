@@ -53,28 +53,10 @@
 - assetMapper
 - les bloc en twig
 - explique l'utiliter de cette commande 
-✓ 11:22:13 thomas@thomas-ROG-Zephyrus:~/Documents/CDA/Cours/Symfony/COURS-SYMFONY (main)
-$ symfony console make:controller
-
- Choose a name for your controller class (e.g. BravePuppyController):
- > Home
-
- Do you want to generate PHPUnit tests? [Experimental] (yes/no) [no]:
- > no
-
- created: src/Controller/HomeController.php
- created: templates/home/index.html.twig
-
-           
-  Success! 
-           
-
- Next: Open your new controller class and add some pages!
-
- 
 - les étapes pour utiliser et crée unne base de donnée avec doctrine
-- orm fixture
-- faker php
+- orm fixture comment l'instaler sur son projet symfony
+- faker php comment l'instaler sur son projet symfony
+- findOneBy
 ================================================================================
 # Cyber Sécuriter
 - buffer overflow

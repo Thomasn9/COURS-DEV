@@ -43,6 +43,22 @@
             </div>
         </div>
 
+        <!-- =============================================================\\N//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">N</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Nouvelle Page</h5>
+                <p class="card-text">Crée une nouvelle page symfony dans son projet</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/nouvelle_page">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\T//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">T</h3>

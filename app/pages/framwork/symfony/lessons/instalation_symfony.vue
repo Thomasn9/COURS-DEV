@@ -34,12 +34,12 @@
 
                 <div class="code-example">
                     <h4 class="text-purple">Vérifier l'installation de PHP :</h4>
-                    <pre><code class="language-bash">php --version</code></pre>
+                    <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php --version</span></code></pre>
                 </div>
 
                 <div class="code-example">
                     <h4 class="text-purple">Vérifier l'installation de Composer :</h4>
-                    <pre><code class="language-bash">composer --version</code></pre>
+                    <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">composer --version</span></code></pre>
                 </div>
             </div>
 
@@ -53,29 +53,29 @@
 
                 <h3 class="text-purple">Installation sur Windows</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"># Télécharger et installer Symfony CLI depuis le site officiel
-# Ou utiliser scoop
-scoop install symfony-cli</code></pre>
+                    <pre><code class="language-bash"><span class="bash-comment"># Télécharger et installer Symfony CLI depuis le site officiel</span>
+<span class="bash-comment"># Ou utiliser scoop</span>
+<span class="bash-prompt">$</span> <span class="bash-command">scoop install symfony-cli</span></code></pre>
                 </div>
 
                 <h3 class="text-purple">Installation sur macOS</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"># Installation avec Homebrew
-brew install symfony-cli/tap/symfony-cli</code></pre>
+                    <pre><code class="language-bash"><span class="bash-comment"># Installation avec Homebrew</span>
+<span class="bash-prompt">$</span> <span class="bash-command">brew install symfony-cli/tap/symfony-cli</span></code></pre>
                 </div>
 
                 <h3 class="text-purple">Installation sur Linux</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"># Installation avec curl
-curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
-sudo apt install symfony-cli</code></pre>
+                    <pre><code class="language-bash"><span class="bash-comment"># Installation avec curl</span>
+<span class="bash-prompt">$</span> <span class="bash-command">curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash</span>
+<span class="bash-prompt">$</span> <span class="bash-command">sudo apt install symfony-cli</span></code></pre>
                 </div>
 
                 <p class="textExemple">
                     Après installation, vérifiez que Symfony CLI fonctionne correctement :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash">symfony --version</code></pre>
+                    <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony --version</span></code></pre>
                 </div>
             </div>
 
@@ -89,8 +89,8 @@ sudo apt install symfony-cli</code></pre>
 
                 <h3 class="text-purple">Méthode 1 : Utilisation de Symfony CLI (recommandée)</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"># Créer un nouveau projet Symfony
-symfony new mon-projet-symfony --webapp</code></pre>
+                    <pre><code class="language-bash"><span class="bash-comment"># Créer un nouveau projet Symfony</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony new mon-projet-symfony --webapp</span></code></pre>
                 </div>
                 <p class="textExemple">
                     L'option <code>--webapp</code> installe une structure de projet complète avec des fonctionnalités
@@ -99,14 +99,14 @@ symfony new mon-projet-symfony --webapp</code></pre>
 
                 <h3 class="text-purple">Méthode 2 : Utilisation de Composer</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"># Créer un nouveau projet avec Composer
-composer create-project symfony/skeleton:"6.4.*" mon-projet-symfony</code></pre>
+                    <pre><code class="language-bash"><span class="bash-comment"># Créer un nouveau projet avec Composer</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer create-project symfony/skeleton:"6.4.*" mon-projet-symfony</span></code></pre>
                 </div>
 
                 <h3 class="text-purple">Méthode 3 : Utilisation du Symfony Demo</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"># Pour un projet avec des exemples de code
-symfony new mon-projet-symfony --demo</code></pre>
+                    <pre><code class="language-bash"><span class="bash-comment"># Pour un projet avec des exemples de code</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony new mon-projet-symfony --demo</span></code></pre>
                 </div>
             </div>
 
@@ -119,17 +119,17 @@ symfony new mon-projet-symfony --demo</code></pre>
                 <div class="code-example">
                     <pre><code class="language-bash">mon-projet-symfony/
 ├── bin/
-│   └── console          # Console Symfony pour les commandes
-├── config/              # Fichiers de configuration
+│   └── console          <span class="bash-comment"># Console Symfony pour les commandes</span>
+├── config/              <span class="bash-comment"># Fichiers de configuration</span>
 ├── public/
-│   └── index.php        # Point d'entrée de l'application
-├── src/                 # Code source de votre application
-├── templates/           # Templates Twig
-├── translations/        # Fichiers de traduction
+│   └── index.php        <span class="bash-comment"># Point d'entrée de l'application</span>
+├── src/                 <span class="bash-comment"># Code source de votre application</span>
+├── templates/           <span class="bash-comment"># Templates Twig</span>
+├── translations/        <span class="bash-comment"># Fichiers de traduction</span>
 ├── var/                 
-│   └── cache/           # Cache de l'application
-├── vendor/              # Dépendances Composer
-└── .env                 # Variables d'environnement</code></pre>
+│   └── cache/           <span class="bash-comment"># Cache de l'application</span>
+├── vendor/              <span class="bash-comment"># Dépendances Composer</span>
+└── .env                 <span class="bash-comment"># Variables d'environnement</span></code></pre>
                 </div>
             </div>
 
@@ -140,11 +140,11 @@ symfony new mon-projet-symfony --demo</code></pre>
                     Symfony inclut un serveur web de développement. Pour le démarrer :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash"># Se déplacer dans le répertoire du projet
-cd mon-projet-symfony
+                    <pre><code class="language-bash"><span class="bash-comment"># Se déplacer dans le répertoire du projet</span>
+<span class="bash-prompt">$</span> <span class="bash-command">cd mon-projet-symfony</span>
 
-# Démarrer le serveur de développement
-symfony server:start</code></pre>
+<span class="bash-comment"># Démarrer le serveur de développement</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony server:start</span></code></pre>
                 </div>
                 <p class="textExemple">
                     Votre application sera accessible à l'adresse : <code>http://localhost:8000</code>
@@ -158,13 +158,13 @@ symfony server:start</code></pre>
                     Configurez votre base de données dans le fichier <code>.env</code> :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash"># MySQL
+                    <pre><code class="language-bash"><span class="bash-comment"># MySQL</span>
 DATABASE_URL="mysql://username:password@127.0.0.1:3306/database_name?serverVersion=8.0"
 
-# PostgreSQL
+<span class="bash-comment"># PostgreSQL</span>
 DATABASE_URL="postgresql://username:password@127.0.0.1:5432/database_name?serverVersion=13&charset=utf8"
 
-# SQLite
+<span class="bash-comment"># SQLite</span>
 DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"</code></pre>
                 </div>
 
@@ -172,11 +172,11 @@ DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"</code></pre>
                     Créez ensuite la base de données :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash"># Créer la base de données
-php bin/console doctrine:database:create
+                    <pre><code class="language-bash"><span class="bash-comment"># Créer la base de données</span>
+<span class="bash-prompt">$</span> <span class="bash-command">php bin/console doctrine:database:create</span>
 
-# Créer les tables (si vous avez des entités)
-php bin/console doctrine:schema:update --force</code></pre>
+<span class="bash-comment"># Créer les tables (si vous avez des entités)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">php bin/console doctrine:schema:update --force</span></code></pre>
                 </div>
             </div>
 
@@ -190,36 +190,36 @@ php bin/console doctrine:schema:update --force</code></pre>
                 <div class="code-comparison">
                     <div class="code-example">
                         <h4 class="text-purple">Lister toutes les commandes</h4>
-                        <pre><code class="language-bash">php bin/console list</code></pre>
+                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console list</span></code></pre>
                     </div>
 
                     <div class="code-example">
                         <h4 class="text-purple">Vérifier les prérequis système</h4>
-                        <pre><code class="language-bash">symfony check:requirements</code></pre>
+                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony check:requirements</span></code></pre>
                     </div>
                 </div>
 
                 <div class="code-comparison">
                     <div class="code-example">
                         <h4 class="text-purple">Créer une entité</h4>
-                        <pre><code class="language-bash">php bin/console make:entity</code></pre>
+                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console make:entity</span></code></pre>
                     </div>
 
                     <div class="code-example">
                         <h4 class="text-purple">Créer un contrôleur</h4>
-                        <pre><code class="language-bash">php bin/console make:controller</code></pre>
+                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console make:controller</span></code></pre>
                     </div>
                 </div>
 
                 <div class="code-comparison">
                     <div class="code-example">
                         <h4 class="text-purple">Effacer le cache</h4>
-                        <pre><code class="language-bash">php bin/console cache:clear</code></pre>
+                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console cache:clear</span></code></pre>
                     </div>
 
                     <div class="code-example">
                         <h4 class="text-purple">Voir les routes</h4>
-                        <pre><code class="language-bash">php bin/console debug:router</code></pre>
+                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console debug:router</span></code></pre>
                     </div>
                 </div>
             </div>
@@ -246,21 +246,21 @@ php bin/console doctrine:schema:update --force</code></pre>
                     <div class="solution-content">
                         <h4 class="text-purple">Étapes de la solution :</h4>
                         <div class="code-example">
-                            <pre><code class="language-bash"># 1. Créer le projet
-symfony new mon-blog --webapp
+                            <pre><code class="language-bash"><span class="bash-comment"># 1. Créer le projet</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony new mon-blog --webapp</span>
 
-# 2. Se déplacer dans le répertoire
-cd mon-blog
+<span class="bash-comment"># 2. Se déplacer dans le répertoire</span>
+<span class="bash-prompt">$</span> <span class="bash-command">cd mon-blog</span>
 
-# 3. Configurer SQLite dans .env
-# Modifier DATABASE_URL pour :
+<span class="bash-comment"># 3. Configurer SQLite dans .env</span>
+<span class="bash-comment"># Modifier DATABASE_URL pour :</span>
 DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 
-# 4. Créer la base de données
-php bin/console doctrine:database:create
+<span class="bash-comment"># 4. Créer la base de données</span>
+<span class="bash-prompt">$</span> <span class="bash-command">php bin/console doctrine:database:create</span>
 
-# 5. Démarrer le serveur
-symfony server:start</code></pre>
+<span class="bash-comment"># 5. Démarrer le serveur</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony server:start</span></code></pre>
                         </div>
                         <p class="textExemple">
                             Votre application sera accessible à <code>http://localhost:8000</code>
@@ -476,52 +476,36 @@ pre code {
     word-break: break-word;
 }
 
-/* Couleurs VS Code pour la syntaxe JavaScript */
-.keyword {
-    color: #c586c0 !important;
+/* COULEURS GIT BASH */
+.bash-prompt {
+    color: #2ECC71 !important; /* Vert pour le prompt $ */
+    font-weight: bold;
 }
 
-/* Mots-clés (for, while, if, function, etc.) */
-.variable {
-    color: #9cdcfe !important;
+.bash-command {
+    color: #F1C40F !important; /* Jaune pour les commandes */
 }
 
-/* Variables et noms de fonctions */
-.string {
-    color: #ce9178 !important;
+.bash-comment {
+    color: #7F8C8D !important; /* Gris pour les commentaires */
+    font-style: italic;
 }
 
-/* Chaînes de caractères */
-.comment {
-    color: #6a9955 !important;
+.bash-string {
+    color: #E74C3C !important; /* Rouge pour les chaînes */
 }
 
-/* Commentaires */
-.function {
-    color: #dcdcaa !important;
+.bash-keyword {
+    color: #3498DB !important; /* Bleu pour les mots-clés */
 }
 
-/* Noms de fonctions */
-.operator {
-    color: #d4d4d4 !important;
+.bash-parameter {
+    color: #9B59B6 !important; /* Violet pour les paramètres */
 }
 
-/* Opérateurs (+, -, =, =>, etc.) */
-.constant {
-    color: #4fc1ff !important;
+.bash-number {
+    color: #1ABC9C !important; /* Turquoise pour les nombres */
 }
-
-/* Constantes */
-.number {
-    color: #b5cea8 !important;
-}
-
-/* Nombres */
-.class-name {
-    color: #4ec9b0 !important;
-}
-
-/* Noms de classes */
 
 /* Exercices et solutions */
 .exercise {
