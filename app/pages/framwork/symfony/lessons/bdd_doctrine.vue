@@ -3,8 +3,8 @@
         <div class="lesson-content">
             <!-- En-tête de la leçon -->
             <div class="lesson-header">
-                <h1 class="text-white">Créer et Utiliser une Base de Données avec Doctrine dans Symfony</h1>
-                <p class="lesson-meta text-white">Maîtrisez les entités, les migrations et les requêtes pour persister vos données</p>
+                <h1 class="text-white">Créer et Utiliser une Base de Données avec Doctrine dans Symfony avec données factice </h1>
+                <p class="lesson-meta text-white">Maîtrisez les entités, les migrations et les fixtures pour persister vos données</p>
             </div>
 
             <!-- Introduction -->
@@ -15,170 +15,181 @@
                     relationnelles en utilisant des objets PHP plutôt que d'écrire du SQL directement.
                 </p>
                 <p class="textExemple">
-                    Cette leçon vous guidera à travers l'ensemble du processus : de la configuration de la base de données 
-                    à la création d'entités, en passant par les migrations et les requêtes.
+                    Cette leçon vous guidera à travers les étapes essentielles : création de base de données, entités, migrations et peuplement avec des fixtures.
                 </p>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Flux de travail Doctrine</span>
-Configuration → Entités → Migrations → Requêtes → Persistance des données</code></pre>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Flux de travail complet Doctrine</span>
+Configuration → Entités → Migrations → Fixtures → Application fonctionnelle</code></pre>
                 </div>
             </div>
 
-            <!-- Les 5 étapes fondamentales -->
+            <!-- Les 4 étapes fondamentales -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Les 5 étapes fondamentales avec Doctrine</h2>
+                <h2 class="text-purple">Les 4 étapes fondamentales avec Doctrine</h2>
                 <p class="textExemple">
-                    Pour utiliser efficacement Doctrine dans Symfony, suivez ces cinq étapes :
+                    Pour créer et utiliser une base de données dans Symfony, suivez ces quatre étapes essentielles :
                 </p>
                 <ol class="textExemple">
-                    <li><strong>Configurer la connexion à la base de données</strong></li>
-                    <li><strong>Créer des entités (modèles de données)</strong></li>
-                    <li><strong>Générer et exécuter les migrations</strong></li>
-                    <li><strong>Utiliser le Repository pour les requêtes</strong></li>
-                    <li><strong>Persister les données avec l'EntityManager</strong></li>
+                    <li><strong>Créer la base de données</strong> avec <code>doctrine:database:create</code></li>
+                    <li><strong>Générer les migrations</strong> avec <code>make:migration</code></li>
+                    <li><strong>Exécuter les migrations</strong> avec <code>doctrine:migrations:migrate</code></li>
+                    <li><strong>Peupler avec des fixtures</strong> avec <code>doctrine:fixtures:load</code></li>
                 </ol>
             </div>
 
-            <!-- Étape 1 : Configuration de la base de données -->
+            <!-- Préparation initiale -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Étape 1 : Configurer la connexion à la base de données</h2>
-                <p class="textExemple">
-                    Avant de commencer, vous devez configurer votre connexion à la base de données dans Symfony.
-                </p>
-
-                <h3 class="text-purple">1. Installation de Doctrine (si ce n'est pas déjà fait)</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Installation du bundle Doctrine</span>
-<span class="bash-prompt">$</span> <span class="bash-command">composer require symfony/orm-pack</span>
-<span class="bash-prompt">$</span> <span class="bash-command">composer require --dev symfony/maker-bundle</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">2. Configuration dans le fichier .env</h3>
-                <p class="textExemple">
-                    Symfony utilise le fichier <code>.env</code> pour la configuration de l'environnement. Configurez votre connexion :
-                </p>
+                <h2 class="text-purple">Préparation : Configuration et Installation</h2>
                 
+                <h3 class="text-purple">1. Installation des dépendances nécessaires</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># .env</span>
-<span class="bash-comment"># DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=mariadb-10.11.4&charset=utf8mb4"</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Installer Doctrine ORM</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer require symfony/orm-pack</span>
 
-<span class="bash-comment"># Pour MySQL/MariaDB :</span>
-<span class="bash-highlight">DATABASE_URL="mysql://root:@127.0.0.1:3306/symfony_project?serverVersion=8.0&charset=utf8mb4"</span>
+<span class="bash-comment"># Installer le Maker Bundle pour les commandes de génération</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer require --dev symfony/maker-bundle</span>
 
-<span class="bash-comment"># Pour PostgreSQL :</span>
-<span class="bash-comment"># DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=15&charset=utf8"</span>
+<span class="bash-comment"># Installer ORM-Fixtures pour les données de test</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer require --dev orm-fixtures</span>
 
-<span class="bash-comment"># Pour SQLite :</span>
-<span class="bash-comment"># DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"</span></code></pre>
+<span class="bash-comment"># Installer FakerPHP pour générer des données réalistes</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer require --dev fakerphp/faker</span></code></pre>
                 </div>
 
-                <h3 class="text-purple">3. Créer la base de données</h3>
+                <h3 class="text-purple">2. Configuration de la base de données</h3>
                 <p class="textExemple">
-                    Une fois la configuration terminée, créez la base de données avec Doctrine :
+                    Configurez votre connexion dans le fichier <code>.env</code> :
                 </p>
-
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Créer la base de données</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:create</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># .env - Exemple pour MySQL</span>
+<span class="bash-highlight">DATABASE_URL="mysql://root:password@127.0.0.1:3306/mon_projet?serverVersion=8.0&charset=utf8mb4"</span>
 
-<span class="bash-success">✅ Base de données 'symfony_project' créée avec succès</span>
-
-<span class="bash-comment"># Vérifier la connexion</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT 1"</span>
-
-<span class="bash-comment"># Supprimer la base de données (en cas de besoin)</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:drop --force</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">4. Commandes utiles pour la gestion des bases de données</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Lister toutes les commandes Doctrine disponibles</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console list doctrine</span>
-
-<span class="bash-comment"># Vérifier le mapping des entités</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:mapping:info</span>
-
-<span class="bash-comment"># Vider complètement la base de données</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:drop --force</span></code></pre>
+<span class="bash-comment"># .env - Exemple pour SQLite (plus simple pour débuter)</span>
+<span class="bash-comment"># DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"</span></code></pre>
                 </div>
             </div>
 
-            <!-- Étape 2 : Création d'entités avec symfony make:entity -->
+            <!-- ÉTAPE 1 : Création de la base de données -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Étape 2 : Créer des entités avec symfony make:entity</h2>
+                <h2 class="text-purple">Étape 1 : Créer la base de données</h2>
                 <p class="textExemple">
-                    Les entités sont des classes PHP qui représentent vos tables de base de données. 
-                    Utilisez <code>symfony make:entity</code> pour les créer facilement.
+                    La première étape consiste à créer physiquement la base de données sur votre serveur.
                 </p>
 
-                <h3 class="text-purple">1. Créer une première entité : Article</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Commande pour créer la base de données</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:create</span></code></pre>
+                </div>
 
-<span class="bash-string">Quel nom souhaitez-vous donner à votre entité ?</span>
-<span class="bash-parameter">[ex: <span class="bash-keyword">Victorious</span>Penguin]</span>
+                <div class="code-example">
+                    <h4 class="text-purple">Exécution de la commande :</h4>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:create</span>
+
+<span class="bash-success">Création de la base de données 'mon_projet' réussie</span>
+<span class="bash-success">✓ Connexion établie avec succès</span>
+
+<span class="bash-comment"># Vérifier que la base a été créée</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SHOW DATABASES"</span>
+
+<span class="bash-comment"># Sortie attendue :</span>
+<span class="bash-string">+--------------------+</span>
+<span class="bash-string">| Database           |</span>
+<span class="bash-string">+--------------------+</span>
+<span class="bash-string">| information_schema |</span>
+<span class="bash-string">| mon_projet         |</span>  <span class="bash-comment">← Votre base est là !</span>
+<span class="bash-string">| mysql              |</span>
+<span class="bash-string">| performance_schema |</span>
+<span class="bash-string">| sys                |</span>
+<span class="bash-string">+--------------------+</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Commandes associées utiles</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Supprimer la base de données (attention !)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:drop --force</span>
+
+<span class="bash-comment"># Créer la base si elle n'existe pas déjà</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:create --if-not-exists</span>
+
+<span class="bash-comment"># Tester la connexion</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT 1"</span></code></pre>
+                </div>
+
+                <div class="code-example tip">
+                    <h4 class="text-purple">Conseil pratique</h4>
+                    <p class="textExemple">
+                        Si vous obtenez une erreur de connexion, vérifiez :
+                    </p>
+                    <ul class="textExemple">
+                        <li>Que votre serveur MySQL/MariaDB est démarré</li>
+                        <li>Que les identifiants dans <code>.env</code> sont corrects</li>
+                        <li>Que le port spécifié correspond à celui de votre serveur</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Création des entités -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Pré-requis : Créer vos entités</h2>
+                <p class="textExemple">
+                    Avant de générer des migrations, vous devez créer vos entités (modèles de données).
+                </p>
+
+                <h3 class="text-purple">Création d'une entité Article</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Générer une nouvelle entité</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:entity</span>
+
+<span class="bash-string">Comment voulez-vous nommer votre entité ?</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">Article</span>
 
-<span class="bash-string">Voulez-vous ajouter une nouvelle propriété à votre entité ? (oui/no) [oui]</span>
+<span class="bash-string">Voulez-vous ajouter de nouveaux champs ? (oui/no) [oui]</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span></code></pre>
                 </div>
 
-                <h3 class="text-purple">2. Ajouter les propriétés (champs) de l'entité</h3>
-                <p class="textExemple">
-                    Suivez les prompts interactifs pour ajouter chaque propriété :
-                </p>
-
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-string">Nom du champ (appuyez sur &lt;return&gt; pour arrêter l'ajout de champs) :</span>
+                    <h4 class="text-purple">Ajout des champs interactivement :</h4>
+                    <pre v-pre><code class="language-bash"><span class="bash-string">Nom du champ :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">title</span>
-
-<span class="bash-string">Type de champ [string] :</span>
+<span class="bash-string">Type [string] :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">string</span>
-
-<span class="bash-string">Longueur du champ [255] :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">255</span>
-
-<span class="bash-string">Ce champ peut-il être nul (nullable) ? (oui/no) [no] :</span>
+<span class="bash-string">Longueur [255] :</span>
+<span class="bash-command">&gt;</span> <span class="bash-highlight">200</span>
+<span class="bash-string">Nullable ? [no] :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">no</span>
 
-<span class="bash-string">Voulez-vous ajouter une nouvelle propriété à votre entité ? (oui/no) [oui]</span>
+<span class="bash-string">Ajouter un autre champ ? [oui] :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
-
 <span class="bash-string">Nom du champ :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">content</span>
-
-<span class="bash-string">Type de champ [string] :</span>
+<span class="bash-string">Type [string] :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">text</span>
 
-<span class="bash-string">Voulez-vous ajouter une nouvelle propriété ? (oui/no) [oui]</span>
+<span class="bash-string">Ajouter un autre champ ? [oui] :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
-
 <span class="bash-string">Nom du champ :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">publishedAt</span>
-
-<span class="bash-string">Type de champ [string] :</span>
+<span class="bash-string">Type [string] :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">datetime_immutable</span>
-
-<span class="bash-string">Ce champ peut-il être nul (nullable) ? (oui/no) [no] :</span>
+<span class="bash-string">Nullable ? [no] :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
 
-<span class="bash-string">Voulez-vous ajouter une nouvelle propriété ? (oui/no) [oui]</span>
+<span class="bash-string">Ajouter un autre champ ? [oui] :</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">non</span>
 
-<span class="bash-success">✅ Entité Article créée !</span>
-<span class="bash-success">✓ src/Entity/Article.php</span>
-<span class="bash-success">✓ src/Repository/ArticleRepository.php</span></code></pre>
+<span class="bash-success">Entité Article créée avec succès !</span>
+<span class="bash-success">✓ Fichier : src/Entity/Article.php</span>
+<span class="bash-success">✓ Repository : src/Repository/ArticleRepository.php</span></code></pre>
                 </div>
 
-                <h3 class="text-purple">3. Structure de l'entité générée</h3>
+                <h3 class="text-purple">Structure de l'entité générée</h3>
                 <div class="code-example">
-                    <h4 class="text-purple">Fichier d'entité : src/Entity/Article.php</h4>
-                    <pre v-pre><code class="language-php"><span class="php-keyword">&lt;?php</span>
+                    <pre v-pre><code class="language-php"><span class="php-comment">// src/Entity/Article.php - Généré automatiquement</span>
+<span class="php-keyword">&lt;?php</span>
 
 <span class="php-keyword">namespace</span> App\<span class="php-class">Entity</span>;
 
 <span class="php-keyword">use</span> App\<span class="php-class">Repository</span>\<span class="php-class">ArticleRepository</span>;
-<span class="php-keyword">use</span> Doctrine\<span class="php-class">DBAL</span>\<span class="php-class">Types</span>\<span class="php-class">Types</span>;
 <span class="php-keyword">use</span> Doctrine\<span class="php-class">ORM</span>\<span class="php-class">Mapping</span> <span class="php-keyword">as</span> <span class="php-class">ORM</span>;
 
 #[<span class="php-class">ORM</span>\<span class="php-function">Entity</span>(<span class="php-variable">repositoryClass</span>: <span class="php-class">ArticleRepository</span>::<span class="php-keyword">class</span>)]
@@ -189,117 +200,48 @@ Configuration → Entités → Migrations → Requêtes → Persistance des donn
     #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>]
     <span class="php-keyword">private</span> ?<span class="php-keyword">int</span> <span class="php-variable">$id</span> = <span class="php-keyword">null</span>;
 
-    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">length</span>: <span class="php-number">255</span>)]
+    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">length</span>: <span class="php-number">200</span>)]
     <span class="php-keyword">private</span> ?<span class="php-keyword">string</span> <span class="php-variable">$title</span> = <span class="php-keyword">null</span>;
 
-    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">type</span>: <span class="php-class">Types</span>::<span class="php-class">TEXT</span>)]
+    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">type</span>: <span class="php-string">'text'</span>)]
     <span class="php-keyword">private</span> ?<span class="php-keyword">string</span> <span class="php-variable">$content</span> = <span class="php-keyword">null</span>;
 
-    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">type</span>: <span class="php-class">Types</span>::<span class="php-class">DATETIME_IMMUTABLE</span>, <span class="php-variable">nullable</span>: <span class="php-keyword">true</span>)]
+    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">type</span>: <span class="php-string">'datetime_immutable'</span>, <span class="php-variable">nullable</span>: <span class="php-keyword">true</span>)]
     <span class="php-keyword">private</span> ?\<span class="php-class">DateTimeImmutable</span> <span class="php-variable">$publishedAt</span> = <span class="php-keyword">null</span>;
 
-    <span class="php-comment">// Getters et Setters générés automatiquement</span>
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">getId</span>(): ?<span class="php-keyword">int</span>
-    {
-        <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;id;
-    }
-
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">getTitle</span>(): ?<span class="php-keyword">string</span>
-    {
-        <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;title;
-    }
-
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">setTitle</span>(<span class="php-keyword">string</span> <span class="php-variable">$title</span>): <span class="php-keyword">static</span>
-    {
-        <span class="php-variable">$this</span>-&gt;title = <span class="php-variable">$title</span>;
-        <span class="php-keyword">return</span> <span class="php-variable">$this</span>;
-    }
-
-    <span class="php-comment">// ... autres getters et setters</span>
+    <span class="php-comment">// Getters et setters générés automatiquement...</span>
 }</code></pre>
-                </div>
-
-                <div class="code-example">
-                    <h4 class="text-purple">Fichier de repository : src/Repository/ArticleRepository.php</h4>
-                    <pre v-pre><code class="language-php"><span class="php-keyword">&lt;?php</span>
-
-<span class="php-keyword">namespace</span> App\<span class="php-class">Repository</span>;
-
-<span class="php-keyword">use</span> App\<span class="php-class">Entity</span>\<span class="php-class">Article</span>;
-<span class="php-keyword">use</span> Doctrine\<span class="php-class">Bundle</span>\<span class="php-class">DoctrineBundle</span>\<span class="php-class">Repository</span>\<span class="php-class">ServiceEntityRepository</span>;
-<span class="php-keyword">use</span> Doctrine\<span class="php-class">Persistence</span>\<span class="php-class">ManagerRegistry</span>;
-
-<span class="php-keyword">class</span> <span class="php-class">ArticleRepository</span> <span class="php-keyword">extends</span> <span class="php-class">ServiceEntityRepository</span>
-{
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> __construct(<span class="php-class">ManagerRegistry</span> <span class="php-variable">$registry</span>)
-    {
-        <span class="php-keyword">parent</span>::__construct(<span class="php-variable">$registry</span>, <span class="php-class">Article</span>::<span class="php-keyword">class</span>);
-    }
-}</code></pre>
-                </div>
-
-                <h3 class="text-purple">4. Types de champs disponibles</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Principaux types de champs Doctrine :</span>
-<span class="bash-keyword">string</span>       <span class="bash-comment"># Chaîne de caractères (VARCHAR)</span>
-<span class="bash-keyword">text</span>         <span class="bash-comment"># Texte long (TEXT)</span>
-<span class="bash-keyword">integer</span>      <span class="bash-comment"># Entier (INT)</span>
-<span class="bash-keyword">float</span>        <span class="bash-comment"># Nombre à virgule (FLOAT)</span>
-<span class="bash-keyword">boolean</span>      <span class="bash-comment"># Booléen (TINYINT)</span>
-<span class="bash-keyword">datetime</span>     <span class="bash-comment"># Date et heure (DATETIME)</span>
-<span class="bash-keyword">date</span>         <span class="bash-comment"># Date seulement (DATE)</span>
-<span class="bash-keyword">time</span>         <span class="bash-comment"># Heure seulement (TIME)</span>
-<span class="bash-keyword">json</span>         <span class="bash-comment"># Données JSON (JSON)</span>
-<span class="bash-keyword">array</span>        <span class="bash-comment"># Tableau sérialisé (LONGTEXT)</span>
-<span class="bash-keyword">decimal</span>      <span class="bash-comment"># Nombre décimal précis (DECIMAL)</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">5. Modifier une entité existante</h3>
-                <p class="textExemple">
-                    Pour ajouter ou modifier des champs dans une entité existante :
-                </p>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Lancer à nouveau make:entity avec le même nom</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity Article</span>
-
-<span class="bash-string">Votre entité Article existe déjà ! Voulez-vous la mettre à jour ? (oui/no) [oui]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
-
-<span class="bash-string">Nom du champ (appuyez sur &lt;return&gt; pour arrêter) :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">slug</span>
-
-<span class="bash-string">Type de champ [string] :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">string</span>
-
-<span class="bash-string">Longueur du champ [255] :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">100</span>
-
-<span class="bash-string">Ce champ peut-il être nul (nullable) ? (oui/no) [no] :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">no</span></code></pre>
                 </div>
             </div>
 
-            <!-- Étape 3 : Migrations avec symfony make:migration -->
+            <!-- ÉTAPE 2 : Génération des migrations -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Étape 3 : Générer et exécuter les migrations avec symfony make:migration</h2>
+                <h2 class="text-purple">Étape 2 : Générer les migrations</h2>
                 <p class="textExemple">
-                    Les migrations sont des fichiers qui permettent de versionner votre schéma de base de données.
-                    Elles assurent que tous les environnements (dev, prod) ont le même schéma.
+                    Les migrations sont des fichiers qui décrivent les modifications à apporter à votre schéma de base de données.
+                    Elles permettent de versionner et de répliquer votre structure de base de données.
                 </p>
 
-                <h3 class="text-purple">1. Générer une migration</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Générer une migration basée sur les différences entre entités et base de données</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:migration</span>
-
-<span class="bash-success">✅ Migration générée avec succès !</span>
-<span class="bash-success">✓ migrations/Version20240115143000.php</span>
-
-<span class="bash-comment"># Voir le SQL qui sera exécuté</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:diff --dry-run</span></code></pre>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Commande pour générer une migration</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:migration</span></code></pre>
                 </div>
 
-                <h3 class="text-purple">2. Structure d'une migration générée</h3>
+                <div class="code-example">
+                    <h4 class="text-purple">Exécution de la commande :</h4>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony console make:migration</span>
+
+<span class="bash-success">Migration générée avec succès</span>
+<span class="bash-success">✓ Fichier : migrations/Version20240115120000.php</span>
+
+<span class="bash-comment"># Voir le SQL qui sera exécuté</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:diff --dry-run</span>
+
+<span class="bash-comment"># Sortie :</span>
+<span class="bash-string">-- CREATE TABLE article (id INT AUTO_INCREMENT NOT NULL, title VARCHAR(200) NOT NULL, ...)</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Contenu du fichier de migration généré</h3>
                 <div class="code-example">
                     <pre v-pre><code class="language-php"><span class="php-keyword">&lt;?php</span>
 
@@ -311,22 +253,22 @@ Configuration → Entités → Migrations → Requêtes → Persistance des donn
 <span class="php-keyword">use</span> Doctrine\<span class="php-class">Migrations</span>\<span class="php-class">AbstractMigration</span>;
 
 <span class="php-comment">/**
- * Auto-generated Migration: Please modify to your needs!
+ * Auto-generated Migration
  */</span>
-<span class="php-keyword">final</span> <span class="php-keyword">class</span> <span class="php-class">Version20240115143000</span> <span class="php-keyword">extends</span> <span class="php-class">AbstractMigration</span>
+<span class="php-keyword">final</span> <span class="php-keyword">class</span> <span class="php-class">Version20240115120000</span> <span class="php-keyword">extends</span> <span class="php-class">AbstractMigration</span>
 {
     <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">getDescription</span>(): <span class="php-keyword">string</span>
     {
-        <span class="php-keyword">return</span> <span class="php-string">'Création de la table article'</span>;
+        <span class="php-keyword">return</span> <span class="php-string">'Create article table'</span>;
     }
 
     <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">up</span>(<span class="php-class">Schema</span> <span class="php-variable">$schema</span>): <span class="php-keyword">void</span>
     {
-        <span class="php-comment">// this up() migration is auto-generated, please modify it to your needs</span>
+        <span class="php-comment">// Code pour appliquer la migration</span>
         <span class="php-variable">$this</span>-&gt;<span class="php-function">addSql</span>(<span class="php-string">'
             CREATE TABLE article (
                 id INT AUTO_INCREMENT NOT NULL,
-                title VARCHAR(255) NOT NULL,
+                title VARCHAR(200) NOT NULL,
                 content LONGTEXT NOT NULL,
                 published_at DATETIME DEFAULT NULL,
                 PRIMARY KEY(id)
@@ -336,429 +278,147 @@ Configuration → Entités → Migrations → Requêtes → Persistance des donn
 
     <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">down</span>(<span class="php-class">Schema</span> <span class="php-variable">$schema</span>): <span class="php-keyword">void</span>
     {
-        <span class="php-comment">// this down() migration is auto-generated, please modify it to your needs</span>
+        <span class="php-comment">// Code pour annuler la migration</span>
         <span class="php-variable">$this</span>-&gt;<span class="php-function">addSql</span>(<span class="php-string">'DROP TABLE article'</span>);
     }
 }</code></pre>
                 </div>
 
-                <h3 class="text-purple">3. Exécuter les migrations</h3>
+                <h3 class="text-purple">Options avancées de génération</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Exécuter toutes les migrations en attente</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Générer une migration vide (pour modifications manuelles)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:migration --empty</span>
 
-<span class="bash-string">Voulez-vous exécuter ces migrations ? (oui/no) [oui]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
+<span class="bash-comment"># Voir les différences avant de générer</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:update --dump-sql</span>
 
-<span class="bash-success">✓ Migration Version20240115143000 exécutée</span>
-<span class="bash-success">✅ Migrations exécutées avec succès</span>
-
-<span class="bash-comment"># Exécuter une migration spécifique</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:execute --up '20240115143000'</span>
-
-<span class="bash-comment"># Annuler la dernière migration</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate prev</span>
-
-<span class="bash-comment"># Revenir à une version spécifique</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate '20240115143000'</span></code></pre>
+<span class="bash-comment"># Valider le mapping des entités</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:validate</span></code></pre>
                 </div>
 
-                <h3 class="text-purple">4. Gestion avancée des migrations</h3>
+                <div class="code-example tip">
+                    <h4 class="text-purple">Bonne pratique</h4>
+                    <p class="textExemple">
+                        Toujours vérifier le contenu de votre migration avant de l'exécuter, surtout en production.
+                        Vous pouvez ouvrir le fichier généré dans <code>migrations/</code> pour voir le SQL qui sera exécuté.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ÉTAPE 3 : Exécution des migrations -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Étape 3 : Exécuter les migrations</h2>
+                <p class="textExemple">
+                    Une fois la migration générée, il faut l'exécuter pour appliquer les changements à votre base de données.
+                </p>
+
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Commande pour exécuter les migrations</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate</span></code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h4 class="text-purple">Exécution interactive :</h4>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate</span>
+
+<span class="bash-comment"># Symfony vous demande confirmation</span>
+<span class="bash-string">WARNING! You are about to execute a database migration
+that could result in schema changes and data loss.
+Are you sure you wish to continue? (yes/no) [yes]:</span>
+<span class="bash-command">&gt;</span> <span class="bash-highlight">yes</span>
+
+<span class="bash-success">✓ Migrating from 0 to 20240115120000</span>
+<span class="bash-success">✓ 1 migration executed</span>
+<span class="bash-success">✓ 1 sql query</span>
+<span class="bash-success">Migrations completed successfully</span>
+
+<span class="bash-comment"># Vérifier les tables créées</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SHOW TABLES"</span>
+
+<span class="bash-comment"># Sortie :</span>
+<span class="bash-string">+----------------------+</span>
+<span class="bash-string">| Tables_in_mon_projet |</span>
+<span class="bash-string">+----------------------+</span>
+<span class="bash-string">| article              |</span>  <span class="bash-comment">← Table créée !</span>
+<span class="bash-string">| doctrine_migration   |</span>  <span class="bash-comment">← Table des migrations</span>
+<span class="bash-string">+----------------------+</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Commandes de gestion des migrations</h3>
                 <div class="code-example">
                     <pre v-pre><code class="language-bash"><span class="bash-comment"># Voir l'état des migrations</span>
 <span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:status</span>
 
-<span class="bash-comment"># Lister toutes les migrations disponibles</span>
+<span class="bash-comment"># Sortie :</span>
+<span class="bash-string">+----------------------+----------------------+</span>
+<span class="bash-string">| Configuration        | Value                |</span>
+<span class="bash-string">+----------------------+----------------------+</span>
+<span class="bash-string">| Storage              | Table                |</span>
+<span class="bash-string">| Database Driver      | pdo_mysql            |</span>
+<span class="bash-string">| Database Name        | mon_projet           |</span>
+<span class="bash-string">| Version              | 20240115120000       |</span>  <span class="bash-comment">← Version actuelle</span>
+<span class="bash-string">| Migrations Count     | 1                    |</span>
+<span class="bash-string">| Executed Migrations  | 1                    |</span>
+<span class="bash-string">| Available Migrations | 1                    |</span>
+<span class="bash-string">+----------------------+----------------------+</span>
+
+<span class="bash-comment"># Lister toutes les migrations</span>
 <span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:list</span>
 
-<span class="bash-comment"># Générer une migration vide (pour modifications manuelles)</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:migration --empty</span>
+<span class="bash-comment"># Annuler la dernière migration</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate prev</span>
 
-<span class="bash-comment"># Synchroniser la base de données sans migrations (DANGEREUX)</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:update --force</span></code></pre>
+<span class="bash-comment"># Exécuter une migration spécifique</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:execute --up '20240115120000'</span>
+
+<span class="bash-comment"># Exécuter jusqu'à une version spécifique</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate '20240115120000'</span></code></pre>
                 </div>
 
-                <div class="code-example tip">
-                    <h4 class="text-purple">💡 Bonne pratique : Validation du schéma</h4>
-                    <p class="textExemple">
-                        Avant de générer une migration, vérifiez toujours que votre schéma est valide :
-                    </p>
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Valider le mapping</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:validate</span>
+                <h3 class="text-purple">Cycle de vie complet d'une migration</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># 1. Modifier votre entité (ajouter un champ)</span>
+<span class="bash-comment"># 2. Générer la migration</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:migration</span>
 
-<span class="bash-success">[OK] Le mapping est valide</span>
+<span class="bash-comment"># 3. Vérifier le fichier généré</span>
+<span class="bash-prompt">$</span> <span class="bash-command">cat migrations/Version20240115130000.php</span>
 
-<span class="bash-comment"># Voir les différences entre entités et base de données</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:update --dump-sql</span></code></pre>
+<span class="bash-comment"># 4. Exécuter la nouvelle migration</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate</span>
+
+<span class="bash-comment"># 5. Vérifier que le champ a été ajouté</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "DESCRIBE article"</span></code></pre>
                 </div>
             </div>
 
-            <!-- Étape 4 : Relations entre entités -->
+            <!-- Création de fixtures -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Étape 4 : Créer des relations entre entités</h2>
+                <h2 class="text-purple">Préparation : Créer des fixtures avec ORM-Fixtures et FakerPHP</h2>
                 <p class="textExemple">
-                    Doctrine permet de créer des relations entre différentes entités, tout comme les clés étrangères en SQL.
+                    Les fixtures permettent de peupler votre base de données avec des données de test.
+                    Nous utiliserons ORM-Fixtures pour la structure et FakerPHP pour générer des données réalistes.
                 </p>
 
-                <h3 class="text-purple">1. Créer une entité Category avec relation</h3>
+                <h3 class="text-purple">1. Créer une classe de fixtures</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Créer l'entité Category</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity Category</span>
-
-<span class="bash-string">Nom du champ :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">name</span>
-
-<span class="bash-string">Type de champ [string] :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">string</span>
-
-<span class="bash-string">Voulez-vous ajouter une nouvelle propriété ? (oui/no) [oui]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">non</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">2. Ajouter une relation entre Article et Category</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Ajouter une relation à l'entité Article</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity Article</span>
-
-<span class="bash-string">Voulez-vous ajouter une nouvelle propriété ? (oui/no) [oui]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
-
-<span class="bash-string">Nom du champ :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">category</span>
-
-<span class="bash-string">Type de champ :</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">relation</span>
-
-<span class="bash-string">Quelle entité voulez-vous relier ?</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">Category</span>
-
-<span class="bash-string">Type de relation :</span>
-<span class="bash-comment"># ManyToOne : Un article appartient à une catégorie</span>
-<span class="bash-comment"># OneToMany : Une catégorie contient plusieurs articles</span>
-<span class="bash-comment"># ManyToMany : Les articles peuvent avoir plusieurs catégories</span>
-<span class="bash-comment"># OneToOne : Relation un à un</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">ManyToOne</span>
-
-<span class="bash-string">Cette entité est-elle le côté propriétaire de la relation ? (oui/no) [oui]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
-
-<span class="bash-string">Un article peut-il être sans catégorie ? (nullable) (oui/no) [no]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
-
-<span class="bash-string">Voulez-vous ajouter automatiquement une nouvelle propriété dans Category ? (oui/no) [yes]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
-
-<span class="bash-string">Comment voulez-vous nommer la nouvelle propriété dans Category ? [articles]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">articles</span>
-
-<span class="bash-string">Type de relation dans Category sera OneToMany</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">3. Code généré pour la relation</h3>
-                <div class="code-example">
-                    <h4 class="text-purple">Dans Article.php :</h4>
-                    <pre v-pre><code class="language-php">#[<span class="php-class">ORM</span>\<span class="php-function">ManyToOne</span>(<span class="php-variable">targetEntity</span>: <span class="php-class">Category</span>::<span class="php-keyword">class</span>, <span class="php-variable">inversedBy</span>: <span class="php-string">'articles'</span>)]
-#[<span class="php-class">ORM</span>\<span class="php-function">JoinColumn</span>(<span class="php-variable">nullable</span>: <span class="php-keyword">true</span>)]
-<span class="php-keyword">private</span> ?<span class="php-class">Category</span> <span class="php-variable">$category</span> = <span class="php-keyword">null</span>;
-
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">getCategory</span>(): ?<span class="php-class">Category</span>
-{
-    <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;category;
-}
-
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">setCategory</span>(?<span class="php-class">Category</span> <span class="php-variable">$category</span>): <span class="php-keyword">static</span>
-{
-    <span class="php-variable">$this</span>-&gt;category = <span class="php-variable">$category</span>;
-    <span class="php-keyword">return</span> <span class="php-variable">$this</span>;
-}</code></pre>
-                </div>
-
-                <div class="code-example">
-                    <h4 class="text-purple">Dans Category.php :</h4>
-                    <pre v-pre><code class="language-php">#[<span class="php-class">ORM</span>\<span class="php-function">OneToMany</span>(<span class="php-variable">targetEntity</span>: <span class="php-class">Article</span>::<span class="php-keyword">class</span>, <span class="php-variable">mappedBy</span>: <span class="php-string">'category'</span>)]
-<span class="php-keyword">private</span> <span class="php-class">Collection</span> <span class="php-variable">$articles</span>;
-
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> __construct()
-{
-    <span class="php-variable">$this</span>-&gt;articles = <span class="php-keyword">new</span> \<span class="php-class">ArrayCollection</span>();
-}
-
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">getArticles</span>(): <span class="php-class">Collection</span>
-{
-    <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;articles;
-}
-
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">addArticle</span>(<span class="php-class">Article</span> <span class="php-variable">$article</span>): <span class="php-keyword">static</span>
-{
-    <span class="php-keyword">if</span> (!<span class="php-variable">$this</span>-&gt;articles-&gt;<span class="php-function">contains</span>(<span class="php-variable">$article</span>)) {
-        <span class="php-variable">$this</span>-&gt;articles-&gt;<span class="php-function">add</span>(<span class="php-variable">$article</span>);
-        <span class="php-variable">$article</span>-&gt;<span class="php-function">setCategory</span>(<span class="php-variable">$this</span>);
-    }
-    <span class="php-keyword">return</span> <span class="php-variable">$this</span>;
-}
-
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">removeArticle</span>(<span class="php-class">Article</span> <span class="php-variable">$article</span>): <span class="php-keyword">static</span>
-{
-    <span class="php-keyword">if</span> (<span class="php-variable">$this</span>-&gt;articles-&gt;<span class="php-function">removeElement</span>(<span class="php-variable">$article</span>)) {
-        <span class="php-comment">// Définir le côté propriétaire sur null (sauf si déjà modifié)</span>
-        <span class="php-keyword">if</span> (<span class="php-variable">$article</span>-&gt;<span class="php-function">getCategory</span>() === <span class="php-variable">$this</span>) {
-            <span class="php-variable">$article</span>-&gt;<span class="php-function">setCategory</span>(<span class="php-keyword">null</span>);
-        }
-    }
-    <span class="php-keyword">return</span> <span class="php-variable">$this</span>;
-}</code></pre>
-                </div>
-
-                <h3 class="text-purple">4. Types de relations disponibles</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># OneToOne : Relation un à un</span>
-<span class="bash-comment"># Exemple : Un utilisateur a un profil, un profil appartient à un utilisateur</span>
-
-<span class="bash-comment"># OneToMany / ManyToOne : Relation un à plusieurs</span>
-<span class="bash-comment"># Exemple : Une catégorie a plusieurs articles, un article appartient à une catégorie</span>
-
-<span class="bash-comment"># ManyToMany : Relation plusieurs à plusieurs</span>
-<span class="bash-comment"># Exemple : Un article a plusieurs tags, un tag appartient à plusieurs articles</span>
-
-<span class="bash-comment"># Relation ManyToMany avec entité de liaison :</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity ArticleTag --with-linking</span></code></pre>
-                </div>
-            </div>
-
-            <!-- Étape 5 : Utiliser l'EntityManager et les Repository -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Étape 5 : Utiliser l'EntityManager et les Repository</h2>
-                <p class="textExemple">
-                    Maintenant que vos entités sont créées, apprenez à les manipuler avec l'EntityManager 
-                    et à effectuer des requêtes avec les Repository.
-                </p>
-
-                <h3 class="text-purple">1. Créer un contrôleur pour gérer les articles</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Créer un contrôleur pour gérer les articles</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:controller ArticleController</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">2. Exemple de contrôleur avec opérations CRUD</h3>
-                <div class="code-example">
-                    <h4 class="text-purple">ArticleController.php - CRUD complet</h4>
-                    <pre v-pre><code class="language-php"><span class="php-keyword">&lt;?php</span>
-
-<span class="php-keyword">namespace</span> App\<span class="php-class">Controller</span>;
-
-<span class="php-keyword">use</span> App\<span class="php-class">Entity</span>\<span class="php-class">Article</span>;
-<span class="php-keyword">use</span> App\<span class="php-class">Entity</span>\<span class="php-class">Category</span>;
-<span class="php-keyword">use</span> App\<span class="php-class">Form</span>\<span class="php-class">ArticleType</span>;
-<span class="php-keyword">use</span> App\<span class="php-class">Repository</span>\<span class="php-class">ArticleRepository</span>;
-<span class="php-keyword">use</span> Doctrine\<span class="php-class">ORM</span>\<span class="php-class">EntityManagerInterface</span>;
-<span class="php-keyword">use</span> Symfony\<span class="php-class">Bundle</span>\<span class="php-class">FrameworkBundle</span>\<span class="php-class">Controller</span>\<span class="php-class">AbstractController</span>;
-<span class="php-keyword">use</span> Symfony\<span class="php-class">Component</span>\<span class="php-class">HttpFoundation</span>\<span class="php-class">Request</span>;
-<span class="php-keyword">use</span> Symfony\<span class="php-class">Component</span>\<span class="php-class">HttpFoundation</span>\<span class="php-class">Response</span>;
-<span class="php-keyword">use</span> Symfony\<span class="php-class">Component</span>\<span class="php-class">Routing</span>\<span class="php-class">Annotation</span>\<span class="php-class">Route</span>;
-
-#[<span class="php-function">Route</span>(<span class="php-string">'/article'</span>)]
-<span class="php-keyword">class</span> <span class="php-class">ArticleController</span> <span class="php-keyword">extends</span> <span class="php-class">AbstractController</span>
-{
-    <span class="php-comment">// CREATE : Créer un nouvel article</span>
-    #[<span class="php-function">Route</span>(<span class="php-string">'/new'</span>, <span class="php-variable">name</span>: <span class="php-string">'article_new'</span>, <span class="php-variable">methods</span>: [<span class="php-string">'GET'</span>, <span class="php-string">'POST'</span>])]
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">new</span>(
-        <span class="php-class">Request</span> <span class="php-variable">$request</span>,
-        <span class="php-class">EntityManagerInterface</span> <span class="php-variable">$entityManager</span>
-    ): <span class="php-class">Response</span> {
-        <span class="php-variable">$article</span> = <span class="php-keyword">new</span> <span class="php-class">Article</span>();
-        <span class="php-variable">$form</span> = <span class="php-variable">$this</span>-&gt;<span class="php-function">createForm</span>(<span class="php-class">ArticleType</span>::<span class="php-keyword">class</span>, <span class="php-variable">$article</span>);
-        <span class="php-variable">$form</span>-&gt;<span class="php-function">handleRequest</span>(<span class="php-variable">$request</span>);
-
-        <span class="php-keyword">if</span> (<span class="php-variable">$form</span>-&gt;<span class="php-function">isSubmitted</span>() &amp;&amp; <span class="php-variable">$form</span>-&gt;<span class="php-function">isValid</span>()) {
-            <span class="php-comment">// Persist et flush pour sauvegarder</span>
-            <span class="php-variable">$entityManager</span>-&gt;<span class="php-function">persist</span>(<span class="php-variable">$article</span>);
-            <span class="php-variable">$entityManager</span>-&gt;<span class="php-function">flush</span>();
-
-            <span class="php-variable">$this</span>-&gt;<span class="php-function">addFlash</span>(<span class="php-string">'success'</span>, <span class="php-string">'Article créé avec succès !'</span>);
-            <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">redirectToRoute</span>(<span class="php-string">'article_index'</span>);
-        }
-
-        <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">render</span>(<span class="php-string">'article/new.html.twig'</span>, [
-            <span class="php-string">'article'</span> =&gt; <span class="php-variable">$article</span>,
-            <span class="php-string">'form'</span> =&gt; <span class="php-variable">$form</span>,
-        ]);
-    }
-
-    <span class="php-comment">// READ : Lister tous les articles</span>
-    #[<span class="php-function">Route</span>(<span class="php-string">'/'</span>, <span class="php-variable">name</span>: <span class="php-string">'article_index'</span>, <span class="php-variable">methods</span>: [<span class="php-string">'GET'</span>])]
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">index</span>(<span class="php-class">ArticleRepository</span> <span class="php-variable">$articleRepository</span>): <span class="php-class">Response</span>
-    {
-        <span class="php-comment">// Récupérer tous les articles</span>
-        <span class="php-variable">$articles</span> = <span class="php-variable">$articleRepository</span>-&gt;<span class="php-function">findAll</span>();
-
-        <span class="php-comment">// Ou avec une méthode personnalisée</span>
-        <span class="php-variable">$recentArticles</span> = <span class="php-variable">$articleRepository</span>-&gt;<span class="php-function">findRecent</span>(<span class="php-number">10</span>);
-
-        <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">render</span>(<span class="php-string">'article/index.html.twig'</span>, [
-            <span class="php-string">'articles'</span> =&gt; <span class="php-variable">$articles</span>,
-            <span class="php-string">'recent_articles'</span> =&gt; <span class="php-variable">$recentArticles</span>,
-        ]);
-    }
-
-    <span class="php-comment">// READ : Afficher un article spécifique</span>
-    #[<span class="php-function">Route</span>(<span class="php-string">'/{id}'</span>, <span class="php-variable">name</span>: <span class="php-string">'article_show'</span>, <span class="php-variable">methods</span>: [<span class="php-string">'GET'</span>])]
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">show</span>(<span class="php-class">Article</span> <span class="php-variable">$article</span>): <span class="php-class">Response</span>
-    {
-        <span class="php-comment">// Symfony fait automatiquement la requête grâce au ParamConverter</span>
-        <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">render</span>(<span class="php-string">'article/show.html.twig'</span>, [
-            <span class="php-string">'article'</span> =&gt; <span class="php-variable">$article</span>,
-        ]);
-    }
-
-    <span class="php-comment">// UPDATE : Modifier un article</span>
-    #[<span class="php-function">Route</span>(<span class="php-string">'/{id}/edit'</span>, <span class="php-variable">name</span>: <span class="php-string">'article_edit'</span>, <span class="php-variable">methods</span>: [<span class="php-string">'GET'</span>, <span class="php-string">'POST'</span>])]
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">edit</span>(
-        <span class="php-class">Request</span> <span class="php-variable">$request</span>,
-        <span class="php-class">Article</span> <span class="php-variable">$article</span>,
-        <span class="php-class">EntityManagerInterface</span> <span class="php-variable">$entityManager</span>
-    ): <span class="php-class">Response</span> {
-        <span class="php-variable">$form</span> = <span class="php-variable">$this</span>-&gt;<span class="php-function">createForm</span>(<span class="php-class">ArticleType</span>::<span class="php-keyword">class</span>, <span class="php-variable">$article</span>);
-        <span class="php-variable">$form</span>-&gt;<span class="php-function">handleRequest</span>(<span class="php-variable">$request</span>);
-
-        <span class="php-keyword">if</span> (<span class="php-variable">$form</span>-&gt;<span class="php-function">isSubmitted</span>() &amp;&amp; <span class="php-variable">$form</span>-&gt;<span class="php-function">isValid</span>()) {
-            <span class="php-comment">// Pas besoin de persist pour une modification</span>
-            <span class="php-variable">$entityManager</span>-&gt;<span class="php-function">flush</span>();
-
-            <span class="php-variable">$this</span>-&gt;<span class="php-function">addFlash</span>(<span class="php-string">'success'</span>, <span class="php-string">'Article modifié avec succès !'</span>);
-            <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">redirectToRoute</span>(<span class="php-string">'article_index'</span>);
-        }
-
-        <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">render</span>(<span class="php-string">'article/edit.html.twig'</span>, [
-            <span class="php-string">'article'</span> =&gt; <span class="php-variable">$article</span>,
-            <span class="php-string">'form'</span> =&gt; <span class="php-variable">$form</span>,
-        ]);
-    }
-
-    <span class="php-comment">// DELETE : Supprimer un article</span>
-    #[<span class="php-function">Route</span>(<span class="php-string">'/{id}'</span>, <span class="php-variable">name</span>: <span class="php-string">'article_delete'</span>, <span class="php-variable">methods</span>: [<span class="php-string">'POST'</span>])]
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">delete</span>(
-        <span class="php-class">Request</span> <span class="php-variable">$request</span>,
-        <span class="php-class">Article</span> <span class="php-variable">$article</span>,
-        <span class="php-class">EntityManagerInterface</span> <span class="php-variable">$entityManager</span>
-    ): <span class="php-class">Response</span> {
-        <span class="php-keyword">if</span> (<span class="php-variable">$this</span>-&gt;<span class="php-function">isCsrfTokenValid</span>(<span class="php-string">'delete'</span> . <span class="php-variable">$article</span>-&gt;<span class="php-function">getId</span>(), <span class="php-variable">$request</span>-&gt;<span class="php-function">request</span>-&gt;<span class="php-function">get</span>(<span class="php-string">'_token'</span>))) {
-            <span class="php-variable">$entityManager</span>-&gt;<span class="php-function">remove</span>(<span class="php-variable">$article</span>);
-            <span class="php-variable">$entityManager</span>-&gt;<span class="php-function">flush</span>();
-
-            <span class="php-variable">$this</span>-&gt;<span class="php-function">addFlash</span>(<span class="php-string">'success'</span>, <span class="php-string">'Article supprimé avec succès !'</span>);
-        }
-
-        <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">redirectToRoute</span>(<span class="php-string">'article_index'</span>);
-    }
-}</code></pre>
-                </div>
-
-                <h3 class="text-purple">3. Méthodes principales de l'EntityManager</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-php"><span class="php-comment">// Injection de l'EntityManager dans un contrôleur</span>
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">__construct</span>(<span class="php-class">EntityManagerInterface</span> <span class="php-variable">$entityManager</span>)
-{
-    <span class="php-variable">$this</span>-&gt;entityManager = <span class="php-variable">$entityManager</span>;
-}
-
-<span class="php-comment">// CRUD avec EntityManager</span>
-<span class="php-variable">$article</span> = <span class="php-keyword">new</span> <span class="php-class">Article</span>();
-<span class="php-variable">$article</span>-&gt;<span class="php-function">setTitle</span>(<span class="php-string">'Mon titre'</span>);
-<span class="php-variable">$article</span>-&gt;<span class="php-function">setContent</span>(<span class="php-string">'Mon contenu'</span>);
-
-<span class="php-comment">// Persist : prépare l'insertion</span>
-<span class="php-variable">$entityManager</span>-&gt;<span class="php-function">persist</span>(<span class="php-variable">$article</span>);
-
-<span class="php-comment">// Flush : exécute les requêtes SQL</span>
-<span class="php-variable">$entityManager</span>-&gt;<span class="php-function">flush</span>();
-
-<span class="php-comment">// Modification (pas besoin de persist)</span>
-<span class="php-variable">$article</span>-&gt;<span class="php-function">setTitle</span>(<span class="php-string">'Nouveau titre'</span>);
-<span class="php-variable">$entityManager</span>-&gt;<span class="php-function">flush</span>();
-
-<span class="php-comment">// Suppression</span>
-<span class="php-variable">$entityManager</span>-&gt;<span class="php-function">remove</span>(<span class="php-variable">$article</span>);
-<span class="php-variable">$entityManager</span>-&gt;<span class="php-function">flush</span>();
-
-<span class="php-comment">// Récupérer une entité</span>
-<span class="php-variable">$article</span> = <span class="php-variable">$entityManager</span>-&gt;<span class="php-function">find</span>(<span class="php-class">Article</span>::<span class="php-keyword">class</span>, <span class="php-number">1</span>);
-
-<span class="php-comment">// Récupérer toutes les entités</span>
-<span class="php-variable">$articles</span> = <span class="php-variable">$entityManager</span>-&gt;<span class="php-function">getRepository</span>(<span class="php-class">Article</span>::<span class="php-keyword">class</span>)-&gt;<span class="php-function">findAll</span>();</code></pre>
-                </div>
-
-                <h3 class="text-purple">4. Méthodes de recherche dans les Repository</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-php"><span class="php-comment">// Dans ArticleRepository.php - Méthodes personnalisées</span>
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">findRecent</span>(<span class="php-keyword">int</span> <span class="php-variable">$maxResults</span> = <span class="php-number">10</span>): <span class="php-class">array</span>
-{
-    <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">createQueryBuilder</span>(<span class="php-string">'a'</span>)
-        -&gt;<span class="php-function">andWhere</span>(<span class="php-string">'a.publishedAt IS NOT NULL'</span>)
-        -&gt;<span class="php-function">orderBy</span>(<span class="php-string">'a.publishedAt'</span>, <span class="php-string">'DESC'</span>)
-        -&gt;<span class="php-function">setMaxResults</span>(<span class="php-variable">$maxResults</span>)
-        -&gt;<span class="php-function">getQuery</span>()
-        -&gt;<span class="php-function">getResult</span>();
-}
-
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">findByCategory</span>(<span class="php-class">Category</span> <span class="php-variable">$category</span>): <span class="php-class">array</span>
-{
-    <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">createQueryBuilder</span>(<span class="php-string">'a'</span>)
-        -&gt;<span class="php-function">andWhere</span>(<span class="php-string">'a.category = :category'</span>)
-        -&gt;<span class="php-function">setParameter</span>(<span class="php-string">'category'</span>, <span class="php-variable">$category</span>)
-        -&gt;<span class="php-function">orderBy</span>(<span class="php-string">'a.publishedAt'</span>, <span class="php-string">'DESC'</span>)
-        -&gt;<span class="php-function">getQuery</span>()
-        -&gt;<span class="php-function">getResult</span>();
-}
-
-<span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">search</span>(<span class="php-keyword">string</span> <span class="php-variable">$query</span>): <span class="php-class">array</span>
-{
-    <span class="php-keyword">return</span> <span class="php-variable">$this</span>-&gt;<span class="php-function">createQueryBuilder</span>(<span class="php-string">'a'</span>)
-        -&gt;<span class="php-function">andWhere</span>(<span class="php-string">'a.title LIKE :query OR a.content LIKE :query'</span>)
-        -&gt;<span class="php-function">setParameter</span>(<span class="php-string">'query'</span>, <span class="php-string">'%'</span> . <span class="php-variable">$query</span> . <span class="php-string">'%'</span>)
-        -&gt;<span class="php-function">orderBy</span>(<span class="php-string">'a.publishedAt'</span>, <span class="php-string">'DESC'</span>)
-        -&gt;<span class="php-function">getQuery</span>()
-        -&gt;<span class="php-function">getResult</span>();
-}
-
-<span class="php-comment">// Méthodes de recherche natives disponibles</span>
-<span class="php-variable">$repository</span>-&gt;<span class="php-function">find</span>(<span class="php-number">1</span>);               <span class="php-comment">// Par ID</span>
-<span class="php-variable">$repository</span>-&gt;<span class="php-function">findAll</span>();             <span class="php-comment">// Tous les enregistrements</span>
-<span class="php-variable">$repository</span>-&gt;<span class="php-function">findBy</span>([...]);         <span class="php-comment">// Par critères</span>
-<span class="php-variable">$repository</span>-&gt;<span class="php-function">findOneBy</span>([...]);     <span class="php-comment">// Un seul par critères</span>
-<span class="php-variable">$repository</span>-&gt;<span class="php-function">count</span>([...]);          <span class="php-comment">// Compter les résultats</span></code></pre>
-                </div>
-            </div>
-
-            <!-- Fixtures avec symfony make:fixtures -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Générer des données de test avec symfony make:fixtures</h2>
-                <p class="textExemple">
-                    Les fixtures permettent de peupler votre base de données avec des données de test pour le développement.
-                </p>
-
-                <h3 class="text-purple">1. Installation et création de fixtures</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Installer le bundle de fixtures</span>
-<span class="bash-prompt">$</span> <span class="bash-command">composer require --dev orm-fixtures</span>
-
-<span class="bash-comment"># Créer une classe de fixtures</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:fixtures</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Générer une classe de fixtures</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:fixtures</span>
 
 <span class="bash-string">Comment voulez-vous nommer la classe de fixtures ?</span>
-<span class="bash-parameter">[ex: AppFixtures]</span>
 <span class="bash-command">&gt;</span> <span class="bash-highlight">ArticleFixtures</span>
 
-<span class="bash-success">✅ src/DataFixtures/ArticleFixtures.php créé</span></code></pre>
+<span class="bash-success">Fixtures créées avec succès</span>
+<span class="bash-success">✓ Fichier : src/DataFixtures/ArticleFixtures.php</span></code></pre>
                 </div>
 
-                <h3 class="text-purple">2. Exemple de fixtures complètes</h3>
+                <h3 class="text-purple">2. Structure de base des fixtures</h3>
                 <div class="code-example">
                     <pre v-pre><code class="language-php"><span class="php-keyword">&lt;?php</span>
 
 <span class="php-keyword">namespace</span> App\<span class="php-class">DataFixtures</span>;
 
 <span class="php-keyword">use</span> App\<span class="php-class">Entity</span>\<span class="php-class">Article</span>;
-<span class="php-keyword">use</span> App\<span class="php-class">Entity</span>\<span class="php-class">Category</span>;
 <span class="php-keyword">use</span> Doctrine\<span class="php-class">Bundle</span>\<span class="php-class">FixturesBundle</span>\<span class="php-class">Fixture</span>;
 <span class="php-keyword">use</span> Doctrine\<span class="php-class">Persistence</span>\<span class="php-class">ObjectManager</span>;
 
@@ -766,33 +426,52 @@ Configuration → Entités → Migrations → Requêtes → Persistance des donn
 {
     <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">load</span>(<span class="php-class">ObjectManager</span> <span class="php-variable">$manager</span>): <span class="php-keyword">void</span>
     {
-        <span class="php-comment">// Créer des catégories</span>
-        <span class="php-variable">$categories</span> = [];
-        <span class="php-variable">$categoryNames</span> = [<span class="php-string">'PHP'</span>, <span class="php-string">'Symfony'</span>, <span class="php-string">'Doctrine'</span>, <span class="php-string">'JavaScript'</span>];
-        
-        <span class="php-keyword">foreach</span> (<span class="php-variable">$categoryNames</span> <span class="php-keyword">as</span> <span class="php-variable">$index</span> =&gt; <span class="php-variable">$name</span>) {
-            <span class="php-variable">$category</span> = <span class="php-keyword">new</span> <span class="php-class">Category</span>();
-            <span class="php-variable">$category</span>-&gt;<span class="php-function">setName</span>(<span class="php-variable">$name</span>);
-            <span class="php-variable">$manager</span>-&gt;<span class="php-function">persist</span>(<span class="php-variable">$category</span>);
-            <span class="php-variable">$categories</span>[] = <span class="php-variable">$category</span>;
-            
-            <span class="php-comment">// Stocker la référence pour usage ultérieur</span>
-            <span class="php-variable">$this</span>-&gt;<span class="php-function">addReference</span>(<span class="php-string">'category_'</span> . <span class="php-variable">$index</span>, <span class="php-variable">$category</span>);
-        }
+        <span class="php-comment">// $product = new Product();</span>
+        <span class="php-comment">// $manager->persist($product);</span>
 
-        <span class="php-comment">// Créer des articles</span>
+        <span class="php-variable">$manager</span>-&gt;<span class="php-function">flush</span>();
+    }
+}</code></pre>
+                </div>
+
+                <h3 class="text-purple">3. Utilisation de FakerPHP dans les fixtures</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-php"><span class="php-keyword">&lt;?php</span>
+
+<span class="php-keyword">namespace</span> App\<span class="php-class">DataFixtures</span>;
+
+<span class="php-keyword">use</span> App\<span class="php-class">Entity</span>\<span class="php-class">Article</span>;
+<span class="php-keyword">use</span> Doctrine\<span class="php-class">Bundle</span>\<span class="php-class">FixturesBundle</span>\<span class="php-class">Fixture</span>;
+<span class="php-keyword">use</span> Doctrine\<span class="php-class">Persistence</span>\<span class="php-class">ObjectManager</span>;
+
+<span class="php-keyword">class</span> <span class="php-class">ArticleFixtures</span> <span class="php-keyword">extends</span> <span class="php-class">Fixture</span>
+{
+    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">load</span>(<span class="php-class">ObjectManager</span> <span class="php-variable">$manager</span>): <span class="php-keyword">void</span>
+    {
+        <span class="php-comment">// Initialiser Faker en français</span>
         <span class="php-variable">$faker</span> = \<span class="php-class">Faker</span>\<span class="php-class">Factory</span>::<span class="php-function">create</span>(<span class="php-string">'fr_FR'</span>);
-        
+
+        <span class="php-comment">// Créer 50 articles</span>
         <span class="php-keyword">for</span> (<span class="php-variable">$i</span> = <span class="php-number">0</span>; <span class="php-variable">$i</span> &lt; <span class="php-number">50</span>; <span class="php-variable">$i</span>++) {
             <span class="php-variable">$article</span> = <span class="php-keyword">new</span> <span class="php-class">Article</span>();
-            <span class="php-variable">$article</span>-&gt;<span class="php-function">setTitle</span>(<span class="php-variable">$faker</span>-&gt;<span class="php-function">sentence</span>(<span class="php-number">6</span>));
-            <span class="php-variable">$article</span>-&gt;<span class="php-function">setContent</span>(<span class="php-variable">$faker</span>-&gt;<span class="php-function">paragraphs</span>(<span class="php-number">3</span>, <span class="php-keyword">true</span>));
-            <span class="php-variable">$article</span>-&gt;<span class="php-function">setPublishedAt</span>(<span class="php-variable">$faker</span>-&gt;<span class="php-function">optional</span>(<span class="php-number">0.8</span>)-&gt;<span class="php-function">dateTimeBetween</span>(<span class="php-string">'-1 year'</span>, <span class="php-string">'now'</span>));
             
-            <span class="php-comment">// Associer une catégorie aléatoire</span>
-            <span class="php-variable">$article</span>-&gt;<span class="php-function">setCategory</span>(<span class="php-variable">$categories</span>[<span class="php-variable">$faker</span>-&gt;<span class="php-function">numberBetween</span>(<span class="php-number">0</span>, <span class="php-function">count</span>(<span class="php-variable">$categories</span>) - <span class="php-number">1</span>)]);
+            <span class="php-comment">// Générer un titre réaliste avec Faker</span>
+            <span class="php-variable">$article</span>-&gt;<span class="php-function">setTitle</span>(<span class="php-variable">$faker</span>-&gt;<span class="php-function">sentence</span>(<span class="php-number">6</span>));
+            
+            <span class="php-comment">// Générer un contenu réaliste</span>
+            <span class="php-variable">$article</span>-&gt;<span class="php-function">setContent</span>(<span class="php-variable">$faker</span>-&gt;<span class="php-function">paragraphs</span>(<span class="php-number">3</span>, <span class="php-keyword">true</span>));
+            
+            <span class="php-comment">// 80% des articles sont publiés, 20% en brouillon (null)</span>
+            <span class="php-keyword">if</span> (<span class="php-variable">$faker</span>-&gt;<span class="php-function">boolean</span>(<span class="php-number">80</span>)) {
+                <span class="php-variable">$article</span>-&gt;<span class="php-function">setPublishedAt</span>(
+                    <span class="php-variable">$faker</span>-&gt;<span class="php-function">dateTimeBetween</span>(<span class="php-string">'-1 year'</span>, <span class="php-string">'now'</span>)
+                );
+            }
             
             <span class="php-variable">$manager</span>-&gt;<span class="php-function">persist</span>(<span class="php-variable">$article</span>);
+            
+            <span class="php-comment">// Ajouter une référence pour usage ultérieur</span>
+            <span class="php-variable">$this</span>-&gt;<span class="php-function">addReference</span>(<span class="php-string">'article_'</span> . <span class="php-variable">$i</span>, <span class="php-variable">$article</span>);
         }
 
         <span class="php-variable">$manager</span>-&gt;<span class="php-function">flush</span>();
@@ -800,237 +479,366 @@ Configuration → Entités → Migrations → Requêtes → Persistance des donn
 }</code></pre>
                 </div>
 
-                <h3 class="text-purple">3. Charger les fixtures</h3>
+                <h3 class="text-purple">4. Méthodes utiles de FakerPHP</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Charger toutes les fixtures</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load</span>
+                    <pre v-pre><code class="language-php"><span class="php-comment">// Texte</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">sentence</span>(<span class="php-number">6</span>);              <span class="php-comment">// "Lorem ipsum dolor sit amet."</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">paragraphs</span>(<span class="php-number">3</span>, <span class="php-keyword">true</span>);     <span class="php-comment">// 3 paragraphes concaténés</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">text</span>(<span class="php-number">200</span>);               <span class="php-comment">// Texte de 200 caractères</span>
 
-<span class="bash-string">Attention, cette action va vider la base de données. Continuer ? (oui/no) [no]</span>
-<span class="bash-command">&gt;</span> <span class="bash-highlight">oui</span>
+<span class="php-comment">// Dates</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">dateTime</span>();                 <span class="php-comment">// Date aléatoire</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">dateTimeBetween</span>(<span class="php-string">'-1 year'</span>, <span class="php-string">'now'</span>); <span class="php-comment">// Dernière année</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">dateTimeThisYear</span>();        <span class="php-comment">// Cette année</span>
 
-<span class="bash-success">✓ Purge de la base de données</span>
-<span class="bash-success">✓ Chargement de ArticleFixtures</span>
-<span class="bash-success">✅ Fixtures chargées avec succès</span>
+<span class="php-comment">// Nombres et booléens</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">numberBetween</span>(<span class="php-number">1</span>, <span class="php-number">100</span>);     <span class="php-comment">// Nombre entre 1 et 100</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">randomFloat</span>(<span class="php-number">2</span>, <span class="php-number">0</span>, <span class="php-number">1000</span>);  <span class="php-comment">// Nombre décimal</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">boolean</span>(<span class="php-number">70</span>);              <span class="php-comment">// 70% de chance d'être true</span>
 
-<span class="bash-comment"># Charger une fixture spécifique</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load --group=ArticleFixtures</span>
+<span class="php-comment">// Noms et emails</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">name</span>();                     <span class="php-comment">// "Jean Dupont"</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">email</span>();                    <span class="php-comment">// "jean.dupont@example.com"</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">firstName</span>();               <span class="php-comment">// "Marie"</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">lastName</span>();                <span class="php-comment">// "Martin"</span>
 
-<span class="bash-comment"># Ajouter des données sans purger</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load --append</span></code></pre>
+<span class="php-comment">// Adresses</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">address</span>();                  <span class="php-comment">// Adresse complète</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">city</span>();                     <span class="php-comment">// "Paris"</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">postcode</span>();                 <span class="php-comment">// "75001"</span>
+
+<span class="php-comment">// Internet</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">url</span>();                      <span class="php-comment">// "https://example.com"</span>
+<span class="php-variable">$faker</span>-&gt;<span class="php-function">userName</span>();                 <span class="php-comment">// "jdupont23"</span></code></pre>
                 </div>
             </div>
 
-            <!-- Bonnes pratiques et commandes utiles -->
+            <!-- ÉTAPE 4 : Chargement des fixtures -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Bonnes pratiques et commandes utiles</h2>
+                <h2 class="text-purple">Étape 4 : Charger les fixtures dans la base de données</h2>
+                <p class="textExemple">
+                    Une fois vos fixtures créées, vous pouvez les charger dans votre base de données pour peupler vos tables avec des données de test.
+                </p>
 
-                <h3 class="text-purple">Commandes Doctrine essentielles</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># RÉSUMÉ DES COMMANDES PRINCIPALES</span>
-
-<span class="bash-comment"># Configuration et base de données</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:create</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:drop --force</span>
-
-<span class="bash-comment"># Entités</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity --regenerate</span>  <span class="bash-comment"># Regénérer les getters/setters</span>
-
-<span class="bash-comment"># Migrations</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:migration</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:status</span>
-
-<span class="bash-comment"># Validation et schéma</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:validate</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:update --dump-sql</span>
-
-<span class="bash-comment"># Fixtures</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:fixtures</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load</span>
-
-<span class="bash-comment"># Requêtes SQL</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT * FROM article"</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:dql "SELECT a FROM App\Entity\Article a"</span></code></pre>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Commande pour charger les fixtures</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load</span></code></pre>
                 </div>
 
-                <h3 class="text-purple">Bonnes pratiques Doctrine</h3>
-                <ul class="textExemple">
-                    <li><strong>Utilisez toujours les migrations</strong> : Jamais de modifications directes en production</li>
-                    <li><strong>Validez votre mapping</strong> : Exécutez <code>doctrine:schema:validate</code> régulièrement</li>
-                    <li><strong>Nommez bien vos entités</strong> : Utilisez des noms au singulier (Article, pas Articles)</li>
-                    <li><strong>Utilisez les Repository</strong> : Placez la logique de requête dans les Repository, pas dans les contrôleurs</li>
-                    <li><strong>Gérez les transactions</strong> : Utilisez <code>beginTransaction()</code>, <code>commit()</code> et <code>rollback()</code> pour les opérations complexes</li>
-                    <li><strong>Indexez vos colonnes</strong> : Ajoutez des index sur les colonnes fréquemment recherchées</li>
-                </ul>
-
-                <h3 class="text-purple">Optimisation des performances</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-php"><span class="php-comment">// Éviter le N+1 problème avec JOIN FETCH</span>
-<span class="php-variable">$articles</span> = <span class="php-variable">$entityManager</span>
-    -&gt;<span class="php-function">createQuery</span>(<span class="php-string">'
-        SELECT a, c FROM App\Entity\Article a
-        JOIN a.category c
-        WHERE a.publishedAt IS NOT NULL
-    '</span>)
-    -&gt;<span class="php-function">getResult</span>();
+                    <h4 class="text-purple">Exécution interactive :</h4>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load</span>
 
-<span class="php-comment">// Utiliser la pagination pour les grandes listes</span>
-<span class="php-variable">$query</span> = <span class="php-variable">$entityManager</span>
-    -&gt;<span class="php-function">getRepository</span>(<span class="php-class">Article</span>::<span class="php-keyword">class</span>)
-    -&gt;<span class="php-function">createQueryBuilder</span>(<span class="php-string">'a'</span>)
-    -&gt;<span class="php-function">orderBy</span>(<span class="php-string">'a.publishedAt'</span>, <span class="php-string">'DESC'</span>)
-    -&gt;<span class="php-function">getQuery</span>();
+<span class="bash-comment"># Attention : Cette commande va PURGER votre base de données !</span>
+<span class="bash-string">Careful, database "mon_projet" will be purged.
+Do you want to continue? (yes/no) [no]:</span>
+<span class="bash-command">&gt;</span> <span class="bash-highlight">yes</span>
 
-<span class="php-variable">$paginator</span> = <span class="php-keyword">new</span> \<span class="php-class">Doctrine</span>\<span class="php-class">ORM</span>\<span class="php-class">Tools</span>\<span class="php-class">Pagination</span>\<span class="php-class">Paginator</span>(<span class="php-variable">$query</span>);
-<span class="php-variable">$paginator</span>-&gt;<span class="php-function">getQuery</span>()
-    -&gt;<span class="php-function">setFirstResult</span>(<span class="php-number">0</span>)  <span class="php-comment">// Offset</span>
-    -&gt;<span class="php-function">setMaxResults</span>(<span class="php-number">10</span>); <span class="php-comment">// Limit</span></code></pre>
+<span class="bash-success">✓ Purging database</span>
+<span class="bash-success">✓ Loading App\DataFixtures\ArticleFixtures</span>
+<span class="bash-success">Fixtures loaded successfully!</span>
+
+<span class="bash-comment"># Vérifier que les données ont été insérées</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT COUNT(*) FROM article"</span>
+
+<span class="bash-comment"># Sortie :</span>
+<span class="bash-string">+----------+</span>
+<span class="bash-string">| COUNT(*) |</span>
+<span class="bash-string">+----------+</span>
+<span class="bash-string">|       50 |</span>  <span class="bash-comment">← 50 articles créés !</span>
+<span class="bash-string">+----------+</span>
+
+<span class="bash-comment"># Voir un exemple d'article</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT id, title FROM article LIMIT 3"</span>
+
+<span class="bash-comment"># Sortie :</span>
+<span class="bash-string">+----+-----------------------------------------+</span>
+<span class="bash-string">| id | title                                   |</span>
+<span class="bash-string">+----+-----------------------------------------+</span>
+<span class="bash-string">|  1 | Lorem ipsum dolor sit amet consectetur. |</span>
+<span class="bash-string">|  2 | Adipisci velit sed quia non numquam.    |</span>
+<span class="bash-string">|  3 | Eius modi tempora incidunt ut labore.   |</span>
+<span class="bash-string">+----+-----------------------------------------+</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Options de chargement des fixtures</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Charger sans confirmation (utile pour les scripts)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load --no-interaction</span>
+
+<span class="bash-comment"># Ajouter des données sans purger la base</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load --append</span>
+
+<span class="bash-comment"># Charger un groupe spécifique de fixtures</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load --group=ArticleFixtures</span>
+
+<span class="bash-comment"># Exclure certains groupes</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load --exclude-group=AdminFixtures</span>
+
+<span class="bash-comment"># Afficher les fixtures qui seront chargées</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load --dry-run</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Gestion des dépendances entre fixtures</h3>
+                <p class="textExemple">
+                    Lorsque vous avez plusieurs fixtures avec des relations entre elles, vous pouvez gérer les dépendances :
+                </p>
+
+                <div class="code-example">
+                    <pre v-pre><code class="language-php"><span class="php-keyword">&lt;?php</span>
+
+<span class="php-keyword">namespace</span> App\<span class="php-class">DataFixtures</span>;
+
+<span class="php-keyword">use</span> App\<span class="php-class">Entity</span>\<span class="php-class">Category</span>;
+<span class="php-keyword">use</span> App\<span class="php-class">Entity</span>\<span class="php-class">Article</span>;
+<span class="php-keyword">use</span> Doctrine\<span class="php-class">Bundle</span>\<span class="php-class">FixturesBundle</span>\<span class="php-class">Fixture</span>;
+<span class="php-keyword">use</span> Doctrine\<span class="php-class">Common</span>\<span class="php-class">DataFixtures</span>\<span class="php-class">DependentFixtureInterface</span>;
+<span class="php-keyword">use</span> Doctrine\<span class="php-class">Persistence</span>\<span class="php-class">ObjectManager</span>;
+
+<span class="php-keyword">class</span> <span class="php-class">ArticleFixtures</span> <span class="php-keyword">extends</span> <span class="php-class">Fixture</span> <span class="php-keyword">implements</span> <span class="php-class">DependentFixtureInterface</span>
+{
+    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">load</span>(<span class="php-class">ObjectManager</span> <span class="php-variable">$manager</span>): <span class="php-keyword">void</span>
+    {
+        <span class="php-variable">$faker</span> = \<span class="php-class">Faker</span>\<span class="php-class">Factory</span>::<span class="php-function">create</span>(<span class="php-string">'fr_FR'</span>);
+        
+        <span class="php-keyword">for</span> (<span class="php-variable">$i</span> = <span class="php-number">0</span>; <span class="php-variable">$i</span> &lt; <span class="php-number">50</span>; <span class="php-variable">$i</span>++) {
+            <span class="php-variable">$article</span> = <span class="php-keyword">new</span> <span class="php-class">Article</span>();
+            <span class="php-variable">$article</span>-&gt;<span class="php-function">setTitle</span>(<span class="php-variable">$faker</span>-&gt;<span class="php-function">sentence</span>());
+            <span class="php-variable">$article</span>-&gt;<span class="php-function">setContent</span>(<span class="php-variable">$faker</span>-&gt;<span class="php-function">paragraphs</span>(<span class="php-number">3</span>, <span class="php-keyword">true</span>));
+            
+            <span class="php-comment">// Récupérer une catégorie aléatoire créée par CategoryFixtures</span>
+            <span class="php-variable">$category</span> = <span class="php-variable">$this</span>-&gt;<span class="php-function">getReference</span>(
+                <span class="php-string">'category_'</span> . <span class="php-variable">$faker</span>-&gt;<span class="php-function">numberBetween</span>(<span class="php-number">0</span>, <span class="php-number">4</span>)
+            );
+            <span class="php-variable">$article</span>-&gt;<span class="php-function">setCategory</span>(<span class="php-variable">$category</span>);
+            
+            <span class="php-variable">$manager</span>-&gt;<span class="php-function">persist</span>(<span class="php-variable">$article</span>);
+        }
+        
+        <span class="php-variable">$manager</span>-&gt;<span class="php-function">flush</span>();
+    }
+    
+    <span class="php-keyword">public</span> <span class="php-keyword">function</span> <span class="php-function">getDependencies</span>(): <span class="php-class">array</span>
+    {
+        <span class="php-keyword">return</span> [
+            <span class="php-class">CategoryFixtures</span>::<span class="php-keyword">class</span>,  <span class="php-comment">// S'exécute après CategoryFixtures</span>
+        ];
+    }
+}</code></pre>
+                </div>
+
+                <div class="code-example tip">
+                    <h4 class="text-purple">Cycle de développement typique</h4>
+                    <p class="textExemple">
+                        Lorsque vous développez, vous allez souvent répéter ce cycle :
+                    </p>
+                    <ol class="textExemple">
+                        <li>Modifier une entité (ajouter/supprimer un champ)</li>
+                        <li>Générer une migration : <code>make:migration</code></li>
+                        <li>Exécuter la migration : <code>doctrine:migrations:migrate</code></li>
+                        <li>Charger les fixtures : <code>doctrine:fixtures:load</code></li>
+                        <li>Tester votre application</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Récapitulatif complet -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Récapitulatif : Workflow complet Doctrine</h2>
+                
+                <h3 class="text-purple">Séquence complète des commandes</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># 1. INSTALLATION (une seule fois)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer require symfony/orm-pack</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer require --dev symfony/maker-bundle orm-fixtures fakerphp/faker</span>
+
+<span class="bash-comment"># 2. CONFIGURATION (une seule fois)</span>
+<span class="bash-comment"># Éditer le fichier .env et configurer DATABASE_URL</span>
+
+<span class="bash-comment"># 3. CRÉATION DE LA BASE (étape 1)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:create</span>
+
+<span class="bash-comment"># 4. CRÉATION DES ENTITÉS (pré-requis)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:entity NomEntite</span>
+
+<span class="bash-comment"># 5. GÉNÉRATION DES MIGRATIONS (étape 2)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:migration</span>
+
+<span class="bash-comment"># 6. EXÉCUTION DES MIGRATIONS (étape 3)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate</span>
+
+<span class="bash-comment"># 7. CRÉATION DES FIXTURES (pré-requis)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:fixtures</span>
+<span class="bash-comment"># Éditer le fichier src/DataFixtures/*.php avec FakerPHP</span>
+
+<span class="bash-comment"># 8. CHARGEMENT DES FIXTURES (étape 4)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load</span>
+
+<span class="bash-comment"># 9. VÉRIFICATION</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT COUNT(*) FROM nom_table"</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Script bash pour automatiser le processus</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment">#!/bin/bash</span>
+<span class="bash-comment"># script-doctrine.sh - Automatise le workflow Doctrine</span>
+
+<span class="bash-keyword">echo</span> <span class="bash-string">"Début du workflow Doctrine..."</span>
+
+<span class="bash-comment"># 1. Créer la base de données</span>
+<span class="bash-keyword">echo</span> <span class="bash-string">"Étape 1 : Création de la base de données"</span>
+symfony console doctrine:database:create --if-not-exists
+
+<span class="bash-comment"># 2. Générer les migrations</span>
+<span class="bash-keyword">echo</span> <span class="bash-string">"Étape 2 : Génération des migrations"</span>
+symfony console make:migration
+
+<span class="bash-comment"># 3. Exécuter les migrations</span>
+<span class="bash-keyword">echo</span> <span class="bash-string">"Étape 3 : Exécution des migrations"</span>
+symfony console doctrine:migrations:migrate --no-interaction
+
+<span class="bash-comment"># 4. Charger les fixtures</span>
+<span class="bash-keyword">echo</span> <span class="bash-string">"Étape 4 : Chargement des fixtures"</span>
+symfony console doctrine:fixtures:load --no-interaction
+
+<span class="bash-keyword">echo</span> <span class="bash-string">"Workflow Doctrine terminé avec succès !"</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Commandes de débogage et vérification</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Vérifier l'état de la base</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SHOW TABLES"</span>
+
+<span class="bash-comment"># Voir la structure d'une table</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "DESCRIBE article"</span>
+
+<span class="bash-comment"># Compter les enregistrements</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT COUNT(*) FROM article"</span>
+
+<span class="bash-comment"># Voir les données d'exemple</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT * FROM article LIMIT 5"</span>
+
+<span class="bash-comment"># Vérifier l'état des migrations</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:status</span>
+
+<span class="bash-comment"># Valider le mapping</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:validate</span></code></pre>
                 </div>
             </div>
 
             <!-- Exercice pratique -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Exercice pratique : Système de blog complet</h2>
+                <h2 class="text-purple">Exercice pratique : Blog complet</h2>
                 <div class="exercise">
                     <p class="textExemple">
-                        <strong>Objectif :</strong> Créer un système de blog complet avec Doctrine.
+                        <strong>Objectif :</strong> Créer un système de blog complet en suivant les 4 étapes Doctrine.
                     </p>
                     <ol class="textExemple">
-                        <li>Créer les entités suivantes :
-                            <ul>
-                                <li><code>Post</code> (titre, contenu, date de publication, slug)</li>
-                                <li><code>Category</code> (nom, slug, description)</li>
-                                <li><code>Comment</code> (auteur, contenu, date, post associé)</li>
-                                <li><code>Tag</code> (nom, couleur) - Relation ManyToMany avec Post</li>
-                            </ul>
-                        </li>
-                        <li>Configurer toutes les relations entre entités</li>
-                        <li>Générer et exécuter les migrations</li>
-                        <li>Créer des fixtures pour peupler la base de données</li>
-                        <li>Créer un contrôleur avec les fonctionnalités CRUD pour les posts</li>
-                        <li>Ajouter des méthodes de recherche dans les Repository</li>
+                        <li><strong>Configuration</strong> : Installer les dépendances et configurer <code>.env</code></li>
+                        <li><strong>Étape 1</strong> : Créer la base avec <code>doctrine:database:create</code></li>
+                        <li><strong>Entités</strong> : Créer 3 entités : <code>Post</code>, <code>Category</code>, <code>Comment</code></li>
+                        <li><strong>Étape 2</strong> : Générer les migrations avec <code>make:migration</code></li>
+                        <li><strong>Étape 3</strong> : Exécuter les migrations avec <code>doctrine:migrations:migrate</code></li>
+                        <li><strong>Fixtures</strong> : Créer des fixtures avec FakerPHP pour chaque entité</li>
+                        <li><strong>Étape 4</strong> : Charger les fixtures avec <code>doctrine:fixtures:load</code></li>
+                        <li><strong>Vérification</strong> : Vérifier que les données sont bien présentes</li>
                     </ol>
                 </div>
 
                 <details class="solution">
-                    <summary class="btn-purple btn-hover">Voir la solution</summary>
+                    <summary class="btn-purple btn-hover">Voir la solution guidée</summary>
                     <div class="solution-content">
-                        <h4 class="text-purple">Étapes de la solution :</h4>
+                        <h4 class="text-purple">Solution étape par étape :</h4>
                         
                         <div class="code-example">
-                            <h5 class="text-purple">1. Créer les entités</h5>
-                            <pre v-pre><code class="language-bash"><span class="bash-comment"># Créer les entités une par une</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity Post</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity Category</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity Comment</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity Tag</span>
+                            <h5 class="text-purple">1. Installation et configuration</h5>
+                            <pre v-pre><code class="language-bash"><span class="bash-comment"># Installation</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer require symfony/orm-pack</span>
+<span class="bash-prompt">$</span> <span class="bash-command">composer require --dev symfony/maker-bundle orm-fixtures fakerphp/faker</span>
 
-<span class="bash-comment"># Ajouter les relations</span>
-<span class="bash-comment"># Post ↔ Category (ManyToOne)</span>
-<span class="bash-comment"># Post ↔ Comment (OneToMany)</span>
-<span class="bash-comment"># Post ↔ Tag (ManyToMany)</span></code></pre>
+<span class="bash-comment"># Configuration de .env</span>
+<span class="bash-highlight">DATABASE_URL="mysql://root:@127.0.0.1:3306/mon_blog?serverVersion=8.0"</span></code></pre>
                         </div>
 
                         <div class="code-example">
-                            <h5 class="text-purple">2. Exemple d'entité Post</h5>
-                            <pre v-pre><code class="language-php"><span class="php-keyword">&lt;?php</span>
+                            <h5 class="text-purple">2. Exécution des 4 étapes principales</h5>
+                            <pre v-pre><code class="language-bash"><span class="bash-comment"># ÉTAPE 1 : Création de la base</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:create</span>
 
-<span class="php-keyword">namespace</span> App\<span class="php-class">Entity</span>;
+<span class="bash-comment"># Création des entités</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:entity Post</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:entity Category</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:entity Comment</span>
 
-<span class="php-keyword">use</span> Doctrine\<span class="php-class">Common</span>\<span class="php-class">Collections</span>\<span class="php-class">ArrayCollection</span>;
-<span class="php-keyword">use</span> Doctrine\<span class="php-class">Common</span>\<span class="php-class">Collections</span>\<span class="php-class">Collection</span>;
-<span class="php-keyword">use</span> Doctrine\<span class="php-class">ORM</span>\<span class="php-class">Mapping</span> <span class="php-keyword">as</span> <span class="php-class">ORM</span>;
+<span class="bash-comment"># ÉTAPE 2 : Génération des migrations</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:migration</span>
 
-#[<span class="php-class">ORM</span>\<span class="php-function">Entity</span>]
-<span class="php-keyword">class</span> <span class="php-class">Post</span>
-{
-    #[<span class="php-class">ORM</span>\<span class="php-function">Id</span>]
-    #[<span class="php-class">ORM</span>\<span class="php-function">GeneratedValue</span>]
-    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>]
-    <span class="php-keyword">private</span> ?<span class="php-keyword">int</span> <span class="php-variable">$id</span> = <span class="php-keyword">null</span>;
+<span class="bash-comment"># ÉTAPE 3 : Exécution des migrations</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate</span>
 
-    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">length</span>: <span class="php-number">255</span>)]
-    <span class="php-keyword">private</span> ?<span class="php-keyword">string</span> <span class="php-variable">$title</span> = <span class="php-keyword">null</span>;
+<span class="bash-comment"># Création des fixtures</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:fixtures CategoryFixtures</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:fixtures PostFixtures</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:fixtures CommentFixtures</span>
 
-    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">type</span>: <span class="php-string">'text'</span>)]
-    <span class="php-keyword">private</span> ?<span class="php-keyword">string</span> <span class="php-variable">$content</span> = <span class="php-keyword">null</span>;
+<span class="bash-comment"># ÉTAPE 4 : Chargement des fixtures</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load</span>
 
-    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">length</span>: <span class="php-number">255</span>, <span class="php-variable">unique</span>: <span class="php-keyword">true</span>)]
-    <span class="php-keyword">private</span> ?<span class="php-keyword">string</span> <span class="php-variable">$slug</span> = <span class="php-keyword">null</span>;
-
-    #[<span class="php-class">ORM</span>\<span class="php-function">Column</span>(<span class="php-variable">type</span>: <span class="php-string">'datetime_immutable'</span>, <span class="php-variable">nullable</span>: <span class="php-keyword">true</span>)]
-    <span class="php-keyword">private</span> ?\<span class="php-class">DateTimeImmutable</span> <span class="php-variable">$publishedAt</span> = <span class="php-keyword">null</span>;
-
-    #[<span class="php-class">ORM</span>\<span class="php-function">ManyToOne</span>(<span class="php-variable">targetEntity</span>: <span class="php-class">Category</span>::<span class="php-keyword">class</span>, <span class="php-variable">inversedBy</span>: <span class="php-string">'posts'</span>)]
-    #[<span class="php-class">ORM</span>\<span class="php-function">JoinColumn</span>(<span class="php-variable">nullable</span>: <span class="php-keyword">false</span>)]
-    <span class="php-keyword">private</span> ?<span class="php-class">Category</span> <span class="php-variable">$category</span> = <span class="php-keyword">null</span>;
-
-    #[<span class="php-class">ORM</span>\<span class="php-function">OneToMany</span>(<span class="php-variable">targetEntity</span>: <span class="php-class">Comment</span>::<span class="php-keyword">class</span>, <span class="php-variable">mappedBy</span>: <span class="php-string">'post'</span>, <span class="php-variable">orphanRemoval</span>: <span class="php-keyword">true</span>)]
-    <span class="php-keyword">private</span> <span class="php-class">Collection</span> <span class="php-variable">$comments</span>;
-
-    #[<span class="php-class">ORM</span>\<span class="php-function">ManyToMany</span>(<span class="php-variable">targetEntity</span>: <span class="php-class">Tag</span>::<span class="php-keyword">class</span>, <span class="php-variable">inversedBy</span>: <span class="php-string">'posts'</span>)]
-    <span class="php-keyword">private</span> <span class="php-class">Collection</span> <span class="php-variable">$tags</span>;
-
-    <span class="php-keyword">public</span> <span class="php-keyword">function</span> __construct()
-    {
-        <span class="php-variable">$this</span>-&gt;comments = <span class="php-keyword">new</span> <span class="php-class">ArrayCollection</span>();
-        <span class="php-variable">$this</span>-&gt;tags = <span class="php-keyword">new</span> <span class="php-class">ArrayCollection</span>();
-    }
-
-    <span class="php-comment">// Getters et Setters...</span>
-}</code></pre>
+<span class="bash-comment"># Vérification</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT 'Categories', COUNT(*) FROM category"</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT 'Posts', COUNT(*) FROM post"</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:query:sql "SELECT 'Comments', COUNT(*) FROM comment"</span></code></pre>
                         </div>
                     </div>
                 </details>
             </div>
 
-            <!-- Conclusion et ressources -->
+            <!-- Conclusion -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Conclusion et ressources</h2>
+                <h2 class="text-purple">Conclusion</h2>
                 <p class="textExemple">
-                    Félicitations ! Vous maîtrisez maintenant les bases de Doctrine dans Symfony.
-                    Vous savez configurer une base de données, créer des entités, gérer les migrations,
-                    et effectuer des opérations CRUD avec l'EntityManager et les Repository.
+                    Vous maîtrisez maintenant le workflow complet pour gérer une base de données avec Doctrine dans Symfony !
+                    Les 4 étapes clés sont désormais claires :
                 </p>
-
-                <h3 class="text-purple">Résumé des commandes clés</h3>
+                
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Gestion de la base de données</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># LES 4 ÉTAPES ESSENTIELLES</span>
+
+<span class="bash-comment"># 1. Créer la base de données</span>
 <span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:database:create</span>
 
-<span class="bash-comment"># Gestion des entités</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:entity --regenerate</span>
+<span class="bash-comment"># 2. Générer les migrations (après création/modification d'entités)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">symfony console make:migration</span>
 
-<span class="bash-comment"># Gestion des migrations</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:migration</span>
+<span class="bash-comment"># 3. Exécuter les migrations</span>
 <span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:migrations:migrate</span>
 
-<span class="bash-comment"># Validation et fixtures</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:schema:validate</span>
-<span class="bash-prompt">$</span> <span class="bash-command">symfony make:fixtures</span>
+<span class="bash-comment"># 4. Peupler avec des fixtures (optionnel mais recommandé)</span>
 <span class="bash-prompt">$</span> <span class="bash-command">symfony console doctrine:fixtures:load</span></code></pre>
                 </div>
 
-                <h3 class="text-purple">Prochaines étapes :</h3>
+                <h3 class="text-purple">Points clés à retenir :</h3>
                 <ul class="textExemple">
-                    <li>Apprendre à utiliser les événements Doctrine (Lifecycle Callbacks)</li>
-                    <li>Découvrir les requêtes DQL (Doctrine Query Language) avancées</li>
-                    <li>Explorer les fonctionnalités avancées comme les héritages d'entités</li>
-                    <li>Apprendre à optimiser les performances avec le cache de requêtes</li>
-                    <li>Découvrir les filtres Doctrine pour la multi-location ou la soft-deletion</li>
+                    <li><strong>Les migrations sont versionnées</strong> : Chaque modification génère un fichier que vous pouvez versionner avec Git</li>
+                    <li><strong>Fixtures + FakerPHP</strong> : Combinaison puissante pour créer des données de test réalistes</li>
+                    <li><strong>Toujours vérifier</strong> : Utilisez les commandes de vérification avant d'exécuter en production</li>
+                    <li><strong>Cycle itératif</strong> : Modifiez vos entités → Générez une migration → Exécutez → Testez</li>
                 </ul>
 
-                <h3 class="text-purple">Ressources supplémentaires :</h3>
+                <h3 class="text-purple">Prochaines étapes :</h3>
                 <ul class="textExemple">
-                    <li><a href="https://symfony.com/doc/current/doctrine.html" target="_blank"
-                            class="btn-purple btn-hover">Documentation officielle de Doctrine dans Symfony</a></li>
-                    <li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/association-mapping.html" target="_blank"
-                            class="btn-purple btn-hover">Documentation des relations Doctrine</a></li>
-                    <li><a href="https://symfonycasts.com/screencast/doctrine" target="_blank" class="btn-purple btn-hover">Tutoriels vidéo SymfonyCasts sur Doctrine</a></li>
-                    <li><a href="https://github.com/doctrine/DoctrineFixturesBundle" target="_blank" class="btn-purple btn-hover">Bundle Doctrine Fixtures</a></li>
-                    <li><a href="https://github.com/doctrine/DoctrineMigrationsBundle" target="_blank" class="btn-purple btn-hover">Bundle Doctrine Migrations</a></li>
+                    <li>Apprendre les relations entre entités (OneToMany, ManyToMany)</li>
+                    <li>Découvrir les événements Doctrine (lifecycle callbacks)</li>
+                    <li>Explorer les requêtes DQL (Doctrine Query Language)</li>
+                    <li>Apprendre à optimiser les performances avec les index et le cache</li>
+                </ul>
+
+                <h3 class="text-purple">Ressources :</h3>
+                <ul class="textExemple">
+                    <li><a href="https://symfony.com/doc/current/doctrine.html" target="_blank" class="btn-purple btn-hover">Documentation officielle Doctrine</a></li>
+                    <li><a href="https://github.com/doctrine/DoctrineMigrationsBundle" target="_blank" class="btn-purple btn-hover">Doctrine Migrations Bundle</a></li>
+                    <li><a href="https://github.com/doctrine/DoctrineFixturesBundle" target="_blank" class="btn-purple btn-hover">Doctrine Fixtures Bundle</a></li>
+                    <li><a href="https://fakerphp.github.io/" target="_blank" class="btn-purple btn-hover">Documentation FakerPHP</a></li>
                 </ul>
             </div>
         </div>
@@ -1039,10 +847,9 @@ Configuration → Entités → Migrations → Requêtes → Persistance des donn
 
 <script>
 export default {
-    name: 'DoctrineLessonPage',
+    name: 'DoctrineWorkflowLessonPage',
     
     mounted() {
-        // Optionnel : Ajouter la coloration syntaxique si vous utilisez Prism.js ou similaire
         if (typeof Prism !== 'undefined') {
             Prism.highlightAll();
         }
@@ -1051,7 +858,7 @@ export default {
 </script>
 
 <style scoped>
-/* Les styles sont identiques à la leçon précédente */
+/* Styles identiques à la leçon précédente */
 .lesson-container {
     padding: 2rem;
     background: #f8f9fa;
@@ -1249,10 +1056,6 @@ pre {
     gap: 10px;
 }
 
-.tip h4::before {
-    content: '💡';
-    font-size: 1.2rem;
-}
 
 /* Responsive */
 @media (max-width: 768px) {
