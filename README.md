@@ -57,6 +57,14 @@
 - orm fixture comment l'instaler sur son projet symfony
 - faker php comment l'instaler sur son projet symfony
 - findOneBy
+
+étape création et migration
+1 symfony console doctrine:database:create
+2 symfony console make:migration
+3 symfnoy console doctrine:migrations:migrate
+4 (si utilisation fixur orm)/ symfony console doctrine:fixtures:load
+
+- composer require symfony/serializer-pack
 ================================================================================
 # Cyber Sécuriter
 - buffer overflow

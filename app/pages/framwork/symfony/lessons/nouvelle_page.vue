@@ -46,7 +46,7 @@ Route (URL) → Contrôleur (Logique) → Template (Vue) → Page HTML</code></p
 
                 <h3 class="text-purple">1. Lancez la commande</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony make:controller</span></code></pre>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony console make:controller</span></code></pre>
                 </div>
 
                 <h3 class="text-purple">2. Suivez les instructions interactives</h3>
@@ -55,7 +55,7 @@ Route (URL) → Contrôleur (Logique) → Template (Vue) → Page HTML</code></p
                 </p>
                 
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony make:controller</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony console make:controller</span>
 
 <span class="bash-comment"># Symfony va vous demander plusieurs informations :</span>
 
@@ -77,7 +77,7 @@ Route (URL) → Contrôleur (Logique) → Template (Vue) → Page HTML</code></p
 <span class="bash-success">✓ Création de templates/about/index.html.twig</span>
 <span class="bash-success">✓ Mise à jour de config/routes.yaml</span>
 
-<span class="bash-success">✅ Votre contrôleur a été généré avec succès !</span></code></pre>
+<span class="bash-success">Votre contrôleur a été généré avec succès !</span></code></pre>
                 </div>
 
                 <h3 class="text-purple">3. Vérifiez les fichiers générés</h3>
@@ -121,7 +121,7 @@ Route (URL) → Contrôleur (Logique) → Template (Vue) → Page HTML</code></p
 
 <span class="twig-keyword">{%</span> <span class="twig-tag">block</span> body <span class="twig-keyword">%}</span>
 <span class="twig-template">&lt;div class="example-wrapper"&gt;
-    &lt;h1&gt;Hello {{ controller_name }}! ✅&lt;/h1&gt;
+    &lt;h1&gt;Hello {{ controller_name }}! &lt;/h1&gt;
     
     &lt;p&gt;Votre page about fonctionne correctement.&lt;/p&gt;
 &lt;/div&gt;</span>
@@ -158,7 +158,7 @@ Route (URL) → Contrôleur (Logique) → Template (Vue) → Page HTML</code></p
                 </ul>
 
                 <div class="code-example tip">
-                    <h4 class="text-purple">💡 Astuce pratique</h4>
+                    <h4 class="text-purple">Astuce pratique</h4>
                     <p class="textExemple">
                         Si vous voulez créer rapidement plusieurs contrôleurs pour différentes sections de votre site :
                     </p>
@@ -236,7 +236,7 @@ Route (URL) → Contrôleur (Logique) → Template (Vue) → Page HTML</code></p
 &lt;/style&gt;
 
 &lt;div class="example-wrapper"&gt;
-    &lt;h1&gt;Hello {{ controller_name }}! ✅&lt;/h1&gt;
+    &lt;h1&gt;Hello {{ controller_name }}! &lt;/h1&gt;
 
     This friendly message is coming from:
     &lt;ul&gt;
@@ -445,7 +445,7 @@ Route (URL) → Contrôleur (Logique) → Template (Vue) → Page HTML</code></p
                     <div class="code-example">
                         <h4 class="text-purple">Lister toutes les routes</h4>
                         <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony console debug:router</span></code></pre>
-                    </div>
+                    </div>a sémentique des bloc twig dans symfony
 
                     <div class="code-example">
                         <h4 class="text-purple">Voir les détails d'une route</h4>
