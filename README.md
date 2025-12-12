@@ -13,7 +13,6 @@
 - api
 ================================================================================
 # JAVA
-- méthod main
 - fonction
 - les tableaux
 - les boucles
