@@ -13,10 +13,7 @@
 - api
 ================================================================================
 # JAVA
-- installation de java et intelli j
-- SDK
 - méthod main
-- variable primitive 
 - fonction
 - les tableaux
 - les boucles
@@ -29,7 +26,7 @@
 ================================================================================
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
-- rajouter une lecons sur les check (mettre la nition LENGTH())
+- rajouter une lecons sur les check (mettre la notion LENGTH())
 - rajouter cours sur création de compt sql et les droit qu'ils ont
 ================================================================================
 # Java-Script

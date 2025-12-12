@@ -4,19 +4,20 @@
             <!-- En-tête de la leçon -->
             <div class="lesson-header">
                 <h1 class="text-white">Introduction au Langage Java</h1>
-                <p class="lesson-meta text-white">Découvrez les fondamentaux, l'histoire et les caractéristiques du langage de programmation Java</p>
+                <p class="lesson-meta text-white">Découvrez les fondamentaux, l'histoire et les caractéristiques du
+                    langage de programmation Java</p>
             </div>
 
             <!-- Introduction générale -->
             <div class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Qu'est-ce que Java ?</h2>
                 <p class="textExemple">
-                    Java est un langage de programmation orienté objet, multiplateforme et polyvalent, 
-                    créé par Sun Microsystems (aujourd'hui Oracle) en 1995. C'est l'un des langages les plus 
-                    utilisés au monde, particulièrement pour le développement d'applications d'entreprise, 
+                    Java est un langage de programmation orienté objet, multiplateforme et polyvalent,
+                    créé par Sun Microsystems (aujourd'hui Oracle) en 1995. C'est l'un des langages les plus
+                    utilisés au monde, particulièrement pour le développement d'applications d'entreprise,
                     web, mobiles (Android) et systèmes embarqués.
                 </p>
-                
+
                 <div class="code-example">
                     <pre v-pre><code class="language-bash"><span class="bash-comment"># Caractéristiques principales de Java</span>
 Plateforme Indépendante → Orienté Objet → Robuste → Sécurisé → Performant</code></pre>
@@ -26,11 +27,11 @@ Plateforme Indépendante → Orienté Objet → Robuste → Sécurisé → Perfo
             <!-- Histoire et évolution -->
             <div class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Histoire et évolution de Java</h2>
-                
+
                 <h3 class="text-purple">Les origines</h3>
                 <p class="textExemple">
-                    Java a été créé par James Gosling et son équipe chez Sun Microsystems dans les années 1990. 
-                    Initialement appelé "Oak" (en référence à un chêne devant le bureau de Gosling), 
+                    Java a été créé par James Gosling et son équipe chez Sun Microsystems dans les années 1990.
+                    Initialement appelé "Oak" (en référence à un chêne devant le bureau de Gosling),
                     le langage a été renommé Java (inspiré du café Java) avant sa sortie publique.
                 </p>
 
@@ -51,11 +52,11 @@ Plateforme Indépendante → Orienté Objet → Robuste → Sécurisé → Perfo
             <!-- Les caractéristiques fondamentales -->
             <div class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Caractéristiques fondamentales de Java</h2>
-                
+
                 <h3 class="text-purple">1. Plateforme indépendante - "Write Once, Run Anywhere" (WORA)</h3>
                 <p class="textExemple">
-                    Le code source Java est compilé en bytecode qui s'exécute sur la Java Virtual Machine (JVM). 
-                    Cela permet d'exécuter le même programme sur n'importe quel système d'exploitation 
+                    Le code source Java est compilé en bytecode qui s'exécute sur la Java Virtual Machine (JVM).
+                    Cela permet d'exécuter le même programme sur n'importe quel système d'exploitation
                     (Windows, Linux, macOS) sans recompilation.
                 </p>
                 <div class="code-example">
@@ -65,7 +66,7 @@ Code Source (.java) → Compilateur Java → Bytecode (.class) → JVM → Exéc
 
                 <h3 class="text-purple">2. Orienté objet</h3>
                 <p class="textExemple">
-                    Java est entièrement orienté objet (contrairement à C++ qui est hybride). Tout en Java 
+                    Java est entièrement orienté objet (contrairement à C++ qui est hybride). Tout en Java
                     est un objet (sauf les types primitifs). Cela implique les concepts de :
                 </p>
                 <ul class="textExemple">
@@ -77,8 +78,8 @@ Code Source (.java) → Compilateur Java → Bytecode (.class) → JVM → Exéc
 
                 <h3 class="text-purple">3. Gestion automatique de la mémoire (Garbage Collection)</h3>
                 <p class="textExemple">
-                    Java gère automatiquement l'allocation et la libération de la mémoire via le 
-                    ramasse-miettes (Garbage Collector). Le développeur n'a pas à libérer manuellement 
+                    Java gère automatiquement l'allocation et la libération de la mémoire via le
+                    ramasse-miettes (Garbage Collector). Le développeur n'a pas à libérer manuellement
                     la mémoire comme en C ou C++.
                 </p>
                 <div class="code-example">
@@ -91,8 +92,8 @@ Code Source (.java) → Compilateur Java → Bytecode (.class) → JVM → Exéc
 
                 <h3 class="text-purple">4. Typage statique et fort</h3>
                 <p class="textExemple">
-                    Java est un langage à typage statique : les types des variables sont vérifiés à la 
-                    compilation. C'est aussi un langage à typage fort : les conversions entre types doivent 
+                    Java est un langage à typage statique : les types des variables sont vérifiés à la
+                    compilation. C'est aussi un langage à typage fort : les conversions entre types doivent
                     être explicites.
                 </p>
 
@@ -109,7 +110,7 @@ Code Source (.java) → Compilateur Java → Bytecode (.class) → JVM → Exéc
 
                 <h3 class="text-purple">6. Multithreading natif</h3>
                 <p class="textExemple">
-                    Java supporte nativement la programmation multithreadée, permettant d'exécuter 
+                    Java supporte nativement la programmation multithreadée, permettant d'exécuter
                     plusieurs tâches simultanément.
                 </p>
             </div>
@@ -117,7 +118,7 @@ Code Source (.java) → Compilateur Java → Bytecode (.class) → JVM → Exéc
             <!-- Architecture Java -->
             <div class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Architecture de la plateforme Java</h2>
-                
+
                 <h3 class="text-purple">Les trois composants principaux</h3>
                 <div class="code-comparison">
                     <div class="code-example">
@@ -149,14 +150,15 @@ Code Source (.java) → Compilateur Java → Bytecode (.class) → JVM → Exéc
 
                 <h3 class="text-purple">Cycle de vie d'un programme Java</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash">Édition → Compilation → Chargement → Vérification → Exécution</code></pre>
+                    <pre
+                        v-pre><code class="language-bash">Édition → Compilation → Chargement → Vérification → Exécution</code></pre>
                 </div>
             </div>
 
             <!-- Premier programme Java -->
             <div class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Votre premier programme Java</h2>
-                
+
                 <h3 class="text-purple">Structure de base</h3>
                 <div class="code-example">
                     <h4 class="text-purple">HelloWorld.java</h4>
@@ -219,7 +221,8 @@ Hello, World!</code></pre>
 
                 <h3 class="text-purple">1. Variables et types de données</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-java"><span class="java-comment">// Types primitifs (stockés par valeur)</span>
+                    <pre
+                        v-pre><code class="language-java"><span class="java-comment">// Types primitifs (stockés par valeur)</span>
 <span class="java-keyword">int</span> <span class="java-variable">age</span> = <span class="java-number">25</span>;               <span class="java-comment">// Entier (4 octets)</span>
 <span class="java-keyword">double</span> <span class="java-variable">price</span> = <span class="java-number">19.99</span>;        <span class="java-comment">// Nombre à virgule (8 octets)</span>
 <span class="java-keyword">boolean</span> <span class="java-variable">isActive</span> = <span class="java-keyword">true</span>;    <span class="java-comment">// Booléen (true/false)</span>
@@ -269,7 +272,8 @@ Hello, World!</code></pre>
 
                 <h3 class="text-purple">3. Tableaux</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-java"><span class="java-comment">// Déclaration et initialisation</span>
+                    <pre
+                        v-pre><code class="language-java"><span class="java-comment">// Déclaration et initialisation</span>
 <span class="java-keyword">int</span>[] <span class="java-variable">numbers</span> = <span class="java-keyword">new</span> <span class="java-keyword">int</span>[<span class="java-number">5</span>];  <span class="java-comment">// Tableau de 5 entiers</span>
 <span class="java-class">String</span>[] <span class="java-variable">names</span> = {<span class="java-string">"Alice"</span>, <span class="java-string">"Bob"</span>, <span class="java-string">"Charlie"</span>};
 
@@ -574,7 +578,8 @@ C++ :
                 <h2 class="text-purple">Exercice pratique : Créer un système de gestion d'étudiants</h2>
                 <div class="exercise">
                     <p class="textExemple">
-                        <strong>Objectif :</strong> Mettre en pratique les concepts Java en créant un système simple de gestion d'étudiants.
+                        <strong>Objectif :</strong> Mettre en pratique les concepts Java en créant un système simple de
+                        gestion d'étudiants.
                     </p>
                     <ol class="textExemple">
                         <li>Créez une classe <code>Etudiant</code> avec :
@@ -603,7 +608,7 @@ C++ :
                     <summary class="btn-purple btn-hover">Voir la solution</summary>
                     <div class="solution-content">
                         <h4 class="text-purple">Structure de la solution :</h4>
-                        
+
                         <h5 class="text-purple">Etudiant.java :</h5>
                         <div class="code-example">
                             <pre v-pre><code class="language-java"><span class="java-keyword">import</span> <span class="java-class">java.util.ArrayList</span>;
@@ -649,8 +654,8 @@ C++ :
             <div class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Conclusion et ressources pour apprendre Java</h2>
                 <p class="textExemple">
-                    Java reste un langage incontournable dans le monde du développement logiciel. 
-                    Sa stabilité, sa performance et son vaste écosystème en font un choix judicieux 
+                    Java reste un langage incontournable dans le monde du développement logiciel.
+                    Sa stabilité, sa performance et son vaste écosystème en font un choix judicieux
                     pour de nombreux types de projets, des applications mobiles aux systèmes d'entreprise complexes.
                 </p>
 
@@ -666,12 +671,18 @@ C++ :
 
                 <h3 class="text-purple">Ressources recommandées :</h3>
                 <ul class="textExemple">
-                    <li><a href="https://docs.oracle.com/javase/tutorial/" target="_blank" class="btn-purple btn-hover">Tutoriel officiel Java (Oracle)</a></li>
-                    <li><a href="https://www.java.com/fr/" target="_blank" class="btn-purple btn-hover">Site officiel Java</a></li>
-                    <li><a href="https://openjdk.org/" target="_blank" class="btn-purple btn-hover">OpenJDK (implémentation open source)</a></li>
-                    <li><a href="https://stackoverflow.com/questions/tagged/java" target="_blank" class="btn-purple btn-hover">Stack Overflow - Java</a></li>
-                    <li><a href="https://github.com/TheAlgorithms/Java" target="_blank" class="btn-purple btn-hover">Algorithmes en Java (GitHub)</a></li>
-                    <li><a href="https://www.baeldung.com/" target="_blank" class="btn-purple btn-hover">Baeldung - Tutoriels Java</a></li>
+                    <li><a href="https://docs.oracle.com/javase/tutorial/" target="_blank"
+                            class="btn-purple btn-hover">Tutoriel officiel Java (Oracle)</a></li>
+                    <li><a href="https://www.java.com/fr/" target="_blank" class="btn-purple btn-hover">Site officiel
+                            Java</a></li>
+                    <li><a href="https://openjdk.org/" target="_blank" class="btn-purple btn-hover">OpenJDK
+                            (implémentation open source)</a></li>
+                    <li><a href="https://stackoverflow.com/questions/tagged/java" target="_blank"
+                            class="btn-purple btn-hover">Stack Overflow - Java</a></li>
+                    <li><a href="https://github.com/TheAlgorithms/Java" target="_blank"
+                            class="btn-purple btn-hover">Algorithmes en Java (GitHub)</a></li>
+                    <li><a href="https://www.baeldung.com/" target="_blank" class="btn-purple btn-hover">Baeldung -
+                            Tutoriels Java</a></li>
                 </ul>
 
                 <div class="code-example">
@@ -681,8 +692,8 @@ C++ :
                 </div>
 
                 <p class="textExemple">
-                    Avec plus de 25 ans d'existence, Java continue d'évoluer et de s'adapter aux 
-                    nouvelles tendances du développement logiciel. Son adoption massive dans 
+                    Avec plus de 25 ans d'existence, Java continue d'évoluer et de s'adapter aux
+                    nouvelles tendances du développement logiciel. Son adoption massive dans
                     l'industrie garantit qu'il restera un langage pertinent pour les années à venir.
                 </p>
             </div>
@@ -894,7 +905,7 @@ pre code {
 }
 
 .java-marker {
-    color: #C586C0 !important; 
+    color: #C586C0 !important;
 }
 
 /* Couleurs Bash */
@@ -1021,6 +1032,7 @@ details summary {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
