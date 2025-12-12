@@ -3,705 +3,642 @@
         <div class="lesson-content">
             <!-- En-tête de la leçon -->
             <div class="lesson-header">
-                <h1 class="text-white">Installation de Java et IntelliJ IDEA</h1>
-                <p class="lesson-meta text-white">Guide complet pour configurer votre environnement de développement Java</p>
+                <h1 class="text-white">Introduction au Langage Java</h1>
+                <p class="lesson-meta text-white">Découvrez les fondamentaux, l'histoire et les caractéristiques du langage de programmation Java</p>
             </div>
 
-            <!-- Introduction -->
+            <!-- Introduction générale -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Introduction au développement Java</h2>
+                <h2 class="text-purple">Qu'est-ce que Java ?</h2>
                 <p class="textExemple">
-                    Java est l'un des langages de programmation les plus populaires et puissants au monde. 
-                    Pour commencer à développer en Java, vous avez besoin de deux composants essentiels :
+                    Java est un langage de programmation orienté objet, multiplateforme et polyvalent, 
+                    créé par Sun Microsystems (aujourd'hui Oracle) en 1995. C'est l'un des langages les plus 
+                    utilisés au monde, particulièrement pour le développement d'applications d'entreprise, 
+                    web, mobiles (Android) et systèmes embarqués.
                 </p>
-                <ol class="textExemple">
-                    <li><strong>Java Development Kit (JDK)</strong> : L'environnement d'exécution et les outils de développement</li>
-                    <li><strong>IntelliJ IDEA</strong> : Un IDE puissant et intuitif pour développer en Java</li>
-                </ol>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Environnement de développement Java complet</span>
-JDK (Java Development Kit) → IntelliJ IDEA (IDE) → Applications Java</code></pre>
-                </div>
-            </div>
-
-            <!-- Section 1 : Installation du JDK -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Section 1 : Installation du JDK</h2>
-                <p class="textExemple">
-                    Le JDK contient tout ce dont vous avez besoin pour compiler, déboguer et exécuter des applications Java.
-                    Nous recommandons d'installer la version LTS (Long Term Support) pour une stabilité optimale.
-                </p>
-
-                <h3 class="text-purple">1.1 Choisir la bonne version</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Versions JDK recommandées</span>
-- <span class="bash-keyword">Java 21 LTS</span> : Version stable avec support long terme (recommandée)
-- <span class="bash-keyword">Java 17 LTS</span> : Version LTS précédente, encore très utilisée
-- <span class="bash-keyword">Java 11 LTS</span> : Ancienne version LTS, encore en support</code></pre>
-                </div>
-
-                <p class="textExemple">
-                    <strong>Conseil :</strong> Installez Java 21 LTS pour bénéficier des dernières fonctionnalités et du support à long terme.
-                </p>
-            </div>
-
-            <!-- Installation JDK sur Windows -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">2. Installation du JDK sur Windows</h2>
-                
-                <h3 class="text-purple">2.1 Téléchargement</h3>
-                <p class="textExemple">
-                    Rendez-vous sur le site officiel d'Oracle ou d'Adoptium pour télécharger le JDK :
-                </p>
-                <div class="code-comparison">
-                    <div class="code-example">
-                        <h4 class="text-purple">Oracle JDK (gratuit pour usage personnel)</h4>
-                        <pre v-pre><code class="language-text">https://www.oracle.com/java/technologies/downloads/</code></pre>
-                    </div>
-                    <div class="code-example">
-                        <h4 class="text-purple">Eclipse Adoptium (open source)</h4>
-                        <pre v-pre><code class="language-text">https://adoptium.net/</code></pre>
-                    </div>
-                </div>
-
-                <h3 class="text-purple">2.2 Processus d'installation</h3>
-                <div class="code-example">
-                    <h4 class="text-purple">Etapes d'installation sur Windows</h4>
-                    <pre v-pre><code class="language-text">1. Executez le fichier .exe téléchargé
-2. Suivez l'assistant d'installation
-3. Acceptez les conditions d'utilisation
-4. Choisissez le dossier d'installation (par défaut recommandé)
-5. Laissez l'installateur configurer les variables d'environnement
-6. Attendez la fin de l'installation</code></pre>
-                </div>
-
-                <h3 class="text-purple">2.3 Vérification de l'installation</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-cmd"><span class="bash-comment"># Ouvrez l'invite de commandes (CMD) ou PowerShell</span>
-C:\Users\VotreNom&gt; <span class="bash-command">java --version</span>
-
-<span class="bash-comment"># Résultat attendu :</span>
-java version "21.0.1" 2023-10-17 LTS
-Java(TM) SE Runtime Environment (build 21.0.1+12-LTS-29)
-Java HotSpot(TM) 64-Bit Server VM (build 21.0.1+12-LTS-29, mixed mode, sharing)</code></pre>
-                </div>
-
-                <h3 class="text-purple">2.4 Configuration des variables d'environnement (si nécessaire)</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">1. Clique droit sur "Ce PC" → Propriétés
-2. Paramètres système avancés → Variables d'environnement
-3. Sous "Variables système", sélectionnez "Path" → Modifier
-4. Ajoutez le chemin du dossier "bin" de votre JDK :
-   C:\Program Files\Java\jdk-21\bin
-5. Ajoutez une nouvelle variable JAVA_HOME :
-   Nom : JAVA_HOME
-   Valeur : C:\Program Files\Java\jdk-21</code></pre>
-                </div>
-            </div>
-
-            <!-- Installation JDK sur macOS -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">3. Installation du JDK sur macOS</h2>
-
-                <h3 class="text-purple">3.1 Méthode recommandée : Homebrew</h3>
-                <p class="textExemple">
-                    Si vous avez Homebrew installé, c'est la méthode la plus simple :
-                </p>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Installation avec Homebrew</span>
-<span class="bash-prompt">$</span> <span class="bash-command">brew update</span>
-<span class="bash-prompt">$</span> <span class="bash-command">brew install openjdk@21</span>
-
-<span class="bash-comment"># Lien symbolique pour que java soit accessible</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">3.2 Méthode manuelle</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">1. Téléchargez le JDK depuis adoptium.net
-2. Ouvrez le fichier .pkg téléchargé
-3. Suivez l'assistant d'installation
-4. Vérifiez l'installation dans le terminal</code></pre>
-                </div>
-
-                <h3 class="text-purple">3.3 Vérification sur macOS</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">java --version</span>
-
-<span class="bash-comment"># Résultat attendu :</span>
-openjdk 21.0.1 2023-10-17 LTS
-OpenJDK Runtime Environment Temurin-21.0.1+12 (build 21.0.1+12-LTS)
-OpenJDK 64-Bit Server VM Temurin-21.0.1+12 (build 21.0.1+12-LTS, mixed mode)</code></pre>
-                </div>
-
-                <h3 class="text-purple">3.4 Configuration de JAVA_HOME sur macOS</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Ajouter à ~/.zshrc ou ~/.bash_profile</span>
-<span class="bash-prompt">$</span> <span class="bash-command">nano ~/.zshrc</span>
-
-<span class="bash-comment"># Ajoutez ces lignes :</span>
-export JAVA_HOME=$(/usr/libexec/java_home -v 21)
-export PATH="$JAVA_HOME/bin:$PATH"
-
-<span class="bash-comment"># Appliquez les changements</span>
-<span class="bash-prompt">$</span> <span class="bash-command">source ~/.zshrc</span></code></pre>
-                </div>
-            </div>
-
-            <!-- Installation JDK sur Linux -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">4. Installation du JDK sur Linux</h2>
-
-                <h3 class="text-purple">4.1 Ubuntu/Debian (APT)</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Mise à jour des paquets</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo apt update && sudo apt upgrade -y</span>
-
-<span class="bash-comment"># Installation d'OpenJDK 21</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo apt install openjdk-21-jdk -y</span>
-
-<span class="bash-comment"># Installation des outils de développement supplémentaires</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo apt install maven gradle -y</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">4.2 Fedora/RHEL (DNF/YUM)</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Fedora</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo dnf install java-21-openjdk-devel</span>
-
-<span class="bash-comment"># RHEL/CentOS</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo yum install java-21-openjdk-devel</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">4.3 Vérification sur Linux</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">java --version</span>
-<span class="bash-prompt">$</span> <span class="bash-command">javac --version</span>  <span class="bash-comment"># Vérifie le compilateur</span>
-
-<span class="bash-comment"># Configuration de JAVA_HOME</span>
-<span class="bash-prompt">$</span> <span class="bash-command">echo "export JAVA_HOME=/usr/lib/jvm/java-21-openjdk" >> ~/.bashrc</span>
-<span class="bash-prompt">$</span> <span class="bash-command">echo "export PATH=\$JAVA_HOME/bin:\$PATH" >> ~/.bashrc</span>
-<span class="bash-prompt">$</span> <span class="bash-command">source ~/.bashrc</span></code></pre>
-                </div>
-            </div>
-
-            <!-- Vérification complète de l'installation JDK -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">5. Vérification complète de l'installation JDK</h2>
                 
                 <div class="code-example">
-                    <h4 class="text-purple">Test complet sur tous les systèmes</h4>
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># 1. Vérification de la version Java</span>
-<span class="bash-prompt">$</span> <span class="bash-command">java --version</span>
-
-<span class="bash-comment"># 2. Vérification du compilateur</span>
-<span class="bash-prompt">$</span> <span class="bash-command">javac --version</span>
-
-<span class="bash-comment"># 3. Vérification de JAVA_HOME</span>
-<span class="bash-prompt">$</span> <span class="bash-command">echo $JAVA_HOME</span>        <span class="bash-comment"># Linux/macOS</span>
-<span class="bash-prompt">$</span> <span class="bash-command">echo %JAVA_HOME%</span>       <span class="bash-comment"># Windows (CMD)</span>
-<span class="bash-prompt">$</span> <span class="bash-command">$env:JAVA_HOME</span>        <span class="bash-comment"># Windows (PowerShell)</span>
-
-<span class="bash-comment"># 4. Création et compilation d'un premier programme</span>
-<span class="bash-prompt">$</span> <span class="bash-command">cat &gt; HelloWorld.java &lt;&lt; 'EOF'</span>
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-EOF
-
-<span class="bash-prompt">$</span> <span class="bash-command">javac HelloWorld.java</span>   <span class="bash-comment"># Compilation</span>
-<span class="bash-prompt">$</span> <span class="bash-command">java HelloWorld</span>         <span class="bash-comment"># Execution</span>
-
-<span class="bash-comment"># Résultat attendu : Hello, World!</span></code></pre>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Caractéristiques principales de Java</span>
+Plateforme Indépendante → Orienté Objet → Robuste → Sécurisé → Performant</code></pre>
                 </div>
             </div>
 
-            <!-- Section 2 : Installation d'IntelliJ IDEA -->
+            <!-- Histoire et évolution -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Section 2 : Installation d'IntelliJ IDEA</h2>
+                <h2 class="text-purple">Histoire et évolution de Java</h2>
+                
+                <h3 class="text-purple">Les origines</h3>
                 <p class="textExemple">
-                    IntelliJ IDEA est l'IDE le plus populaire pour le développement Java, développé par JetBrains.
-                    Il existe deux versions :
+                    Java a été créé par James Gosling et son équipe chez Sun Microsystems dans les années 1990. 
+                    Initialement appelé "Oak" (en référence à un chêne devant le bureau de Gosling), 
+                    le langage a été renommé Java (inspiré du café Java) avant sa sortie publique.
                 </p>
+
+                <h3 class="text-purple">Chronologie des versions majeures</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-text">1996 : Java 1.0 - Première version publique
+1998 : Java 1.2 (Java 2) - Introduction des collections
+2004 : Java 5 (1.5) - Génériques, annotations, boucle for-each
+2011 : Java 7 - Try-with-resources, NIO.2
+2014 : Java 8 (LTS) - Lambda expressions, Stream API
+2017 : Java 9 - Modules (Project Jigsaw)
+2018 : Java 11 (LTS) - HTTP Client, var local
+2021 : Java 17 (LTS) - Pattern matching, sealed classes
+2023 : Java 21 (LTS) - Virtual Threads, Pattern matching records</code></pre>
+                </div>
+            </div>
+
+            <!-- Les caractéristiques fondamentales -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Caractéristiques fondamentales de Java</h2>
+                
+                <h3 class="text-purple">1. Plateforme indépendante - "Write Once, Run Anywhere" (WORA)</h3>
+                <p class="textExemple">
+                    Le code source Java est compilé en bytecode qui s'exécute sur la Java Virtual Machine (JVM). 
+                    Cela permet d'exécuter le même programme sur n'importe quel système d'exploitation 
+                    (Windows, Linux, macOS) sans recompilation.
+                </p>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Architecture Java</span>
+Code Source (.java) → Compilateur Java → Bytecode (.class) → JVM → Exécution</code></pre>
+                </div>
+
+                <h3 class="text-purple">2. Orienté objet</h3>
+                <p class="textExemple">
+                    Java est entièrement orienté objet (contrairement à C++ qui est hybride). Tout en Java 
+                    est un objet (sauf les types primitifs). Cela implique les concepts de :
+                </p>
+                <ul class="textExemple">
+                    <li><strong>Classes et objets</strong> : Modèle de programmation basé sur des objets</li>
+                    <li><strong>Encapsulation</strong> : Masquage des détails d'implémentation</li>
+                    <li><strong>Héritage</strong> : Réutilisation du code via l'héritage de classes</li>
+                    <li><strong>Polymorphisme</strong> : Capacité d'un objet à prendre plusieurs formes</li>
+                </ul>
+
+                <h3 class="text-purple">3. Gestion automatique de la mémoire (Garbage Collection)</h3>
+                <p class="textExemple">
+                    Java gère automatiquement l'allocation et la libération de la mémoire via le 
+                    ramasse-miettes (Garbage Collector). Le développeur n'a pas à libérer manuellement 
+                    la mémoire comme en C ou C++.
+                </p>
+                <div class="code-example">
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Pas besoin de libérer la mémoire manuellement</span>
+<span class="java-class">List</span>&lt;<span class="java-class">String</span>&gt; <span class="java-variable">list</span> = <span class="java-keyword">new</span> <span class="java-class">ArrayList</span>&lt;&gt;();
+<span class="java-variable">list</span>.<span class="java-function">add</span>(<span class="java-string">"Java"</span>);
+<span class="java-comment">// Le garbage collector libérera la mémoire automatiquement</span>
+<span class="java-comment">// quand l'objet ne sera plus référencé</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">4. Typage statique et fort</h3>
+                <p class="textExemple">
+                    Java est un langage à typage statique : les types des variables sont vérifiés à la 
+                    compilation. C'est aussi un langage à typage fort : les conversions entre types doivent 
+                    être explicites.
+                </p>
+
+                <h3 class="text-purple">5. Sécurité intégrée</h3>
+                <p class="textExemple">
+                    Java a été conçu avec la sécurité en tête :
+                </p>
+                <ul class="textExemple">
+                    <li>Pas de pointeurs explicites (contrairement à C/C++)</li>
+                    <li>Vérification du bytecode avant exécution</li>
+                    <li>Système de sécurité par sandboxing pour les applets</li>
+                    <li>Gestion des permissions d'accès</li>
+                </ul>
+
+                <h3 class="text-purple">6. Multithreading natif</h3>
+                <p class="textExemple">
+                    Java supporte nativement la programmation multithreadée, permettant d'exécuter 
+                    plusieurs tâches simultanément.
+                </p>
+            </div>
+
+            <!-- Architecture Java -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Architecture de la plateforme Java</h2>
+                
+                <h3 class="text-purple">Les trois composants principaux</h3>
                 <div class="code-comparison">
                     <div class="code-example">
-                        <h4 class="text-purple">IntelliJ IDEA Community</h4>
-                        <pre v-pre><code class="language-text">• Gratuite et open source
-• Supporte Java, Kotlin, Groovy
-• Ideale pour les débutants et étudiants
-• Fonctionnalités de base complètes</code></pre>
+                        <h4 class="text-purple">1. Java Development Kit (JDK)</h4>
+                        <pre v-pre><code class="language-text">• Environnement de développement
+• Compilateur (javac)
+• Outils (debugger, profiler)
+• Bibliothèques de développement
+• Pour les développeurs</code></pre>
                     </div>
                     <div class="code-example">
-                        <h4 class="text-purple">IntelliJ IDEA Ultimate</h4>
-                        <pre v-pre><code class="language-text">• Version payante (gratuite pour étudiants)
-• Support avancé pour Java EE, Spring
-• Base de données, outils web
-• Framework JavaScript, Python
-• Gratuit avec licence étudiante</code></pre>
+                        <h4 class="text-purple">2. Java Runtime Environment (JRE)</h4>
+                        <pre v-pre><code class="language-text">• Environnement d'exécution
+• Java Virtual Machine (JVM)
+• Bibliothèques d'exécution
+• Pour exécuter des applications
+• Inclus dans le JDK</code></pre>
                     </div>
                 </div>
-            </div>
 
-            <!-- Installation d'IntelliJ sur Windows -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">6. Installation d'IntelliJ IDEA sur Windows</h2>
-
-                <h3 class="text-purple">6.1 Téléchargement</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-text">Site officiel : https://www.jetbrains.com/idea/download/
-
-Choisissez :
-• Community (gratuit) - Recommandé pour débuter
-• Ultimate (payant) - Si vous êtes étudiant, utilisez votre mail académique</code></pre>
+                    <h4 class="text-purple">3. Java Virtual Machine (JVM)</h4>
+                    <pre v-pre><code class="language-text">• Machine virtuelle qui exécute le bytecode
+• Gère la mémoire (heap, stack)
+• Execute le garbage collector
+• Fournit un environnement isolé
+• Implémentations : HotSpot (Oracle), OpenJ9 (IBM)</code></pre>
                 </div>
 
-                <h3 class="text-purple">6.2 Processus d'installation</h3>
+                <h3 class="text-purple">Cycle de vie d'un programme Java</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-text">Etapes d'installation :
-
-1. Executez le fichier .exe téléchargé
-2. Choisissez le dossier d'installation
-3. Cochez les options suivantes :
-   ✓ Créer une icône sur le bureau
-   ✓ Associer les fichiers .java
-   ✓ Ajouter au PATH (recommandé)
-4. Choisissez le thème (Dark/Light)
-5. Installez les plugins recommandés</code></pre>
-                </div>
-
-                <h3 class="text-purple">6.3 Configuration initiale</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Premier lancement :
-1. Acceptez les termes d'utilisation
-2. Partagez ou non les données d'utilisation
-3. Choisissez le thème UI (Darcula recommandé)
-4. Selectionnez les plugins (Java, Kotlin par défaut)
-5. Détection automatique du JDK installé
-6. Créez un nouveau projet pour tester</code></pre>
+                    <pre v-pre><code class="language-bash">Édition → Compilation → Chargement → Vérification → Exécution</code></pre>
                 </div>
             </div>
 
-            <!-- Installation d'IntelliJ sur macOS -->
+            <!-- Premier programme Java -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">7. Installation d'IntelliJ IDEA sur macOS</h2>
-
-                <h3 class="text-purple">7.1 Méthode 1 : Téléchargement direct</h3>
+                <h2 class="text-purple">Votre premier programme Java</h2>
+                
+                <h3 class="text-purple">Structure de base</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Télécharger depuis le site JetBrains</span>
-https://www.jetbrains.com/idea/download/
-
-<span class="bash-comment"># Extraire et installer</span>
-1. Ouvrez le fichier .dmg téléchargé
-2. Glissez IntelliJ IDEA dans le dossier Applications
-3. Lancez depuis Launchpad ou Applications</code></pre>
-                </div>
-
-                <h3 class="text-purple">7.2 Méthode 2 : Homebrew (recommandée)</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Installation via Homebrew</span>
-<span class="bash-prompt">$</span> <span class="bash-command">brew install --cask intellij-idea-ce</span>  <span class="bash-comment"># Community Edition</span>
-<span class="bash-comment"># OU</span>
-<span class="bash-prompt">$</span> <span class="bash-command">brew install --cask intellij-idea</span>      <span class="bash-comment"># Ultimate Edition</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">7.3 Configuration sur macOS</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Pour ajouter IntelliJ au PATH</span>
-<span class="bash-prompt">$</span> <span class="bash-command">echo 'export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:$PATH"' >> ~/.zshrc</span>
-<span class="bash-prompt">$</span> <span class="bash-command">source ~/.zshrc</span>
-
-<span class="bash-comment"># Vérification</span>
-<span class="bash-prompt">$</span> <span class="bash-command">idea</span>  <span class="bash-comment"># Doit lancer IntelliJ IDEA</span></code></pre>
-                </div>
-            </div>
-
-            <!-- Installation d'IntelliJ sur Linux -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">8. Installation d'IntelliJ IDEA sur Linux</h2>
-
-                <h3 class="text-purple">8.1 Installation via Snap (Ubuntu)</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Installation la plus simple</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo snap install intellij-idea-community --classic</span>
-<span class="bash-comment"># OU pour la version Ultimate</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo snap install intellij-idea-ultimate --classic</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">8.2 Installation manuelle</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Téléchargement et extraction</span>
-<span class="bash-prompt">$</span> <span class="bash-command">wget https://download.jetbrains.com/idea/ideaIC-2023.3.tar.gz</span>
-<span class="bash-prompt">$</span> <span class="bash-command">tar -xzf ideaIC-2023.3.tar.gz -C /opt/</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo mv /opt/idea-IC-* /opt/intellij</span>
-
-<span class="bash-comment"># Création du lanceur</span>
-<span class="bash-prompt">$</span> <span class="bash-command">sudo nano /usr/share/applications/intellij.desktop</span></code></pre>
-                </div>
-
-                <div class="code-example">
-                    <h4 class="text-purple">Contenu du fichier .desktop</h4>
-                    <pre v-pre><code class="language-ini">[Desktop Entry]
-Name=IntelliJ IDEA
-Comment=Java IDE
-Exec=/opt/intellij/bin/idea.sh
-Icon=/opt/intellij/bin/idea.png
-Terminal=false
-Type=Application
-Categories=Development;IDE;</code></pre>
-                </div>
-            </div>
-
-            <!-- Configuration d'IntelliJ IDEA -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">9. Configuration d'IntelliJ IDEA</h2>
-
-                <h3 class="text-purple">9.1 Premier lancement et configuration</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Etapes de configuration initiale :
-
-1. Import des paramètres : "Do not import settings" (si première installation)
-2. Choix du thème : Darcula (sombre) ou Light
-3. Plugins recommandés :
-   ✓ Java
-   ✓ Kotlin
-   ✓ Version Control (Git)
-   ✓ Terminal
-4. Configuration du JDK (détecté automatiquement)
-5. Création d'un compte JetBrains (optionnel mais utile)</code></pre>
-                </div>
-
-                <h3 class="text-purple">9.2 Configuration du JDK dans IntelliJ</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Pour vérifier/ajouter un JDK :
-
-1. File → Project Structure → Project
-2. Dans "Project SDK", cliquez sur "New..."
-3. Selectionnez "JDK"
-4. Naviguez vers le dossier d'installation de votre JDK
-   • Windows : C:\Program Files\Java\jdk-21
-   • macOS : /Library/Java/JavaVirtualMachines/jdk-21.jdk
-   • Linux : /usr/lib/jvm/java-21-openjdk
-5. Cliquez sur OK</code></pre>
-                </div>
-
-                <h3 class="text-purple">9.3 Paramètres recommandés</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Paramètres optimaux (File → Settings) :
-
-Editor → Font :
-• Font : JetBrains Mono, Size: 14
-• Line spacing: 1.2
-
-Editor → Color Scheme → Java :
-• Activer "Semantic highlighting"
-
-Build, Execution, Deployment → Build Tools :
-• Maven/Gradle : Auto-import activé
-
-Tools → Terminal :
-• Shell path : /bin/bash (Linux) ou PowerShell (Windows)
-
-Appearance & Behavior → System Settings :
-• Synchronization : Désactivé (améliore les performances)</code></pre>
-                </div>
-            </div>
-
-            <!-- Création du premier projet -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">10. Création de votre premier projet Java</h2>
-
-                <h3 class="text-purple">10.1 Nouveau projet</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">1. Welcome Screen → "New Project"
-2. Selectionnez "Java"
-3. Choisissez le JDK 21
-4. Ne cochez pas "Create project from template"
-5. Nommez votre projet : "HelloWorld"
-6. Choisissez l'emplacement
-7. Cliquez sur "Create"</code></pre>
-                </div>
-
-                <h3 class="text-purple">10.2 Structure du projet</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Structure automatiquement créée :
-HelloWorld/
-├── .idea/           (dossier de configuration IntelliJ)
-├── src/             (dossier source)
-└── HelloWorld.iml   (fichier de module)</code></pre>
-                </div>
-
-                <h3 class="text-purple">10.3 Création de votre première classe</h3>
-                <div class="code-example">
-                    <h4 class="text-purple">Etapes dans IntelliJ :</h4>
-                    <pre v-pre><code class="language-text">1. Clique droit sur le dossier "src"
-2. New → Java Class
-3. Nom : "Main"
-4. Tapez le code suivant :</code></pre>
-                </div>
-
-                <div class="code-example">
-                    <h4 class="text-purple">Code Main.java</h4>
-                    <pre v-pre><code class="language-java"><span class="java-keyword">public class</span> <span class="java-class">Main</span> {
+                    <h4 class="text-purple">HelloWorld.java</h4>
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Déclaration de la classe</span>
+<span class="java-keyword">public class</span> <span class="java-class">HelloWorld</span> {
+    
+    <span class="java-comment">// Méthode principale - point d'entrée du programme</span>
     <span class="java-keyword">public static void</span> <span class="java-function">main</span>(<span class="java-class">String</span>[] <span class="java-variable">args</span>) {
-        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Hello from IntelliJ IDEA!"</span>);
         
-        <span class="java-comment">// Exemple de calcul</span>
-        <span class="java-keyword">int</span> <span class="java-variable">a</span> = <span class="java-number">10</span>;
-        <span class="java-keyword">int</span> <span class="java-variable">b</span> = <span class="java-number">20</span>;
-        <span class="java-keyword">int</span> <span class="java-variable">sum</span> = <span class="java-variable">a</span> + <span class="java-variable">b</span>;
-        
-        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Sum: "</span> + <span class="java-variable">sum</span>);
+        <span class="java-comment">// Instruction d'affichage</span>
+        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Hello, World!"</span>);
     }
 }</code></pre>
                 </div>
 
-                <h3 class="text-purple">10.4 Exécution du programme</h3>
+                <h3 class="text-purple">Explication ligne par ligne</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-text">Plusieurs méthodes pour exécuter :
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Commentaire sur une ligne - ignoré par le compilateur</span>
 
-1. Clique droit dans l'éditeur → "Run Main.main()"
-2. Bouton vert en haut à droite
-3. Menu Run → Run 'Main'
-4. Touche raccourci : Shift + F10
+<span class="java-keyword">public</span> <span class="java-comment">// Modificateur d'accès - accessible de partout</span>
+<span class="java-keyword">class</span> <span class="java-comment">// Mot-clé pour déclarer une classe</span>
+<span class="java-class">HelloWorld</span> <span class="java-comment">// Nom de la classe (commence par majuscule)</span>
+{ <span class="java-comment">// Début du bloc de la classe</span>
 
-Résultat attendu dans la console :
-Hello from IntelliJ IDEA!
-Sum: 30</code></pre>
+    <span class="java-keyword">public</span> <span class="java-comment">// Accessible de partout</span>
+    <span class="java-keyword">static</span> <span class="java-comment">// Méthode de classe (pas besoin d'instance)</span>
+    <span class="java-keyword">void</span> <span class="java-comment">// Type de retour (aucun)</span>
+    <span class="java-function">main</span> <span class="java-comment">// Nom de la méthode principale</span>
+    (<span class="java-class">String</span>[] <span class="java-variable">args</span>) <span class="java-comment">// Paramètres (tableau de chaînes)</span>
+    { <span class="java-comment">// Début du bloc de la méthode</span>
+        
+        <span class="java-class">System</span> <span class="java-comment">// Classe système</span>
+        .<span class="java-variable">out</span> <span class="java-comment">// Objet de sortie standard</span>
+        .<span class="java-function">println</span> <span class="java-comment">// Méthode pour afficher avec retour à la ligne</span>
+        (<span class="java-string">"Hello, World!"</span>); <span class="java-comment">// Chaîne à afficher</span>
+        
+    } <span class="java-comment">// Fin du bloc de la méthode</span>
+    
+} <span class="java-comment">// Fin du bloc de la classe</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">Compilation et exécution</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># 1. Compilation du code source en bytecode</span>
+<span class="bash-prompt">$</span> <span class="bash-command">javac HelloWorld.java</span>
+
+<span class="bash-comment"># 2. Résultat : fichier HelloWorld.class (bytecode)</span>
+<span class="bash-prompt">$</span> <span class="bash-command">ls</span>
+HelloWorld.java  HelloWorld.class
+
+<span class="bash-comment"># 3. Exécution via la JVM</span>
+<span class="bash-prompt">$</span> <span class="bash-command">java HelloWorld</span>
+Hello, World!</code></pre>
                 </div>
             </div>
 
-            <!-- Raccourcis clés IntelliJ -->
+            <!-- Syntaxe de base -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">11. Raccourcis clés IntelliJ IDEA</h2>
+                <h2 class="text-purple">Syntaxe de base de Java</h2>
+
+                <h3 class="text-purple">1. Variables et types de données</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Types primitifs (stockés par valeur)</span>
+<span class="java-keyword">int</span> <span class="java-variable">age</span> = <span class="java-number">25</span>;               <span class="java-comment">// Entier (4 octets)</span>
+<span class="java-keyword">double</span> <span class="java-variable">price</span> = <span class="java-number">19.99</span>;        <span class="java-comment">// Nombre à virgule (8 octets)</span>
+<span class="java-keyword">boolean</span> <span class="java-variable">isActive</span> = <span class="java-keyword">true</span>;    <span class="java-comment">// Booléen (true/false)</span>
+<span class="java-keyword">char</span> <span class="java-variable">grade</span> = <span class="java-string">'A'</span>;           <span class="java-comment">// Caractère (2 octets)</span>
+
+<span class="java-comment">// Types objets (stockés par référence)</span>
+<span class="java-class">String</span> <span class="java-variable">name</span> = <span class="java-string">"Java"</span>;       <span class="java-comment">// Chaîne de caractères</span>
+<span class="java-class">Integer</span> <span class="java-variable">count</span> = <span class="java-number">100</span>;         <span class="java-comment">// Objet entier (wrapper)</span>
+<span class="java-class">Date</span> <span class="java-variable">today</span> = <span class="java-keyword">new</span> <span class="java-class">Date</span>();   <span class="java-comment">// Objet Date</span></code></pre>
+                </div>
+
+                <h3 class="text-purple">2. Structures de contrôle</h3>
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h4 class="text-purple">Conditions</h4>
+                        <pre v-pre><code class="language-java"><span class="java-keyword">if</span> (<span class="java-variable">age</span> &gt;= <span class="java-number">18</span>) {
+    <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Majeur"</span>);
+} <span class="java-keyword">else</span> {
+    <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Mineur"</span>);
+}
+
+<span class="java-keyword">switch</span> (<span class="java-variable">day</span>) {
+    <span class="java-keyword">case</span> <span class="java-number">1</span>: <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Lundi"</span>); <span class="java-keyword">break</span>;
+    <span class="java-keyword">case</span> <span class="java-number">2</span>: <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Mardi"</span>); <span class="java-keyword">break</span>;
+    <span class="java-keyword">default</span>: <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Autre jour"</span>);
+}</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h4 class="text-purple">Boucles</h4>
+                        <pre v-pre><code class="language-java"><span class="java-comment">// Boucle for</span>
+<span class="java-keyword">for</span> (<span class="java-keyword">int</span> <span class="java-variable">i</span> = <span class="java-number">0</span>; <span class="java-variable">i</span> &lt; <span class="java-number">10</span>; <span class="java-variable">i</span>++) {
+    <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-variable">i</span>);
+}
+
+<span class="java-comment">// Boucle while</span>
+<span class="java-keyword">while</span> (<span class="java-variable">count</span> &gt; <span class="java-number">0</span>) {
+    <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-variable">count</span>);
+    <span class="java-variable">count</span>--;
+}
+
+<span class="java-comment">// Boucle do-while</span>
+<span class="java-keyword">do</span> {
+    <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Au moins une fois"</span>);
+} <span class="java-keyword">while</span> (<span class="java-keyword">false</span>);</code></pre>
+                    </div>
+                </div>
+
+                <h3 class="text-purple">3. Tableaux</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Déclaration et initialisation</span>
+<span class="java-keyword">int</span>[] <span class="java-variable">numbers</span> = <span class="java-keyword">new</span> <span class="java-keyword">int</span>[<span class="java-number">5</span>];  <span class="java-comment">// Tableau de 5 entiers</span>
+<span class="java-class">String</span>[] <span class="java-variable">names</span> = {<span class="java-string">"Alice"</span>, <span class="java-string">"Bob"</span>, <span class="java-string">"Charlie"</span>};
+
+<span class="java-comment">// Accès aux éléments</span>
+<span class="java-variable">numbers</span>[<span class="java-number">0</span>] = <span class="java-number">10</span>;
+<span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-variable">names</span>[<span class="java-number">1</span>]);  <span class="java-comment">// Affiche "Bob"</span>
+
+<span class="java-comment">// Longueur du tableau</span>
+<span class="java-keyword">int</span> <span class="java-variable">length</span> = <span class="java-variable">names</span>.<span class="java-variable">length</span>;  <span class="java-comment">// = 3</span></code></pre>
+                </div>
+            </div>
+
+            <!-- Programmation orientée objet en Java -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Programmation orientée objet en Java</h2>
+
+                <h3 class="text-purple">1. Classes et objets</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Définition d'une classe</span>
+<span class="java-keyword">public class</span> <span class="java-class">Personne</span> {
+    <span class="java-comment">// Attributs (variables d'instance)</span>
+    <span class="java-keyword">private</span> <span class="java-class">String</span> <span class="java-variable">nom</span>;
+    <span class="java-keyword">private</span> <span class="java-keyword">int</span> <span class="java-variable">age</span>;
+    
+    <span class="java-comment">// Constructeur</span>
+    <span class="java-keyword">public</span> <span class="java-function">Personne</span>(<span class="java-class">String</span> <span class="java-variable">nom</span>, <span class="java-keyword">int</span> <span class="java-variable">age</span>) {
+        <span class="java-keyword">this</span>.<span class="java-variable">nom</span> = <span class="java-variable">nom</span>;
+        <span class="java-keyword">this</span>.<span class="java-variable">age</span> = <span class="java-variable">age</span>;
+    }
+    
+    <span class="java-comment">// Méthodes (comportements)</span>
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">sePresenter</span>() {
+        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Je m'appelle "</span> + <span class="java-variable">nom</span> + <span class="java-string">" et j'ai "</span> + <span class="java-variable">age</span> + <span class="java-string">" ans."</span>);
+    }
+    
+    <span class="java-comment">// Getters et setters (encapsulation)</span>
+    <span class="java-keyword">public</span> <span class="java-class">String</span> <span class="java-function">getNom</span>() { <span class="java-keyword">return</span> <span class="java-variable">nom</span>; }
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">setNom</span>(<span class="java-class">String</span> <span class="java-variable">nom</span>) { <span class="java-keyword">this</span>.<span class="java-variable">nom</span> = <span class="java-variable">nom</span>; }
+}
+
+<span class="java-comment">// Utilisation de la classe</span>
+<span class="java-class">Personne</span> <span class="java-variable">personne1</span> = <span class="java-keyword">new</span> <span class="java-class">Personne</span>(<span class="java-string">"Alice"</span>, <span class="java-number">30</span>);
+<span class="java-variable">personne1</span>.<span class="java-function">sePresenter</span>();</code></pre>
+                </div>
+
+                <h3 class="text-purple">2. Héritage</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Classe parente</span>
+<span class="java-keyword">class</span> <span class="java-class">Vehicule</span> {
+    <span class="java-keyword">protected</span> <span class="java-class">String</span> <span class="java-variable">marque</span>;
+    
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">demarrer</span>() {
+        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Le véhicule démarre."</span>);
+    }
+}
+
+<span class="java-comment">// Classe fille</span>
+<span class="java-keyword">class</span> <span class="java-class">Voiture</span> <span class="java-keyword">extends</span> <span class="java-class">Vehicule</span> {
+    <span class="java-keyword">private</span> <span class="java-keyword">int</span> <span class="java-variable">portes</span>;
+    
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">klaxonner</span>() {
+        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Tut tut!"</span>);
+    }
+    
+    <span class="java-comment">// Redéfinition (override) de méthode</span>
+    <span class="java-marker">@Override</span>
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">demarrer</span>() {
+        <span class="java-keyword">super</span>.<span class="java-function">demarrer</span>();  <span class="java-comment">// Appel à la méthode parent</span>
+        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"La voiture roule."</span>);
+    }
+}</code></pre>
+                </div>
+
+                <h3 class="text-purple">3. Interfaces et classes abstraites</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Interface (contrat)</span>
+<span class="java-keyword">interface</span> <span class="java-class">Transport</span> {
+    <span class="java-keyword">void</span> <span class="java-function">transporter</span>(<span class="java-class">String</span> <span class="java-variable">destination</span>);
+    <span class="java-keyword">int</span> <span class="java-function">getCapacite</span>();
+}
+
+<span class="java-comment">// Classe abstraite</span>
+<span class="java-keyword">abstract class</span> <span class="java-class">Animal</span> {
+    <span class="java-keyword">protected</span> <span class="java-class">String</span> <span class="java-variable">nom</span>;
+    
+    <span class="java-keyword">public</span> <span class="java-keyword">abstract</span> <span class="java-keyword">void</span> <span class="java-function">faireDuBruit</span>();  <span class="java-comment">// Méthode abstraite</span>
+    
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">dormir</span>() {
+        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Zzz..."</span>);
+    }
+}
+
+<span class="java-comment">// Implémentation</span>
+<span class="java-keyword">class</span> <span class="java-class">Chien</span> <span class="java-keyword">extends</span> <span class="java-class">Animal</span> <span class="java-keyword">implements</span> <span class="java-class">Transport</span> {
+    <span class="java-marker">@Override</span>
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">faireDuBruit</span>() {
+        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Woof!"</span>);
+    }
+    
+    <span class="java-marker">@Override</span>
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">transporter</span>(<span class="java-class">String</span> <span class="java-variable">destination</span>) {
+        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Transport vers: "</span> + <span class="java-variable">destination</span>);
+    }
+    
+    <span class="java-marker">@Override</span>
+    <span class="java-keyword">public</span> <span class="java-keyword">int</span> <span class="java-function">getCapacite</span>() {
+        <span class="java-keyword">return</span> <span class="java-number">1</span>;
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Écosystème Java -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">L'écosystème Java</h2>
+
+                <h3 class="text-purple">1. Éditions Java</h3>
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h4 class="text-purple">Java SE (Standard Edition)</h4>
+                        <pre v-pre><code class="language-text">• Noyau de la plateforme Java
+• API de base (collections, I/O, réseau)
+• Pour applications desktop
+• Développement général
+• La plus utilisée</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h4 class="text-purple">Java EE (Enterprise Edition)</h4>
+                        <pre v-pre><code class="language-text">• Jakarta EE (nouveau nom)
+• Extensions pour entreprises
+• Servlets, JSP, EJB, JPA
+• Développement web/services
+• Frameworks : Spring</code></pre>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h4 class="text-purple">Java ME (Micro Edition)</h4>
+                    <pre v-pre><code class="language-text">• Pour appareils embarqués
+• Téléphones mobiles (anciens)
+• Appareils IoT
+• Ressources limitées
+• Moins utilisé aujourd'hui</code></pre>
+                </div>
+
+                <h3 class="text-purple">2. Frameworks populaires</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-text">• Spring/Spring Boot : Framework d'entreprise
+• Hibernate : ORM (Object-Relational Mapping)
+• Maven/Gradle : Outils de build
+• JUnit : Tests unitaires
+• Lombok : Réduction du code boilerplate
+• Apache Commons : Bibliothèques utilitaires</code></pre>
+                </div>
+
+                <h3 class="text-purple">3. Domaines d'application</h3>
+                <div class="code-example">
+                    <pre v-pre><code class="language-text">• Applications d'entreprise (ERP, CRM)
+• Développement web (backend)
+• Applications Android
+• Systèmes bancaires/financiers
+• Big Data (Hadoop, Spark)
+• Jeux vidéo (Minecraft)
+• IoT et systèmes embarqués
+• Recherche scientifique</code></pre>
+                </div>
+            </div>
+
+            <!-- Avantages et inconvénients -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Avantages et inconvénients de Java</h2>
 
                 <div class="code-comparison">
                     <div class="code-example">
-                        <h4 class="text-purple">Navigation</h4>
-                        <pre v-pre><code class="language-text">Ctrl+N : Chercher une classe
-Ctrl+Shift+N : Chercher un fichier
-Ctrl+E : Fichiers récents
-Ctrl+Shift+E : Editeurs récents
-Ctrl+B : Aller à la déclaration
-Ctrl+Alt+←/→ : Navigation arrière/avant</code></pre>
+                        <h4 class="text-purple">Avantages</h4>
+                        <pre v-pre><code class="language-text">• Multiplateforme (WORA)
+• Grande communauté
+• Documentation exhaustive
+• Riches bibliothèques
+• Performances élevées
+• Sécurité robuste
+• Évolutivité prouvée
+• Support à long terme</code></pre>
                     </div>
                     <div class="code-example">
-                        <h4 class="text-purple">Edition</h4>
-                        <pre v-pre><code class="language-text">Ctrl+Space : Auto-complétion
-Ctrl+Shift+Space : Complétion intelligente
-Ctrl+Alt+L : Formater le code
-Ctrl+D : Dupliquer la ligne
-Ctrl+Y : Supprimer la ligne
-Ctrl+/ : Commenter/décommenter</code></pre>
+                        <h4 class="text-purple">Inconvénients</h4>
+                        <pre v-pre><code class="language-text">• Verbosité (beaucoup de code)
+• Consommation mémoire
+• Temps de démarrage
+• Syntaxe complexe
+• Courbe d'apprentissage
+• Updates fréquentes
+• Licensing Oracle</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparaison avec d'autres langages -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Java vs autres langages</h2>
+
+                <div class="code-comparison">
+                    <div class="code-example">
+                        <h4 class="text-purple">Java vs Python</h4>
+                        <pre v-pre><code class="language-text">Java :
+• Typage statique
+• Plus rapide
+• Plus verbeux
+• Meilleur pour les grandes apps
+
+Python :
+• Typage dynamique
+• Plus lent
+• Plus concis
+• Meilleur pour le scripting</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h4 class="text-purple">Java vs C#</h4>
+                        <pre v-pre><code class="language-text">Java :
+• Multiplateforme
+• Oracle/JVM
+• Plus ancien
+• Communauté immense
+
+C# :
+• Principalement Windows
+• Microsoft/.NET
+• Syntaxe similaire
+• Intégration Windows</code></pre>
                     </div>
                 </div>
 
                 <div class="code-comparison">
                     <div class="code-example">
-                        <h4 class="text-purple">Execution/Débogage</h4>
-                        <pre v-pre><code class="language-text">Shift+F10 : Executer
-Shift+F9 : Déboguer
-F8 : Step Over
-F7 : Step Into
-Shift+F8 : Step Out
-Ctrl+F2 : Arrêter l'execution</code></pre>
+                        <h4 class="text-purple">Java vs JavaScript</h4>
+                        <pre v-pre><code class="language-text">Java :
+• Langage compilé
+• Backend/serveur
+• Orienté objet classique
+• Fortement typé
+
+JavaScript :
+• Langage interprété
+• Frontend/navigateur
+• Prototypal inheritance
+• Faiblement typé</code></pre>
                     </div>
                     <div class="code-example">
-                        <h4 class="text-purple">Refactoring</h4>
-                        <pre v-pre><code class="language-text">Shift+F6 : Renommer
-Ctrl+Alt+M : Extraire une méthode
-Ctrl+Alt+V : Extraire une variable
-Ctrl+Alt+C : Extraire une constante
-Ctrl+Alt+P : Extraire un paramètre</code></pre>
+                        <h4 class="text-purple">Java vs C++</h4>
+                        <pre v-pre><code class="language-text">Java :
+• Garbage collection
+• Pas de pointeurs
+• Plus sécurisé
+• Plus lent (JVM)
+
+C++ :
+• Gestion mémoire manuelle
+• Pointeurs explicites
+• Plus risqué
+• Plus rapide (natif)</code></pre>
                     </div>
                 </div>
             </div>
 
-            <!-- Installation des outils complémentaires -->
+            <!-- Bonnes pratiques et conventions -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">12. Outils complémentaires recommandés</h2>
+                <h2 class="text-purple">Conventions et bonnes pratiques Java</h2>
 
-                <h3 class="text-purple">12.1 Git (Contrôle de version)</h3>
+                <h3 class="text-purple">Conventions de nommage</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Windows : https://git-scm.com/download/win</span>
-<span class="bash-comment"># macOS : brew install git</span>
-<span class="bash-comment"># Linux : sudo apt install git</span>
+                    <pre v-pre><code class="language-java"><span class="java-comment">// Classes : PascalCase</span>
+<span class="java-keyword">public class</span> <span class="java-class">MaClasse</span> {}
 
-<span class="bash-comment"># Configuration Git</span>
-<span class="bash-prompt">$</span> <span class="bash-command">git config --global user.name "Votre Nom"</span>
-<span class="bash-prompt">$</span> <span class="bash-command">git config --global user.email "votre@email.com"</span>
-<span class="bash-prompt">$</span> <span class="bash-command">git config --global core.editor "code --wait"</span>  <span class="bash-comment"># ou "nano"</span></code></pre>
+<span class="java-comment">// Méthodes/variables : camelCase</span>
+<span class="java-keyword">public void</span> <span class="java-function">maMethode</span>() {
+    <span class="java-keyword">int</span> <span class="java-variable">maVariable</span> = <span class="java-number">10</span>;
+}
+
+<span class="java-comment">// Constantes : UPPER_CASE</span>
+<span class="java-keyword">public static final</span> <span class="java-class">String</span> <span class="java-variable">MA_CONSTANTE</span> = <span class="java-string">"VALEUR"</span>;
+
+<span class="java-comment">// Packages : lowercase</span>
+<span class="java-keyword">package</span> com.monentreprise.monprojet;</code></pre>
                 </div>
 
-                <h3 class="text-purple">12.2 Maven ou Gradle (Gestion de projets)</h3>
+                <h3 class="text-purple">Bonnes pratiques</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Maven</span>
-<span class="bash-prompt">$</span> <span class="bash-command">mvn --version</span>
-
-<span class="bash-comment"># Gradle</span>
-<span class="bash-prompt">$</span> <span class="bash-command">gradle --version</span></code></pre>
-                </div>
-
-                <h3 class="text-purple">12.3 Extensions IntelliJ recommandées</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Plugins essentiels (Settings → Plugins) :
-
-• Atom Material Icons : Icones modernes
-• Rainbow Brackets : Couleurs pour les parenthèses
-• SonarLint : Analyse de code
-• Key Promoter X : Aide à apprendre les raccourcis
-• GitToolBox : Fonctionnalités Git avancées</code></pre>
-                </div>
-            </div>
-
-            <!-- Dépannage commun -->
-            <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">13. Dépannage des problèmes courants</h2>
-
-                <h3 class="text-purple">Problème 1 : JDK non détecté</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Symptôme : "No JDK found" ou "Invalid JDK"
-
-Solution :
-1. Vérifiez l'installation : java --version
-2. Dans IntelliJ : File → Project Structure
-3. Project SDK → Add JDK
-4. Naviguez vers le dossier d'installation
-5. Redémarrez IntelliJ</code></pre>
-                </div>
-
-                <h3 class="text-purple">Problème 2 : Erreurs de compilation</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Symptôme : "Cannot resolve symbol" ou erreurs rouges
-
-Solutions :
-1. File → Invalidate Caches → Invalidate and Restart
-2. Maven/Gradle : Reimport le projet
-3. Vérifiez le JDK : File → Project Structure
-4. Build → Rebuild Project</code></pre>
-                </div>
-
-                <h3 class="text-purple">Problème 3 : Performances lentes</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-text">Symptôme : IntelliJ est lent
-
-Optimisations :
-1. Augmentez la mémoire : Help → Edit Custom VM Options
-   -Xmx2048m → -Xmx4096m (pour 4GB RAM)
-2. Désactivez les plugins inutiles
-3. File → Invalidate Caches
-4. Désactivez l'antivirus temporairement</code></pre>
-                </div>
-
-                <h3 class="text-purple">Problème 4 : Problèmes de ligne de commande</h3>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Vérification complète</span>
-<span class="bash-prompt">$</span> <span class="bash-command">java --version</span>
-<span class="bash-prompt">$</span> <span class="bash-command">javac --version</span>
-<span class="bash-prompt">$</span> <span class="bash-command">echo $JAVA_HOME</span>  <span class="bash-comment"># ou %JAVA_HOME% sur Windows</span>
-
-<span class="bash-comment"># Si JAVA_HOME n'est pas défini :</span>
-<span class="bash-comment"># Windows :</span>
-setx JAVA_HOME "C:\Program Files\Java\jdk-21"
-
-<span class="bash-comment"># Linux/macOS :</span>
-export JAVA_HOME=/path/to/jdk
-echo 'export JAVA_HOME=/path/to/jdk' >> ~/.bashrc</code></pre>
+                    <pre v-pre><code class="language-text">• Utiliser l'encapsulation (private + getters/setters)
+• Préférer l'héritage aux interfaces
+• Éviter les classes trop grandes
+• Documenter avec Javadoc
+• Gérer les exceptions proprement
+• Utiliser les collections génériques
+• Éviter les valeurs magiques
+• Tester avec JUnit
+• Suivre les principes SOLID</code></pre>
                 </div>
             </div>
 
             <!-- Exercice pratique -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">14. Exercice pratique</h2>
+                <h2 class="text-purple">Exercice pratique : Créer un système de gestion d'étudiants</h2>
                 <div class="exercise">
                     <p class="textExemple">
-                        <strong>Objectif :</strong> Configurer un environnement de développement Java complet et créer une application simple.
+                        <strong>Objectif :</strong> Mettre en pratique les concepts Java en créant un système simple de gestion d'étudiants.
                     </p>
                     <ol class="textExemple">
-                        <li>Installez JDK 21 sur votre système</li>
-                        <li>Installez IntelliJ IDEA Community Edition</li>
-                        <li>Configurez les variables d'environnement (JAVA_HOME et PATH)</li>
-                        <li>Créez un nouveau projet "Calculator" dans IntelliJ</li>
-                        <li>Implémentez une calculatrice avec :
+                        <li>Créez une classe <code>Etudiant</code> avec :
                             <ul>
-                                <li>Addition, soustraction, multiplication, division</li>
-                                <li>Interface en ligne de commande</li>
-                                <li>Gestion des erreurs (division par zéro)</li>
+                                <li>Attributs : nom, prénom, numéro étudiant, liste de notes</li>
+                                <li>Constructeur avec paramètres</li>
+                                <li>Getters et setters</li>
+                                <li>Méthode pour ajouter une note</li>
+                                <li>Méthode pour calculer la moyenne</li>
                             </ul>
                         </li>
-                        <li>Testez votre programme et vérifiez qu'il fonctionne</li>
-                        <li>Initialisez un dépôt Git pour votre projet</li>
+                        <li>Créez une classe <code>Promotion</code> pour gérer plusieurs étudiants</li>
+                        <li>Implémentez les fonctionnalités :
+                            <ul>
+                                <li>Ajouter/supprimer un étudiant</li>
+                                <li>Afficher tous les étudiants</li>
+                                <li>Trouver l'étudiant avec la meilleure moyenne</li>
+                                <li>Calculer la moyenne générale de la promotion</li>
+                            </ul>
+                        </li>
+                        <li>Créez une classe principale avec un menu interactif</li>
                     </ol>
                 </div>
 
                 <details class="solution">
                     <summary class="btn-purple btn-hover">Voir la solution</summary>
                     <div class="solution-content">
-                        <h4 class="text-purple">Etapes de la solution :</h4>
+                        <h4 class="text-purple">Structure de la solution :</h4>
                         
-                        <h5 class="text-purple">Fichier Calculator.java :</h5>
+                        <h5 class="text-purple">Etudiant.java :</h5>
                         <div class="code-example">
-                            <pre v-pre><code class="language-java"><span class="java-keyword">import</span> <span class="java-class">java.util.Scanner</span>;
+                            <pre v-pre><code class="language-java"><span class="java-keyword">import</span> <span class="java-class">java.util.ArrayList</span>;
+<span class="java-keyword">import</span> <span class="java-class">java.util.List</span>;
 
-<span class="java-keyword">public class</span> <span class="java-class">Calculator</span> {
-    <span class="java-keyword">public static void</span> <span class="java-function">main</span>(<span class="java-class">String</span>[] <span class="java-variable">args</span>) {
-        <span class="java-class">Scanner</span> <span class="java-variable">scanner</span> = <span class="java-keyword">new</span> <span class="java-class">Scanner</span>(<span class="java-class">System</span>.<span class="java-variable">in</span>);
-        
-        <span class="java-keyword">while</span> (<span class="java-keyword">true</span>) {
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"\n=== CALCULATRICE ==="</span>);
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"1. Addition"</span>);
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"2. Soustraction"</span>);
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"3. Multiplication"</span>);
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"4. Division"</span>);
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"5. Quitter"</span>);
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">print</span>(<span class="java-string">"Choisissez une opération : "</span>);
-            
-            <span class="java-keyword">int</span> <span class="java-variable">choice</span> = <span class="java-variable">scanner</span>.<span class="java-function">nextInt</span>();
-            
-            <span class="java-keyword">if</span> (<span class="java-variable">choice</span> == <span class="java-number">5</span>) {
-                <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Au revoir !"</span>);
-                <span class="java-keyword">break</span>;
-            }
-            
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">print</span>(<span class="java-string">"Entrez le premier nombre : "</span>);
-            <span class="java-keyword">double</span> <span class="java-variable">num1</span> = <span class="java-variable">scanner</span>.<span class="java-function">nextDouble</span>();
-            <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">print</span>(<span class="java-string">"Entrez le deuxième nombre : "</span>);
-            <span class="java-keyword">double</span> <span class="java-variable">num2</span> = <span class="java-variable">scanner</span>.<span class="java-function">nextDouble</span>();
-            
-            <span class="java-keyword">double</span> <span class="java-variable">result</span> = <span class="java-number">0</span>;
-            <span class="java-keyword">boolean</span> <span class="java-variable">error</span> = <span class="java-keyword">false</span>;
-            
-            <span class="java-keyword">switch</span> (<span class="java-variable">choice</span>) {
-                <span class="java-keyword">case</span> <span class="java-number">1</span>:
-                    <span class="java-variable">result</span> = <span class="java-variable">num1</span> + <span class="java-variable">num2</span>;
-                    <span class="java-keyword">break</span>;
-                <span class="java-keyword">case</span> <span class="java-number">2</span>:
-                    <span class="java-variable">result</span> = <span class="java-variable">num1</span> - <span class="java-variable">num2</span>;
-                    <span class="java-keyword">break</span>;
-                <span class="java-keyword">case</span> <span class="java-number">3</span>:
-                    <span class="java-variable">result</span> = <span class="java-variable">num1</span> * <span class="java-variable">num2</span>;
-                    <span class="java-keyword">break</span>;
-                <span class="java-keyword">case</span> <span class="java-number">4</span>:
-                    <span class="java-keyword">if</span> (<span class="java-variable">num2</span> != <span class="java-number">0</span>) {
-                        <span class="java-variable">result</span> = <span class="java-variable">num1</span> / <span class="java-variable">num2</span>;
-                    } <span class="java-keyword">else</span> {
-                        <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Erreur : Division par zéro !"</span>);
-                        <span class="java-variable">error</span> = <span class="java-keyword">true</span>;
-                    }
-                    <span class="java-keyword">break</span>;
-                <span class="java-keyword">default</span>:
-                    <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">println</span>(<span class="java-string">"Choix invalide !"</span>);
-                    <span class="java-keyword">continue</span>;
-            }
-            
-            <span class="java-keyword">if</span> (!<span class="java-variable">error</span>) {
-                <span class="java-class">System</span>.<span class="java-variable">out</span>.<span class="java-function">printf</span>(<span class="java-string">"Résultat : %.2f\n"</span>, <span class="java-variable">result</span>);
-            }
-        }
-        
-        <span class="java-variable">scanner</span>.<span class="java-function">close</span>();
+<span class="java-keyword">public class</span> <span class="java-class">Etudiant</span> {
+    <span class="java-keyword">private</span> <span class="java-class">String</span> <span class="java-variable">nom</span>;
+    <span class="java-keyword">private</span> <span class="java-class">String</span> <span class="java-variable">prenom</span>;
+    <span class="java-keyword">private</span> <span class="java-class">String</span> <span class="java-variable">numero</span>;
+    <span class="java-keyword">private</span> <span class="java-class">List</span>&lt;<span class="java-class">Double</span>&gt; <span class="java-variable">notes</span>;
+    
+    <span class="java-keyword">public</span> <span class="java-function">Etudiant</span>(<span class="java-class">String</span> <span class="java-variable">nom</span>, <span class="java-class">String</span> <span class="java-variable">prenom</span>, <span class="java-class">String</span> <span class="java-variable">numero</span>) {
+        <span class="java-keyword">this</span>.<span class="java-variable">nom</span> = <span class="java-variable">nom</span>;
+        <span class="java-keyword">this</span>.<span class="java-variable">prenom</span> = <span class="java-variable">prenom</span>;
+        <span class="java-keyword">this</span>.<span class="java-variable">numero</span> = <span class="java-variable">numero</span>;
+        <span class="java-keyword">this</span>.<span class="java-variable">notes</span> = <span class="java-keyword">new</span> <span class="java-class">ArrayList</span>&lt;&gt;();
     }
+    
+    <span class="java-keyword">public</span> <span class="java-keyword">void</span> <span class="java-function">ajouterNote</span>(<span class="java-keyword">double</span> <span class="java-variable">note</span>) {
+        <span class="java-keyword">if</span> (<span class="java-variable">note</span> &gt;= <span class="java-number">0</span> &amp;&amp; <span class="java-variable">note</span> &lt;= <span class="java-number">20</span>) {
+            <span class="java-variable">notes</span>.<span class="java-function">add</span>(<span class="java-variable">note</span>);
+        }
+    }
+    
+    <span class="java-keyword">public</span> <span class="java-keyword">double</span> <span class="java-function">calculerMoyenne</span>() {
+        <span class="java-keyword">if</span> (<span class="java-variable">notes</span>.<span class="java-function">isEmpty</span>()) <span class="java-keyword">return</span> <span class="java-number">0</span>;
+        
+        <span class="java-keyword">double</span> <span class="java-variable">somme</span> = <span class="java-number">0</span>;
+        <span class="java-keyword">for</span> (<span class="java-keyword">double</span> <span class="java-variable">note</span> : <span class="java-variable">notes</span>) {
+            <span class="java-variable">somme</span> += <span class="java-variable">note</span>;
+        }
+        <span class="java-keyword">return</span> <span class="java-variable">somme</span> / <span class="java-variable">notes</span>.<span class="java-function">size</span>();
+    }
+    
+    <span class="java-comment">// Getters et setters...</span>
 }</code></pre>
                         </div>
                     </div>
@@ -710,49 +647,51 @@ echo 'export JAVA_HOME=/path/to/jdk' >> ~/.bashrc</code></pre>
 
             <!-- Conclusion et ressources -->
             <div class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">15. Conclusion et ressources</h2>
+                <h2 class="text-purple">Conclusion et ressources pour apprendre Java</h2>
                 <p class="textExemple">
-                    Félicitations ! Vous avez maintenant un environnement de développement Java complet et fonctionnel.
-                    Vous êtes prêt à développer des applications Java avec IntelliJ IDEA, l'un des meilleurs IDE disponibles.
+                    Java reste un langage incontournable dans le monde du développement logiciel. 
+                    Sa stabilité, sa performance et son vaste écosystème en font un choix judicieux 
+                    pour de nombreux types de projets, des applications mobiles aux systèmes d'entreprise complexes.
                 </p>
 
-                <h3 class="text-purple">Prochaines étapes :</h3>
+                <h3 class="text-purple">Prochaines étapes dans l'apprentissage :</h3>
                 <ul class="textExemple">
-                    <li>Apprendre les bases de la programmation Java (variables, boucles, conditions)</li>
-                    <li>Découvrir la programmation orientée objet (classes, objets, héritage)</li>
-                    <li>Explorer les collections Java (List, Set, Map)</li>
-                    <li>Apprendre à utiliser Maven ou Gradle pour gérer les dépendances</li>
-                    <li>Découvrir les tests unitaires avec JUnit</li>
+                    <li>Maîtriser les collections Java (List, Set, Map)</li>
+                    <li>Apprendre les flux (Streams) et expressions lambda</li>
+                    <li>Découvrir la programmation concurrente</li>
+                    <li>Explorer les frameworks comme Spring</li>
+                    <li>Apprendre les tests unitaires avec JUnit</li>
+                    <li>Découvrir les design patterns en Java</li>
                 </ul>
 
-                <h3 class="text-purple">Ressources supplémentaires :</h3>
+                <h3 class="text-purple">Ressources recommandées :</h3>
                 <ul class="textExemple">
                     <li><a href="https://docs.oracle.com/javase/tutorial/" target="_blank" class="btn-purple btn-hover">Tutoriel officiel Java (Oracle)</a></li>
-                    <li><a href="https://www.jetbrains.com/idea/documentation/" target="_blank" class="btn-purple btn-hover">Documentation IntelliJ IDEA</a></li>
-                    <li><a href="https://www.baeldung.com/" target="_blank" class="btn-purple btn-hover">Baeldung - Tutorials Java & Spring</a></li>
-                    <li><a href="https://www.jetbrains.com/help/idea/getting-started.html" target="_blank" class="btn-purple btn-hover">Guide de démarrage IntelliJ</a></li>
-                    <li><a href="https://github.com/iluwatar/java-design-patterns" target="_blank" class="btn-purple btn-hover">Design Patterns en Java (GitHub)</a></li>
+                    <li><a href="https://www.java.com/fr/" target="_blank" class="btn-purple btn-hover">Site officiel Java</a></li>
+                    <li><a href="https://openjdk.org/" target="_blank" class="btn-purple btn-hover">OpenJDK (implémentation open source)</a></li>
+                    <li><a href="https://stackoverflow.com/questions/tagged/java" target="_blank" class="btn-purple btn-hover">Stack Overflow - Java</a></li>
+                    <li><a href="https://github.com/TheAlgorithms/Java" target="_blank" class="btn-purple btn-hover">Algorithmes en Java (GitHub)</a></li>
+                    <li><a href="https://www.baeldung.com/" target="_blank" class="btn-purple btn-hover">Baeldung - Tutoriels Java</a></li>
                 </ul>
 
                 <div class="code-example">
-                    <h4 class="text-purple">Vérification finale de votre installation</h4>
-                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Ouvrez un terminal et exécutez :</span>
-<span class="bash-prompt">$</span> <span class="bash-command">java --version</span>
-<span class="bash-prompt">$</span> <span class="bash-command">javac --version</span>
-<span class="bash-prompt">$</span> <span class="bash-command">idea --version</span>  <span class="bash-comment"># Si IntelliJ est dans le PATH</span>
-
-<span class="bash-comment"># Tout doit fonctionner ! Vous êtes prêt à coder.</span>
-<span class="bash-comment"># Bon développement Java !</span></code></pre>
+                    <h4 class="text-purple">Citation célèbre sur Java</h4>
+                    <pre v-pre><code class="language-text">"Java est à C++ ce que C++ est à l'assembleur."
+                        - James Gosling, créateur de Java</code></pre>
                 </div>
+
+                <p class="textExemple">
+                    Avec plus de 25 ans d'existence, Java continue d'évoluer et de s'adapter aux 
+                    nouvelles tendances du développement logiciel. Son adoption massive dans 
+                    l'industrie garantit qu'il restera un langage pertinent pour les années à venir.
+                </p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {
-    name: 'JavaInstallationLesson'
-}
+
 </script>
 
 <style scoped>
@@ -952,6 +891,10 @@ pre code {
 
 .java-number {
     color: #B5CEA8 !important;
+}
+
+.java-marker {
+    color: #C586C0 !important; 
 }
 
 /* Couleurs Bash */

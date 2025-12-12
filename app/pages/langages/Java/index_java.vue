@@ -9,7 +9,7 @@
                 <h5 class="card-title text-purple">Intro a JAVA</h5>
                 <p class="card-text">Qu'est ce que PHP ce language et a quoi sert-il ?</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/intro_php">
+                    to="lessons/intro_java">
                     Accès à la leçon
                 </NuxtLink>
             </div>
@@ -20,7 +20,7 @@
                 <h5 class="card-title text-purple">Installer et utiliser java </h5>
                 <p class="card-text">instalation de base et utilisation de intelli j (ide) pour faire du JAVA</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/intro_java">
+                    to="lessons/installation_java">
                     Accès à la leçon
                 </NuxtLink>
             </div>
