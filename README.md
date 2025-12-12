@@ -12,6 +12,21 @@
 - echo
 - api
 ================================================================================
+# JAVA
+- installation de java et intelli j
+- SDK
+- méthod main
+- variable primitive 
+- fonction
+- les tableaux
+- les boucles
+- array list
+- map
+- surcharge
+- scanner
+- packages
+- variable objet
+================================================================================
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
 - rajouter une lecons sur les check (mettre la nition LENGTH())
@@ -58,9 +73,25 @@
 - faker php comment l'instaler sur son projet symfony
 - findOneBy
 - composer require symfony/serializer-pack
+- symfony profiler
+- stimulus
 - symfony form
+- IsGranted
+- symfony console make:form
+- symfony console make:registration-form
+- symfony console make:auth
+- composer require lexik/jwt-authentication-bundle
+- composer req api
+- JWT decoder
 
-1  symfony console make:form
+- DéPLOYER un projet symfony 
+1 aller sur git hub
+2 fair un git clone dans hostinger
+3 installer composer via un .phar sur le site de composer
+4 installer les dépendances du projet sur le vps
+5 crée un .env.prod
+6 adapter le .env.prod avec les info de l'hebergeur 
+7 faire le liens avec la BDD
 ================================================================================
 # Cyber Sécuriter
 - buffer overflow
