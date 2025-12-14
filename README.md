@@ -21,7 +21,7 @@
 - surcharge
 - scanner
 - packages
-- variable objet
+- crée une classe 
 ================================================================================
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
