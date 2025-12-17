@@ -26,6 +26,9 @@
 - type générique
 - next()
 ================================================================================
+# SPRING BOOT
+- crée un nouveau projet via start.spring.io
+================================================================================
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
 - rajouter une lecons sur les check (mettre la notion LENGTH())
