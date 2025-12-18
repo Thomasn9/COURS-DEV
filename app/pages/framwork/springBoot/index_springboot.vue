@@ -10,7 +10,18 @@
                 <h5 class="card-title text-purple">Intro Spring boot</h5>
                 <p class="card-text">Qu'est ce que Sympfony et quelle est sont utilité</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/springboot">
+                    to="lessons/intro_springboot">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Installation de Spring boot</h5>
+                <p class="card-text">Comment installer Spring Boot via spring.io</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/installation_springboot">
                     Accès à la leçon
                 </NuxtLink>
             </div>
