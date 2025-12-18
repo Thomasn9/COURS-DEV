@@ -48,7 +48,7 @@
                         <NuxtLink class="dropdown-item" to="#">Angular</NuxtLink>
                         <div class="dropdown-divider"></div>
                         <NuxtLink class="dropdown-item" to="/framwork/symfony/index_symfony">Symfony</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/vue/index_vue">Spring</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/framwork/springBoot/index_springboot">Spring / spring boot</NuxtLink>
                         <div class="dropdown-divider"></div>
                         <NuxtLink class="dropdown-item" to="/framwork/boostrap/index_boostrap">Bootstrap</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/framwork/tailwind_css/index_tailwind_css">Tailwind CSS</NuxtLink>

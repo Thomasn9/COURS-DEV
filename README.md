@@ -28,6 +28,8 @@
 ================================================================================
 # SPRING BOOT
 - crée un nouveau projet via start.spring.io
+- h2 (bdd)
+- décorateur ou annotation (@Entity/@Table/@Getter/@Column/@Data/@Id/@GenerateValue)
 ================================================================================
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
