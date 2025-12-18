@@ -4,9 +4,7 @@
       <!-- En-tête de la leçon -->
       <header class="lesson-header">
         <h1 class="text-white">Les Décorateurs et Annotations dans Spring Boot</h1>
-        <div class="lesson-meta text-white">
-          Leçon 3 • Java Annotations • Mapping ORM avec Spring Data JPA
-        </div>
+        <div class="lesson-meta text-white">Java Annotations • Mapping ORM avec Spring Data JPA</div>
       </header>
 
       <!-- Introduction aux annotations -->

@@ -34,8 +34,24 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">annotation</h5>
+                <h5 class="card-title text-purple">Annotation</h5>
                 <p class="card-text">Les annotation dans Spring Boot</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/annotation">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\D//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">D</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Décorateurs</h5>
+                <p class="card-text">Les Décorateurs dans Spring Boot</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/annotation">
                     Accès à la leçon
