@@ -7,21 +7,10 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Intro Symfony</h5>
+                <h5 class="card-title text-purple">Intro Spring boot</h5>
                 <p class="card-text">Qu'est ce que Sympfony et quelle est sont utilité</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/intro_symfony">
-                    Accès à la leçon
-                </NuxtLink>
-            </div>
-        </div>
-
-        <div class="card border-purple shadow-lg">
-            <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Instaler Symfony</h5>
-                <p class="card-text">Comment installer et créer un projet symfonoy</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/instalation_symfony">
+                    to="lessons/springboot">
                     Accès à la leçon
                 </NuxtLink>
             </div>
