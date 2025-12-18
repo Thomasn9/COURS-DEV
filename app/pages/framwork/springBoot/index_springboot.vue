@@ -27,17 +27,17 @@
             </div>
         </div>
 
-        <!-- =============================================================\\B//==================================================================== -->
+        <!-- =============================================================\\A//==================================================================== -->
         <div class="section-header">
-            <h3 class="lettreSommaire">B</h3>
+            <h3 class="lettreSommaire">A</h3>
         </div>
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Base de donnée doctrine</h5>
-                <p class="card-text">Crée une base de données avec doctrine</p>
+                <h5 class="card-title text-purple">annotation</h5>
+                <p class="card-text">Les annotation dans Spring Boot</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/bdd_doctrine">
+                    to="lessons/annotation">
                     Accès à la leçon
                 </NuxtLink>
             </div>

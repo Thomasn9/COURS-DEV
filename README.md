@@ -27,7 +27,6 @@
 - next()
 ================================================================================
 # SPRING BOOT
-- crée un nouveau projet via start.spring.io
 - h2 (bdd)
 - décorateur ou annotation (@Entity/@Table/@Getter/@Column/@Data/@Id/@GenerateValue)
 ================================================================================
