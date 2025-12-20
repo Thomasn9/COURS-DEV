@@ -1,7 +1,10 @@
 # Les lecons a venir:
+
 ================================================================================
+
 # PHP
-- super constantes (__LINE__/__FILE__/__FUNCTION__/__CLASS__/__TRAIT__/__METHOD__/__PROPERTY__/__NAMESPACE__)
+
+- super constantes (**LINE**/**FILE**/**FUNCTION**/**CLASS**/**TRAIT**/**METHOD**/**PROPERTY**/**NAMESPACE**)
 - diagramme de classe (classe abstraite / héritage)
 - fonction implodeR
 - la regle du "dry don't repeat yourself" en POO
@@ -10,9 +13,10 @@
 - fil-get-content
 - rajouter au switch case le rooting
 - echo
-- api
-================================================================================
+- # api
+
 # JAVA
+
 - fonction
 - les tableaux
 - les boucles
@@ -24,44 +28,51 @@
 - wrap
 - la différence entre class et interface
 - type générique
-- next()
-================================================================================
+- # next()
+
 # SPRING BOOT
-- h2 (bdd)
-- décorateur ou annotation (@Entity/@Table/@Getter/@Column/@Data/@Id/@GenerateValue)
-================================================================================
+
+- # h2 (bdd)
+
 # SQL
+
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
 - rajouter une lecons sur les check (mettre la notion LENGTH())
 - rajouter cours sur création de compt sql et les droit qu'ils ont
-- group concat
-================================================================================
+- # group concat
+
 # Java-Script
+
 - fonction fléché
 - console.log
 - add-event-listner
 - import
-- exporte 
-================================================================================
+- # exporte
+
 # Vue
-- les avantage de vue 
+
+- les avantage de vue
 - v-on
 - v-for
 - v-pre
 - rooting vue
-================================================================================
+- # les import de ref
+
 # Nuxt
+
 - introduction a nuxt
 - props
 - emits
 - rooting nuxt
-- nuxt link
-================================================================================
+- # nuxt link
+
 # Frameworks
-- daisy ui 
-- spring
-================================================================================
+
+- daisy ui
+- # spring
+
 # symfony
+
 - rajouter a l'installation symfony (--webapp / --version=7.3X / --php=)
 - scoop
 - sodium php
@@ -71,7 +82,7 @@
 - routing symfony
 - assetMapper
 - les bloc en twig
-- explique l'utiliter de cette commande 
+- explique l'utiliter de cette commande
 - les étapes pour utiliser et crée unne base de donnée avec doctrine
 - orm fixture comment l'instaler sur son projet symfony
 - faker php comment l'instaler sur son projet symfony
@@ -88,33 +99,39 @@
 - composer req api
 - JWT decoder
 
-- DéPLOYER un projet symfony 
-1 aller sur git hub
-2 fair un git clone dans hostinger
-3 installer composer via un .phar sur le site de composer
-4 installer les dépendances du projet sur le vps
-5 crée un .env.prod
-6 adapter le .env.prod avec les info de l'hebergeur 
-7 faire le liens avec la BDD
-================================================================================
+- DéPLOYER un projet symfony
+  1 aller sur git hub
+  2 fair un git clone dans hostinger
+  3 installer composer via un .phar sur le site de composer
+  4 installer les dépendances du projet sur le vps
+  5 crée un .env.prod
+  6 adapter le .env.prod avec les info de l'hebergeur
+  7 faire le liens avec la BDD
+  ================================================================================
+
 # Cyber Sécuriter
+
 - buffer overflow
 - injection sql
-- faille xss
-================================================================================
+- # faille xss
+
 # Audit + testing
+
 - O1 On On2 Ologn
 - structure de code
-- l'extension sonarQube sur vs code
-================================================================================
+- # l'extension sonarQube sur vs code
+
 # devops
+
 - ansible
-- idempotence
-================================================================================
+- # idempotence
+
 # Les librairie
-- jest
-================================================================================
+
+- # jest
+
 # Service web et design et application
+
 - apache Jmetter
 - bruno
 - gitea
@@ -123,22 +140,25 @@
 - docker
 - code pen
 - figma
-- freefrontend.com
-================================================================================
+- # freefrontend.com
+
 # Appli
+
 - mysql workbench
-- virtual box
-================================================================================
+- # virtual box
+
 # Outils gestion projet
+
 - jira
-- trelo
-================================================================================
+- # trelo
+
 # les jsp trop ou les mettre
+
 - data dog
 - graphana
 - choas monkey de netflix
-- ansible
-================================================================================
+- # ansible
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.

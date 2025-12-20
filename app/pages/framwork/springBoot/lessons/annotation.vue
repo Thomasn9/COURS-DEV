@@ -1,23 +1,25 @@
 <template>
-  <div class="lesson-container">
-    <div class="lesson-content">
-      <!-- En-tête de la leçon -->
-      <header class="lesson-header">
-        <h1 class="text-white">Les Décorateurs et Annotations dans Spring Boot</h1>
-        <div class="lesson-meta text-white">Java Annotations • Mapping ORM avec Spring Data JPA</div>
-      </header>
+    <div class="lesson-container">
+        <div class="lesson-content">
+            <!-- En-tête de la leçon -->
+            <header class="lesson-header">
+                <h1 class="text-white">Les Décorateurs et Annotations dans Spring Boot</h1>
+                <div class="lesson-meta text-white">Java Annotations • Mapping ORM avec Spring Data JPA</div>
+            </header>
 
-      <!-- Introduction aux annotations -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple mb-3">Introduction aux Annotations en Java</h2>
-        <p class="textExemple">
-          Les annotations en Java sont des métadonnées qui fournissent des informations supplémentaires au compilateur, à la JVM ou à des frameworks comme Spring Boot. Elles commencent toujours par le symbole <code>@</code> et sont placées au-dessus des classes, méthodes, variables ou paramètres.
-        </p>
-        
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">Sans annotations</h4>
-            <pre><code>
+            <!-- Introduction aux annotations -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple mb-3">Introduction aux Annotations en Java</h2>
+                <p class="textExemple">
+                    Les annotations en Java sont des métadonnées qui fournissent des informations supplémentaires au
+                    compilateur, à la JVM ou à des frameworks comme Spring Boot. Elles commencent toujours par le
+                    symbole <code>@</code> et sont placées au-dessus des classes, méthodes, variables ou paramètres.
+                </p>
+
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">Sans annotations</h4>
+                        <pre><code>
 <span class="comment">// Configuration manuelle et verbeuse</span>
 <span class="comment">// Beaucoup de code "boilerplate"</span>
 <span class="comment">// Difficulté de maintenance</span>
@@ -34,11 +36,11 @@
     <span class="keyword">public void</span> <span class="function">setNom</span>(String nom) { <span class="keyword">this</span>.nom = nom; }
 }
             </code></pre>
-          </div>
-          
-          <div class="code-block">
-            <h4 class="text-purple">Avec annotations</h4>
-            <pre><code>
+                    </div>
+
+                    <div class="code-block">
+                        <h4 class="text-purple">Avec annotations</h4>
+                        <pre><code>
 <span class="comment">// Configuration déclarative</span>
 <span class="comment">// Code concis et lisible</span>
 <span class="comment">// Maintenance facilitée</span>
@@ -57,85 +59,90 @@
     <span class="keyword">private</span> String nom;
 }
             </code></pre>
-          </div>
-        </div>
-        
-        <p class="textExemple mt-4">
-          Les annotations permettent une programmation <strong>déclarative</strong> plutôt qu'<strong>impérative</strong>. Vous dites <em>"quoi faire"</em> plutôt que <em>"comment le faire"</em>. Spring Boot utilise intensivement ce paradigme pour simplifier le développement et réduire le code répétitif.
-        </p>
-      </section>
+                    </div>
+                </div>
 
-      <!-- Catégories d'annotations -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple mb-3">Catégories d'annotations Spring Boot</h2>
-        
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">Annotations JPA (Jakarta Persistence)</h4>
-            <ul class="textExemple">
-              <li><code>@Entity</code> - Définit une classe comme entité persistante</li>
-              <li><code>@Table</code> - Spécifie la table de base de données</li>
-              <li><code>@Column</code> - Configure les colonnes de la table</li>
-              <li><code>@Id</code> - Identifie la clé primaire</li>
-              <li><code>@GeneratedValue</code> - Stratégie de génération des IDs</li>
-              <li><code>@OneToMany</code> - Relation un-à-plusieurs</li>
-              <li><code>@ManyToOne</code> - Relation plusieurs-à-un</li>
-            </ul>
-          </div>
-          
-          <div class="code-block">
-            <h4 class="text-purple">Annotations Lombok</h4>
-            <ul class="textExemple">
-              <li><code>@Getter</code> - Génère les getters</li>
-              <li><code>@Setter</code> - Génère les setters</li>
-              <li><code>@Data</code> - Génère getters, setters, equals, hashCode, toString</li>
-              <li><code>@NoArgsConstructor</code> - Constructeur sans arguments</li>
-              <li><code>@AllArgsConstructor</code> - Constructeur avec tous les arguments</li>
-              <li><code>@Builder</code> - Pattern Builder pour l'objet</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="code-comparison mt-4">
-          <div class="code-block">
-            <h4 class="text-purple">Annotations Spring Core</h4>
-            <ul class="textExemple">
-              <li><code>@Component</code> - Composant Spring générique</li>
-              <li><code>@Service</code> - Couche service métier</li>
-              <li><code>@Repository</code> - Couche d'accès aux données</li>
-              <li><code>@Controller</code> - Contrôleur web MVC</li>
-              <li><code>@RestController</code> - Contrôleur REST API</li>
-              <li><code>@Autowired</code> - Injection de dépendances</li>
-              <li><code>@Configuration</code> - Classe de configuration</li>
-            </ul>
-          </div>
-          
-          <div class="code-block">
-            <h4 class="text-purple">Annotations Spring Web</h4>
-            <ul class="textExemple">
-              <li><code>@RequestMapping</code> - Mappage des requêtes HTTP</li>
-              <li><code>@GetMapping</code> - Requêtes HTTP GET</li>
-              <li><code>@PostMapping</code> - Requêtes HTTP POST</li>
-              <li><code>@PutMapping</code> - Requêtes HTTP PUT</li>
-              <li><code>@DeleteMapping</code> - Requêtes HTTP DELETE</li>
-              <li><code>@PathVariable</code> - Variable dans l'URL</li>
-              <li><code>@RequestParam</code> - Paramètre de requête</li>
-              <li><code>@RequestBody</code> - Corps de la requête</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+                <p class="textExemple mt-4">
+                    Les annotations permettent une programmation <strong>déclarative</strong> plutôt
+                    qu'<strong>impérative</strong>. Vous dites <em>"quoi faire"</em> plutôt que <em>"comment le
+                        faire"</em>. Spring Boot utilise intensivement ce paradigme pour simplifier le développement et
+                    réduire le code répétitif.
+                </p>
+            </section>
 
-      <!-- Annotations JPA détaillées -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple mb-3">Annotations JPA - Mapping Objet/Relationnel</h2>
-        
-        <h3 class="text-purple mt-4">@Entity - Définition d'une entité</h3>
-        <p class="textExemple">
-          L'annotation <code>@Entity</code> marque une classe Java comme une entité persistante. Cela signifie que les instances de cette classe peuvent être stockées, récupérées et gérées par JPA (Java Persistence API).
-        </p>
-        <div class="code-example">
-          <pre><code>
+            <!-- Catégories d'annotations -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple mb-3">Catégories d'annotations Spring Boot</h2>
+
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">Annotations JPA (Jakarta Persistence)</h4>
+                        <ul class="textExemple">
+                            <li><code>@Entity</code> - Définit une classe comme entité persistante</li>
+                            <li><code>@Table</code> - Spécifie la table de base de données</li>
+                            <li><code>@Column</code> - Configure les colonnes de la table</li>
+                            <li><code>@Id</code> - Identifie la clé primaire</li>
+                            <li><code>@GeneratedValue</code> - Stratégie de génération des IDs</li>
+                            <li><code>@OneToMany</code> - Relation un-à-plusieurs</li>
+                            <li><code>@ManyToOne</code> - Relation plusieurs-à-un</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-block">
+                        <h4 class="text-purple">Annotations Lombok</h4>
+                        <ul class="textExemple">
+                            <li><code>@Getter</code> - Génère les getters</li>
+                            <li><code>@Setter</code> - Génère les setters</li>
+                            <li><code>@Data</code> - Génère getters, setters, equals, hashCode, toString</li>
+                            <li><code>@NoArgsConstructor</code> - Constructeur sans arguments</li>
+                            <li><code>@AllArgsConstructor</code> - Constructeur avec tous les arguments</li>
+                            <li><code>@Builder</code> - Pattern Builder pour l'objet</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-comparison mt-4">
+                    <div class="code-block">
+                        <h4 class="text-purple">Annotations Spring Core</h4>
+                        <ul class="textExemple">
+                            <li><code>@Component</code> - Composant Spring générique</li>
+                            <li><code>@Service</code> - Couche service métier</li>
+                            <li><code>@Repository</code> - Couche d'accès aux données</li>
+                            <li><code>@Controller</code> - Contrôleur web MVC</li>
+                            <li><code>@RestController</code> - Contrôleur REST API</li>
+                            <li><code>@Autowired</code> - Injection de dépendances</li>
+                            <li><code>@Configuration</code> - Classe de configuration</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-block">
+                        <h4 class="text-purple">Annotations Spring Web</h4>
+                        <ul class="textExemple">
+                            <li><code>@RequestMapping</code> - Mappage des requêtes HTTP</li>
+                            <li><code>@GetMapping</code> - Requêtes HTTP GET</li>
+                            <li><code>@PostMapping</code> - Requêtes HTTP POST</li>
+                            <li><code>@PutMapping</code> - Requêtes HTTP PUT</li>
+                            <li><code>@DeleteMapping</code> - Requêtes HTTP DELETE</li>
+                            <li><code>@PathVariable</code> - Variable dans l'URL</li>
+                            <li><code>@RequestParam</code> - Paramètre de requête</li>
+                            <li><code>@RequestBody</code> - Corps de la requête</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Annotations JPA détaillées -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple mb-3">Annotations JPA - Mapping Objet/Relationnel</h2>
+
+                <h3 class="text-purple mt-4">@Entity - Définition d'une entité</h3>
+                <p class="textExemple">
+                    L'annotation <code>@Entity</code> marque une classe Java comme une entité persistante. Cela signifie
+                    que les instances de cette classe peuvent être stockées, récupérées et gérées par JPA (Java
+                    Persistence API).
+                </p>
+                <div class="code-example">
+                    <pre><code>
 <span class="annotation">@Entity</span>
 <span class="keyword">public class</span> <span class="class-name">Utilisateur</span> {
     <span class="comment">// Propriétés et méthodes...</span>
@@ -149,14 +156,15 @@
 <span class="comment">// 2. Ne peut pas être une classe finale</span>
 <span class="comment">// 3. Doit avoir une propriété annotée @Id</span>
           </code></pre>
-        </div>
+                </div>
 
-        <h3 class="text-purple mt-4">@Table - Configuration de la table</h3>
-        <p class="textExemple">
-          <code>@Table</code> spécifie les détails de la table de base de données associée à l'entité. Si omise, JPA utilise le nom de la classe comme nom de table.
-        </p>
-        <div class="code-example">
-          <pre><code>
+                <h3 class="text-purple mt-4">@Table - Configuration de la table</h3>
+                <p class="textExemple">
+                    <code>@Table</code> spécifie les détails de la table de base de données associée à l'entité. Si
+                    omise, JPA utilise le nom de la classe comme nom de table.
+                </p>
+                <div class="code-example">
+                    <pre><code>
 <span class="annotation">@Entity</span>
 <span class="annotation">@Table</span>(
     name = <span class="string">"utilisateurs"</span>,                    <span class="comment">// Nom de la table</span>
@@ -179,14 +187,15 @@
     <span class="comment">// Propriétés...</span>
 }
           </code></pre>
-        </div>
+                </div>
 
-        <h3 class="text-purple mt-4">@Id et @GeneratedValue - Clé primaire</h3>
-        <p class="textExemple">
-          <code>@Id</code> identifie la propriété comme clé primaire de l'entité. <code>@GeneratedValue</code> définit comment cette clé primaire est générée.
-        </p>
-        <div class="code-example">
-          <pre><code>
+                <h3 class="text-purple mt-4">@Id et @GeneratedValue - Clé primaire</h3>
+                <p class="textExemple">
+                    <code>@Id</code> identifie la propriété comme clé primaire de l'entité. <code>@GeneratedValue</code>
+                    définit comment cette clé primaire est générée.
+                </p>
+                <div class="code-example">
+                    <pre><code>
 <span class="annotation">@Id</span>
 <span class="annotation">@GeneratedValue</span>(
     strategy = GenerationType.<span class="variable">IDENTITY</span>,  <span class="comment">// Auto-incrément de la base de données</span>
@@ -213,14 +222,15 @@
 )
 <span class="keyword">private</span> Long id;
           </code></pre>
-        </div>
+                </div>
 
-        <h3 class="text-purple mt-4">@Column - Configuration des colonnes</h3>
-        <p class="textExemple">
-          <code>@Column</code> permet de personnaliser le mapping entre une propriété d'entité et une colonne de table. Chaque attribut correspond à une caractéristique de la colonne en base de données.
-        </p>
-        <div class="code-example">
-          <pre><code>
+                <h3 class="text-purple mt-4">@Column - Configuration des colonnes</h3>
+                <p class="textExemple">
+                    <code>@Column</code> permet de personnaliser le mapping entre une propriété d'entité et une colonne
+                    de table. Chaque attribut correspond à une caractéristique de la colonne en base de données.
+                </p>
+                <div class="code-example">
+                    <pre><code>
 <span class="annotation">@Column</span>(
     name = <span class="string">"nom_complet"</span>,               <span class="comment">// Nom de la colonne en base</span>
     nullable = <span class="keyword">false</span>,                   <span class="comment">// NOT NULL constraint</span>
@@ -245,22 +255,24 @@
 <span class="annotation">@Column</span>(columnDefinition = <span class="string">"DECIMAL(10,2)"</span>)
 <span class="keyword">private</span> BigDecimal prix;
           </code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <!-- Annotations Lombok détaillées -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple mb-3">Annotations Lombok - Réduction du code boilerplate</h2>
-        
-        <p class="textExemple">
-          Lombok est une bibliothèque Java qui génère automatiquement du code répétitif (getters, setters, constructeurs, etc.) via des annotations de compilation. Cela rend le code plus lisible et réduit les erreurs manuelles.
-        </p>
+            <!-- Annotations Lombok détaillées -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple mb-3">Annotations Lombok - Réduction du code boilerplate</h2>
 
-        <h3 class="text-purple mt-4">@Getter et @Setter</h3>
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">Sans Lombok</h4>
-            <pre><code>
+                <p class="textExemple">
+                    Lombok est une bibliothèque Java qui génère automatiquement du code répétitif (getters, setters,
+                    constructeurs, etc.) via des annotations de compilation. Cela rend le code plus lisible et réduit
+                    les erreurs manuelles.
+                </p>
+
+                <h3 class="text-purple mt-4">@Getter et @Setter</h3>
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">Sans Lombok</h4>
+                        <pre><code>
 <span class="keyword">public class</span> <span class="class-name">Utilisateur</span> {
     <span class="keyword">private</span> Long id;
     <span class="keyword">private</span> String nom;
@@ -278,11 +290,11 @@
     <span class="comment">// 6 méthodes pour 3 propriétés !</span>
 }
             </code></pre>
-          </div>
-          
-          <div class="code-block">
-            <h4 class="text-purple">Avec Lombok</h4>
-            <pre><code>
+                    </div>
+
+                    <div class="code-block">
+                        <h4 class="text-purple">Avec Lombok</h4>
+                        <pre><code>
 <span class="annotation">@Getter</span>
 <span class="annotation">@Setter</span>
 <span class="keyword">public class</span> <span class="class-name">Utilisateur</span> {
@@ -300,15 +312,16 @@
 <span class="annotation">@Getter</span>                        <span class="comment">// Getter seulement (immutable)</span>
 <span class="keyword">private final</span> String idUnique;
             </code></pre>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <h3 class="text-purple mt-4">@Data - L'annotation "tout-en-un"</h3>
-        <p class="textExemple">
-          <code>@Data</code> est probablement l'annotation Lombok la plus utilisée. Elle combine plusieurs fonctionnalités en une seule annotation.
-        </p>
-        <div class="code-example">
-          <pre><code>
+                <h3 class="text-purple mt-4">@Data - L'annotation "tout-en-un"</h3>
+                <p class="textExemple">
+                    <code>@Data</code> est probablement l'annotation Lombok la plus utilisée. Elle combine plusieurs
+                    fonctionnalités en une seule annotation.
+                </p>
+                <div class="code-example">
+                    <pre><code>
 <span class="annotation">@Data</span>  <span class="comment">// Equivalent à :</span>
         <span class="comment">// @Getter sur toutes les propriétés</span>
         <span class="comment">// @Setter sur toutes les propriétés non-final</span>
@@ -350,13 +363,13 @@ Produit produit = Produit.<span class="function">builder</span>()
     .<span class="function">prix</span>(<span class="keyword">new</span> BigDecimal(<span class="string">"999.99"</span>))
     .<span class="function">build</span>();
           </code></pre>
-        </div>
+                </div>
 
-        <h3 class="text-purple mt-4">Annotations de constructeur</h3>
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">@NoArgsConstructor</h4>
-            <pre><code>
+                <h3 class="text-purple mt-4">Annotations de constructeur</h3>
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">@NoArgsConstructor</h4>
+                        <pre><code>
 <span class="annotation">@NoArgsConstructor</span>
 <span class="keyword">public class</span> <span class="class-name">Utilisateur</span> {
     <span class="comment">// Génère : public Utilisateur() {}</span>
@@ -367,11 +380,11 @@ Produit produit = Produit.<span class="function">builder</span>()
     <span class="comment">// Génère : protected EntiteBase() {}</span>
 }
             </code></pre>
-          </div>
-          
-          <div class="code-block">
-            <h4 class="text-purple">@AllArgsConstructor</h4>
-            <pre><code>
+                    </div>
+
+                    <div class="code-block">
+                        <h4 class="text-purple">@AllArgsConstructor</h4>
+                        <pre><code>
 <span class="annotation">@AllArgsConstructor</span>
 <span class="keyword">public class</span> <span class="class-name">Utilisateur</span> {
     <span class="keyword">private</span> Long id;
@@ -387,16 +400,16 @@ Produit produit = Produit.<span class="function">builder</span>()
     <span class="comment">// Génère : public static Point of(int x, int y)</span>
 }
             </code></pre>
-          </div>
-        </div>
-      </section>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Exemple complet intégré -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple mb-3">Exemple complet : Entité avec toutes les annotations</h2>
-        
-        <div class="code-example">
-          <pre><code>
+            <!-- Exemple complet intégré -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple mb-3">Exemple complet : Entité avec toutes les annotations</h2>
+
+                <div class="code-example">
+                    <pre><code>
 <span class="keyword">package</span> com.example.bibliotheque.entity;
 
 <span class="keyword">import</span> jakarta.persistence.*;
@@ -504,145 +517,152 @@ Produit produit = Produit.<span class="function">builder</span>()
     }
 }
           </code></pre>
-        </div>
-        
-        <p class="textExemple mt-3">
-          Cet exemple montre comment combiner intelligemment les annotations JPA et Lombok pour créer une entité complète, propre et facile à maintenir. Notez l'utilisation de <code>@Builder.Default</code> pour initialiser les collections et les annotations d'exclusion pour éviter les problèmes de récursion dans <code>toString()</code>, <code>equals()</code> et <code>hashCode()</code>.
-        </p>
-      </section>
+                </div>
 
-      <!-- Bonnes pratiques et pièges à éviter -->
-      <section class="lesson-section bg-light-purple border-purple">
-        <h2 class="text-purple mb-3">Bonnes pratiques et pièges à éviter</h2>
-        
-        <h3 class="text-purple mt-4">Utilisation correcte des annotations</h3>
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">À faire ✅</h4>
-            <ul class="textExemple">
-              <li>Utiliser <code>@Data</code> avec prudence (peut générer trop de méthodes)</li>
-              <li>Combiner <code>@Entity</code> avec <code>@NoArgsConstructor</code> (requis par JPA)</li>
-              <li>Spécifier explicitement les noms de colonnes avec <code>@Column(name="...")</code></li>
-              <li>Utiliser <code>@Builder</code> pour les objets complexes avec plusieurs propriétés</li>
-              <li>Exclure les relations circulaires de <code>toString()</code> et <code>equals()</code></li>
-              <li>Initialiser les collections dans la déclaration</li>
-            </ul>
-          </div>
-          
-          <div class="code-block">
-            <h4 class="text-purple">À éviter ❌</h4>
-            <ul class="textExemple">
-              <li>Éviter <code>@Data</code> sur les entités avec relations circulaires</li>
-              <li>Ne pas mélanger <code>@Data</code> avec des getters/setters manuels</li>
-              <li>Éviter les stratégies de génération d'ID incompatibles avec la base</li>
-              <li>Ne pas oublier <code>@EqualsAndHashCode.Exclude</code> sur les relations</li>
-              <li>Éviter les noms de colonnes ambigus ou réservés</li>
-              <li>Ne pas utiliser <code>@AllArgsConstructor</code> sans <code>@NoArgsConstructor</code> sur les entités JPA</li>
-            </ul>
-          </div>
-        </div>
+                <p class="textExemple mt-3">
+                    Cet exemple montre comment combiner intelligemment les annotations JPA et Lombok pour créer une
+                    entité complète, propre et facile à maintenir. Notez l'utilisation de <code>@Builder.Default</code>
+                    pour initialiser les collections et les annotations d'exclusion pour éviter les problèmes de
+                    récursion dans <code>toString()</code>, <code>equals()</code> et <code>hashCode()</code>.
+                </p>
+            </section>
 
-        <h3 class="text-purple mt-4">Configuration Lombok dans le projet</h3>
-        <p class="textExemple">
-          Pour utiliser Lombok dans votre projet Spring Boot, ajoutez la dépendance dans votre <code>pom.xml</code> (Maven) ou <code>build.gradle</code> (Gradle) :
-        </p>
-        
-        <div class="code-comparison">
-          <div class="code-block">
-            <h4 class="text-purple">Maven (pom.xml)</h4>
-            <pre><code>
+            <!-- Bonnes pratiques et pièges à éviter -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple mb-3">Bonnes pratiques et pièges à éviter</h2>
+
+                <h3 class="text-purple mt-4">Utilisation correcte des annotations</h3>
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">À faire ✅</h4>
+                        <ul class="textExemple">
+                            <li>Utiliser <code>@Data</code> avec prudence (peut générer trop de méthodes)</li>
+                            <li>Combiner <code>@Entity</code> avec <code>@NoArgsConstructor</code> (requis par JPA)</li>
+                            <li>Spécifier explicitement les noms de colonnes avec <code>@Column(name="...")</code></li>
+                            <li>Utiliser <code>@Builder</code> pour les objets complexes avec plusieurs propriétés</li>
+                            <li>Exclure les relations circulaires de <code>toString()</code> et <code>equals()</code>
+                            </li>
+                            <li>Initialiser les collections dans la déclaration</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-block">
+                        <h4 class="text-purple">À éviter ❌</h4>
+                        <ul class="textExemple">
+                            <li>Éviter <code>@Data</code> sur les entités avec relations circulaires</li>
+                            <li>Ne pas mélanger <code>@Data</code> avec des getters/setters manuels</li>
+                            <li>Éviter les stratégies de génération d'ID incompatibles avec la base</li>
+                            <li>Ne pas oublier <code>@EqualsAndHashCode.Exclude</code> sur les relations</li>
+                            <li>Éviter les noms de colonnes ambigus ou réservés</li>
+                            <li>Ne pas utiliser <code>@AllArgsConstructor</code> sans <code>@NoArgsConstructor</code>
+                                sur les entités JPA</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="text-purple mt-4">Configuration Lombok dans le projet</h3>
+                <p class="textExemple">
+                    Pour utiliser Lombok dans votre projet Spring Boot, ajoutez la dépendance dans votre
+                    <code>pom.xml</code> (Maven) ou <code>build.gradle</code> (Gradle) :
+                </p>
+
+                <div class="code-comparison">
+                    <div class="code-block">
+                        <h4 class="text-purple">Maven (pom.xml)</h4>
+                        <pre><code>
 &lt;dependency&gt;
     &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
     &lt;artifactId&gt;lombok&lt;/artifactId&gt;
     &lt;optional&gt;true&lt;/optional&gt;
 &lt;/dependency&gt;
             </code></pre>
-          </div>
-          
-          <div class="code-block">
-            <h4 class="text-purple">Gradle (build.gradle)</h4>
-            <pre><code>
+                    </div>
+
+                    <div class="code-block">
+                        <h4 class="text-purple">Gradle (build.gradle)</h4>
+                        <pre><code>
 dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 }
             </code></pre>
-          </div>
-        </div>
-        
-        <p class="textExemple mt-3">
-          Assurez-vous également d'installer le plugin Lombok dans votre IDE (IntelliJ, Eclipse, VS Code) pour que les méthodes générées soient reconnues pendant le développement.
-        </p>
-      </section>
+                    </div>
+                </div>
 
-      <!-- Exercice pratique -->
-      <section class="lesson-section bg-gradient-primary">
-        <h2 class="text-white mb-3">Conclusion</h2>
-        
+                <p class="textExemple mt-3">
+                    Assurez-vous également d'installer le plugin Lombok dans votre IDE (IntelliJ, Eclipse, VS Code) pour
+                    que les méthodes générées soient reconnues pendant le développement.
+                </p>
+            </section>
 
-        
-        <div class="mt-4">
-          <h3 class="text-white">Récapitulatif des annotations essentielles</h3>
-          <table style="width:100%; color:white; margin-top:1rem;">
-            <thead>
-              <tr>
-                <th style="text-align:left">Annotation</th>
-                <th style="text-align:left">Package</th>
-                <th style="text-align:left">Objectif principal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>@Entity</code></td>
-                <td>jakarta.persistence</td>
-                <td>Déclare une classe comme entité persistante</td>
-              </tr>
-              <tr>
-                <td><code>@Table</code></td>
-                <td>jakarta.persistence</td>
-                <td>Configure la table de base de données</td>
-              </tr>
-              <tr>
-                <td><code>@Id</code></td>
-                <td>jakarta.persistence</td>
-                <td>Identifie la clé primaire</td>
-              </tr>
-              <tr>
-                <td><code>@GeneratedValue</code></td>
-                <td>jakarta.persistence</td>
-                <td>Définit comment générer les IDs</td>
-              </tr>
-              <tr>
-                <td><code>@Column</code></td>
-                <td>jakarta.persistence</td>
-                <td>Configure le mapping d'une propriété</td>
-              </tr>
-              <tr>
-                <td><code>@Getter/@Setter</code></td>
-                <td>lombok</td>
-                <td>Génère les méthodes getter/setter</td>
-              </tr>
-              <tr>
-                <td><code>@Data</code></td>
-                <td>lombok</td>
-                <td>Génère getters, setters, equals, hashCode, toString</td>
-              </tr>
-              <tr>
-                <td><code>@NoArgsConstructor</code></td>
-                <td>lombok</td>
-                <td>Génère un constructeur sans arguments</td>
-              </tr>
-              <tr>
-                <td><code>@Builder</code></td>
-                <td>lombok</td>
-                <td>Implémente le pattern Builder</td>
-              </tr>
-            </tbody>
-          </table>
+            <!-- Exercice pratique -->
+            <section class="lesson-section bg-gradient-primary">
+                <h2 class="text-white mb-3">Conclusion</h2>
+
+
+
+                <div class="mt-4">
+                    <h3 class="text-white">Récapitulatif des annotations essentielles</h3>
+                    <table style="width:100%; color:white; margin-top:1rem;">
+                        <thead>
+                            <tr>
+                                <th style="text-align:left">Annotation</th>
+                                <th style="text-align:left">Package</th>
+                                <th style="text-align:left">Objectif principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>@Entity</code></td>
+                                <td>jakarta.persistence</td>
+                                <td>Déclare une classe comme entité persistante</td>
+                            </tr>
+                            <tr>
+                                <td><code>@Table</code></td>
+                                <td>jakarta.persistence</td>
+                                <td>Configure la table de base de données</td>
+                            </tr>
+                            <tr>
+                                <td><code>@Id</code></td>
+                                <td>jakarta.persistence</td>
+                                <td>Identifie la clé primaire</td>
+                            </tr>
+                            <tr>
+                                <td><code>@GeneratedValue</code></td>
+                                <td>jakarta.persistence</td>
+                                <td>Définit comment générer les IDs</td>
+                            </tr>
+                            <tr>
+                                <td><code>@Column</code></td>
+                                <td>jakarta.persistence</td>
+                                <td>Configure le mapping d'une propriété</td>
+                            </tr>
+                            <tr>
+                                <td><code>@Getter/@Setter</code></td>
+                                <td>lombok</td>
+                                <td>Génère les méthodes getter/setter</td>
+                            </tr>
+                            <tr>
+                                <td><code>@Data</code></td>
+                                <td>lombok</td>
+                                <td>Génère getters, setters, equals, hashCode, toString</td>
+                            </tr>
+                            <tr>
+                                <td><code>@NoArgsConstructor</code></td>
+                                <td>lombok</td>
+                                <td>Génère un constructeur sans arguments</td>
+                            </tr>
+                            <tr>
+                                <td><code>@Builder</code></td>
+                                <td>lombok</td>
+                                <td>Implémente le pattern Builder</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
-      </section>
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -779,7 +799,8 @@ dependencies {
     height: 300px;
 }
 
-.code-example, .code-block {
+.code-example,
+.code-block {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -822,16 +843,45 @@ pre code {
 }
 
 /* Couleurs pour Java/JPA */
-.keyword { color: #c586c0 !important; }
-.variable { color: #9cdcfe !important; }
-.string { color: #ce9178 !important; }
-.comment { color: #6a9955 !important; }
-.function { color: #dcdcaa !important; }
-.operator { color: #d4d4d4 !important; }
-.constant { color: #4fc1ff !important; }
-.number { color: #b5cea8 !important; }
-.class-name { color: #4ec9b0 !important; }
-.annotation { color: #569cd6 !important; }
+.keyword {
+    color: #c586c0 !important;
+}
+
+.variable {
+    color: #9cdcfe !important;
+}
+
+.string {
+    color: #ce9178 !important;
+}
+
+.comment {
+    color: #6a9955 !important;
+}
+
+.function {
+    color: #dcdcaa !important;
+}
+
+.operator {
+    color: #d4d4d4 !important;
+}
+
+.constant {
+    color: #4fc1ff !important;
+}
+
+.number {
+    color: #b5cea8 !important;
+}
+
+.class-name {
+    color: #4ec9b0 !important;
+}
+
+.annotation {
+    color: #569cd6 !important;
+}
 
 .exercise {
     margin: 2rem 0;
@@ -846,36 +896,36 @@ pre code {
     .lesson-container {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 2rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 2rem;
     }
-    
+
     .lesson-section {
         padding: 1.5rem;
     }
-    
+
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     pre {
         padding: 1rem !important;
         font-size: 0.85rem;
     }
-    
+
     .btn-purple {
         display: block;
         margin: 0.5rem 0;
         width: 100%;
         text-align: center;
     }
-    
+
     .ml-2 {
         margin-left: 0 !important;
     }
@@ -886,19 +936,19 @@ pre code {
         padding: 0.75rem !important;
         font-size: 0.8rem;
     }
-    
+
     .lesson-container {
         padding: 0.5rem;
     }
-    
+
     .lesson-section {
         padding: 1rem;
     }
-    
+
     .lesson-header {
         padding: 1.5rem 1rem;
     }
-    
+
     .lesson-header h1 {
         font-size: 1.75rem;
     }
@@ -909,6 +959,7 @@ pre code {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -919,16 +970,41 @@ pre code {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
 
-.mt-3 { margin-top: 1rem; }
-.mt-4 { margin-top: 1.5rem; }
-.mb-3 { margin-bottom: 1rem; }
-.ml-2 { margin-left: 0.5rem; }
+.lesson-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.ml-2 {
+    margin-left: 0.5rem;
+}
 
 /* Styles pour le tableau */
 table {
@@ -936,7 +1012,8 @@ table {
     width: 100%;
 }
 
-th, td {
+th,
+td {
     padding: 0.75rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
