@@ -507,11 +507,6 @@ const filteredArticles = computed(() =&gt; {
           <li>Créez des composables réutilisables pour vos appels API</li>
           <li>Implémentez une gestion d'erreurs robuste</li>
         </ul>
-        
-        <div class="mt-4">
-          <a href="/lessons" class="btn-purple btn-hover" v-pre>Retour aux leçons</a>
-          <button @click="refreshPage" class="btn-purple btn-hover ml-3" v-pre>Revoir la leçon</button>
-        </div>
       </section>
     </div>
   </div>
