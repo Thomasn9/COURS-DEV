@@ -63,6 +63,7 @@
 - spring
 ================================================================================
 # symfony
+- assert
 - rajouter a l'installation symfony (--webapp / --version=7.3X / --php=)
 - scoop
 - sodium php
