@@ -5,7 +5,7 @@
       <header class="lesson-header">
         <h1 class="text-white">Créer un projet Spring Boot avec Spring Initializr</h1>
         <div class="lesson-meta text-white">
-          Leçon 2 • Configuration projet • Guide pratique étape par étape
+          Configuration projet • Guide pratique étape par étape
         </div>
       </header>
 
@@ -13,10 +13,15 @@
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple mb-3">Introduction à Spring Initializr</h2>
         <p class="textExemple">
-          Spring Initializr est l'outil officiel recommandé par l'équipe Spring pour initialiser un projet Spring Boot. Il s'agit d'une application web simple qui génère la structure de base d'un projet Spring Boot avec toutes les configurations nécessaires.
+          Spring Initializr est l'outil officiel recommandé par l'équipe Spring pour initialiser un projet Spring Boot.
+          Il s'agit d'une application web simple qui génère la structure de base d'un projet Spring Boot avec toutes les
+          configurations nécessaires.
         </p>
         <p class="textExemple">
-          L'objectif principal de Spring Initializr est de simplifier et d'accélérer le démarrage d'un nouveau projet en éliminant la configuration manuelle fastidieuse. Il vous permet de choisir les dépendances dont vous avez besoin, configure automatiquement les fichiers de build, et génère une structure de projet conforme aux meilleures pratiques de l'écosystème Spring.
+          L'objectif principal de Spring Initializr est de simplifier et d'accélérer le démarrage d'un nouveau projet en
+          éliminant la configuration manuelle fastidieuse. Il vous permet de choisir les dépendances dont vous avez
+          besoin, configure automatiquement les fichiers de build, et génère une structure de projet conforme aux
+          meilleures pratiques de l'écosystème Spring.
         </p>
         <div class="text-center mt-4">
           <a href="https://start.spring.io" target="_blank" class="btn-purple btn-hover">Accéder à Spring Initializr</a>
@@ -26,7 +31,7 @@
       <!-- Pourquoi utiliser Spring Initializr -->
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple mb-3">Pourquoi utiliser Spring Initializr ?</h2>
-        
+
         <div class="code-comparison">
           <div class="code-block">
             <h4 class="text-purple">Sans Spring Initializr</h4>
@@ -39,7 +44,7 @@
               <li>Risque d'erreurs de configuration</li>
             </ul>
           </div>
-          
+
           <div class="code-block">
             <h4 class="text-purple">Avec Spring Initializr</h4>
             <ul class="textExemple">
@@ -52,16 +57,18 @@
             </ul>
           </div>
         </div>
-        
+
         <p class="textExemple mt-4">
-          Spring Initializr garantit que votre projet démarre sur des bases solides, avec une configuration optimale et conforme aux standards actuels. Cela réduit considérablement le temps passé sur la configuration initiale et minimise les risques d'erreurs.
+          Spring Initializr garantit que votre projet démarre sur des bases solides, avec une configuration optimale et
+          conforme aux standards actuels. Cela réduit considérablement le temps passé sur la configuration initiale et
+          minimise les risques d'erreurs.
         </p>
       </section>
 
       <!-- Étapes détaillées de configuration -->
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple mb-3">Configuration étape par étape</h2>
-        
+
         <h3 class="text-purple mt-4">Étape 1 : Type de projet et langage</h3>
         <p class="textExemple">
           La première section vous permet de choisir les fondations de votre projet :
@@ -85,7 +92,8 @@
           </code></pre>
         </div>
         <p class="textExemple">
-          Pour la plupart des projets débutants et intermédiaires, nous recommandons : <strong>Maven Project</strong>, <strong>Java</strong>, et la dernière version <strong>stable</strong> de Spring Boot.
+          Pour la plupart des projets débutants et intermédiaires, nous recommandons : <strong>Maven Project</strong>,
+          <strong>Java</strong>, et la dernière version <strong>stable</strong> de Spring Boot.
         </p>
 
         <h3 class="text-purple mt-4">Étape 2 : Métadonnées du projet</h3>
@@ -112,14 +120,17 @@
           </code></pre>
         </div>
         <p class="textExemple">
-          La convention de nommage recommande d'utiliser le domaine inversé de votre organisation pour le Group (ex: com.votresociete, org.votreorganisation). L'Artifact doit être en minuscules avec des tirets si nécessaire.
+          La convention de nommage recommande d'utiliser le domaine inversé de votre organisation pour le Group (ex:
+          com.votresociete, org.votreorganisation). L'Artifact doit être en minuscules avec des tirets si nécessaire.
         </p>
 
         <h3 class="text-purple mt-4">Étape 3 : Sélection des dépendances</h3>
         <p class="textExemple">
-          C'est la partie la plus importante de la configuration. Les dépendances déterminent les fonctionnalités disponibles dans votre projet. Vous pouvez rechercher et ajouter des dépendances via le champ de recherche ou en parcourant les catégories.
+          C'est la partie la plus importante de la configuration. Les dépendances déterminent les fonctionnalités
+          disponibles dans votre projet. Vous pouvez rechercher et ajouter des dépendances via le champ de recherche ou
+          en parcourant les catégories.
         </p>
-        
+
         <div class="code-comparison">
           <div class="code-block">
             <h4 class="text-purple">Dépendances essentielles</h4>
@@ -130,7 +141,7 @@
               <li><strong>Spring Security</strong> : Authentification et autorisation (ajouter selon besoin)</li>
             </ul>
           </div>
-          
+
           <div class="code-block">
             <h4 class="text-purple">Dépendances optionnelles courantes</h4>
             <ul class="textExemple">
@@ -141,21 +152,24 @@
             </ul>
           </div>
         </div>
-        
+
         <p class="textExemple mt-3">
-          Conseil important : Ne sélectionnez que les dépendances dont vous avez réellement besoin au démarrage. Vous pourrez toujours en ajouter ultérieurement en modifiant votre fichier de build.
+          Conseil important : Ne sélectionnez que les dépendances dont vous avez réellement besoin au démarrage. Vous
+          pourrez toujours en ajouter ultérieurement en modifiant votre fichier de build.
         </p>
       </section>
 
       <!-- Génération et structure du projet -->
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple mb-3">Génération et structure du projet</h2>
-        
+
         <h3 class="text-purple mt-4">Génération du projet</h3>
         <p class="textExemple">
-          Après avoir configuré toutes les options, cliquez sur le bouton <strong>"Generate"</strong> (ou utilisez le raccourci CTRL+ENTER). Spring Initializr va générer un fichier ZIP contenant la structure complète de votre projet.
+          Après avoir configuré toutes les options, cliquez sur le bouton <strong>"Generate"</strong> (ou utilisez le
+          raccourci CTRL+ENTER). Spring Initializr va générer un fichier ZIP contenant la structure complète de votre
+          projet.
         </p>
-        
+
         <h3 class="text-purple mt-4">Structure du projet généré</h3>
         <p class="textExemple">
           Après extraction du fichier ZIP, vous obtiendrez une structure de projet standard :
@@ -182,7 +196,7 @@ nom-du-projet/
 │               └── <span class="comment">NomduprojetApplicationTests.java</span>  <span class="comment">// Test de la classe principale</span>
           </code></pre>
         </div>
-        
+
         <h3 class="text-purple mt-4">Le fichier pom.xml généré</h3>
         <p class="textExemple">
           Voici un exemple de ce que Spring Initializr génère dans le fichier pom.xml :
@@ -243,7 +257,7 @@ nom-du-projet/
       <!-- Premiers pas avec le projet généré -->
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple mb-3">Premiers pas avec le projet généré</h2>
-        
+
         <h3 class="text-purple mt-4">Importation dans un IDE</h3>
         <p class="textExemple">
           Le projet généré peut être importé dans n'importe quel IDE supportant Maven ou Gradle :
@@ -253,12 +267,12 @@ nom-du-projet/
           <li><strong>Eclipse</strong> : File → Import → Maven → Existing Maven Projects</li>
           <li><strong>VS Code</strong> : Ouvrez le dossier, installez les extensions Java et Spring Boot</li>
         </ul>
-        
+
         <h3 class="text-purple mt-4">Première exécution</h3>
         <p class="textExemple">
           Vous pouvez exécuter votre application Spring Boot de plusieurs façons :
         </p>
-        
+
         <div class="code-comparison">
           <div class="code-block">
             <h4 class="text-purple">Via la ligne de commande</h4>
@@ -271,7 +285,7 @@ nom-du-projet/
 <span class="function">mvn spring-boot:run</span>
             </code></pre>
           </div>
-          
+
           <div class="code-block">
             <h4 class="text-purple">Via votre IDE</h4>
             <pre><code>
@@ -284,7 +298,7 @@ nom-du-projet/
             </code></pre>
           </div>
         </div>
-        
+
         <h3 class="text-purple mt-4">Vérification du démarrage</h3>
         <p class="textExemple">
           Lorsque votre application démarre, vous devriez voir dans les logs quelque chose comme :
@@ -312,15 +326,16 @@ nom-du-projet/
       <!-- Bonnes pratiques et conseils -->
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple mb-3">Bonnes pratiques et conseils</h2>
-        
+
         <h3 class="text-purple mt-4">Conseils de configuration</h3>
         <ul class="textExemple">
           <li><strong>Commencez simple</strong> : Ajoutez uniquement les dépendances essentielles au départ</li>
-          <li><strong>Utilisez le Maven/Gradle Wrapper</strong> : Cela garantit que tous les développeurs utilisent la même version des outils</li>
+          <li><strong>Utilisez le Maven/Gradle Wrapper</strong> : Cela garantit que tous les développeurs utilisent la
+            même version des outils</li>
           <li><strong>Versionnez votre code</strong> : Initialisez un dépôt Git dès la génération du projet</li>
           <li><strong>Documentez les choix</strong> : Notez pourquoi certaines dépendances ont été choisies</li>
         </ul>
-        
+
         <h3 class="text-purple mt-4">Dépendances couramment utilisées</h3>
         <div class="code-example">
           <pre><code>
@@ -343,12 +358,15 @@ nom-du-projet/
 - Spring Boot Actuator (monitoring)
           </code></pre>
         </div>
-        
+
         <h3 class="text-purple mt-4">Éviter les pièges courants</h3>
         <ul class="textExemple">
-          <li><strong>Ne pas surcharger en dépendances</strong> : Chaque dépendance ajoute de la complexité et du temps de build</li>
-          <li><strong>Vérifier les compatibilités</strong> : Certaines dépendances peuvent ne pas être compatibles entre elles</li>
-          <li><strong>Sauvegarder la configuration</strong> : Notez les paramètres utilisés pour pouvoir régénérer le projet si nécessaire</li>
+          <li><strong>Ne pas surcharger en dépendances</strong> : Chaque dépendance ajoute de la complexité et du temps
+            de build</li>
+          <li><strong>Vérifier les compatibilités</strong> : Certaines dépendances peuvent ne pas être compatibles entre
+            elles</li>
+          <li><strong>Sauvegarder la configuration</strong> : Notez les paramètres utilisés pour pouvoir régénérer le
+            projet si nécessaire</li>
           <li><strong>Tester immédiatement</strong> : Lancez le projet tout de suite pour vérifier qu'il fonctionne</li>
         </ul>
       </section>
@@ -356,7 +374,7 @@ nom-du-projet/
       <!-- Alternatives et options avancées -->
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple mb-3">Alternatives et options avancées</h2>
-        
+
         <h3 class="text-purple mt-4">Spring Initializr via ligne de commande</h3>
         <p class="textExemple">
           Vous pouvez également utiliser Spring Initializr via curl ou HTTPie :
@@ -380,7 +398,7 @@ nom-du-projet/
   <span class="function">-o demo.zip</span>
           </code></pre>
         </div>
-        
+
         <h3 class="text-purple mt-4">Intégration avec les IDEs</h3>
         <p class="textExemple">
           La plupart des IDEs modernes intègrent Spring Initializr directement :
@@ -390,7 +408,7 @@ nom-du-projet/
           <li><strong>Spring Tools Suite (STS)</strong> : Intégration complète dédiée à Spring</li>
           <li><strong>VS Code avec extension Spring Boot</strong> : Assistant de création de projet</li>
         </ul>
-        
+
         <h3 class="text-purple mt-4">Spring Initializr API</h3>
         <p class="textExemple">
           Spring Initializr expose également une API REST que vous pouvez utiliser dans vos scripts ou outils :
@@ -419,17 +437,17 @@ Content-Type: application/json
       <!-- Conclusion et exercice -->
       <section class="lesson-section bg-gradient-primary">
         <h2 class="text-white mb-3">Exercice pratique</h2>
-        
+
         <p class="text-white">
           Maintenant que vous comprenez comment utiliser Spring Initializr, réalisez l'exercice suivant pour pratiquer :
         </p>
-        
+
         <div class="exercise mt-4">
           <h3 class="text-white">Objectif</h3>
           <p class="text-white">
             Créer un projet Spring Boot pour une API de gestion de bibliothèque
           </p>
-          
+
           <h3 class="text-white mt-3">Spécifications</h3>
           <ol class="text-white">
             <li>Utilisez Spring Initializr pour générer le projet</li>
@@ -456,10 +474,11 @@ Content-Type: application/json
             <li>Vérifiez que l'application démarre correctement</li>
             <li>Accédez à http://localhost:8080/actuator/health pour vérifier le statut</li>
           </ol>
-          
+
           <h3 class="text-white mt-3">Validation</h3>
           <p class="text-white">
-            Si l'exercice est réussi, vous devriez voir dans les logs que l'application démarre sur le port 8080, et l'endpoint /actuator/health devrait retourner {"status":"UP"}.
+            Si l'exercice est réussi, vous devriez voir dans les logs que l'application démarre sur le port 8080, et
+            l'endpoint /actuator/health devrait retourner {"status":"UP"}.
           </p>
         </div>
       </section>
@@ -474,310 +493,363 @@ Content-Type: application/json
 <style scoped>
 /* Votre CSS fourni est déjà intégré ici */
 .lesson-container {
-    padding: 2rem;
-    background: #f8f9fa;
-    min-height: 100vh;
+  padding: 2rem;
+  background: #f8f9fa;
+  min-height: 100vh;
 }
 
 .lesson-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    overflow-x: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Header avec le style gradient */
 .lesson-header {
-    background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
-    padding: 3rem 2rem;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .lesson-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .lesson-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    position: relative;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
 }
 
 .lesson-meta {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    position: relative;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  position: relative;
 }
 
 /* Sections de leçon */
 .lesson-section {
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    width: 100%;
-    overflow-x: hidden;
-    box-sizing: border-box;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .lesson-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(106, 48, 147, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(106, 48, 147, 0.15);
 }
 
 /* Classes CSS de l'autre page */
 .bg-gradient-primary {
-    background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
+  background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
 }
 
 .bg-light-purple {
-    background-color: #f8f6ff;
-    border-radius: 12px;
+  background-color: #f8f6ff;
+  border-radius: 12px;
 }
 
 .border-purple {
-    border: 2px solid #e0d6ff;
-    border-radius: 15px;
-    transition: all 0.3s ease;
+  border: 2px solid #e0d6ff;
+  border-radius: 15px;
+  transition: all 0.3s ease;
 }
 
 .text-purple {
-    color: #6A3093 !important;
+  color: #6A3093 !important;
 }
 
 .text-white {
-    color: white !important;
+  color: white !important;
 }
 
 /* Boutons */
 .btn-purple {
-    background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
-    border: none;
-    color: white;
-    font-weight: 600;
-    padding: 12px 24px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(106, 48, 147, 0.2);
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    margin: 0.5rem 0;
+  background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(106, 48, 147, 0.2);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0.5rem 0;
 }
 
 .btn-purple:hover {
-    background: linear-gradient(135deg, #7a4fa8 0%, #5a287a 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(106, 48, 147, 0.3);
-    color: white;
+  background: linear-gradient(135deg, #7a4fa8 0%, #5a287a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(106, 48, 147, 0.3);
+  color: white;
 }
 
 .btn-hover {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-hover::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transition: all 0.5s ease;
-    transform: translate(-50%, -50%);
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%);
 }
 
 .btn-hover:hover::after {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
 }
 
 /* CORRECTION RESPONSIVE POUR LES BLOCS DE CODE */
-.code-example, .code-block {
-    margin: 1.5rem 0;
-    width: 100%;
-    box-sizing: border-box;
+.code-example,
+.code-block {
+  margin: 1.5rem 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .code-comparison {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin: 1.5rem 0;
-    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  width: 100%;
 }
 
 pre {
-    background: #1e1e1e !important;
-    color: #d4d4d4 !important;
-    padding: 1.5rem !important;
-    border-radius: 8px;
-    overflow-x: auto;
-    border: 1px solid #333;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    word-break: break-word;
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+  padding: 1.5rem !important;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #333;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 /* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
-    display: block;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    max-width: 100%;
-    width: 100%;
-    word-wrap: break-word;
-    word-break: break-word;
+  display: block;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  max-width: 100%;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Couleurs VS Code pour la syntaxe JavaScript */
-.keyword { color: #c586c0 !important; }
-.variable { color: #9cdcfe !important; }
-.string { color: #ce9178 !important; }
-.comment { color: #6a9955 !important; }
-.function { color: #dcdcaa !important; }
-.operator { color: #d4d4d4 !important; }
-.constant { color: #4fc1ff !important; }
-.number { color: #b5cea8 !important; }
-.class-name { color: #4ec9b0 !important; }
+.keyword {
+  color: #c586c0 !important;
+}
+
+.variable {
+  color: #9cdcfe !important;
+}
+
+.string {
+  color: #ce9178 !important;
+}
+
+.comment {
+  color: #6a9955 !important;
+}
+
+.function {
+  color: #dcdcaa !important;
+}
+
+.operator {
+  color: #d4d4d4 !important;
+}
+
+.constant {
+  color: #4fc1ff !important;
+}
+
+.number {
+  color: #b5cea8 !important;
+}
+
+.class-name {
+  color: #4ec9b0 !important;
+}
 
 /* Exercices et solutions */
 .exercise {
-    margin: 2rem 0;
+  margin: 2rem 0;
 }
 
 .solution {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .solution-content {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #8B5FBF;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #8B5FBF;
 }
 
 .solution-content h4 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 details summary {
-    cursor: pointer;
-    outline: none;
+  cursor: pointer;
+  outline: none;
 }
 
 /* Texte des exemples */
 .textExemple {
-    margin-bottom: 1rem;
-    line-height: 1.6;
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 /* RESPONSIVE DESIGN AMÉLIORÉ */
 @media (max-width: 768px) {
-    .lesson-container {
-        padding: 1rem;
-    }
-    
-    .lesson-header {
-        padding: 2rem 1rem;
-    }
-    
-    .lesson-header h1 {
-        font-size: 2rem;
-    }
-    
-    .lesson-section {
-        padding: 1.5rem;
-    }
-    
-    .code-comparison {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    pre {
-        padding: 1rem !important;
-        font-size: 0.85rem;
-    }
+  .lesson-container {
+    padding: 1rem;
+  }
+
+  .lesson-header {
+    padding: 2rem 1rem;
+  }
+
+  .lesson-header h1 {
+    font-size: 2rem;
+  }
+
+  .lesson-section {
+    padding: 1.5rem;
+  }
+
+  .code-comparison {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  pre {
+    padding: 1rem !important;
+    font-size: 0.85rem;
+  }
 }
 
 /* POUR LES TRÈS PETITS ÉCRANS */
 @media (max-width: 480px) {
-    pre {
-        padding: 0.75rem !important;
-        font-size: 0.8rem;
-    }
-    
-    .lesson-container {
-        padding: 0.5rem;
-    }
-    
-    .lesson-section {
-        padding: 1rem;
-    }
-    
-    .lesson-header {
-        padding: 1.5rem 1rem;
-    }
-    
-    .lesson-header h1 {
-        font-size: 1.75rem;
-    }
+  pre {
+    padding: 0.75rem !important;
+    font-size: 0.8rem;
+  }
+
+  .lesson-container {
+    padding: 0.5rem;
+  }
+
+  .lesson-section {
+    padding: 1rem;
+  }
+
+  .lesson-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .lesson-header h1 {
+    font-size: 1.75rem;
+  }
 }
 
 /* POUR LES TRÈS GRANDS ÉCRANS */
 @media (min-width: 1400px) {
-    .lesson-content {
-        max-width: 1300px;
-    }
+  .lesson-content {
+    max-width: 1300px;
+  }
 }
 
 /* Animations */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .lesson-section {
-    animation: fadeInUp 0.6s ease forwards;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) { animation-delay: 0.1s; }
-.lesson-section:nth-child(2) { animation-delay: 0.2s; }
-.lesson-section:nth-child(3) { animation-delay: 0.3s; }
-.lesson-section:nth-child(4) { animation-delay: 0.4s; }
-.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.lesson-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.lesson-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.lesson-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.lesson-section:nth-child(5) {
+  animation-delay: 0.5s;
+}
 
 /* Classes utilitaires */
-.mt-3 { margin-top: 1rem; }
-.mt-4 { margin-top: 1.5rem; }
-.mb-3 { margin-bottom: 1rem; }
-.text-center { text-align: center; }
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
 </style>
