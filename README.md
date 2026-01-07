@@ -42,6 +42,7 @@
 - add-event-listner
 - import
 - exporte 
+- DOM
 ================================================================================
 # Vue
 - les avantage de vue 
