@@ -113,6 +113,7 @@
 # devops
 - ansible
 - idempotence
+ -les différent hebergeurs
 ================================================================================
 # Les librairie
 - jest
