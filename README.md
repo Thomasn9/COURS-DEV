@@ -137,9 +137,6 @@
 - jira
 - trelo
 ================================================================================
-# mise en place projet
-- envoyer un projet sur git depuis son local
-================================================================================
 # les jsp trop ou les mettre
 - data dog
 - graphana
