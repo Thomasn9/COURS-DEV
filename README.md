@@ -69,7 +69,6 @@
 - scoop
 - sodium php
 - intl php
-- doctrine
 - coposer remove
 - routing symfony
 - assetMapper
