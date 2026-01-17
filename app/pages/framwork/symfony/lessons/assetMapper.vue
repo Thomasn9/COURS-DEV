@@ -309,24 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
           Bien qu'il ne remplace pas entièrement Webpack pour les projets complexes nécessitant du tree-shaking
           avancé ou du code splitting, il est parfait pour la majorité des applications Symfony.
         </p>
-        
-        <div class="code-example">
-          <h4>📚 Ressources supplémentaires</h4>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-            <a href="https://symfony.com/doc/current/frontend/asset_mapper.html" 
-               class="btn-purple btn-hover" target="_blank">
-              Documentation Officielle
-            </a>
-            <a href="https://github.com/symfony/asset-mapper" 
-               class="btn-purple btn-hover" target="_blank">
-              Code Source GitHub
-            </a>
-            <a href="https://symfonycasts.com/screencast/asset-mapper" 
-               class="btn-purple btn-hover" target="_blank">
-              Tutoriel SymfonyCasts
-            </a>
-          </div>
-        </div>
       </section>
     </div>
   </div>
