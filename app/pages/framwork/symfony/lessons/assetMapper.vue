@@ -11,7 +11,7 @@
 
             <!-- Introduction -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">📋 Introduction à Asset Mapper</h2>
+                <h2 class="text-purple">Introduction à Asset Mapper</h2>
                 <p class="textExemple">
                     Asset Mapper est une nouvelle fonctionnalité introduite dans Symfony 6.3 qui permet de gérer
                     les assets (CSS, JavaScript, images) sans avoir besoin d'outils de build complexes comme
@@ -19,7 +19,7 @@
                 </p>
 
                 <div class="code-example">
-                    <h4 class="text-purple">💡 Pourquoi Asset Mapper ?</h4>
+                    <h4 class="text-purple">Pourquoi Asset Mapper ?</h4>
                     <ul>
                         <li><strong>Simplicité</strong> : Pas de configuration Webpack/Encore complexe</li>
                         <li><strong>Performance</strong> : Le navigateur gère lui-même les dépendances</li>
@@ -31,13 +31,11 @@
 
             <!-- Installation et configuration -->
             <section class="lesson-section border-purple">
-                <h2 class="text-purple">⚙️ Installation et Configuration</h2>
+                <h2 class="text-purple">Installation et Configuration</h2>
 
                 <div class="code-example">
                     <h4 class="text-purple">1. Installation du composant</h4>
-                    <pre v-pre><code class="language-bash">
-composer require symfony/asset-mapper
-          </code></pre>
+                    <pre v-pre><code class="language-bash">composer require symfony/asset-mapper</code></pre>
                 </div>
 
                 <div class="code-example">
@@ -54,19 +52,17 @@ asset_mapper:
     
     # CDN pour les packages npm
     importmap_script_attributes:
-        crossorigin: 'anonymous'
-          </code></pre>
+        crossorigin: 'anonymous'</code></pre>
                 </div>
             </section>
 
             <!-- Structure des assets -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">📁 Structure des Assets</h2>
+                <h2 class="text-purple">Structure des Assets</h2>
 
                 <div class="code-example">
                     <h4 class="text-purple">Organisation recommandée</h4>
-                    <pre v-pre><code class="language-plaintext">
-assets/
+                    <pre v-pre><code class="language-plaintext">assets/
 ├── app.js                    # Point d'entrée principal
 ├── styles/
 │   ├── app.css              # CSS principal
@@ -75,8 +71,7 @@ assets/
 │   ├── alert.js
 │   └── modal.js
 ├── lib/                     # Bibliothèques tierces
-└── images/                  # Images
-          </code></pre>
+└── images/                  # Images</code></pre>
                 </div>
 
                 <div class="code-example">
@@ -90,24 +85,21 @@ import { Modal } from './components/modal.js';
 document.addEventListener('DOMContentLoaded', () => {
     // Code d'initialisation
     console.log('Application initialisée');
-});
-          </code></pre>
+});</code></pre>
                 </div>
             </section>
 
             <!-- Import Map -->
             <section class="lesson-section border-purple">
-                <h2 class="text-purple">🗺️ Utilisation d'Import Map</h2>
+                <h2 class="text-purple">Utilisation d'Import Map</h2>
 
                 <div class="code-example">
                     <h4 class="text-purple">1. Générer l'Import Map</h4>
-                    <pre v-pre><code class="language-bash">
-# Ajouter un package npm
+                    <pre v-pre><code class="language-bash"># Ajouter un package npm
 php bin/console importmap:require lodash
 
 # Voir tous les packages installés
-php bin/console importmap:json
-          </code></pre>
+php bin/console importmap:json</code></pre>
                 </div>
 
                 <div class="code-example">
@@ -123,8 +115,7 @@ php bin/console importmap:json
     &lt;div id="app"&gt;&lt;/div&gt;
     &lt;script type="module" src="{{ asset('app.js') }}"&gt;&lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;
-          </code></pre>
+&lt;/html&gt;</code></pre>
                 </div>
 
                 <div class="code-example">
@@ -137,14 +128,13 @@ import $ from 'jquery';
 const users = _.groupBy(usersList, 'department');
 $('#button').click(() => {
     console.log('Click!');
-});
-          </code></pre>
+});</code></pre>
                 </div>
             </section>
 
             <!-- Comparaison avec Webpack Encore -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">🔄 Comparaison avec Webpack Encore</h2>
+                <h2 class="text-purple">Comparaison avec Webpack Encore</h2>
 
                 <div class="code-comparison">
                     <div>
@@ -152,12 +142,12 @@ $('#button').click(() => {
                         <pre v-pre><code class="language-yaml"># Simple configuration
 asset_mapper:
     paths:
-        'assets/': '/assets'
-            </code></pre>
+        'assets/': '/assets'</code></pre>
                         <p class="textExemple">
-                            ✅ Pas de build step nécessaire<br>
-                            ✅ Modules ES6 natifs<br>
-                            ✅ Configuration minimale
+                            <strong>Avantages :</strong><br>
+                            Pas de build step nécessaire<br>
+                            Modules ES6 natifs<br>
+                            Configuration minimale
                         </p>
                     </div>
 
@@ -172,12 +162,12 @@ Encore
     .addEntry('app', './assets/app.js')
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
-    .enableBuildNotifications();
-            </code></pre>
+    .enableBuildNotifications();</code></pre>
                         <p class="textExemple">
-                            ⚠️ Build step requis<br>
-                            ⚠️ Configuration complexe<br>
-                            ⚠️ Dépend à Node.js
+                            <strong>Inconvénients :</strong><br>
+                            Build step requis<br>
+                            Configuration complexe<br>
+                            Dépend à Node.js
                         </p>
                     </div>
                 </div>
@@ -185,7 +175,7 @@ Encore
 
             <!-- Bonnes pratiques -->
             <section class="lesson-section border-purple">
-                <h2 class="text-purple">💡 Bonnes Pratiques</h2>
+                <h2 class="text-purple">Bonnes Pratiques</h2>
 
                 <div class="code-example">
                     <h4 class="text-purple">1. Organisation des composants</h4>
@@ -204,8 +194,7 @@ export default class Notification {
 // Utilisation
 import Notification from './components/Notification.js';
 const notif = new Notification('Succès !', 'success');
-notif.show();
-          </code></pre>
+notif.show();</code></pre>
                 </div>
 
                 <div class="code-example">
@@ -219,14 +208,13 @@ notif.show();
 :root {
     --primary-color: #8B5FBF;
     --secondary-color: #6A3093;
-}
-          </code></pre>
+}</code></pre>
                 </div>
             </section>
 
             <!-- Exercice pratique -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">🧪 Exercice Pratique</h2>
+                <h2 class="text-purple">Exercice Pratique</h2>
 
                 <div class="exercise">
                     <h4 class="text-purple">Objectif : Créer une application simple avec Asset Mapper</h4>
@@ -249,8 +237,7 @@ notif.show();
 
                         <div class="code-example">
                             <h5>1. Ajouter Bootstrap</h5>
-                            <pre
-                                v-pre><code class="language-bash">php bin/console importmap:require bootstrap</code></pre>
+                            <pre v-pre><code class="language-bash">php bin/console importmap:require bootstrap</code></pre>
                         </div>
 
                         <div class="code-example">
@@ -303,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <!-- Conclusion -->
             <section class="lesson-section bg-gradient-primary text-white">
-                <h2>🎯 Conclusion</h2>
+                <h2>Conclusion</h2>
                 <p class="textExemple">
                     Asset Mapper représente l'avenir de la gestion des assets dans Symfony. Il offre une alternative
                     moderne et simplifiée à Webpack Encore, particulièrement adaptée aux petites et moyennes
@@ -506,41 +493,66 @@ pre code {
     word-break: break-word;
 }
 
-/* Couleurs VS Code pour la syntaxe */
-.keyword {
-    color: #c586c0 !important;
+/* Couleurs VS Code - version simplifiée */
+pre code {
+    color: #d4d4d4;
+}
+/* Pour Bash */
+pre code.language-bash {
+    color: #9cdcfe;
 }
 
-.variable {
-    color: #9cdcfe !important;
+/* Pour YAML */
+pre code.language-yaml {
+    color: #9cdcfe;
 }
 
-.string {
+pre code.language-yaml .string {
     color: #ce9178 !important;
 }
 
-.comment {
-    color: #6a9955 !important;
-}
-
-.function {
-    color: #dcdcaa !important;
-}
-
-.operator {
-    color: #d4d4d4 !important;
-}
-
-.constant {
-    color: #4fc1ff !important;
-}
-
-.number {
+pre code.language-yaml .number {
     color: #b5cea8 !important;
 }
 
-.class-name {
-    color: #4ec9b0 !important;
+/* Pour JavaScript */
+pre code.language-javascript {
+    color: #9cdcfe;
+}
+
+pre code.language-javascript .string {
+    color: #ce9178 !important;
+}
+
+pre code.language-javascript .keyword {
+    color: #c586c0 !important;
+}
+
+pre code.language-javascript .comment {
+    color: #6a9955 !important;
+}
+
+/* Pour CSS */
+pre code.language-css {
+    color: #9cdcfe;
+}
+
+pre code.language-css .property {
+    color: #9cdcfe !important;
+}
+
+pre code.language-css .keyword {
+    color: #c586c0 !important;
+}
+
+/* Pour Twig */
+pre code.language-twig {
+    color: #9cdcfe;
+}
+
+/* Pour Plaintext */
+pre code.language-plaintext {
+    color: #d4d4d4;
 }
 
 /* Exercices et solutions */
