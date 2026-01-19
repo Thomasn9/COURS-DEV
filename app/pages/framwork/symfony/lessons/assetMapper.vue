@@ -35,24 +35,24 @@
 
                 <div class="code-example">
                     <h4 class="text-purple">1. Installation du composant</h4>
-                    <pre v-pre><code class="language-bash">composer require symfony/asset-mapper</code></pre>
+                    <pre v-pre><code class="bash">composer require symfony/asset-mapper</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h4 class="text-purple">2. Configuration de base</h4>
-                    <pre v-pre><code class="language-yaml"># config/packages/asset_mapper.yaml
-asset_mapper:
-    paths:
-        'assets/': '/assets'
+                    <pre v-pre><code class="yaml"><span class="comment"># config/packages/asset_mapper.yaml</span>
+<span class="property">asset_mapper</span><span class="punctuation">:</span>
+    <span class="property">paths</span><span class="punctuation">:</span>
+        <span class="string">'assets/'</span><span class="punctuation">:</span> <span class="string">'/assets'</span>
     
-    # Exclure certains fichiers
-    excluded_patterns:
-        - '*.scss'
-        - '*.ts'
+    <span class="comment"># Exclure certains fichiers</span>
+    <span class="property">excluded_patterns</span><span class="punctuation">:</span>
+        <span class="punctuation">-</span> <span class="string">'*.scss'</span>
+        <span class="punctuation">-</span> <span class="string">'*.ts'</span>
     
-    # CDN pour les packages npm
-    importmap_script_attributes:
-        crossorigin: 'anonymous'</code></pre>
+    <span class="comment"># CDN pour les packages npm</span>
+    <span class="property">importmap_script_attributes</span><span class="punctuation">:</span>
+        <span class="property">crossorigin</span><span class="punctuation">:</span> <span class="string">'anonymous'</span></code></pre>
                 </div>
             </section>
 
@@ -62,7 +62,7 @@ asset_mapper:
 
                 <div class="code-example">
                     <h4 class="text-purple">Organisation recommandée</h4>
-                    <pre v-pre><code class="language-plaintext">assets/
+                    <pre v-pre><code class="plaintext">assets/
 ├── app.js                    # Point d'entrée principal
 ├── styles/
 │   ├── app.css              # CSS principal
@@ -76,16 +76,16 @@ asset_mapper:
 
                 <div class="code-example">
                     <h4 class="text-purple">Fichier d'entrée principal (app.js)</h4>
-                    <pre v-pre><code class="language-javascript">// assets/app.js
-import './styles/app.css';
-import { Alert } from './components/alert.js';
-import { Modal } from './components/modal.js';
+                    <pre v-pre><code class="javascript"><span class="comment">// assets/app.js</span>
+<span class="keyword">import</span> <span class="string">'./styles/app.css'</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="punctuation">{</span> <span class="class-name">Alert</span> <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">'./components/alert.js'</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="punctuation">{</span> <span class="class-name">Modal</span> <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">'./components/modal.js'</span><span class="punctuation">;</span>
 
-// Initialisation
-document.addEventListener('DOMContentLoaded', () => {
-    // Code d'initialisation
-    console.log('Application initialisée');
-});</code></pre>
+<span class="comment">// Initialisation</span>
+<span class="function">document</span><span class="punctuation">.</span><span class="function">addEventListener</span><span class="punctuation">(</span><span class="string">'DOMContentLoaded'</span><span class="punctuation">,</span> <span class="punctuation">()</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+    <span class="comment">// Code d'initialisation</span>
+    <span class="function">console</span><span class="punctuation">.</span><span class="function">log</span><span class="punctuation">(</span><span class="string">'Application initialisée'</span><span class="punctuation">);</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
                 </div>
             </section>
 
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <div class="code-example">
                     <h4 class="text-purple">1. Générer l'Import Map</h4>
-                    <pre v-pre><code class="language-bash"># Ajouter un package npm
+                    <pre v-pre><code class="bash"># Ajouter un package npm
 php bin/console importmap:require lodash
 
 # Voir tous les packages installés
@@ -104,31 +104,31 @@ php bin/console importmap:json</code></pre>
 
                 <div class="code-example">
                     <h4 class="text-purple">2. Utilisation dans Twig</h4>
-                    <pre v-pre><code class="language-twig">{# base.html.twig #}
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;{{ title }}&lt;/title&gt;
-    {{ importmap() }}
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="app"&gt;&lt;/div&gt;
-    &lt;script type="module" src="{{ asset('app.js') }}"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+                    <pre v-pre><code class="twig"><span class="comment">{# base.html.twig #}</span>
+&lt;<span class="tag">!DOCTYPE html</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+&lt;<span class="tag">head</span>&gt;
+    &lt;<span class="tag">title</span>&gt;{{ <span class="variable">title</span> }}&lt;/<span class="tag">title</span>&gt;
+    {{ <span class="function">importmap</span>() }}
+&lt;/<span class="tag">head</span>&gt;
+&lt;<span class="tag">body</span>&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">id</span>=<span class="string">"app"</span>&gt;&lt;/<span class="tag">div</span>&gt;
+    &lt;<span class="tag">script</span> <span class="attribute">type</span>=<span class="string">"module"</span> <span class="attribute">src</span>="{{ <span class="function">asset</span>(<span class="string">'app.js'</span>) }}"&gt;&lt;/<span class="tag">script</span>&gt;
+&lt;/<span class="tag">body</span>&gt;
+&lt;/<span class="tag">html</span>&gt;</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h4 class="text-purple">3. Utiliser des packages npm</h4>
-                    <pre v-pre><code class="language-javascript">// assets/app.js
-import _ from 'lodash';
-import $ from 'jquery';
+                    <pre v-pre><code class="javascript"><span class="comment">// assets/app.js</span>
+<span class="keyword">import</span> <span class="variable">_</span> <span class="keyword">from</span> <span class="string">'lodash'</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="variable">$</span> <span class="keyword">from</span> <span class="string">'jquery'</span><span class="punctuation">;</span>
 
-// Utilisation
-const users = _.groupBy(usersList, 'department');
-$('#button').click(() => {
-    console.log('Click!');
-});</code></pre>
+<span class="comment">// Utilisation</span>
+<span class="keyword">const</span> <span class="variable">users</span> <span class="operator">=</span> <span class="function">_</span><span class="punctuation">.</span><span class="function">groupBy</span><span class="punctuation">(</span><span class="variable">usersList</span><span class="punctuation">,</span> <span class="string">'department'</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="function">$</span><span class="punctuation">(</span><span class="string">'#button'</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">click</span><span class="punctuation">(()</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+    <span class="function">console</span><span class="punctuation">.</span><span class="function">log</span><span class="punctuation">(</span><span class="string">'Click!'</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
                 </div>
             </section>
 
@@ -139,10 +139,10 @@ $('#button').click(() => {
                 <div class="code-comparison">
                     <div>
                         <h4 class="text-purple">Asset Mapper</h4>
-                        <pre v-pre><code class="language-yaml"># Simple configuration
-asset_mapper:
-    paths:
-        'assets/': '/assets'</code></pre>
+                        <pre v-pre><code class="yaml"><span class="comment"># Simple configuration</span>
+<span class="property">asset_mapper</span><span class="punctuation">:</span>
+    <span class="property">paths</span><span class="punctuation">:</span>
+        <span class="string">'assets/'</span><span class="punctuation">:</span> <span class="string">'/assets'</span></code></pre>
                         <p class="textExemple">
                             <strong>Avantages :</strong><br>
                             Pas de build step nécessaire<br>
@@ -153,16 +153,16 @@ asset_mapper:
 
                     <div>
                         <h4 class="text-purple">Webpack Encore</h4>
-                        <pre v-pre><code class="language-javascript">// Configuration complexe
-const Encore = require('@symfony/webpack-encore');
+                        <pre v-pre><code class="javascript"><span class="comment">// Configuration complexe</span>
+<span class="keyword">const</span> <span class="class-name">Encore</span> <span class="operator">=</span> <span class="function">require</span><span class="punctuation">(</span><span class="string">'@symfony/webpack-encore'</span><span class="punctuation">)</span><span class="punctuation">;</span>
 
-Encore
-    .setOutputPath('public/build/')
-    .setPublicPath('/build')
-    .addEntry('app', './assets/app.js')
-    .enableSingleRuntimeChunk()
-    .cleanupOutputBeforeBuild()
-    .enableBuildNotifications();</code></pre>
+<span class="class-name">Encore</span>
+    <span class="punctuation">.</span><span class="function">setOutputPath</span><span class="punctuation">(</span><span class="string">'public/build/'</span><span class="punctuation">)</span>
+    <span class="punctuation">.</span><span class="function">setPublicPath</span><span class="punctuation">(</span><span class="string">'/build'</span><span class="punctuation">)</span>
+    <span class="punctuation">.</span><span class="function">addEntry</span><span class="punctuation">(</span><span class="string">'app'</span><span class="punctuation">,</span> <span class="string">'./assets/app.js'</span><span class="punctuation">)</span>
+    <span class="punctuation">.</span><span class="function">enableSingleRuntimeChunk</span><span class="punctuation">(</span><span class="punctuation">)</span>
+    <span class="punctuation">.</span><span class="function">cleanupOutputBeforeBuild</span><span class="punctuation">(</span><span class="punctuation">)</span>
+    <span class="punctuation">.</span><span class="function">enableBuildNotifications</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
                         <p class="textExemple">
                             <strong>Inconvénients :</strong><br>
                             Build step requis<br>
@@ -179,36 +179,36 @@ Encore
 
                 <div class="code-example">
                     <h4 class="text-purple">1. Organisation des composants</h4>
-                    <pre v-pre><code class="language-javascript">// assets/components/Notification.js
-export default class Notification {
-    constructor(message, type = 'info') {
-        this.message = message;
-        this.type = type;
-    }
+                    <pre v-pre><code class="javascript"><span class="comment">// assets/components/Notification.js</span>
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="class-name">Notification</span> <span class="punctuation">{</span>
+    <span class="function">constructor</span><span class="punctuation">(</span><span class="parameter">message</span><span class="punctuation">,</span> <span class="parameter">type</span> <span class="operator">=</span> <span class="string">'info'</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><span class="property">message</span> <span class="operator">=</span> <span class="variable">message</span><span class="punctuation">;</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><span class="property">type</span> <span class="operator">=</span> <span class="variable">type</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
 
-    show() {
-        // Afficher la notification
-    }
-}
+    <span class="function">show</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="comment">// Afficher la notification</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
 
-// Utilisation
-import Notification from './components/Notification.js';
-const notif = new Notification('Succès !', 'success');
-notif.show();</code></pre>
+<span class="comment">// Utilisation</span>
+<span class="keyword">import</span> <span class="class-name">Notification</span> <span class="keyword">from</span> <span class="string">'./components/Notification.js'</span><span class="punctuation">;</span>
+<span class="keyword">const</span> <span class="variable">notif</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">Notification</span><span class="punctuation">(</span><span class="string">'Succès !'</span><span class="punctuation">,</span> <span class="string">'success'</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="variable">notif</span><span class="punctuation">.</span><span class="function">show</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
                 </div>
 
                 <div class="code-example">
                     <h4 class="text-purple">2. Gestion du CSS</h4>
-                    <pre v-pre><code class="language-css">/* assets/styles/app.css */
-@import './base.css';
-@import './components/buttons.css';
-@import './components/forms.css';
+                    <pre v-pre><code class="css"><span class="comment">/* assets/styles/app.css */</span>
+<span class="keyword">@import</span> <span class="string">'./base.css'</span><span class="punctuation">;</span>
+<span class="keyword">@import</span> <span class="string">'./components/buttons.css'</span><span class="punctuation">;</span>
+<span class="keyword">@import</span> <span class="string">'./components/forms.css'</span><span class="punctuation">;</span>
 
-/* CSS personnalisé */
-:root {
-    --primary-color: #8B5FBF;
-    --secondary-color: #6A3093;
-}</code></pre>
+<span class="comment">/* CSS personnalisé */</span>
+<span class="selector">:root</span> <span class="punctuation">{</span>
+    <span class="property">--primary-color</span><span class="punctuation">:</span> <span class="value">#8B5FBF</span><span class="punctuation">;</span>
+    <span class="property">--secondary-color</span><span class="punctuation">:</span> <span class="value">#6A3093</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
                 </div>
             </section>
 
@@ -237,52 +237,52 @@ notif.show();</code></pre>
 
                         <div class="code-example">
                             <h5>1. Ajouter Bootstrap</h5>
-                            <pre v-pre><code class="language-bash">php bin/console importmap:require bootstrap</code></pre>
+                            <pre v-pre><code class="bash">php bin/console importmap:require bootstrap</code></pre>
                         </div>
 
                         <div class="code-example">
                             <h5>2. Créer le composant Notification</h5>
-                            <pre v-pre><code class="language-javascript">// assets/components/Notification.js
-export default class Notification {
-    constructor(message, type = 'primary') {
-        this.message = message;
-        this.type = type;
-    }
+                            <pre v-pre><code class="javascript"><span class="comment">// assets/components/Notification.js</span>
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="class-name">Notification</span> <span class="punctuation">{</span>
+    <span class="function">constructor</span><span class="punctuation">(</span><span class="parameter">message</span><span class="punctuation">,</span> <span class="parameter">type</span> <span class="operator">=</span> <span class="string">'primary'</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><span class="property">message</span> <span class="operator">=</span> <span class="variable">message</span><span class="punctuation">;</span>
+        <span class="keyword">this</span><span class="punctuation">.</span><span class="property">type</span> <span class="operator">=</span> <span class="variable">type</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
 
-    show(container = 'body') {
-        const alert = document.createElement('div');
-        alert.className = `alert alert-${this.type} alert-dismissible fade show`;
-        alert.role = 'alert';
-        alert.innerHTML = `
-            ${this.message}
+    <span class="function">show</span><span class="punctuation">(</span><span class="parameter">container</span> <span class="operator">=</span> <span class="string">'body'</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+        <span class="keyword">const</span> <span class="variable">alert</span> <span class="operator">=</span> <span class="function">document</span><span class="punctuation">.</span><span class="function">createElement</span><span class="punctuation">(</span><span class="string">'div'</span><span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="variable">alert</span><span class="punctuation">.</span><span class="property">className</span> <span class="operator">=</span> <span class="string">`alert alert-</span><span class="substitution">${<span class="keyword">this</span><span class="punctuation">.</span><span class="property">type</span>}</span><span class="string"> alert-dismissible fade show`</span><span class="punctuation">;</span>
+        <span class="variable">alert</span><span class="punctuation">.</span><span class="property">role</span> <span class="operator">=</span> <span class="string">'alert'</span><span class="punctuation">;</span>
+        <span class="variable">alert</span><span class="punctuation">.</span><span class="property">innerHTML</span> <span class="operator">=</span> <span class="string">`
+            </span><span class="substitution">${<span class="keyword">this</span><span class="punctuation">.</span><span class="property">message</span>}</span><span class="string">
             &lt;button type="button" class="btn-close" data-bs-dismiss="alert"&gt;&lt;/button&gt;
-        `;
+        `</span><span class="punctuation">;</span>
         
-        document.querySelector(container).appendChild(alert);
-    }
-}</code></pre>
+        <span class="function">document</span><span class="punctuation">.</span><span class="function">querySelector</span><span class="punctuation">(</span><span class="variable">container</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">appendChild</span><span class="punctuation">(</span><span class="variable">alert</span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span></code></pre>
                         </div>
 
                         <div class="code-example">
                             <h5>3. Fichier app.js principal</h5>
-                            <pre v-pre><code class="language-javascript">// assets/app.js
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap';
-import Notification from './components/Notification.js';
+                            <pre v-pre><code class="javascript"><span class="comment">// assets/app.js</span>
+<span class="keyword">import</span> <span class="string">'bootstrap/dist/css/bootstrap.min.css'</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="string">'bootstrap'</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="class-name">Notification</span> <span class="keyword">from</span> <span class="string">'./components/Notification.js'</span><span class="punctuation">;</span>
 
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('#contact-form');
+<span class="function">document</span><span class="punctuation">.</span><span class="function">addEventListener</span><span class="punctuation">(</span><span class="string">'DOMContentLoaded'</span><span class="punctuation">,</span> <span class="punctuation">()</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span class="variable">form</span> <span class="operator">=</span> <span class="function">document</span><span class="punctuation">.</span><span class="function">querySelector</span><span class="punctuation">(</span><span class="string">'#contact-form'</span><span class="punctuation">)</span><span class="punctuation">;</span>
     
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    <span class="variable">form</span><span class="punctuation">.</span><span class="function">addEventListener</span><span class="punctuation">(</span><span class="string">'submit'</span><span class="punctuation">,</span> <span class="punctuation">(</span><span class="parameter">e</span><span class="punctuation">)</span> <span class="punctuation">=&gt;</span> <span class="punctuation">{</span>
+        <span class="variable">e</span><span class="punctuation">.</span><span class="function">preventDefault</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
         
-        const notif = new Notification(
-            'Formulaire envoyé avec succès !',
-            'success'
-        );
-        notif.show();
-    });
-});</code></pre>
+        <span class="keyword">const</span> <span class="variable">notif</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">Notification</span><span class="punctuation">(</span>
+            <span class="string">'Formulaire envoyé avec succès !'</span><span class="punctuation">,</span>
+            <span class="string">'success'</span>
+        <span class="punctuation">)</span><span class="punctuation">;</span>
+        <span class="variable">notif</span><span class="punctuation">.</span><span class="function">show</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
                         </div>
                     </div>
                 </div>
@@ -493,66 +493,112 @@ pre code {
     word-break: break-word;
 }
 
-/* Couleurs VS Code - version simplifiée */
+/* COULEURS VS CODE PURE CSS - PAS DE LIBRAIRIE */
 pre code {
-    color: #d4d4d4;
-}
-/* Pour Bash */
-pre code.language-bash {
-    color: #9cdcfe;
+    color: #d4d4d4; /* Couleur par défaut */
 }
 
-/* Pour YAML */
-pre code.language-yaml {
-    color: #9cdcfe;
+/* Commentaires - vert VS Code */
+pre code .comment {
+    color: #6A9955 !important;
+    font-style: italic;
 }
 
-pre code.language-yaml .string {
-    color: #ce9178 !important;
+/* Chaînes de caractères - orange VS Code */
+pre code .string {
+    color: #CE9178 !important;
 }
 
-pre code.language-yaml .number {
-    color: #b5cea8 !important;
+/* Nombres - vert clair VS Code */
+pre code .number {
+    color: #B5CEA8 !important;
 }
 
-/* Pour JavaScript */
-pre code.language-javascript {
-    color: #9cdcfe;
+/* Mots-clés - violet VS Code */
+pre code .keyword {
+    color: #C586C0 !important;
+    font-weight: bold;
 }
 
-pre code.language-javascript .string {
-    color: #ce9178 !important;
+/* Fonctions - jaune VS Code */
+pre code .function {
+    color: #DCDCAA !important;
 }
 
-pre code.language-javascript .keyword {
-    color: #c586c0 !important;
+/* Classes - turquoise VS Code */
+pre code .class-name {
+    color: #4EC9B0 !important;
 }
 
-pre code.language-javascript .comment {
-    color: #6a9955 !important;
+/* Variables - bleu clair VS Code */
+pre code .variable {
+    color: #9CDCFE !important;
 }
 
-/* Pour CSS */
-pre code.language-css {
-    color: #9cdcfe;
+/* Opérateurs - gris clair */
+pre code .operator {
+    color: #D4D4D4 !important;
 }
 
-pre code.language-css .property {
-    color: #9cdcfe !important;
+/* Ponctuation - gris clair */
+pre code .punctuation {
+    color: #D4D4D4 !important;
 }
 
-pre code.language-css .keyword {
-    color: #c586c0 !important;
+/* Propriétés (YAML, CSS) - bleu VS Code */
+pre code .property {
+    color: #9CDCFE !important;
 }
 
-/* Pour Twig */
-pre code.language-twig {
-    color: #9cdcfe;
+/* Valeurs (CSS) - orange VS Code */
+pre code .value {
+    color: #CE9178 !important;
 }
 
-/* Pour Plaintext */
-pre code.language-plaintext {
-    color: #d4d4d4;
+/* Sélecteurs (CSS) - jaune VS Code */
+pre code .selector {
+    color: #D7BA7D !important;
+}
+
+/* Tags HTML/Twig - bleu VS Code */
+pre code .tag {
+    color: #569CD6 !important;
+}
+
+/* Attributs HTML/Twig - vert VS Code */
+pre code .attribute {
+    color: #9CDCFE !important;
+}
+
+/* Variables Twig - bleu VS Code */
+pre code .twig-variable {
+    color: #9CDCFE !important;
+}
+
+/* Substitution dans les templates strings */
+pre code .substitution {
+    color: #DCDCAA !important;
+}
+
+/* Paramètres de fonctions */
+pre code .parameter {
+    color: #9CDCFE !important;
+}
+
+/* Styles spécifiques pour Bash */
+pre code.bash {
+    color: #9CDCFE !important;
+}
+
+/* Styles spécifiques pour Plaintext */
+pre code.plaintext {
+    color: #D4D4D4 !important;
+}
+
+/* Pour les commentaires en Bash (commençant par #) */
+pre code.bash:before {
+    content: "$ ";
+    color: #D4D4D4;
 }
 
 /* Exercices et solutions */
