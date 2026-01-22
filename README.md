@@ -127,6 +127,7 @@
 - code pen
 - figma
 - freefrontend.com
+- color scales component.ai
 ================================================================================
 # Appli
 - mysql workbench
