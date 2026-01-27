@@ -105,7 +105,7 @@ git status</code></pre>
                     
                     <div class="code-comparison">
                         <div>
-                            <h4 class="text-purple">📁 Working Directory</h4>
+                            <h4 class="text-purple">Working Directory</h4>
                             <ul>
                                 <li>Fichiers sur votre ordinateur</li>
                                 <li>Modifications non suivies</li>
@@ -114,7 +114,7 @@ git status</code></pre>
                         </div>
                         
                         <div>
-                            <h4 class="text-purple">📦 Staging Area</h4>
+                            <h4 class="text-purple">Staging Area</h4>
                             <ul>
                                 <li>Zone de préparation</li>
                                 <li>Fichiers prêts à être commités</li>
@@ -123,7 +123,7 @@ git status</code></pre>
                         </div>
                         
                         <div>
-                            <h4 class="text-purple">💾 Repository</h4>
+                            <h4 class="text-purple">Repository</h4>
                             <ul>
                                 <li>Base de données Git</li>
                                 <li>Historique des commits</li>
@@ -133,7 +133,7 @@ git status</code></pre>
                     </div>
                     
                     <div class="workflow-visual">
-                        <h4 class="text-purple">📋 Workflow de base :</h4>
+                        <h4 class="text-purple">Workflow de base :</h4>
                         <div class="workflow-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
@@ -159,7 +159,7 @@ git status</code></pre>
                     
                     <div class="resources-grid">
                         <div class="resource-card">
-                            <h4 class="text-purple">📚 Documentation officielle</h4>
+                            <h4 class="text-purple">Documentation officielle</h4>
                             <ul>
                                 <li><a href="https://git-scm.com/doc" target="_blank" class="text-purple">Documentation Git</a></li>
                                 <li>Pro Git (livre gratuit)</li>
@@ -168,7 +168,7 @@ git status</code></pre>
                         </div>
                         
                         <div class="resource-card">
-                            <h4 class="text-purple">🎮 Apprentissage interactif</h4>
+                            <h4 class="text-purple">Apprentissage interactif</h4>
                             <ul>
                                 <li>GitHub Learning Lab</li>
                                 <li>Atlassian Git Tutorial</li>
@@ -188,7 +188,7 @@ git status</code></pre>
                 </div>
                 
                 <div class="tip-box">
-                    <h4 class="text-purple">💡 Conseil pour débutants</h4>
+                    <h4 class="text-purple">Conseil pour débutants</h4>
                     <p class="textExemple">
                         Commencez par utiliser Git en local pour des projets personnels avant de vous lancer dans la collaboration.
                         Pratiquez les commandes de base jusqu'à ce qu'elles deviennent naturelles. N'ayez pas peur de faire
