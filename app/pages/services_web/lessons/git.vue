@@ -8,6 +8,7 @@
             </header>
 
             <!-- Introduction à Git -->
+
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Qu'est-ce que Git ?</h2>
                 <p class="textExemple">
@@ -26,6 +27,7 @@
                         <li>Intégration avec les plateformes comme GitHub, GitLab, Bitbucket</li>
                     </ul>
                 </div>
+
             </section>
 
             <!-- Utilité de Git dans un projet -->
