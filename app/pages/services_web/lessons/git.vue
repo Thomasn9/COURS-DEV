@@ -8,7 +8,6 @@
             </header>
 
             <!-- Introduction à Git -->
-
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Qu'est-ce que Git ?</h2>
                 <p class="textExemple">
@@ -27,7 +26,175 @@
                         <li>Intégration avec les plateformes comme GitHub, GitLab, Bitbucket</li>
                     </ul>
                 </div>
+            </section>
 
+            <!-- NOUVELLE SECTION : Comment débuter avec Git -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Comment débuter avec Git</h2>
+                <p class="textExemple">
+                    Pour commencer à utiliser Git, suivez ces étapes simples qui vous permettront de vous familiariser
+                    avec les concepts de base et de mettre en pratique vos premières commandes.
+                </p>
+
+                <div class="code-example">
+                    <h3 class="text-purple">1. Installation de Git</h3>
+                    <p>Téléchargez et installez Git sur votre système :</p>
+                    
+                    <div class="code-comparison">
+                        <div>
+                            <h4 class="text-purple">Windows :</h4>
+                            <ul>
+                                <li>Téléchargez l'installateur depuis <a href="https://git-scm.com/" target="_blank" class="text-purple">git-scm.com</a></li>
+                                <li>Exécutez l'installateur avec les paramètres par défaut</li>
+                                <li>Vérifiez l'installation avec :</li>
+                                <pre><code class="language-bash">git --version</code></pre>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-purple">MacOS :</h4>
+                            <ul>
+                                <li>Avec Homebrew :</li>
+                                <pre><code class="language-bash">brew install git</code></pre>
+                                <li>Ou téléchargez depuis le site officiel</li>
+                            </ul>
+                            
+                            <h4 class="text-purple">Linux (Debian/Ubuntu) :</h4>
+                            <pre><code class="language-bash">sudo apt-get update
+sudo apt-get install git</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">2. Configuration initiale</h3>
+                    <p>Après l'installation, configurez votre identité Git :</p>
+                    <pre><code class="language-bash"># Configurer votre nom d'utilisateur
+git config --global user.name "Votre Nom"
+
+# Configurer votre email
+git config --global user.email "votre.email@exemple.com"
+
+# Vérifier la configuration
+git config --list</code></pre>
+                    <p class="textExemple">
+                        Ces informations apparaîtront dans tous vos commits et sont essentielles pour collaborer.
+                    </p>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">3. Premier pas : créer un dépôt local</h3>
+                    <p>Commencez par créer un projet test pour vous familiariser :</p>
+                    <pre><code class="language-bash"># Créer un dossier pour votre projet test
+mkdir mon-premier-projet-git
+cd mon-premier-projet-git
+
+# Initialiser un dépôt Git
+git init
+
+# Créer un premier fichier
+echo "# Mon Premier Projet Git" > README.md
+
+# Vérifier l'état de votre dépôt
+git status</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">4. Comprendre les trois états de Git</h3>
+                    <p>Git fonctionne avec trois états principaux :</p>
+                    
+                    <div class="code-comparison">
+                        <div>
+                            <h4 class="text-purple">📁 Working Directory</h4>
+                            <ul>
+                                <li>Fichiers sur votre ordinateur</li>
+                                <li>Modifications non suivies</li>
+                                <li>État : <code>untracked</code> ou <code>modified</code></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-purple">📦 Staging Area</h4>
+                            <ul>
+                                <li>Zone de préparation</li>
+                                <li>Fichiers prêts à être commités</li>
+                                <li>Commande : <code>git add</code></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-purple">💾 Repository</h4>
+                            <ul>
+                                <li>Base de données Git</li>
+                                <li>Historique des commits</li>
+                                <li>Commande : <code>git commit</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-visual">
+                        <h4 class="text-purple">📋 Workflow de base :</h4>
+                        <div class="workflow-steps">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <span class="step-text">Modifier des fichiers</span>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <span class="step-text"><code>git add</code> (staging)</span>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <span class="step-text"><code>git commit</code> (sauvegarde)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h3 class="text-purple">5. Ressources pour apprendre</h3>
+                    <p>Pour approfondir vos connaissances :</p>
+                    
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <h4 class="text-purple">📚 Documentation officielle</h4>
+                            <ul>
+                                <li><a href="https://git-scm.com/doc" target="_blank" class="text-purple">Documentation Git</a></li>
+                                <li>Pro Git (livre gratuit)</li>
+                                <li>Git Cheat Sheet</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h4 class="text-purple">🎮 Apprentissage interactif</h4>
+                            <ul>
+                                <li>GitHub Learning Lab</li>
+                                <li>Atlassian Git Tutorial</li>
+                                <li>Codecademy Git Course</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h4 class="text-purple">🛠️ Outils recommandés</h4>
+                            <ul>
+                                <li>Git Bash (Windows)</li>
+                                <li>GitKraken (GUI)</li>
+                                <li>VS Code Git intégration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <h4 class="text-purple">💡 Conseil pour débutants</h4>
+                    <p class="textExemple">
+                        Commencez par utiliser Git en local pour des projets personnels avant de vous lancer dans la collaboration.
+                        Pratiquez les commandes de base jusqu'à ce qu'elles deviennent naturelles. N'ayez pas peur de faire
+                        des erreurs – c'est en forgeant qu'on devient forgeron !
+                    </p>
+                </div>
             </section>
 
             <!-- Utilité de Git dans un projet -->
@@ -455,6 +622,89 @@ pre code {
     word-break: break-word;
 }
 
+/* Styles pour la nouvelle section */
+.workflow-visual {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid #8B5FBF;
+}
+
+.workflow-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.step {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    padding: 1rem;
+    background: #f8f6ff;
+    border-radius: 8px;
+    border: 2px solid #e0d6ff;
+}
+
+.step-number {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: #6A3093;
+    color: white;
+    border-radius: 50%;
+    margin: 0 auto 0.5rem auto;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.step-text {
+    display: block;
+    font-size: 0.9rem;
+}
+
+.step-arrow {
+    color: #6A3093;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.resource-card {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e0d6ff;
+    transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(106, 48, 147, 0.1);
+}
+
+.tip-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #e6f7ff 0%, #f0e6ff 100%);
+    border-radius: 10px;
+    border-left: 4px solid #6A3093;
+}
+
+.tip-box h4 {
+    margin-top: 0;
+}
+
 /* Couleurs VS Code pour la syntaxe JavaScript */
 .keyword {
     color: #c586c0 !important;
@@ -535,6 +785,18 @@ details summary {
     line-height: 1.6;
 }
 
+/* Liens */
+a.text-purple {
+    color: #6A3093;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a.text-purple:hover {
+    text-decoration: underline;
+    color: #5a287a;
+}
+
 /* RESPONSIVE DESIGN AMÉLIORÉ */
 @media (max-width: 768px) {
     .lesson-container {
@@ -556,6 +818,18 @@ details summary {
     .code-comparison {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .workflow-steps {
+        flex-direction: column;
+    }
+    
+    .step-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
     }
 
     pre {
@@ -585,6 +859,10 @@ details summary {
 
     .lesson-header h1 {
         font-size: 1.75rem;
+    }
+    
+    .step {
+        min-width: 100%;
     }
 }
 
