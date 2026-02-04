@@ -10,8 +10,18 @@
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Intro Git</h5>
                 <p class="card-text">Qu'est ce que Git et quelle est son utilité</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/git">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Journée type Git</h5>
+                <p class="card-text">Comment se servir de git dans une journée type dans un travaille de groupe</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/git">
+                    to="lessons/journer_git">
                     Accès à la leçon
                 </NuxtLink>
             </div>
@@ -26,7 +36,8 @@
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Branch + merge</h5>
                 <p class="card-text">l'utilisation des branch dans git</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/git_branche_merge">
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/git_branche_merge">
                     Accès à la leçon
                 </NuxtLink>
             </div>
