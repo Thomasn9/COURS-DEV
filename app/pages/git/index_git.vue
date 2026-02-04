@@ -2,38 +2,48 @@
     <div class="page-container">
 
         <div class="section-header">
-            <h3 class="lettreSommaire">Les Services Web</h3>
+            <h3 class="lettreSommaire">Git / Github</h3>
             <hr>
-        </div>
-
-        <!-- =============================================================\\D//==================================================================== -->
-        <div class="section-header">
-            <h3 class="lettreSommaire">D</h3>
         </div>
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Docker</h5>
-                <p class="card-text">L'outil Docker et son utilité</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/docker">
+                <h5 class="card-title text-purple">Intro Git</h5>
+                <p class="card-text">Qu'est ce que Git et quelle est son utilité</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/git">
                     Accès à la leçon
                 </NuxtLink>
             </div>
         </div>
 
-        <h3 class="lettreSommaire">Design</h3>
-        <hr>
-        <!-- =============================================================\\U//==================================================================== -->
+        <!-- =============================================================\\B//==================================================================== -->
         <div class="section-header">
-            <h3 class="lettreSommaire">U</h3>
+            <h3 class="lettreSommaire">B</h3>
         </div>
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Unsplash</h5>
-                <p class="card-text">La plateforme de photos libres de droits</p>
+                <h5 class="card-title text-purple">Branch + merge</h5>
+                <p class="card-text">l'utilisation des branch dans git</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/git_branche_merge">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+
+        <!-- =============================================================\\F//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">F</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Flow</h5>
+                <p class="card-text">Le workflow dans git </p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/unsplash">
+                    to="lessons/git_flow">
                     Accès à la leçon
                 </NuxtLink>
             </div>

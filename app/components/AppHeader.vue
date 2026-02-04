@@ -75,8 +75,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownOutils">
                         <NuxtLink class="dropdown-item" to="/librairie/index_librairie">Librairie</NuxtLink>
-                        <NuxtLink class="dropdown-item" to="/services_web/index_services_web">Services Web et Design
-                        </NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/services_web/index_services_web">Services Web et Design</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/git/index_git">Git</NuxtLink>
                     </div>
                 </li>
 
