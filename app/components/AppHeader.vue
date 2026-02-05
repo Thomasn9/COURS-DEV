@@ -90,6 +90,7 @@
                         <NuxtLink class="dropdown-item" to="#">Diagramme UML</NuxtLink>
                         <NuxtLink class="dropdown-item" to="#">Outils</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit et Testing</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="legislation/index_legislation">Législation</NuxtLink>
                     </div>
                 </li>
 
