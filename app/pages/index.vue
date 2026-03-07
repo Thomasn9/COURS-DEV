@@ -21,8 +21,7 @@
                         <a href="https://www.php.net/docs.php" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
                     </div>
                 </div>
-            </div>
-            
+            </div>     
             
             <div class="col-md-4 col-lg-3 m-3">
                 <div class="card bg-white border-purple shadow-lg h-100 transition-all">
