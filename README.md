@@ -81,7 +81,7 @@
 - composer require symfony/serializer-pack
 - symfony profiler
 - stimulus
-- symfony form
+- symfony console make:form 
 - IsGranted
 - symfony console make:form
 - symfony console make:registration-form
