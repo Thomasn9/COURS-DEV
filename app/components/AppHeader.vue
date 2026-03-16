@@ -87,7 +87,7 @@
                         Gestion de projet
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownGestion">
-                        <NuxtLink class="dropdown-item" to="#">Diagramme UML</NuxtLink>
+                        <NuxtLink class="dropdown-item" to="/diagrammes/index_diagrammes">Diagrammes</NuxtLink>
                         <NuxtLink class="dropdown-item" to="#">Outils</NuxtLink>
                         <NuxtLink class="dropdown-item" to="/audit/index_audit">Audit et Testing</NuxtLink>
                         <NuxtLink class="dropdown-item" to="legislation/index_legislation">Législation</NuxtLink>
