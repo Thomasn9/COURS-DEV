@@ -22,7 +22,7 @@
 
         <div class="code-comparison">
           <div class="code-block">
-            <h3 class="text-purple">🟦 L'entité</h3>
+            <h3 class="text-purple">L'entité</h3>
             <p>Une entité représente un objet concret ou abstrait du monde réel sur lequel on veut mémoriser des informations. Elle regroupe des individus partageant les mêmes caractéristiques.</p>
             <pre><code><span class="comment">-- Exemples d'entités</span>
 <span class="class-name">CLIENT</span>
@@ -40,7 +40,7 @@
           </div>
 
           <div class="code-block">
-            <h3 class="text-purple">🔗 L'association</h3>
+            <h3 class="text-purple">L'association</h3>
             <p>Une association exprime un lien sémantique entre deux ou plusieurs entités. Elle représente un fait du monde réel qui met en relation ces entités.</p>
             <pre><code><span class="comment">-- Exemples d'associations</span>
 <span class="class-name">CLIENT</span> <span class="function">PASSE</span> <span class="class-name">COMMANDE</span>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="code-example">
-          <h3 class="text-purple">📌 La propriété</h3>
+          <h3 class="text-purple">La propriété</h3>
           <p>Une propriété (ou attribut) est une donnée élémentaire qui caractérise une entité ou une association. Elle doit être <strong>atomique</strong> (non décomposable) et <strong>non redondante</strong>.</p>
           <pre><code><span class="comment">-- Propriétés de l'entité PRODUIT</span>
 <span class="class-name">PRODUIT</span>
