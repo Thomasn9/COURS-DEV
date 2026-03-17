@@ -25,7 +25,7 @@
                 <h5 class="card-title text-purple">MCD</h5>
                 <p class="card-text">Modèle conception données quelle est sont utilité</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/magicConstanteDir">
+                    to="lessons/mcd">
                     Accès à la leçon
                 </NuxtLink>
             </div>
