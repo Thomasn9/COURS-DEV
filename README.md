@@ -113,6 +113,7 @@
 - ansible
 - idempotence
 - les différent hebergeurs
+- site map (pour le seo)
 ================================================================================
 # Les librairie
 - jest
