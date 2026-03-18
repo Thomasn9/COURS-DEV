@@ -88,6 +88,7 @@
 - composer require lexik/jwt-authentication-bundle
 - composer req api
 - JWT decoder
+- symfony ui
 
 - DéPLOYER un projet symfony 
 1 aller sur git hub
