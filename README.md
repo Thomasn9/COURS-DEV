@@ -83,7 +83,6 @@
 - stimulus
 - symfony console make:form 
 - IsGranted
-- symfony console make:form
 - symfony console make:registration-form
 - symfony console make:auth
 - composer require lexik/jwt-authentication-bundle
