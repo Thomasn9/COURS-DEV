@@ -162,7 +162,7 @@ Résultat INNER JOIN │ │
                 <h2 class="text-purple">Syntaxe de Base des INNER JOIN</h2>
 
                 <div class="textExemple">
-                    <p>La structure fondamentale d'une INNER JOIN est :</p>
+                    <p>La structure fondamentale d'un INNER JOIN est :</p>
                     <div class="code-example">
                         <pre><code><span class="sql-reserved">SELECT</span> <span class="sql-identifier">colonnes</span>
 <span class="sql-reserved">FROM</span> <span class="sql-identifier">table1</span>
