@@ -89,15 +89,6 @@
 - composer req api
 - JWT decoder
 - symfony ui
-
-- DéPLOYER un projet symfony 
-1 aller sur git hub
-2 fair un git clone dans hostinger
-3 installer composer via un .phar sur le site de composer
-4 installer les dépendances du projet sur le vps
-5 crée un .env.prod
-6 adapter le .env.prod avec les info de l'hebergeur 
-7 faire le liens avec la BDD
 ================================================================================
 # Cyber Sécuriter
 - buffer overflow
