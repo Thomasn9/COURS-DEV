@@ -1,6 +1,7 @@
 <template>
     <div class="lesson-container">
         <div class="lesson-content">
+
             <!-- En-tête de la leçon -->
             <header class="lesson-header">
                 <h1 class="text-white">Formulaires Symfony</h1>
@@ -17,12 +18,11 @@
                 </p>
                 <p class="textExemple">
                     Un formulaire Symfony est une classe PHP qui définit les champs, leurs types et leurs contraintes
-                    de validation. Le controller se charge ensuite de traiter la requête et le template Twig affiche le
-                    rendu.
+                    de validation. Le controller se charge ensuite de traiter la requête et le template Twig affiche le rendu.
                 </p>
             </section>
 
-            <!-- Concepts fondamentaux -->
+            <!-- Architecture -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Architecture d'un Formulaire Symfony</h2>
 
@@ -38,7 +38,7 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Schéma de fonctionnement</h3>
                     <div class="code-example">
-                        <pre><code>Utilisateur          Controller               FormType
+                        <pre v-pre><code class="language-plaintext">Utilisateur          Controller               FormType
     │                     │                       │
     │ ─── GET /form ────→ │                       │
     │                     │ ── createForm() ────→ │
@@ -63,31 +63,31 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Installer le composant Form</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment"># Installer le composant Form (inclus dans symfony/webapp-pack)</span>
-<span class="php-string">composer require symfony/form</span>
+                        <pre v-pre><code class="language-bash"># Installer le composant Form (inclus dans symfony/webapp-pack)
+composer require symfony/form
 
-<span class="php-comment"># Installer le composant Validator pour la validation</span>
-<span class="php-string">composer require symfony/validator</span>
+# Installer le composant Validator pour la validation
+composer require symfony/validator
 
-<span class="php-comment"># Installer Twig pour les templates (si pas déjà installé)</span>
-<span class="php-string">composer require symfony/twig-bundle</span>
+# Installer Twig pour les templates (si pas déjà installé)
+composer require symfony/twig-bundle
 
-<span class="php-comment"># Pour les formulaires Bootstrap (optionnel)</span>
-<span class="php-string">composer require symfony/twig-extra-bundle</span></code></pre>
+# Pour les formulaires Bootstrap (optionnel)
+composer require symfony/twig-extra-bundle</code></pre>
                     </div>
                 </div>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Créer une classe FormType avec le CLI</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment"># Générer automatiquement un FormType avec Maker Bundle</span>
-<span class="php-string">composer require symfony/maker-bundle --dev</span>
+                        <pre v-pre><code class="language-bash"># Générer automatiquement un FormType avec Maker Bundle
+composer require symfony/maker-bundle --dev
 
-<span class="php-comment"># Créer un FormType lié à une entité</span>
-<span class="php-string">php bin/console make:form ArticleType Article</span>
+# Créer un FormType lié à une entité
+php bin/console make:form ArticleType Article
 
-<span class="php-comment"># Créer un FormType sans entité</span>
-<span class="php-string">php bin/console make:form ContactType</span></code></pre>
+# Créer un FormType sans entité
+php bin/console make:form ContactType</code></pre>
                     </div>
                 </div>
             </section>
@@ -99,45 +99,45 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Structure d'un FormType de base</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment">// src/Form/ArticleType.php</span>
-<span class="php-reserved">namespace</span> <span class="php-identifier">App\Form</span>;
+                        <pre v-pre><code class="language-php">// src/Form/ArticleType.php
+namespace App\Form;
 
-<span class="php-reserved">use</span> <span class="php-identifier">App\Entity\Article</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Form\AbstractType</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Form\Extension\Core\Type\TextType</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Form\Extension\Core\Type\TextareaType</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Form\Extension\Core\Type\DateType</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Form\Extension\Core\Type\SubmitType</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Form\FormBuilderInterface</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\OptionsResolver\OptionsResolver</span>;
+use App\Entity\Article;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
-<span class="php-reserved">class</span> <span class="php-class">ArticleType</span> <span class="php-reserved">extends</span> <span class="php-class">AbstractType</span>
+class ArticleType extends AbstractType
 {
-    <span class="php-reserved">public function</span> <span class="php-function">buildForm</span>(<span class="php-class">FormBuilderInterface</span> <span class="php-variable">$builder</span>, <span class="php-reserved">array</span> <span class="php-variable">$options</span>): <span class="php-reserved">void</span>
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        <span class="php-variable">$builder</span>
-            -><span class="php-function">add</span>(<span class="php-string">'titre'</span>, <span class="php-class">TextType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span>    => <span class="php-string">'Titre de l\'article'</span>,
-                <span class="php-string">'attr'</span>     => [<span class="php-string">'placeholder'</span> => <span class="php-string">'Saisissez un titre...'</span>],
-                <span class="php-string">'required'</span> => <span class="php-reserved">true</span>,
+        $builder
+            ->add('titre', TextType::class, [
+                'label'    => 'Titre de l\'article',
+                'attr'     => ['placeholder' => 'Saisissez un titre...'],
+                'required' => true,
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'contenu'</span>, <span class="php-class">TextareaType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span> => <span class="php-string">'Contenu'</span>,
-                <span class="php-string">'attr'</span>  => [<span class="php-string">'rows'</span> => <span class="php-number">8</span>],
+            ->add('contenu', TextareaType::class, [
+                'label' => 'Contenu',
+                'attr'  => ['rows' => 8],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'publishedAt'</span>, <span class="php-class">DateType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span>  => <span class="php-string">'Date de publication'</span>,
-                <span class="php-string">'widget'</span> => <span class="php-string">'single_text'</span>,
+            ->add('publishedAt', DateType::class, [
+                'label'  => 'Date de publication',
+                'widget' => 'single_text',
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'save'</span>, <span class="php-class">SubmitType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span> => <span class="php-string">'Publier l\'article'</span>,
+            ->add('save', SubmitType::class, [
+                'label' => 'Publier l\'article',
             ]);
     }
 
-    <span class="php-reserved">public function</span> <span class="php-function">configureOptions</span>(<span class="php-class">OptionsResolver</span> <span class="php-variable">$resolver</span>): <span class="php-reserved">void</span>
+    public function configureOptions(OptionsResolver $resolver): void
     {
-        <span class="php-variable">$resolver</span>-><span class="php-function">setDefaults</span>([
-            <span class="php-string">'data_class'</span> => <span class="php-class">Article</span>::<span class="php-reserved">class</span>,
+        $resolver->setDefaults([
+            'data_class' => Article::class,
         ]);
     }
 }</code></pre>
@@ -147,30 +147,30 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Les types de champs courants</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment">// Champs texte</span>
-<span class="php-class">TextType</span>::<span class="php-reserved">class</span>         <span class="php-comment">// &lt;input type="text"&gt;</span>
-<span class="php-class">TextareaType</span>::<span class="php-reserved">class</span>     <span class="php-comment">// &lt;textarea&gt;</span>
-<span class="php-class">EmailType</span>::<span class="php-reserved">class</span>        <span class="php-comment">// &lt;input type="email"&gt;</span>
-<span class="php-class">PasswordType</span>::<span class="php-reserved">class</span>     <span class="php-comment">// &lt;input type="password"&gt;</span>
-<span class="php-class">SearchType</span>::<span class="php-reserved">class</span>       <span class="php-comment">// &lt;input type="search"&gt;</span>
-<span class="php-class">UrlType</span>::<span class="php-reserved">class</span>          <span class="php-comment">// &lt;input type="url"&gt;</span>
+                        <pre v-pre><code class="language-php">// Champs texte
+TextType::class         // input type="text"
+TextareaType::class     // textarea
+EmailType::class        // input type="email"
+PasswordType::class     // input type="password"
+SearchType::class       // input type="search"
+UrlType::class          // input type="url"
 
-<span class="php-comment">// Champs numériques et dates</span>
-<span class="php-class">IntegerType</span>::<span class="php-reserved">class</span>      <span class="php-comment">// &lt;input type="number"&gt;</span>
-<span class="php-class">NumberType</span>::<span class="php-reserved">class</span>       <span class="php-comment">// &lt;input type="number"&gt; (float)</span>
-<span class="php-class">DateType</span>::<span class="php-reserved">class</span>         <span class="php-comment">// Sélecteur de date</span>
-<span class="php-class">DateTimeType</span>::<span class="php-reserved">class</span>     <span class="php-comment">// Date + heure</span>
+// Champs numériques et dates
+IntegerType::class      // input type="number"
+NumberType::class       // input type="number" (float)
+DateType::class         // Sélecteur de date
+DateTimeType::class     // Date + heure
 
-<span class="php-comment">// Champs de choix</span>
-<span class="php-class">ChoiceType</span>::<span class="php-reserved">class</span>       <span class="php-comment">// &lt;select&gt; ou radio/checkbox</span>
-<span class="php-class">EntityType</span>::<span class="php-reserved">class</span>       <span class="php-comment">// &lt;select&gt; depuis une entité Doctrine</span>
-<span class="php-class">CheckboxType</span>::<span class="php-reserved">class</span>    <span class="php-comment">// &lt;input type="checkbox"&gt;</span>
-<span class="php-class">RadioType</span>::<span class="php-reserved">class</span>        <span class="php-comment">// &lt;input type="radio"&gt;</span>
+// Champs de choix
+ChoiceType::class       // select ou radio/checkbox
+EntityType::class       // select depuis une entité Doctrine
+CheckboxType::class     // input type="checkbox"
+RadioType::class        // input type="radio"
 
-<span class="php-comment">// Champs fichier et divers</span>
-<span class="php-class">FileType</span>::<span class="php-reserved">class</span>         <span class="php-comment">// &lt;input type="file"&gt;</span>
-<span class="php-class">HiddenType</span>::<span class="php-reserved">class</span>       <span class="php-comment">// &lt;input type="hidden"&gt;</span>
-<span class="php-class">SubmitType</span>::<span class="php-reserved">class</span>       <span class="php-comment">// &lt;button type="submit"&gt;</span></code></pre>
+// Champs fichier et divers
+FileType::class         // input type="file"
+HiddenType::class       // input type="hidden"
+SubmitType::class       // button type="submit"</code></pre>
                     </div>
                 </div>
             </section>
@@ -182,74 +182,74 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Controller complet : Création et modification</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment">// src/Controller/ArticleController.php</span>
-<span class="php-reserved">namespace</span> <span class="php-identifier">App\Controller</span>;
+                        <pre v-pre><code class="language-php">// src/Controller/ArticleController.php
+namespace App\Controller;
 
-<span class="php-reserved">use</span> <span class="php-identifier">App\Entity\Article</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">App\Form\ArticleType</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Doctrine\ORM\EntityManagerInterface</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\HttpFoundation\Request</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\HttpFoundation\Response</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Routing\Attribute\Route</span>;
+use App\Entity\Article;
+use App\Form\ArticleType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
-<span class="php-reserved">class</span> <span class="php-class">ArticleController</span> <span class="php-reserved">extends</span> <span class="php-class">AbstractController</span>
+class ArticleController extends AbstractController
 {
-    <span class="php-comment">// ─── Création d'un nouvel article ──────────────────────</span>
-    <span class="php-reserved">#[Route</span>(<span class="php-string">'/article/new'</span>, name: <span class="php-string">'article_new'</span>)]
-    <span class="php-reserved">public function</span> <span class="php-function">new</span>(
-        <span class="php-class">Request</span> <span class="php-variable">$request</span>,
-        <span class="php-class">EntityManagerInterface</span> <span class="php-variable">$em</span>
-    ): <span class="php-class">Response</span> {
-        <span class="php-comment">// 1. Créer une nouvelle entité vide</span>
-        <span class="php-variable">$article</span> = <span class="php-reserved">new</span> <span class="php-class">Article</span>();
+    // ─── Création d'un nouvel article ──────────────────────
+    #[Route('/article/new', name: 'article_new')]
+    public function new(
+        Request $request,
+        EntityManagerInterface $em
+    ): Response {
+        // 1. Créer une nouvelle entité vide
+        $article = new Article();
 
-        <span class="php-comment">// 2. Créer le formulaire lié à l'entité</span>
-        <span class="php-variable">$form</span> = <span class="php-variable">$this</span>-><span class="php-function">createForm</span>(<span class="php-class">ArticleType</span>::<span class="php-reserved">class</span>, <span class="php-variable">$article</span>);
+        // 2. Créer le formulaire lié à l'entité
+        $form = $this->createForm(ArticleType::class, $article);
 
-        <span class="php-comment">// 3. Traiter la requête HTTP</span>
-        <span class="php-variable">$form</span>-><span class="php-function">handleRequest</span>(<span class="php-variable">$request</span>);
+        // 3. Traiter la requête HTTP
+        $form->handleRequest($request);
 
-        <span class="php-comment">// 4. Vérifier si le formulaire est soumis et valide</span>
-        <span class="php-reserved">if</span> (<span class="php-variable">$form</span>-><span class="php-function">isSubmitted</span>() && <span class="php-variable">$form</span>-><span class="php-function">isValid</span>()) {
-            <span class="php-comment">// 5. Persister et sauvegarder en base</span>
-            <span class="php-variable">$em</span>-><span class="php-function">persist</span>(<span class="php-variable">$article</span>);
-            <span class="php-variable">$em</span>-><span class="php-function">flush</span>();
+        // 4. Vérifier si le formulaire est soumis et valide
+        if ($form->isSubmitted() && $form->isValid()) {
+            // 5. Persister et sauvegarder en base
+            $em->persist($article);
+            $em->flush();
 
-            <span class="php-comment">// 6. Rediriger après succès (pattern PRG)</span>
-            <span class="php-reserved">return</span> <span class="php-variable">$this</span>-><span class="php-function">redirectToRoute</span>(<span class="php-string">'article_show'</span>, [
-                <span class="php-string">'id'</span> => <span class="php-variable">$article</span>-><span class="php-function">getId</span>(),
+            // 6. Rediriger après succès (pattern PRG)
+            return $this->redirectToRoute('article_show', [
+                'id' => $article->getId(),
             ]);
         }
 
-        <span class="php-comment">// 7. Afficher le formulaire (GET ou erreurs)</span>
-        <span class="php-reserved">return</span> <span class="php-variable">$this</span>-><span class="php-function">render</span>(<span class="php-string">'article/new.html.twig'</span>, [
-            <span class="php-string">'form'</span> => <span class="php-variable">$form</span>,
+        // 7. Afficher le formulaire (GET ou erreurs)
+        return $this->render('article/new.html.twig', [
+            'form' => $form,
         ]);
     }
 
-    <span class="php-comment">// ─── Édition d'un article existant ─────────────────────</span>
-    <span class="php-reserved">#[Route</span>(<span class="php-string">'/article/{id}/edit'</span>, name: <span class="php-string">'article_edit'</span>)]
-    <span class="php-reserved">public function</span> <span class="php-function">edit</span>(
-        <span class="php-class">Article</span> <span class="php-variable">$article</span>,
-        <span class="php-class">Request</span> <span class="php-variable">$request</span>,
-        <span class="php-class">EntityManagerInterface</span> <span class="php-variable">$em</span>
-    ): <span class="php-class">Response</span> {
-        <span class="php-comment">// L'article existant est injecté automatiquement (ParamConverter)</span>
-        <span class="php-variable">$form</span> = <span class="php-variable">$this</span>-><span class="php-function">createForm</span>(<span class="php-class">ArticleType</span>::<span class="php-reserved">class</span>, <span class="php-variable">$article</span>);
-        <span class="php-variable">$form</span>-><span class="php-function">handleRequest</span>(<span class="php-variable">$request</span>);
+    // ─── Édition d'un article existant ─────────────────────
+    #[Route('/article/{id}/edit', name: 'article_edit')]
+    public function edit(
+        Article $article,
+        Request $request,
+        EntityManagerInterface $em
+    ): Response {
+        // L'article existant est injecté automatiquement (ParamConverter)
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
 
-        <span class="php-reserved">if</span> (<span class="php-variable">$form</span>-><span class="php-function">isSubmitted</span>() && <span class="php-variable">$form</span>-><span class="php-function">isValid</span>()) {
-            <span class="php-variable">$em</span>-><span class="php-function">flush</span>(); <span class="php-comment">// Pas besoin de persist() pour une entité déjà gérée</span>
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush(); // Pas besoin de persist() pour une entité déjà gérée
 
-            <span class="php-reserved">return</span> <span class="php-variable">$this</span>-><span class="php-function">redirectToRoute</span>(<span class="php-string">'article_show'</span>, [
-                <span class="php-string">'id'</span> => <span class="php-variable">$article</span>-><span class="php-function">getId</span>(),
+            return $this->redirectToRoute('article_show', [
+                'id' => $article->getId(),
             ]);
         }
 
-        <span class="php-reserved">return</span> <span class="php-variable">$this</span>-><span class="php-function">render</span>(<span class="php-string">'article/edit.html.twig'</span>, [
-            <span class="php-string">'article'</span> => <span class="php-variable">$article</span>,
-            <span class="php-string">'form'</span>    => <span class="php-variable">$form</span>,
+        return $this->render('article/edit.html.twig', [
+            'article' => $article,
+            'form'    => $form,
         ]);
     }
 }</code></pre>
@@ -264,30 +264,30 @@
                             <div>
                                 <h5>Mauvaise pratique</h5>
                                 <div class="code-example">
-                                    <pre><code><span class="php-reserved">if</span> (<span class="php-variable">$form</span>-><span class="php-function">isSubmitted</span>() && <span class="php-variable">$form</span>-><span class="php-function">isValid</span>()) {
-    <span class="php-variable">$em</span>-><span class="php-function">flush</span>();
+                                    <pre v-pre><code class="language-php">if ($form->isSubmitted() && $form->isValid()) {
+    $em->flush();
 
-    <span class="php-comment">// ❌ Pas de redirect !</span>
-    <span class="php-reserved">return</span> <span class="php-variable">$this</span>-><span class="php-function">render</span>(
-        <span class="php-string">'article/success.html.twig'</span>
+    // ❌ Pas de redirect !
+    return $this->render(
+        'article/success.html.twig'
     );
-    <span class="php-comment">// Rechargement = re-soumission du formulaire !</span>
-}</span></code></pre>
+    // Rechargement = re-soumission !
+}</code></pre>
                                 </div>
                                 <p class="warning-text">Re-soumission si l'utilisateur recharge la page</p>
                             </div>
                             <div>
                                 <h5>Bonne pratique (PRG)</h5>
                                 <div class="code-example">
-                                    <pre><code><span class="php-reserved">if</span> (<span class="php-variable">$form</span>-><span class="php-function">isSubmitted</span>() && <span class="php-variable">$form</span>-><span class="php-function">isValid</span>()) {
-    <span class="php-variable">$em</span>-><span class="php-function">flush</span>();
+                                    <pre v-pre><code class="language-php">if ($form->isSubmitted() && $form->isValid()) {
+    $em->flush();
 
-    <span class="php-comment">// ✅ Toujours rediriger !</span>
-    <span class="php-reserved">return</span> <span class="php-variable">$this</span>-><span class="php-function">redirectToRoute</span>(
-        <span class="php-string">'article_list'</span>
+    // ✅ Toujours rediriger !
+    return $this->redirectToRoute(
+        'article_list'
     );
-    <span class="php-comment">// Rechargement = simple GET, pas de double envoi</span>
-}</span></code></pre>
+    // Rechargement = simple GET
+}</code></pre>
                                 </div>
                                 <p class="success-text">Aucun risque de double soumission</p>
                             </div>
@@ -303,39 +303,39 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Contraintes via les attributs PHP (sur l'entité)</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment">// src/Entity/Article.php</span>
-<span class="php-reserved">namespace</span> <span class="php-identifier">App\Entity</span>;
+                        <pre v-pre><code class="language-php">// src/Entity/Article.php
+namespace App\Entity;
 
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Validator\Constraints</span> <span class="php-reserved">as</span> <span class="php-identifier">Assert</span>;
-<span class="php-reserved">use</span> <span class="php-identifier">Doctrine\ORM\Mapping</span> <span class="php-reserved">as</span> <span class="php-identifier">ORM</span>;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 
-<span class="php-reserved">#[ORM\Entity]</span>
-<span class="php-reserved">class</span> <span class="php-class">Article</span>
+#[ORM\Entity]
+class Article
 {
-    <span class="php-reserved">#[ORM\Column(length: 255)]</span>
-    <span class="php-reserved">#[Assert\NotBlank(message: 'Le titre ne peut pas être vide')]</span>
-    <span class="php-reserved">#[Assert\Length(
+    #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le titre ne peut pas être vide')]
+    #[Assert\Length(
         min: 5,
         max: 255,
         minMessage: 'Le titre doit faire au moins {{ limit }} caractères',
         maxMessage: 'Le titre ne peut pas dépasser {{ limit }} caractères'
-    )]</span>
-    <span class="php-reserved">private</span> ?<span class="php-reserved">string</span> <span class="php-variable">$titre</span> = <span class="php-reserved">null</span>;
+    )]
+    private ?string $titre = null;
 
-    <span class="php-reserved">#[ORM\Column(type: 'text')]</span>
-    <span class="php-reserved">#[Assert\NotBlank]</span>
-    <span class="php-reserved">#[Assert\Length(min: 20, minMessage: 'Le contenu est trop court')]</span>
-    <span class="php-reserved">private</span> ?<span class="php-reserved">string</span> <span class="php-variable">$contenu</span> = <span class="php-reserved">null</span>;
+    #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 20, minMessage: 'Le contenu est trop court')]
+    private ?string $contenu = null;
 
-    <span class="php-reserved">#[ORM\Column(type: 'string', length: 180, unique: true)]</span>
-    <span class="php-reserved">#[Assert\NotBlank]</span>
-    <span class="php-reserved">#[Assert\Email(message: "'{{ value }}' n'est pas un email valide")]</span>
-    <span class="php-reserved">private</span> ?<span class="php-reserved">string</span> <span class="php-variable">$email</span> = <span class="php-reserved">null</span>;
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\NotBlank]
+    #[Assert\Email(message: "'{{ value }}' n'est pas un email valide")]
+    private ?string $email = null;
 
-    <span class="php-reserved">#[ORM\Column]</span>
-    <span class="php-reserved">#[Assert\NotNull]</span>
-    <span class="php-reserved">#[Assert\GreaterThanOrEqual('today', message: 'La date doit être dans le futur')]</span>
-    <span class="php-reserved">private</span> ?<span class="php-class">\DateTimeInterface</span> <span class="php-variable">$publishedAt</span> = <span class="php-reserved">null</span>;
+    #[ORM\Column]
+    #[Assert\NotNull]
+    #[Assert\GreaterThanOrEqual('today', message: 'La date doit être dans le futur')]
+    private ?\DateTimeInterface $publishedAt = null;
 }</code></pre>
                     </div>
                 </div>
@@ -343,36 +343,36 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Les contraintes de validation les plus utiles</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment">// Contraintes de base</span>
-<span class="php-reserved">#[Assert\NotBlank]</span>                     <span class="php-comment">// Valeur non vide (chaîne non vide)</span>
-<span class="php-reserved">#[Assert\NotNull]</span>                      <span class="php-comment">// Valeur non nulle</span>
-<span class="php-reserved">#[Assert\IsTrue]</span>                       <span class="php-comment">// Doit être true (ex: CGU cochées)</span>
+                        <pre v-pre><code class="language-php">// Contraintes de base
+#[Assert\NotBlank]                     // Valeur non vide
+#[Assert\NotNull]                      // Valeur non nulle
+#[Assert\IsTrue]                       // Doit être true (ex: CGU cochées)
 
-<span class="php-comment">// Contraintes de chaîne</span>
-<span class="php-reserved">#[Assert\Length(min: 2, max: 100)]</span>     <span class="php-comment">// Longueur min/max</span>
-<span class="php-reserved">#[Assert\Email]</span>                        <span class="php-comment">// Format email valide</span>
-<span class="php-reserved">#[Assert\Url]</span>                          <span class="php-comment">// Format URL valide</span>
-<span class="php-reserved">#[Assert\Regex(pattern: '/^[a-z]+$/')]</span> <span class="php-comment">// Expression régulière</span>
+// Contraintes de chaîne
+#[Assert\Length(min: 2, max: 100)]     // Longueur min/max
+#[Assert\Email]                        // Format email valide
+#[Assert\Url]                          // Format URL valide
+#[Assert\Regex(pattern: '/^[a-z]+$/')] // Expression régulière
 
-<span class="php-comment">// Contraintes numériques</span>
-<span class="php-reserved">#[Assert\Range(min: 0, max: 100)]</span>      <span class="php-comment">// Valeur entre min et max</span>
-<span class="php-reserved">#[Assert\Positive]</span>                     <span class="php-comment">// Nombre strictement positif</span>
-<span class="php-reserved">#[Assert\GreaterThan(0)]</span>               <span class="php-comment">// Supérieur à une valeur</span>
+// Contraintes numériques
+#[Assert\Range(min: 0, max: 100)]      // Valeur entre min et max
+#[Assert\Positive]                     // Nombre strictement positif
+#[Assert\GreaterThan(0)]               // Supérieur à une valeur
 
-<span class="php-comment">// Contraintes de choix</span>
-<span class="php-reserved">#[Assert\Choice(choices: ['a', 'b'])]</span>  <span class="php-comment">// Valeur dans une liste</span>
-<span class="php-reserved">#[Assert\Count(min: 1, max: 5)]</span>        <span class="php-comment">// Nombre d'éléments d'une collection</span>
+// Contraintes de choix
+#[Assert\Choice(choices: ['a', 'b'])]  // Valeur dans une liste
+#[Assert\Count(min: 1, max: 5)]        // Nombre d'éléments d'une collection
 
-<span class="php-comment">// Contraintes de date</span>
-<span class="php-reserved">#[Assert\Date]</span>                         <span class="php-comment">// Format date valide (YYYY-MM-DD)</span>
-<span class="php-reserved">#[Assert\DateTime]</span>                     <span class="php-comment">// Format datetime valide</span>
-<span class="php-reserved">#[Assert\GreaterThanOrEqual('today')]</span>  <span class="php-comment">// Date dans le futur</span>
+// Contraintes de date
+#[Assert\Date]                         // Format date valide (YYYY-MM-DD)
+#[Assert\DateTime]                     // Format datetime valide
+#[Assert\GreaterThanOrEqual('today')]  // Date dans le futur
 
-<span class="php-comment">// Contraintes de fichier</span>
-<span class="php-reserved">#[Assert\File(
+// Contraintes de fichier
+#[Assert\File(
     maxSize: '2M',
     mimeTypes: ['image/jpeg', 'image/png']
-)]</span>                                       <span class="php-comment">// Validation d'un fichier uploadé</span></code></pre>
+)]                                     // Validation d'un fichier uploadé</code></pre>
                     </div>
                 </div>
             </section>
@@ -384,76 +384,76 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Rendu complet du formulaire</h3>
                     <div class="code-example">
-                        <pre><code><span class="twig-comment">{# templates/article/new.html.twig #}</span>
-<span class="twig-tag">{% extends 'base.html.twig' %}</span>
+                        <pre v-pre><code class="language-twig">{# templates/article/new.html.twig #}
+{% extends 'base.html.twig' %}
 
-<span class="twig-tag">{% block body %}</span>
-    <span class="twig-tag">{{ form_start(form) }}</span>
+{% block body %}
+    {{ form_start(form) }}
 
-        <span class="twig-comment">{# Afficher tous les champs d'un coup (pratique en dev) #}</span>
-        <span class="twig-tag">{{ form_widget(form) }}</span>
+        {# Afficher tous les champs d'un coup (pratique en dev) #}
+        {{ form_widget(form) }}
 
-        <span class="twig-comment">{# --- OU --- Affichage personnalisé champ par champ #}</span>
-        <span class="twig-tag">{{ form_row(form.titre) }}</span>
-        <span class="twig-tag">{{ form_row(form.contenu) }}</span>
-        <span class="twig-tag">{{ form_row(form.publishedAt) }}</span>
+        {# --- OU --- Affichage personnalisé champ par champ #}
+        {{ form_row(form.titre) }}
+        {{ form_row(form.contenu) }}
+        {{ form_row(form.publishedAt) }}
 
-        <span class="twig-comment">{# Bouton submit personnalisé #}</span>
-        &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;
+        {# Bouton submit personnalisé #}
+        <button type="submit" class="btn btn-primary">
             Publier l'article
-        &lt;/button&gt;
+        </button>
 
-    <span class="twig-tag">{{ form_end(form) }}</span>
-<span class="twig-tag">{% endblock %}</span></code></pre>
+    {{ form_end(form) }}
+{% endblock %}</code></pre>
                     </div>
                 </div>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Rendu personnalisé avec séparation label/widget/erreurs</h3>
                     <div class="code-example">
-                        <pre><code><span class="twig-tag">{{ form_start(form, { 'attr': { 'class': 'needs-validation', 'novalidate': true }}) }}</span>
+                        <pre v-pre><code class="language-twig">{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
 
-    &lt;div class=&quot;mb-3&quot;&gt;
-        <span class="twig-comment">{# Label du champ #}</span>
-        <span class="twig-tag">{{ form_label(form.titre, 'Titre', { 'label_attr': { 'class': 'form-label fw-bold' }}) }}</span>
+    <div class="mb-3">
+        {# Label du champ #}
+        {{ form_label(form.titre, 'Titre', {'label_attr': {'class': 'form-label fw-bold'}}) }}
 
-        <span class="twig-comment">{# Input du champ #}</span>
-        <span class="twig-tag">{{ form_widget(form.titre, { 'attr': { 'class': 'form-control' }}) }}</span>
+        {# Input du champ #}
+        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
 
-        <span class="twig-comment">{# Affichage des erreurs #}</span>
-        <span class="twig-tag">{% for error in form.titre.vars.errors %}</span>
-            &lt;div class=&quot;text-danger small mt-1&quot;&gt;
-                <span class="twig-tag">{{ error.message }}</span>
-            &lt;/div&gt;
-        <span class="twig-tag">{% endfor %}</span>
-    &lt;/div&gt;
+        {# Affichage des erreurs #}
+        {% for error in form.titre.vars.errors %}
+            <div class="text-danger small mt-1">
+                {{ error.message }}
+            </div>
+        {% endfor %}
+    </div>
 
-    &lt;div class=&quot;mb-3&quot;&gt;
-        <span class="twig-tag">{{ form_label(form.contenu) }}</span>
-        <span class="twig-tag">{{ form_widget(form.contenu, { 'attr': { 'class': 'form-control', 'rows': 6 }}) }}</span>
-        <span class="twig-tag">{{ form_errors(form.contenu) }}</span>
-    &lt;/div&gt;
+    <div class="mb-3">
+        {{ form_label(form.contenu) }}
+        {{ form_widget(form.contenu, {'attr': {'class': 'form-control', 'rows': 6}}) }}
+        {{ form_errors(form.contenu) }}
+    </div>
 
-    <span class="twig-comment">{# Champs cachés (token CSRF etc.) #}</span>
-    <span class="twig-tag">{{ form_rest(form) }}</span>
+    {# Champs cachés (token CSRF etc.) #}
+    {{ form_rest(form) }}
 
-<span class="twig-tag">{{ form_end(form) }}</span></code></pre>
+{{ form_end(form) }}</code></pre>
                     </div>
                 </div>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Thèmes de formulaire disponibles</h3>
                     <div class="code-example">
-                        <pre><code><span class="twig-comment">{# Appliquer un thème Bootstrap 5 sur un seul formulaire #}</span>
-<span class="twig-tag">{% form_theme form 'bootstrap_5_layout.html.twig' %}</span>
+                        <pre v-pre><code class="language-twig">{# Appliquer un thème Bootstrap 5 sur un seul formulaire #}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 
-<span class="twig-comment">{# Ou globalement dans config/packages/twig.yaml #}</span>
-<span class="twig-comment"># twig:
+{# Ou globalement dans config/packages/twig.yaml #}
+# twig:
 #   form_themes:
 #     - 'bootstrap_5_layout.html.twig'
 #     - 'foundation_5_layout.html.twig'  # Alternative Foundation CSS
 #     - 'form_div_layout.html.twig'      # Thème par défaut (divs)
-#     - 'form_table_layout.html.twig'    # Thème tableau</span></code></pre>
+#     - 'form_table_layout.html.twig'    # Thème tableau</code></pre>
                     </div>
                 </div>
             </section>
@@ -465,25 +465,25 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Formulaire avec EntityType (relation Doctrine)</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-reserved">use</span> <span class="php-identifier">Symfony\Bridge\Doctrine\Form\Type\EntityType</span>;
+                        <pre v-pre><code class="language-php">use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-<span class="php-variable">$builder</span>
-    -><span class="php-function">add</span>(<span class="php-string">'categorie'</span>, <span class="php-class">EntityType</span>::<span class="php-reserved">class</span>, [
-        <span class="php-string">'class'</span>        => <span class="php-class">Categorie</span>::<span class="php-reserved">class</span>,
-        <span class="php-string">'choice_label'</span> => <span class="php-string">'nom'</span>,       <span class="php-comment">// Propriété à afficher dans &lt;option&gt;</span>
-        <span class="php-string">'label'</span>        => <span class="php-string">'Catégorie'</span>,
-        <span class="php-string">'placeholder'</span>  => <span class="php-string">'Choisissez une catégorie'</span>,
-        <span class="php-string">'query_builder'</span> => <span class="php-reserved">function</span>(<span class="php-class">EntityRepository</span> <span class="php-variable">$repo</span>) {
-            <span class="php-reserved">return</span> <span class="php-variable">$repo</span>-><span class="php-function">createQueryBuilder</span>(<span class="php-string">'c'</span>)
-                -><span class="php-function">orderBy</span>(<span class="php-string">'c.nom'</span>, <span class="php-string">'ASC'</span>);
+$builder
+    ->add('categorie', EntityType::class, [
+        'class'        => Categorie::class,
+        'choice_label' => 'nom',       // Propriété à afficher dans l'option
+        'label'        => 'Catégorie',
+        'placeholder'  => 'Choisissez une catégorie',
+        'query_builder' => function(EntityRepository $repo) {
+            return $repo->createQueryBuilder('c')
+                ->orderBy('c.nom', 'ASC');
         },
     ])
-    -><span class="php-function">add</span>(<span class="php-string">'tags'</span>, <span class="php-class">EntityType</span>::<span class="php-reserved">class</span>, [
-        <span class="php-string">'class'</span>        => <span class="php-class">Tag</span>::<span class="php-reserved">class</span>,
-        <span class="php-string">'choice_label'</span> => <span class="php-string">'nom'</span>,
-        <span class="php-string">'multiple'</span>     => <span class="php-reserved">true</span>,   <span class="php-comment">// Sélection multiple</span>
-        <span class="php-string">'expanded'</span>     => <span class="php-reserved">true</span>,   <span class="php-comment">// Affichage en checkboxes</span>
-        <span class="php-string">'label'</span>        => <span class="php-string">'Tags'</span>,
+    ->add('tags', EntityType::class, [
+        'class'        => Tag::class,
+        'choice_label' => 'nom',
+        'multiple'     => true,   // Sélection multiple
+        'expanded'     => true,   // Affichage en checkboxes
+        'label'        => 'Tags',
     ]);</code></pre>
                     </div>
                 </div>
@@ -491,42 +491,42 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Formulaire de contact sans entité</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment">// src/Form/ContactType.php</span>
-<span class="php-reserved">class</span> <span class="php-class">ContactType</span> <span class="php-reserved">extends</span> <span class="php-class">AbstractType</span>
+                        <pre v-pre><code class="language-php">// src/Form/ContactType.php
+class ContactType extends AbstractType
 {
-    <span class="php-reserved">public function</span> <span class="php-function">buildForm</span>(<span class="php-class">FormBuilderInterface</span> <span class="php-variable">$builder</span>, <span class="php-reserved">array</span> <span class="php-variable">$options</span>): <span class="php-reserved">void</span>
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        <span class="php-variable">$builder</span>
-            -><span class="php-function">add</span>(<span class="php-string">'nom'</span>, <span class="php-class">TextType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'constraints'</span> => [
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\NotBlank</span>(),
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\Length</span>([<span class="php-string">'min'</span> => <span class="php-number">2</span>]),
+        $builder
+            ->add('nom', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['min' => 2]),
                 ],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'email'</span>, <span class="php-class">EmailType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'constraints'</span> => [<span class="php-reserved">new</span> <span class="php-class">Assert\NotBlank</span>(), <span class="php-reserved">new</span> <span class="php-class">Assert\Email</span>()],
+            ->add('email', EmailType::class, [
+                'constraints' => [new Assert\NotBlank(), new Assert\Email()],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'sujet'</span>, <span class="php-class">ChoiceType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'choices'</span> => [
-                    <span class="php-string">'Question générale'</span> => <span class="php-string">'general'</span>,
-                    <span class="php-string">'Support technique'</span> => <span class="php-string">'support'</span>,
-                    <span class="php-string">'Partenariat'</span>       => <span class="php-string">'partenariat'</span>,
+            ->add('sujet', ChoiceType::class, [
+                'choices' => [
+                    'Question générale' => 'general',
+                    'Support technique' => 'support',
+                    'Partenariat'       => 'partenariat',
                 ],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'message'</span>, <span class="php-class">TextareaType</span>::<span class="php-reserved">class</span>);
+            ->add('message', TextareaType::class);
     }
 
-    <span class="php-reserved">public function</span> <span class="php-function">configureOptions</span>(<span class="php-class">OptionsResolver</span> <span class="php-variable">$resolver</span>): <span class="php-reserved">void</span>
+    public function configureOptions(OptionsResolver $resolver): void
     {
-        <span class="php-comment">// Pas de data_class car pas d'entité liée</span>
-        <span class="php-variable">$resolver</span>-><span class="php-function">setDefaults</span>([]);
+        // Pas de data_class car pas d'entité liée
+        $resolver->setDefaults([]);
     }
 }
 
-<span class="php-comment">// Récupérer les données dans le controller</span>
-<span class="php-reserved">if</span> (<span class="php-variable">$form</span>-><span class="php-function">isSubmitted</span>() && <span class="php-variable">$form</span>-><span class="php-function">isValid</span>()) {
-    <span class="php-variable">$data</span> = <span class="php-variable">$form</span>-><span class="php-function">getData</span>(); <span class="php-comment">// Retourne un tableau associatif</span>
-    <span class="php-comment">// $data['nom'], $data['email'], $data['message']...</span>
+// Récupérer les données dans le controller
+if ($form->isSubmitted() && $form->isValid()) {
+    $data = $form->getData(); // Retourne un tableau associatif
+    // $data['nom'], $data['email'], $data['message']...
 }</code></pre>
                     </div>
                 </div>
@@ -534,30 +534,30 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Upload de fichier</h3>
                     <div class="code-example">
-                        <pre><code><span class="php-comment">// Dans le FormType</span>
-<span class="php-variable">$builder</span>-><span class="php-function">add</span>(<span class="php-string">'imageFile'</span>, <span class="php-class">FileType</span>::<span class="php-reserved">class</span>, [
-    <span class="php-string">'label'</span>      => <span class="php-string">'Image (JPG ou PNG)'</span>,
-    <span class="php-string">'mapped'</span>     => <span class="php-reserved">false</span>,  <span class="php-comment">// Non mappé sur l'entité</span>
-    <span class="php-string">'required'</span>   => <span class="php-reserved">false</span>,
-    <span class="php-string">'constraints'</span> => [
-        <span class="php-reserved">new</span> <span class="php-class">Assert\File</span>([
-            <span class="php-string">'maxSize'</span>       => <span class="php-string">'2M'</span>,
-            <span class="php-string">'mimeTypes'</span>     => [<span class="php-string">'image/jpeg'</span>, <span class="php-string">'image/png'</span>, <span class="php-string">'image/webp'</span>],
-            <span class="php-string">'mimeTypesMessage'</span> => <span class="php-string">'Veuillez uploader une image valide'</span>,
+                        <pre v-pre><code class="language-php">// Dans le FormType
+$builder->add('imageFile', FileType::class, [
+    'label'      => 'Image (JPG ou PNG)',
+    'mapped'     => false,  // Non mappé sur l'entité
+    'required'   => false,
+    'constraints' => [
+        new Assert\File([
+            'maxSize'          => '2M',
+            'mimeTypes'        => ['image/jpeg', 'image/png', 'image/webp'],
+            'mimeTypesMessage' => 'Veuillez uploader une image valide',
         ])
     ],
 ]);
 
-<span class="php-comment">// Dans le controller</span>
-<span class="php-variable">$imageFile</span> = <span class="php-variable">$form</span>-><span class="php-function">get</span>(<span class="php-string">'imageFile'</span>)-><span class="php-function">getData</span>();
+// Dans le controller
+$imageFile = $form->get('imageFile')->getData();
 
-<span class="php-reserved">if</span> (<span class="php-variable">$imageFile</span>) {
-    <span class="php-variable">$newFilename</span> = <span class="php-function">uniqid</span>() . <span class="php-string">'.'</span> . <span class="php-variable">$imageFile</span>-><span class="php-function">guessExtension</span>();
-    <span class="php-variable">$imageFile</span>-><span class="php-function">move</span>(
-        <span class="php-variable">$this</span>-><span class="php-function">getParameter</span>(<span class="php-string">'uploads_directory'</span>),
-        <span class="php-variable">$newFilename</span>
+if ($imageFile) {
+    $newFilename = uniqid() . '.' . $imageFile->guessExtension();
+    $imageFile->move(
+        $this->getParameter('uploads_directory'),
+        $newFilename
     );
-    <span class="php-variable">$article</span>-><span class="php-function">setImageFilename</span>(<span class="php-variable">$newFilename</span>);
+    $article->setImageFilename($newFilename);
 }</code></pre>
                     </div>
                 </div>
@@ -569,26 +569,23 @@
 
                 <div class="textExemple">
                     <p>
-                        Symfony active automatiquement la protection CSRF (Cross-Site Request Forgery) sur tous les
-                        formulaires.
-                        Un token unique est généré et vérifié à chaque soumission, sans que vous ayez à le gérer
-                        manuellement.
+                        Symfony active automatiquement la protection CSRF sur tous les formulaires.
+                        Un token unique est généré et vérifié à chaque soumission, sans gestion manuelle.
                     </p>
                     <div class="code-example">
-                        <pre><code><span class="php-comment">// La protection CSRF est active par défaut
-// Elle peut être désactivée si nécessaire (API publique par exemple)</span>
-<span class="php-reserved">public function</span> <span class="php-function">configureOptions</span>(<span class="php-class">OptionsResolver</span> <span class="php-variable">$resolver</span>): <span class="php-reserved">void</span>
+                        <pre v-pre><code class="language-php">// La protection CSRF est active par défaut
+public function configureOptions(OptionsResolver $resolver): void
 {
-    <span class="php-variable">$resolver</span>-><span class="php-function">setDefaults</span>([
-        <span class="php-string">'data_class'</span>      => <span class="php-class">Article</span>::<span class="php-reserved">class</span>,
-        <span class="php-string">'csrf_protection'</span> => <span class="php-reserved">true</span>,     <span class="php-comment">// Activé par défaut</span>
-        <span class="php-string">'csrf_field_name'</span> => <span class="php-string">'_token'</span>, <span class="php-comment">// Nom du champ caché</span>
-        <span class="php-string">'csrf_token_id'</span>   => <span class="php-string">'article_item'</span>, <span class="php-comment">// Identifiant unique</span>
+    $resolver->setDefaults([
+        'data_class'      => Article::class,
+        'csrf_protection' => true,           // Activé par défaut
+        'csrf_field_name' => '_token',       // Nom du champ caché
+        'csrf_token_id'   => 'article_item', // Identifiant unique
     ]);
 }
 
-<span class="php-comment">// Dans le template Twig, form_end() ajoute automatiquement le token :
-// {{ form_end(form) }} → génère &lt;input type="hidden" name="_token" value="..."&gt;</span></code></pre>
+// form_end(form) génère automatiquement :
+// <input type="hidden" name="_token" value="..."></code></pre>
                     </div>
                 </div>
             </section>
@@ -602,7 +599,7 @@
                     <p>Créer un formulaire d'inscription avec les champs et contraintes suivantes :</p>
                     <ul>
                         <li>Prénom et Nom (requis, min 2 caractères)</li>
-                        <li>Email (requis, format valide, unique en BDD)</li>
+                        <li>Email (requis, format valide)</li>
                         <li>Mot de passe (requis, min 8 caractères, avec confirmation)</li>
                         <li>Date de naissance (requis, doit avoir au moins 18 ans)</li>
                         <li>Acceptation des CGU (checkbox obligatoire)</li>
@@ -611,55 +608,55 @@
                     <details class="solution">
                         <summary class="btn-purple btn-hover">Voir la solution</summary>
                         <div class="solution-content">
-                            <pre><code><span class="php-comment">// src/Form/RegistrationFormType.php</span>
-<span class="php-reserved">use</span> <span class="php-identifier">Symfony\Component\Form\Extension\Core\Type\RepeatedType</span>;
+                            <pre v-pre><code class="language-php">// src/Form/RegistrationFormType.php
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
-<span class="php-reserved">class</span> <span class="php-class">RegistrationFormType</span> <span class="php-reserved">extends</span> <span class="php-class">AbstractType</span>
+class RegistrationFormType extends AbstractType
 {
-    <span class="php-reserved">public function</span> <span class="php-function">buildForm</span>(<span class="php-class">FormBuilderInterface</span> <span class="php-variable">$builder</span>, <span class="php-reserved">array</span> <span class="php-variable">$options</span>): <span class="php-reserved">void</span>
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        <span class="php-variable">$builder</span>
-            -><span class="php-function">add</span>(<span class="php-string">'prenom'</span>, <span class="php-class">TextType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span> => <span class="php-string">'Prénom'</span>,
-                <span class="php-string">'constraints'</span> => [
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\NotBlank</span>(),
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\Length</span>([<span class="php-string">'min'</span> => <span class="php-number">2</span>]),
+        $builder
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom',
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['min' => 2]),
                 ],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'nom'</span>, <span class="php-class">TextType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span> => <span class="php-string">'Nom'</span>,
-                <span class="php-string">'constraints'</span> => [
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\NotBlank</span>(),
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\Length</span>([<span class="php-string">'min'</span> => <span class="php-number">2</span>]),
+            ->add('nom', TextType::class, [
+                'label' => 'Nom',
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['min' => 2]),
                 ],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'email'</span>, <span class="php-class">EmailType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'constraints'</span> => [<span class="php-reserved">new</span> <span class="php-class">Assert\NotBlank</span>(), <span class="php-reserved">new</span> <span class="php-class">Assert\Email</span>()],
+            ->add('email', EmailType::class, [
+                'constraints' => [new Assert\NotBlank(), new Assert\Email()],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'plainPassword'</span>, <span class="php-class">RepeatedType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'type'</span>            => <span class="php-class">PasswordType</span>::<span class="php-reserved">class</span>,
-                <span class="php-string">'first_options'</span>   => [<span class="php-string">'label'</span> => <span class="php-string">'Mot de passe'</span>],
-                <span class="php-string">'second_options'</span>  => [<span class="php-string">'label'</span> => <span class="php-string">'Confirmer le mot de passe'</span>],
-                <span class="php-string">'invalid_message'</span> => <span class="php-string">'Les mots de passe doivent correspondre'</span>,
-                <span class="php-string">'mapped'</span>          => <span class="php-reserved">false</span>,
-                <span class="php-string">'constraints'</span>     => [
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\NotBlank</span>(),
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\Length</span>([<span class="php-string">'min'</span> => <span class="php-number">8</span>]),
+            ->add('plainPassword', RepeatedType::class, [
+                'type'            => PasswordType::class,
+                'first_options'   => ['label' => 'Mot de passe'],
+                'second_options'  => ['label' => 'Confirmer le mot de passe'],
+                'invalid_message' => 'Les mots de passe doivent correspondre',
+                'mapped'          => false,
+                'constraints'     => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['min' => 8]),
                 ],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'dateNaissance'</span>, <span class="php-class">DateType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span>        => <span class="php-string">'Date de naissance'</span>,
-                <span class="php-string">'widget'</span>       => <span class="php-string">'single_text'</span>,
-                <span class="php-string">'constraints'</span>  => [
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\NotNull</span>(),
-                    <span class="php-reserved">new</span> <span class="php-class">Assert\LessThanOrEqual</span>(<span class="php-string">'-18 years'</span>),
+            ->add('dateNaissance', DateType::class, [
+                'label'       => 'Date de naissance',
+                'widget'      => 'single_text',
+                'constraints' => [
+                    new Assert\NotNull(),
+                    new Assert\LessThanOrEqual('-18 years'),
                 ],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'agreeTerms'</span>, <span class="php-class">CheckboxType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span>       => <span class="php-string">'J\'accepte les conditions d\'utilisation'</span>,
-                <span class="php-string">'mapped'</span>      => <span class="php-reserved">false</span>,
-                <span class="php-string">'constraints'</span> => [<span class="php-reserved">new</span> <span class="php-class">Assert\IsTrue</span>([
-                    <span class="php-string">'message'</span> => <span class="php-string">'Vous devez accepter les CGU'</span>,
+            ->add('agreeTerms', CheckboxType::class, [
+                'label'       => 'J\'accepte les conditions d\'utilisation',
+                'mapped'      => false,
+                'constraints' => [new Assert\IsTrue([
+                    'message' => 'Vous devez accepter les CGU',
                 ])],
             ]);
     }
@@ -681,57 +678,52 @@
                     <details class="solution">
                         <summary class="btn-purple btn-hover">Voir la solution</summary>
                         <div class="solution-content">
-                            <pre><code><span class="php-comment">// src/Form/ProduitSearchType.php</span>
-<span class="php-reserved">class</span> <span class="php-class">ProduitSearchType</span> <span class="php-reserved">extends</span> <span class="php-class">AbstractType</span>
+                            <pre v-pre><code class="language-php">// src/Form/ProduitSearchType.php
+class ProduitSearchType extends AbstractType
 {
-    <span class="php-reserved">public function</span> <span class="php-function">buildForm</span>(<span class="php-class">FormBuilderInterface</span> <span class="php-variable">$builder</span>, <span class="php-reserved">array</span> <span class="php-variable">$options</span>): <span class="php-reserved">void</span>
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        <span class="php-variable">$builder</span>
-            -><span class="php-function">add</span>(<span class="php-string">'recherche'</span>, <span class="php-class">SearchType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'required'</span>   => <span class="php-reserved">false</span>,
-                <span class="php-string">'label'</span>      => <span class="php-string">'Rechercher un produit'</span>,
-                <span class="php-string">'attr'</span>       => [<span class="php-string">'placeholder'</span> => <span class="php-string">'Nom, référence...'</span>],
+        $builder
+            ->add('recherche', SearchType::class, [
+                'required' => false,
+                'label'    => 'Rechercher un produit',
+                'attr'     => ['placeholder' => 'Nom, référence...'],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'categorie'</span>, <span class="php-class">EntityType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'class'</span>        => <span class="php-class">Categorie</span>::<span class="php-reserved">class</span>,
-                <span class="php-string">'choice_label'</span> => <span class="php-string">'nom'</span>,
-                <span class="php-string">'required'</span>     => <span class="php-reserved">false</span>,
-                <span class="php-string">'placeholder'</span>  => <span class="php-string">'Toutes les catégories'</span>,
+            ->add('categorie', EntityType::class, [
+                'class'        => Categorie::class,
+                'choice_label' => 'nom',
+                'required'     => false,
+                'placeholder'  => 'Toutes les catégories',
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'prixMin'</span>, <span class="php-class">NumberType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span>    => <span class="php-string">'Prix minimum (€)'</span>,
-                <span class="php-string">'required'</span> => <span class="php-reserved">false</span>,
-                <span class="php-string">'constraints'</span> => [<span class="php-reserved">new</span> <span class="php-class">Assert\PositiveOrZero</span>()],
+            ->add('prixMin', NumberType::class, [
+                'label'       => 'Prix minimum (€)',
+                'required'    => false,
+                'constraints' => [new Assert\PositiveOrZero()],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'prixMax'</span>, <span class="php-class">NumberType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span>    => <span class="php-string">'Prix maximum (€)'</span>,
-                <span class="php-string">'required'</span> => <span class="php-reserved">false</span>,
-                <span class="php-string">'constraints'</span> => [<span class="php-reserved">new</span> <span class="php-class">Assert\Positive</span>()],
+            ->add('prixMax', NumberType::class, [
+                'label'       => 'Prix maximum (€)',
+                'required'    => false,
+                'constraints' => [new Assert\Positive()],
             ])
-            -><span class="php-function">add</span>(<span class="php-string">'tri'</span>, <span class="php-class">ChoiceType</span>::<span class="php-reserved">class</span>, [
-                <span class="php-string">'label'</span>   => <span class="php-string">'Trier par'</span>,
-                <span class="php-string">'choices'</span> => [
-                    <span class="php-string">'Nom A → Z'</span>     => <span class="php-string">'nom_asc'</span>,
-                    <span class="php-string">'Nom Z → A'</span>     => <span class="php-string">'nom_desc'</span>,
-                    <span class="php-string">'Prix croissant'</span> => <span class="php-string">'prix_asc'</span>,
-                    <span class="php-string">'Plus récent'</span>   => <span class="php-string">'date_desc'</span>,
+            ->add('tri', ChoiceType::class, [
+                'label'   => 'Trier par',
+                'choices' => [
+                    'Nom A → Z'      => 'nom_asc',
+                    'Nom Z → A'      => 'nom_desc',
+                    'Prix croissant' => 'prix_asc',
+                    'Plus récent'    => 'date_desc',
                 ],
-                <span class="php-string">'required'</span> => <span class="php-reserved">false</span>,
+                'required' => false,
             ]);
     }
 
-    <span class="php-reserved">public function</span> <span class="php-function">configureOptions</span>(<span class="php-class">OptionsResolver</span> <span class="php-variable">$resolver</span>): <span class="php-reserved">void</span>
+    public function configureOptions(OptionsResolver $resolver): void
     {
-        <span class="php-variable">$resolver</span>-><span class="php-function">setDefaults</span>([
-            <span class="php-string">'method'</span> => <span class="php-string">'GET'</span>, <span class="php-comment">// Formulaire de recherche → méthode GET</span>
-            <span class="php-string">'csrf_protection'</span> => <span class="php-reserved">false</span>, <span class="php-comment">// Pas de CSRF pour les GET</span>
+        $resolver->setDefaults([
+            'method'          => 'GET',   // Formulaire de recherche → méthode GET
+            'csrf_protection' => false,   // Pas de CSRF pour les GET
         ]);
     }
-
-    <span class="php-comment">// Dans le controller :</span>
-    <span class="php-comment">// $form = $this->createForm(ProduitSearchType::class);
-    // $form->handleRequest($request);
-    // $data = $form->getData(); // Utiliser $data pour filtrer le repository</span>
 }</code></pre>
                         </div>
                     </details>
@@ -745,7 +737,7 @@
                 <div class="textExemple">
                     <h3 class="text-purple">Organisation et architecture</h3>
                     <ul>
-                        <li><strong>Un FormType par formulaire</strong> : évitez les FormTypes "fourre-tout"</li>
+                        <li><strong>Un FormType par formulaire</strong> : évitez les FormTypes « fourre-tout »</li>
                         <li><strong>data_class sur les entités</strong> : laissez Symfony mapper automatiquement</li>
                         <li><strong>Contraintes sur l'entité</strong> : réutilisables partout (API, CLI, Form)</li>
                         <li><strong>Contraintes dans le Form</strong> : uniquement si spécifiques à ce formulaire</li>
@@ -766,10 +758,9 @@
                     <h3 class="text-purple">Performance et expérience utilisateur</h3>
                     <ul>
                         <li>Utiliser <code>query_builder</code> sur EntityType pour filtrer les choix en BDD</li>
-                        <li>Pré-remplir les formulaires d'édition en passant l'entité existante à createForm()</li>
+                        <li>Pré-remplir les formulaires d'édition en passant l'entité existante à <code>createForm()</code></li>
                         <li>Afficher les erreurs au plus près du champ concerné</li>
-                        <li>Ajouter des <code>placeholder</code> et <code>help</code> clairs pour guider l'utilisateur
-                        </li>
+                        <li>Ajouter des <code>placeholder</code> et <code>help</code> clairs pour guider l'utilisateur</li>
                     </ul>
                 </div>
 
@@ -781,8 +772,7 @@
                     </p>
                     <p>
                         <strong>Rappel crucial</strong> : Séparez toujours la définition du formulaire (FormType),
-                        son traitement (Controller) et son affichage (Twig) pour respecter le principe de séparation des
-                        responsabilités.
+                        son traitement (Controller) et son affichage (Twig) pour respecter la séparation des responsabilités.
                     </p>
                     <p>
                         Dans les prochaines leçons, nous aborderons les Form Collections (formulaires imbriqués),
@@ -790,13 +780,51 @@
                     </p>
                 </div>
             </section>
+
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'SymfonyFormLesson'
+    name: 'SymfonyFormLesson',
+
+    mounted() {
+        // Charger highlight.js + thème VS Code Dark via CDN
+        const loadHighlightJS = () => {
+            return new Promise((resolve) => {
+                if (window.hljs) { resolve(); return; }
+
+                const link = document.createElement('link');
+                link.rel  = 'stylesheet';
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css';
+                document.head.appendChild(link);
+
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
+                script.onload = () => {
+                    // Charger les langages PHP et Twig en plus
+                    const phpScript = document.createElement('script');
+                    phpScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js';
+                    phpScript.onload = () => {
+                        const twigScript = document.createElement('script');
+                        twigScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/twig.min.js';
+                        twigScript.onload = resolve;
+                        document.head.appendChild(twigScript);
+                    };
+                    document.head.appendChild(phpScript);
+                };
+                document.head.appendChild(script);
+            });
+        };
+
+        loadHighlightJS().then(() => {
+            // Appliquer la coloration sur tous les blocs de code
+            this.$el.querySelectorAll('pre code').forEach((block) => {
+                window.hljs.highlightElement(block);
+            });
+        });
+    }
 }
 </script>
 
@@ -827,10 +855,7 @@ export default {
 .lesson-header::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
@@ -854,6 +879,7 @@ export default {
     width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
+    animation: fadeInUp 0.6s ease forwards;
 }
 
 .lesson-section:hover {
@@ -861,24 +887,15 @@ export default {
     box-shadow: 0 12px 35px rgba(106, 48, 147, 0.15);
 }
 
-.bg-light-purple {
-    background-color: #f8f6ff;
-    border-radius: 12px;
-}
+.bg-light-purple { background-color: #f8f6ff; }
 
 .border-purple {
     border: 2px solid #e0d6ff;
-    border-radius: 15px;
     transition: all 0.3s ease;
 }
 
-.text-purple {
-    color: #6A3093 !important;
-}
-
-.text-white {
-    color: white !important;
-}
+.text-purple { color: #6A3093 !important; }
+.text-white  { color: white !important; }
 
 .btn-purple {
     background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
@@ -902,8 +919,7 @@ export default {
     color: white;
 }
 
-.code-example,
-.code-block {
+.code-example {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
@@ -927,69 +943,16 @@ pre {
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 0.9rem;
     line-height: 1.5;
-    max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    word-break: break-word;
+    white-space: pre;
+    margin: 0;
 }
 
 pre code {
     display: block;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    max-width: 100%;
+    white-space: pre;
     width: 100%;
-    word-wrap: break-word;
-    word-break: break-word;
-}
-
-/* COULEURS PHP / SYMFONY */
-.php-reserved {
-    color: #FF6B8B !important;
-    font-weight: bold;
-}
-
-.php-class {
-    color: #4EC9B0 !important;
-    font-weight: bold;
-}
-
-.php-function {
-    color: #DCDCAA !important;
-}
-
-.php-identifier {
-    color: #9CDCFE !important;
-}
-
-.php-variable {
-    color: #9CDCFE !important;
-}
-
-.php-string {
-    color: #CE9178 !important;
-}
-
-.php-comment {
-    color: #6A9955 !important;
-    font-style: italic;
-}
-
-.php-number {
-    color: #B5CEA8 !important;
-}
-
-/* COULEURS TWIG */
-.twig-tag {
-    color: #FF6B8B !important;
-    font-weight: bold;
-}
-
-.twig-comment {
-    color: #6A9955 !important;
-    font-style: italic;
 }
 
 .warning-section {
@@ -1012,13 +975,8 @@ pre code {
     margin-top: 0.5rem;
 }
 
-.exercise {
-    margin: 2rem 0;
-}
-
-.solution {
-    margin: 1rem 0;
-}
+.exercise { margin: 2rem 0; }
+.solution { margin: 1rem 0; }
 
 .solution-content {
     margin-top: 1rem;
@@ -1033,71 +991,25 @@ pre code {
     line-height: 1.6;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-    .lesson-container {
-        padding: 1rem;
-    }
-
-    .lesson-header {
-        padding: 2rem 1rem;
-    }
-
-    .lesson-header h1 {
-        font-size: 2rem;
-    }
-
-    .lesson-section {
-        padding: 1.5rem;
-    }
-
-    .code-comparison {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    pre {
-        padding: 1rem !important;
-        font-size: 0.85rem;
-    }
+    .lesson-container  { padding: 1rem; }
+    .lesson-header     { padding: 2rem 1rem; }
+    .lesson-header h1  { font-size: 2rem; }
+    .lesson-section    { padding: 1.5rem; }
+    .code-comparison   { grid-template-columns: 1fr; gap: 1rem; }
+    pre                { padding: 1rem !important; font-size: 0.85rem; }
 }
 
 @media (max-width: 480px) {
-    pre {
-        padding: 0.75rem !important;
-        font-size: 0.8rem;
-    }
-
-    .lesson-container {
-        padding: 0.5rem;
-    }
-
-    .lesson-section {
-        padding: 1rem;
-    }
-
-    .lesson-header {
-        padding: 1.5rem 1rem;
-    }
-
-    .lesson-header h1 {
-        font-size: 1.75rem;
-    }
+    pre               { padding: 0.75rem !important; font-size: 0.8rem; }
+    .lesson-container { padding: 0.5rem; }
+    .lesson-section   { padding: 1rem; }
+    .lesson-header    { padding: 1.5rem 1rem; }
+    .lesson-header h1 { font-size: 1.75rem; }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.lesson-section {
-    animation: fadeInUp 0.6s ease forwards;
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 </style>
