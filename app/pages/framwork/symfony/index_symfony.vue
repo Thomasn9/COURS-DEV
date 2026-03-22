@@ -86,6 +86,16 @@
                 </NuxtLink>
             </div>
         </div>
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Formulaire</h5>
+                <p class="card-text">Créer un formulaire dans symfony </p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/form">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
 
         <!-- =============================================================\\N//==================================================================== -->
         <div class="section-header">
