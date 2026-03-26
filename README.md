@@ -84,6 +84,7 @@
 - IsGranted
 - symfony console make:registration-form
 - symfony console make:auth
+- symfony console make:controller
 - composer require lexik/jwt-authentication-bundle
 - composer req api
 - JWT decoder
