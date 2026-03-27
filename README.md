@@ -101,6 +101,7 @@
 - O1 On On2 Ologn
 - structure de code
 - l'extension sonarQube sur vs code
+- cypress
 ================================================================================
 # devops
 - ansible
