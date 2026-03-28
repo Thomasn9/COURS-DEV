@@ -128,6 +128,22 @@
             </div>
         </div>
 
+        <!-- =============================================================\\S//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">S</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Symfony UX</h5>
+                <p class="card-text">Comment utiliser symfony ux et quelle estson utiliter</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/symfonyUI">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\T//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">T</h3>
