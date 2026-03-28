@@ -87,7 +87,6 @@
 - composer require lexik/jwt-authentication-bundle
 - composer req api
 - JWT decoder
-- symfony ui
 - la sécuriter dans les formmualaire grace a doctrine et twig 
 
 ================================================================================
