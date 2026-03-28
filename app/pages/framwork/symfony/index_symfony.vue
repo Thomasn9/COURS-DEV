@@ -96,6 +96,21 @@
                 </NuxtLink>
             </div>
         </div>
+        <!-- =============================================================\\I//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">I</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">IsGranted</h5>
+                <p class="card-text">Qu'est ce que twig et son utilité</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/isGranted">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
 
         <!-- =============================================================\\N//==================================================================== -->
         <div class="section-header">
