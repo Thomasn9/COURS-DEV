@@ -138,7 +138,7 @@
                 <h5 class="card-title text-purple">Symfony UX</h5>
                 <p class="card-text">Comment utiliser symfony ux et quelle estson utiliter</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/symfonyUI">
+                    to="lessons/symfonyUX">
                     Accès à la leçon
                 </NuxtLink>
             </div>
