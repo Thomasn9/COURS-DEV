@@ -1,4 +1,4 @@
-je suis dans un projet nuxt 4 qui me sert de receuille de cours j'aimerais que tu me génère une lessons sur la création d'un formulaire symfony et prenant comme base la page de code que je te donne inpire toit de la structure et du style pour me créer une lessons que je pourrais rajouter dans mon projet, met bien en place les balise v-pre pour les exemple de code pour eviter les conflit.
+je suis dans un projet nuxt 4 qui me sert de receuille de cours j'aimerais que tu me génère une lessons sur la création d'un formulaire symfony et prenant comme base la page de code que je te donne inspire toit de la structure et du style pour me créer une lessons que je pourrais rajouter dans mon projet, met bien en place les balise v-pre pour les exemple de code pour eviter les conflit.
 
 <template>
     <div class="lesson-container">
