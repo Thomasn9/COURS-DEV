@@ -101,25 +101,25 @@ export default class extends Controller {
                     </div>
                     <div class="code-example">
                         <pre v-pre><code class="language-twig">{# templates/hello/index.html.twig #}
-<div data-controller="hello">
-    <input type="text" data-hello-target="name" placeholder="Votre nom">
-    <button data-action="click->hello#greet">Saluer</button>
-    <div data-hello-target="output"></div>
-</div></code></pre>
+&lt;div data-controller="hello"&gt;
+    &lt;input type="text" data-hello-target="name" placeholder="Votre nom"&gt;
+    &lt;button data-action="click-&gt;hello#greet"&gt;Saluer&lt;/button&gt;
+    &lt;div data-hello-target="output"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
                     </div>
                 </div>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Attributs Stimulus essentiels</h3>
                     <div class="code-example">
-                        <pre v-pre><code class="language-html"><div data-controller="nom-du-controleur">
-    <!-- Cibles -->
-    <span data-nom-du-controleur-target="maCible"></span>
-    <!-- Actions -->
-    <button data-action="click->nom-du-controleur#maMethode">Cliquez</button>
-    <!-- Valeurs -->
-    <div data-nom-du-controleur-texte-value="Bonjour"></div>
-</div></code></pre>
+                        <pre v-pre><code class="language-html">&lt;div data-controller="nom-du-controleur"&gt;
+    &lt;!-- Cibles --&gt;
+    &lt;span data-nom-du-controleur-target="maCible"&gt;&lt;/span&gt;
+    &lt;!-- Actions --&gt;
+    &lt;button data-action="click-&gt;nom-du-controleur#maMethode"&gt;Cliquez&lt;/button&gt;
+    &lt;!-- Valeurs --&gt;
+    &lt;div data-nom-du-controleur-texte-value="Bonjour"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
                     </div>
                 </div>
             </section>
@@ -149,15 +149,15 @@ export default class extends Controller {
                     <h3 class="text-purple">Utiliser Turbo Frames pour rafraîchir une partie</h3>
                     <div class="code-example">
                         <pre v-pre><code class="language-twig">{# templates/article/list.html.twig #}
-<turbo-frame id="article-list">
+&lt;turbo-frame id="article-list"&gt;
     {% for article in articles %}
-        <div>{{ article.titre }}</div>
+        &lt;div&gt;{{ article.titre }}&lt;/div&gt;
     {% endfor %}
 
-    <a href="{{ path('article_next_page', {page: page+1}) }}" turbo-frame="article-list">
+    &lt;a href="{{ path('article_next_page', {page: page+1}) }}" turbo-frame="article-list"&gt;
         Charger plus
-    </a>
-</turbo-frame></code></pre>
+    &lt;/a&gt;
+&lt;/turbo-frame&gt;</code></pre>
                     </div>
                 </div>
 
@@ -185,11 +185,11 @@ public function comment(Article $article, Request $request): Response
                     </div>
                     <div class="code-example">
                         <pre v-pre><code class="language-twig">{# templates/article/comment.stream.html.twig #}
-<turbo-stream action="append" target="comments-list">
-    <template>
-        <div>{{ comment.content }}</div>
-    </template>
-</turbo-stream></code></pre>
+&lt;turbo-stream action="append" target="comments-list"&gt;
+    &lt;template&gt;
+        &lt;div&gt;{{ comment.content }}&lt;/div&gt;
+    &lt;/template&gt;
+&lt;/turbo-stream&gt;</code></pre>
                     </div>
                 </div>
             </section>
@@ -234,21 +234,21 @@ class SearchForm
                     </div>
                     <div class="code-example">
                         <pre v-pre><code class="language-twig">{# templates/components/search_form.html.twig #}
-<div {{ attributes }}>
-    <input
+&lt;div {{ attributes }}&gt;
+    &lt;input
         type="search"
         data-model="query"
         placeholder="Rechercher..."
-    >
+    &gt;
 
-    <div>
+    &lt;div&gt;
         {% for result in this.results %}
-            <div>{{ result }}</div>
+            &lt;div&gt;{{ result }}&lt;/div&gt;
         {% else %}
-            <div>Aucun résultat</div>
+            &lt;div&gt;Aucun résultat&lt;/div&gt;
         {% endfor %}
-    </div>
-</div></code></pre>
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                     </div>
                     <p>L'attribut <code>data-model</code> synchronise automatiquement le champ avec la propriété <code>$query</code> du composant.</p>
                 </div>
@@ -390,22 +390,22 @@ class ProductSearch
     }
 }</code></pre>
                             <pre v-pre><code class="language-twig">{# templates/components/product_search.html.twig #}
-<div {{ attributes }}>
-    <input
+&lt;div {{ attributes }}&gt;
+    &lt;input
         type="text"
         data-model="search"
         placeholder="Rechercher un produit..."
         class="form-control mb-3"
-    >
+    &gt;
 
-    <div class="list-group">
+    &lt;div class="list-group"&gt;
         {% for product in this.products %}
-            <div class="list-group-item">{{ product.name }} - {{ product.price }} €</div>
+            &lt;div class="list-group-item"&gt;{{ product.name }} - {{ product.price }} €&lt;/div&gt;
         {% else %}
-            <div class="alert alert-info">Aucun produit trouvé</div>
+            &lt;div class="alert alert-info"&gt;Aucun produit trouvé&lt;/div&gt;
         {% endfor %}
-    </div>
-</div></code></pre>
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </details>
                 </div>
@@ -439,21 +439,21 @@ public function addComment(Article $article, Request $request, EntityManagerInte
     return $this->render('comment/form.html.twig', ['form' => $form]);
 }</code></pre>
                             <pre v-pre><code class="language-twig">{# comment/_stream.html.twig #}
-<turbo-stream action="append" target="comments-list">
-    <template>
-        <div class="comment">
-            <strong>{{ comment.author }}</strong> : {{ comment.content }}
-        </div>
-    </template>
-</turbo-stream></code></pre>
+&lt;turbo-stream action="append" target="comments-list"&gt;
+    &lt;template&gt;
+        &lt;div class="comment"&gt;
+            &lt;strong&gt;{{ comment.author }}&lt;/strong&gt; : {{ comment.content }}
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/turbo-stream&gt;</code></pre>
                             <pre v-pre><code class="language-twig">{# templates/article/show.html.twig #}
-<turbo-frame id="comments-list">
+&lt;turbo-frame id="comments-list"&gt;
     {% for comment in article.comments %}
-        <div class="comment">
-            <strong>{{ comment.author }}</strong> : {{ comment.content }}
-        </div>
+        &lt;div class="comment"&gt;
+            &lt;strong&gt;{{ comment.author }}&lt;/strong&gt; : {{ comment.content }}
+        &lt;/div&gt;
     {% endfor %}
-</turbo-frame>
+&lt;/turbo-frame&gt;
 
 {{ form_start(form, { attr: { 'data-turbo-frame': '_top' } }) }}
     {# Le formulaire sera soumis avec Turbo #}
@@ -553,7 +553,7 @@ export default {
 </script>
 
 <style scoped>
-/* Les styles restent identiques à ceux utilisés précédemment */
+/* Les styles restent strictement identiques à ceux fournis dans le template original */
 .lesson-container {
     padding: 2rem;
     background: #f8f9fa;
