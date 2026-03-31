@@ -126,10 +126,17 @@
 # Appli
 - mysql workbench
 - virtual box
+- dbeaver
 ================================================================================
 # Outils gestion projet
 - jira
 - trelo
+================================================================================
+# diagramme
+- diagramme de classe
+- digramme de séquence
+- diagramme d'activité
+- planUML
 ================================================================================
 # les jsp trop ou les mettre
 - data dog
