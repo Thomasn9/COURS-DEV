@@ -35,6 +35,17 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Assert</h5>
+                <p class="card-text">Les validation via assert dans symfony</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/assert">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">AssetMapper</h5>
                 <p class="card-text">Asset Mapper dans symfony</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
