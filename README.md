@@ -88,7 +88,6 @@
 - composer req api
 - JWT decoder
 - la sécuriter dans les formmualaire grace a doctrine et twig 
-
 ================================================================================
 # Cyber Sécuriter
 - buffer overflow
