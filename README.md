@@ -33,7 +33,6 @@
 # SQL
 - rajouter au cours creation BDD (inno db a la fin des tables sql)
 - rajouter une lecons sur les check (mettre la notion LENGTH())
-- rajouter cours sur création de compt sql et les droit qu'ils ont
 - group concat
 ================================================================================
 # Java-Script
