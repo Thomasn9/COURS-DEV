@@ -97,6 +97,7 @@
                 </NuxtLink>
             </div>
         </div>
+
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Formulaire</h5>
@@ -107,6 +108,23 @@
                 </NuxtLink>
             </div>
         </div>
+
+        <!-- =============================================================\\G//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">G</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Génération d'un controller</h5>
+                <p class="card-text">Comment générer un controller via des commande symfony</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/generer_controller">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\I//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">I</h3>
