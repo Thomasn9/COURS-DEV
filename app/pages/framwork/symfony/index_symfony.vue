@@ -146,6 +146,17 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Sécurité formulaire</h5>
+                <p class="card-text">La sécuriter dans un formulaire symfony grace a twig et doctrine</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/securiter_form">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Stimulus</h5>
                 <p class="card-text">Quest ce que stimulus et comment l'utiliser</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
