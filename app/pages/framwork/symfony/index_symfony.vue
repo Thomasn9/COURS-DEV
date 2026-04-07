@@ -154,7 +154,6 @@
                 </NuxtLink>
             </div>
         </div>
-        
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
