@@ -69,8 +69,6 @@
 - intl php
 - coposer remove
 - routing symfony
-- assetMapper
-- les bloc en twig
 - explique l'utiliter de cette commande 
 - les étapes pour utiliser et crée unne base de donnée avec doctrine
 - orm fixture comment l'instaler sur son projet symfony
