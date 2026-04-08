@@ -82,6 +82,22 @@
             </div>
         </div>
 
+        <!-- =============================================================\\C//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">C</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">CRUD</h5>
+                <p class="card-text">Quest ce que le CRUD dans symfony et comment s'en servir</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/CRUD">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\D//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">D</h3>
