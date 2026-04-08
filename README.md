@@ -69,7 +69,6 @@
 - intl php
 - coposer remove
 - routing symfony
-- les étapes pour utiliser et crée unne base de donnée avec doctrine
 - composer require symfony/serializer-pack
 - symfony profiler
 - symfony console make:registration-form
