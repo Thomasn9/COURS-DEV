@@ -89,10 +89,10 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Doctrine Créer et utiliser une base de données</h5>
-                <p class="card-text">Comment Créer et utiliser une base de données via doctrine</p>
+                <h5 class="card-title text-purple">Doctrine Créer et utiliser une base de données avec donnée factices</h5>
+                <p class="card-text">Comment Créer et utiliser une base de données via doctrine avec des données factice</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/doctrine_fixture">
+                    to="lessons/doctrine_creationBDD">
                     Accès à la leçon
                 </NuxtLink>
             </div>
