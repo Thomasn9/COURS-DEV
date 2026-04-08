@@ -82,7 +82,7 @@
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-purple fw-bold fs-4">Grafikart.fr</h5>
-                        <p class="card-text text-dark flex-grow-1">Le site de grafikart regroupe des leçons et astuces de manière très pédagogique sur beaucoup de langages, ce site est une référence dans le monde du dev.</p>
+                        <p class="card-text text-dark flex-grow-1">Le site de grafikart (dieu du dev français) regroupe des leçons et astuces de manière très pédagogique sur beaucoup de langages, ce site est une référence dans le monde du dev.</p>
                         <a href="https://grafikart.fr/" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
                     </div>
                 </div>
