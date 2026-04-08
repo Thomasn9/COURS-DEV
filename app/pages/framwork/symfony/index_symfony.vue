@@ -105,6 +105,17 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Faker</h5>
+                <p class="card-text">Le générateur de donnée factices</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/faker">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Fetch</h5>
                 <p class="card-text">Fetch via nuxt </p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
