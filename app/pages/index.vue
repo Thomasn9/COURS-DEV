@@ -31,7 +31,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-purple fw-bold fs-4">La doc officielle de Symfony</h5>
                         <p class="card-text text-dark flex-grow-1">Toute la doc officielle de symfony</p>
-                        <a href="https://www.php.net/docs.php" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
+                        <a href="https://symfony.com" target="_blank" class="btn btn-purple btn-hover mt-auto">Aller au site</a>
                     </div>
                 </div>
             </div>
