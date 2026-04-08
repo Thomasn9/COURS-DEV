@@ -70,7 +70,6 @@
 - coposer remove
 - routing symfony
 - les étapes pour utiliser et crée unne base de donnée avec doctrine
-- faker php comment l'instaler sur son projet symfony
 - composer require symfony/serializer-pack
 - symfony profiler
 - symfony console make:registration-form
