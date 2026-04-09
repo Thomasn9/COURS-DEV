@@ -25,7 +25,7 @@
             <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">DOM</h5>
                 <p class="card-text">Comment manipulerle DOM en java script</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/boucle">
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none" to="lessons/DOM">
                     Accès à la leçon
                 </NuxtLink>
             </div>
