@@ -89,6 +89,7 @@
 - l'extension sonarQube sur vs code
 - cypress
 - php unit
+- paterne AAA
 ================================================================================
 # devops
 - ansible
