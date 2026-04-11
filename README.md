@@ -11,6 +11,7 @@
 - rajouter au switch case le rooting
 - echo
 - api
+- composer
 ================================================================================
 # JAVA
 - fonction
