@@ -81,6 +81,7 @@
 # Cyber Sécuriter
 - buffer overflow
 - injection sql
+- classement OWASP
 ================================================================================
 # Audit + testing
 - O1 On On2 Ologn
