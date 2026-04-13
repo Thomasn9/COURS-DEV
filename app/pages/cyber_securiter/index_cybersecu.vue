@@ -10,7 +10,7 @@
                 <h5 class="card-title text-purple">Intro cyber sécurité</h5>
                 <p class="card-text">les différentes faille de sécuriter et l'importance de les connaitre</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/intro_devops">
+                    to="lessons/intro_secu">
                     Accès à la leçon
                 </NuxtLink>
             </div>
