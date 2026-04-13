@@ -81,7 +81,6 @@
 # Cyber Sécuriter
 - buffer overflow
 - injection sql
-- faille xss
 ================================================================================
 # Audit + testing
 - O1 On On2 Ologn
