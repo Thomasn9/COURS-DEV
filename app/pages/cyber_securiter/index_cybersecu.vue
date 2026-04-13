@@ -23,10 +23,10 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Adresse IP</h5>
-                <p class="card-text">L'utilité d'une adresse IP</p>
+                <h5 class="card-title text-purple">Faille XSS</h5>
+                <p class="card-text">Quest ce qu'une faille XSS</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/adresse_ip">
+                    to="lessons/faille_xss">
                     Accès à la leçon
                 </NuxtLink>
             </div>
