@@ -32,7 +32,7 @@
             </div>
         </div>
 
-                <!-- =============================================================\\I//==================================================================== -->
+        <!-- =============================================================\\I//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">I</h3>
         </div>
@@ -43,6 +43,22 @@
                 <p class="card-text">Quest ce qu'une injection SQL</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/injection_sql">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <!-- =============================================================\\O//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">O</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">OWASP</h5>
+                <p class="card-text">OWASP Top 10 : Sécurité des Applications Web</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/owasp">
                     Accès à la leçon
                 </NuxtLink>
             </div>
