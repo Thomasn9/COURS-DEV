@@ -14,7 +14,6 @@
 - composer
 ================================================================================
 # JAVA
-- fonction
 - les tableaux
 - les boucles
 - array list
