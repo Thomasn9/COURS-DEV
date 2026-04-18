@@ -6,7 +6,6 @@
 - fonction implodeR
 - la regle du "dry don't repeat yourself" en POO
 - quest ce que c'est le DTO
-- jsonResponse
 - fil-get-content
 - rajouter au switch case le rooting
 - echo
