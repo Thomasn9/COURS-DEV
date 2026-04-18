@@ -147,6 +147,17 @@
             </div>
         </div>
 
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">DTO</h5>
+                <p class="card-text">Quest ce que un DTO ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/DTO">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\F//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">F</h3>
