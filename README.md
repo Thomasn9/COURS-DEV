@@ -5,7 +5,6 @@
 - diagramme de classe (classe abstraite / héritage)
 - fonction implodeR
 - la regle du "dry don't repeat yourself" en POO
-- quest ce que c'est le DTO
 - fil-get-content
 - rajouter au switch case le rooting
 - echo
