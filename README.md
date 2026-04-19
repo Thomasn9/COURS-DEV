@@ -64,7 +64,6 @@
 - scoop
 - sodium php
 - intl php
-- coposer remove
 - routing symfony
 - composer require symfony/serializer-pack
 - symfony profiler
