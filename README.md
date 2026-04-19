@@ -72,7 +72,6 @@
 - composer require lexik/jwt-authentication-bundle
 - composer req api
 - JWT decoder
-- Fichier migration
 ================================================================================
 # Cyber Sécuriter
 - buffer overflow
