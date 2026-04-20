@@ -68,7 +68,6 @@
 - composer require symfony/serializer-pack
 - symfony profiler
 - symfony console make:registration-form
-- symfony console make:auth 
 - composer require lexik/jwt-authentication-bundle
 - composer req api
 - JWT decoder
