@@ -15,7 +15,7 @@
                 <h5 class="card-title text-purple">DDD</h5>
                 <p class="card-text">Domain-Driven Design quest ce que c'est ?</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/class">
+                    to="lessons/DDD">
                     Accès à la leçon
                 </NuxtLink>
             </div>
