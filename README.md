@@ -12,7 +12,6 @@
 - composer
 ================================================================================
 # JAVA
-- les tableaux
 - les boucles
 - array list
 - map
