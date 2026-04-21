@@ -5,7 +5,7 @@
             <!-- En-tête de la leçon -->
             <header class="lesson-header">
                 <h1 class="text-white">Créer un utilisateur Linux sur un VPS</h1>
-                <p class="lesson-meta text-white">Linux • VPS • SSH • Sudo • Sécurité • Administration</p>
+                <p class="lesson-meta text-white">Linux • VPS • SSH • Sudo • Sécurité • MobaXterm</p>
             </header>
 
             <!-- Introduction -->
@@ -18,7 +18,8 @@
                 </p>
                 <p class="textExemple">
                     La bonne pratique consiste à créer un utilisateur classique avec les droits <code>sudo</code>,
-                    puis à désactiver l’accès SSH direct à <code>root</code>. Cette leçon vous guide pas à pas.
+                    puis à désactiver l’accès SSH direct à <code>root</code>. Cette leçon vous guide pas à pas,
+                    y compris avec l’outil <strong>MobaXterm</strong> sous Windows.
                 </p>
             </section>
 
@@ -29,21 +30,31 @@
                     <li>Un VPS avec une distribution Linux (Ubuntu, Debian, CentOS, etc.)</li>
                     <li>Accès SSH avec le mot de passe ou la clé root fourni par l’hébergeur</li>
                     <li>Connexion Internet active</li>
+                    <li>Optionnel : <strong>MobaXterm</strong> installé sur votre machine Windows (édition gratuite disponible sur mobaxterm.mobatek.net)</li>
                 </ul>
             </section>
 
-            <!-- Étape 1 : Connexion en root -->
+            <!-- Étape 1 : Connexion en root (avec MobaXterm) -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">1. Se connecter en tant que root</h2>
                 <p class="textExemple">
                     Utilisez la commande SSH avec l’adresse IP de votre VPS et le mot de passe root fourni.
+                    Avec MobaXterm, la connexion est graphique.
                 </p>
+
+                <h3 class="text-purple">Avec MobaXterm :</h3>
+                <ol>
+                    <li>Lancez MobaXterm.</li>
+                    <li>Cliquez sur <strong>Session</strong> (en haut à gauche) → <strong>SSH</strong>.</li>
+                    <li>Dans le champ <strong>Remote host</strong>, saisissez l’IP ou le domaine de votre VPS.</li>
+                    <li>Spécifiez le nom d’utilisateur : <code>root</code>.</li>
+                    <li>Laissez le port par défaut (22) sauf si votre hébergeur en utilise un autre.</li>
+                    <li>Cliquez sur <strong>OK</strong>. Une fenêtre de terminal s’ouvre et vous demande le mot de passe root.</li>
+                </ol>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash">ssh root@votre_ip_ou_domaine</code></pre>
+                    <pre v-pre><code class="language-bash"># Variante en ligne de commande (si vous préférez)
+ssh root@votre_ip_ou_domaine</code></pre>
                 </div>
-                <p class="textExemple">
-                    Entrez le mot de passe root quand il vous est demandé. Vous êtes maintenant dans l’environnement root.
-                </p>
                 <div class="warning-section">
                     <p class="warning-text">⚠️ Important : ne restez pas connecté en root plus longtemps que nécessaire.</p>
                 </div>
@@ -53,7 +64,8 @@
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">2. Créer un utilisateur standard</h2>
                 <p class="textExemple">
-                    La commande <code>adduser</code> (ou <code>useradd</code>) permet de créer un compte. <code>adduser</code> est interactive et plus conviviale.
+                    Une fois la session SSH ouverte (dans MobaXterm, vous êtes directement dans un terminal bash),
+                    exécutez la commande <code>adduser</code> (plus conviviale) ou <code>useradd</code>.
                 </p>
                 <div class="code-example">
                     <pre v-pre><code class="language-bash"># Remplacer "monutilisateur" par le nom souhaité
@@ -94,34 +106,44 @@ usermod -aG wheel monutilisateur</code></pre>
                 <div class="code-example">
                     <pre v-pre><code class="language-bash">groups monutilisateur</code></pre>
                 </div>
-                <p class="textExemple">
-                    Testez l’accès sudo en vous connectant plus tard avec <code>sudo whoami</code> – la réponse doit être <code>root</code>.
-                </p>
             </section>
 
-            <!-- Étape 4 : Configurer SSH pour l'utilisateur -->
+            <!-- Étape 4 : Configurer SSH (clé publique) avec MobaXterm -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">4. Configurer l’authentification SSH (clé publique)</h2>
+                <h2 class="text-purple">4. Configurer l’authentification par clé SSH (avec MobaXterm)</h2>
                 <p class="textExemple">
-                    Pour vous connecter sans mot de passe (plus sécurisé), copiez votre clé publique locale vers le nouvel utilisateur.
+                    L’utilisation d’une clé SSH est plus sécurisée que le mot de passe. MobaXterm intègre un outil graphique pour générer et copier les clés.
                 </p>
-                <p class="textExemple">Depuis votre machine locale (pas sur le VPS) :</p>
+
+                <h3 class="text-purple">Générer une paire de clés (si vous n’en avez pas) :</h3>
+                <ol>
+                    <li>Dans MobaXterm, allez dans <strong>Tools</strong> → <strong>MobaKeyGen</strong>.</li>
+                    <li>Cliquez sur <strong>Generate</strong>. Bougez la souris pour créer l’aléa.</li>
+                    <li>Une fois générée, vous pouvez ajouter un commentaire (ex: <code>ma-cle-vps</code>) et un mot de passe (optionnel).</li>
+                    <li>Sauvegardez la clé privée (format .ppk ou OpenSSH) et la clé publique (fichier .pub).</li>
+                </ol>
+
+                <h3 class="text-purple">Copier la clé publique sur le serveur :</h3>
+                <p class="textExemple">
+                    Depuis votre session root (dans MobaXterm), créez le répertoire <code>.ssh</code> de l’utilisateur et ajoutez-y la clé publique.
+                </p>
                 <div class="code-example">
-                    <pre v-pre><code class="language-bash">ssh-copy-id monutilisateur@votre_ip</code></pre>
-                </div>
-                <p class="textExemple">
-                    Si vous n’avez pas de clé, générez-en une avec <code>ssh-keygen -t ed25519</code>.
-                </p>
-                <p class="textExemple">
-                    En cas d’impossibilité d’utiliser <code>ssh-copy-id</code>, faites-le manuellement :
-                </p>
-                <div class="code-example">
-                    <pre v-pre><code class="language-bash"># Depuis le VPS, toujours en root
-mkdir -p /home/monutilisateur/.ssh
-echo "votre_cle_publique" >> /home/monutilisateur/.ssh/authorized_keys
+                    <pre v-pre><code class="language-bash">mkdir -p /home/monutilisateur/.ssh
+nano /home/monutilisateur/.ssh/authorized_keys
+# Collez le contenu de votre clé publique (fichier .pub)
 chown -R monutilisateur:monutilisateur /home/monutilisateur/.ssh
 chmod 700 /home/monutilisateur/.ssh
 chmod 600 /home/monutilisateur/.ssh/authorized_keys</code></pre>
+                </div>
+                <p class="textExemple">
+                    <strong>Alternative plus simple avec MobaXterm :</strong> utilisez l’outil intégré <strong>MobaSSHKeyCopy</strong> (Tools → MobaSSHKeyCopy) 
+                    pour envoyer automatiquement votre clé publique vers l’utilisateur distant.
+                </p>
+                <p class="textExemple">
+                    Pour les utilisateurs d’OpenSSH classique, la commande <code>ssh-copy-id</code> fonctionne aussi depuis le terminal MobaXterm :
+                </p>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash">ssh-copy-id monutilisateur@votre_ip</code></pre>
                 </div>
             </section>
 
@@ -150,7 +172,7 @@ chmod 600 /home/monutilisateur/.ssh/authorized_keys</code></pre>
                 <div class="warning-section">
                     <p class="warning-text">
                         ⚠️ Avant de fermer la session root, <strong>testez impérativement</strong> une nouvelle connexion avec votre utilisateur
-                        dans un autre terminal. Sinon, vous pourriez vous verrouiller hors du serveur.
+                        dans un autre onglet MobaXterm (ou une nouvelle session). Sinon, vous pourriez vous verrouiller hors du serveur.
                     </p>
                 </div>
             </section>
@@ -180,6 +202,13 @@ ufw allow 80/tcp
 ufw allow 443/tcp
 ufw enable</code></pre>
                     </div>
+
+                    <h3 class="text-purple">Utiliser MobaXterm pour gérer plusieurs sessions</h3>
+                    <p>
+                        MobaXterm permet d’enregistrer des sessions SSH avec des utilisateurs différents.
+                        Créez une session pour <code>monutilisateur</code> (avec clé privée) et une autre pour <code>root</code> (si besoin de secours).
+                        Vous pouvez ainsi basculer facilement.
+                    </p>
                 </div>
             </section>
 
@@ -193,81 +222,41 @@ ufw enable</code></pre>
                     <li><strong>Mettez à jour régulièrement le système</strong> (<code>apt update &amp;&amp; apt upgrade</code>).</li>
                     <li><strong>Surveillez les tentatives de connexion</strong> avec <code>fail2ban</code>.</li>
                     <li><strong>Sauvegardez la configuration SSH</strong> avant toute modification.</li>
+                    <li><strong>Avec MobaXterm</strong>, pensez à utiliser le gestionnaire de mots de passe intégré pour stocker vos identifiants en sécurité.</li>
                 </ul>
             </section>
 
-            <!-- Exercices pratiques -->
+            <!-- Section dédiée à MobaXterm (synthèse) -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Exercices pratiques</h2>
-
-                <div class="exercise">
-                    <h3 class="text-purple">Exercice 1 : Création d’un utilisateur avec droits restreints</h3>
-                    <p>
-                        Créez un utilisateur <code>visiteur</code> sans accès sudo. Connectez-vous avec lui et essayez d’exécuter <code>apt update</code>.
-                        Que se passe‑t‑il ? Donnez-lui ensuite temporairement le droit d’exécuter uniquement <code>/usr/bin/apt</code> via sudo.
-                    </p>
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir la solution</summary>
-                        <div class="solution-content">
-                            <pre v-pre><code class="language-bash"># Création
-adduser visiteur
-# Essai : la commande échoue (pas dans sudoers)
-
-# Donner un droit spécifique (via visudo)
-visudo
-# Ajouter la ligne :
-visiteur ALL=(ALL) /usr/bin/apt
-# Test : sudo apt update (demande mot de passe) OK
-# Les autres commandes sudo restent interdites</code></pre>
-                        </div>
-                    </details>
-                </div>
-
-                <div class="exercise">
-                    <h3 class="text-purple">Exercice 2 : Restreindre l’accès SSH par utilisateur</h3>
-                    <p>
-                        Modifiez <code>/etc/ssh/sshd_config</code> pour autoriser uniquement votre utilisateur principal à se connecter,
-                        et interdire les autres (y compris root). Redémarrez SSH et testez.
-                    </p>
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir la solution</summary>
-                        <div class="solution-content">
-                            <pre v-pre><code class="language-text"># Dans /etc/ssh/sshd_config
-AllowUsers monutilisateur
-DenyUsers root visiteur
-
-# Redémarrer
-systemctl restart sshd</code></pre>
-                            <p>Les connexions des autres utilisateurs seront refusées.</p>
-                        </div>
-                    </details>
-                </div>
-
-                <div class="exercise">
-                    <h3 class="text-purple">Exercice 3 : Automatisation avec un script d’initialisation</h3>
-                    <p>
-                        Écrivez un script bash qui, exécuté en root après l’installation du VPS, crée un utilisateur,
-                        lui donne les droits sudo, copie une clé publique depuis une URL, et désactive root SSH.
-                    </p>
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir la solution</summary>
-                        <div class="solution-content">
-                            <pre v-pre><code class="language-bash">#!/bin/bash
-USERNAME="monadmin"
-PUBKEY_URL="https://exemple.com/macle.pub"
-
-adduser --disabled-password --gecos "" $USERNAME
-echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME
-mkdir -p /home/$USERNAME/.ssh
-curl -o /home/$USERNAME/.ssh/authorized_keys $PUBKEY_URL
-chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
-chmod 700 /home/$USERNAME/.ssh
-chmod 600 /home/$USERNAME/.ssh/authorized_keys
-sed -i 's/^PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
-systemctl restart sshd</code></pre>
-                        </div>
-                    </details>
-                </div>
+                <h2 class="text-purple">Pourquoi et comment utiliser MobaXterm ?</h2>
+                <p class="textExemple">
+                    MobaXterm est un client SSH, X11 et RDP tout-en-un pour Windows. Il offre une interface onglets,
+                    un explorateur de fichiers intégré, un transfert de fichiers glisser-déposer, et bien plus.
+                </p>
+                <h3 class="text-purple">Avantages pour la gestion de VPS :</h3>
+                <ul>
+                    <li><strong>Connexion SSH rapide</strong> : enregistrez vos serveurs avec nom d’utilisateur, port et clé privée.</li>
+                    <li><strong>Transfert de fichiers</strong> : glissez-déposez depuis l’explorateur Windows vers le serveur (ou l’inverse).</li>
+                    <li><strong>Gestion de clés intégrée</strong> : MobaKeyGen et MobaSSHKeyCopy facilitent la mise en place de l’authentification par clé.</li>
+                    <li><strong>Multi-sessions</strong> : ouvrez plusieurs onglets pour différents utilisateurs ou serveurs.</li>
+                    <li><strong>Terminal local + distant</strong> : vous pouvez aussi exécuter des commandes locales (Windows) dans le même outil.</li>
+                </ul>
+                <p class="textExemple">
+                    Pour suivre les étapes de cette leçon avec MobaXterm, il vous suffit de remplacer chaque commande SSH classique
+                    par une session graphique. Toutes les commandes Linux (adduser, usermod, nano, etc.) s’exécutent exactement de la même manière
+                    dans le terminal de MobaXterm une fois connecté.
+                </p>
+                <p class="textExemple">
+                    <strong>Récapitulatif des actions dans MobaXterm :</strong>
+                </p>
+                <ol>
+                    <li>Créer une session SSH root (host = IP, user = root).</li>
+                    <li>Exécuter <code>adduser</code> et <code>usermod</code>.</li>
+                    <li>Générer/copier la clé publique via MobaKeyGen.</li>
+                    <li>Se déconnecter root, puis créer une nouvelle session SSH avec l’utilisateur standard (en utilisant la clé privée).</li>
+                    <li>Modifier <code>/etc/ssh/sshd_config</code> avec <code>nano</code> depuis cette session (ou via sudo).</li>
+                    <li>Redémarrer SSH et tester.</li>
+                </ol>
             </section>
 
             <!-- Vérification et dépannage -->
@@ -301,6 +290,10 @@ sudo -l   # lister les droits disponibles</code></pre>
                 <p class="textExemple">
                     La création d’un utilisateur dédié dès la première connexion à un VPS est une étape fondamentale de la sécurisation.
                     Elle isole les actions administratives, réduit les risques d’erreurs destructrices et limite la surface d’attaque.
+                </p>
+                <p class="textExemple">
+                    En utilisant <strong>MobaXterm</strong>, vous bénéficiez d’un environnement graphique puissant qui simplifie la gestion
+                    des clés SSH, le transfert de fichiers et la navigation entre plusieurs sessions.
                 </p>
                 <p class="textExemple">
                     Une fois l’utilisateur configuré avec <code>sudo</code> et l’authentification par clé SSH, vous pouvez administrer
@@ -359,7 +352,7 @@ export default {
 </script>
 
 <style scoped>
-/* Styles identiques aux leçons précédentes (formulaires Symfony, etc.) */
+/* === Styles identiques aux leçons précédentes (formulaires Symfony, migrations, etc.) === */
 .lesson-container {
     padding: 2rem;
     background: #f8f9fa;
@@ -485,17 +478,6 @@ pre code {
     color: #d63031;
     font-weight: bold;
     margin-top: 0.5rem;
-}
-
-.exercise { margin: 2rem 0; }
-.solution { margin: 1rem 0; }
-
-.solution-content {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #8B5FBF;
 }
 
 .textExemple {
