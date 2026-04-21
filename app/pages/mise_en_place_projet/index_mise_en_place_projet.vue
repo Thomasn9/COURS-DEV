@@ -50,7 +50,7 @@
 
         <!-- =============================================================\\VPS//==================================================================== -->
         <div class="section-header">
-            <h3 class="lettreSommaire">T</h3>
+            <h3 class="lettreSommaire">VPS</h3>
         </div>
 
         <div class="card border-purple shadow-lg">
