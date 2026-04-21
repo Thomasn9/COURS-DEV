@@ -48,6 +48,22 @@
             </div>
         </div>
 
+        <!-- =============================================================\\VPS//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">T</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Première étape de mise en plce d'un VPS</h5>
+                <p class="card-text">Crée un utilisateur sur votre VPS</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/VPS1">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
     </div>
 </template>
 
