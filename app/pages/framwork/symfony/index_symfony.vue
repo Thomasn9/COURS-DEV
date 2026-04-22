@@ -271,6 +271,22 @@
             </div>
         </div>
 
+        <!-- =============================================================\\P//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">P</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Profiler</h5>
+                <p class="card-text">Qu'est-ce que le Symfony Profiler ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/profiler">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\S//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">S</h3>
