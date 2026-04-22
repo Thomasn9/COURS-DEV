@@ -63,9 +63,7 @@
 - scoop
 - sodium php
 - intl php
-- routing symfony
 - composer require symfony/serializer-pack
-- symfony profiler
 - symfony console make:registration-form
 - composer require lexik/jwt-authentication-bundle
 - composer req api
