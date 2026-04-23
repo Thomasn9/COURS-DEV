@@ -25,6 +25,22 @@
                 </NuxtLink>
             </div>
         </div>
+
+        <!-- =============================================================\\B//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">C</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Boucle</h5>
+                <p class="card-text">les boucles et leur syntaxe en JAVA</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/boucle">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
         <!-- =============================================================\\C//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">C</h3>
