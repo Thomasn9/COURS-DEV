@@ -46,6 +46,7 @@
 - les import de ref
 ================================================================================
 # Nuxt
+il faut créer cette partie 
 - introduction a nuxt
 - props
 - emits
