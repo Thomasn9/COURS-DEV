@@ -295,96 +295,35 @@ app.get('/api/employees', rbacMiddleware(['rh']), proxyToHR);</code></pre>
                 </div>
             </section>
 
-            <!-- Bonnes pratiques et conclusion -->
+            <!-- Conclusion -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Bonnes pratiques & conclusion</h2>
+                <h2 class="text-purple">Conclusion</h2>
                 <div class="textExemple">
+                    <p>
+                        L’architecture microservices appliquée à un intranet d’entreprise permet de gagner en agilité, 
+                        en scalabilité et en résilience, à condition d’intégrer la sécurité dès la conception. 
+                        Les éléments clés à retenir :
+                    </p>
                     <ul>
-                        <li><strong>Sécurité par défaut</strong> : tous les services exigent mTLS et JWT ; pas de réseau ouvert.</li>
-                        <li><strong>Rotation des secrets</strong> : utiliser Vault ou un gestionnaire de secrets (K8s secrets, Docker secrets).</li>
-                        <li><strong>Journalisation centralisée</strong> : chaque service envoie ses logs (ELK, Loki) pour détecter les intrusions.</li>
-                        <li><strong>Rate limiting et circuit breaker</strong> pour éviter les effets domino en cas d’attaque.</li>
-                        <li><strong>Déploiement immuable</strong> : images Docker signées, scan de vulnérabilités.</li>
+                        <li><strong>API Gateway</strong> : point de contrôle unique pour l’authentification, l’autorisation et le routage.</li>
+                        <li><strong>mTLS</strong> : chiffrement systématique et authentification mutuelle entre services.</li>
+                        <li><strong>JWT</strong> : token auto-contenu pour transporter l’identité et les rôles sans appel réseau à chaque requête.</li>
+                        <li><strong>RBAC</strong> : contrôle d’accès fin basé sur les claims du JWT, facilement extensible.</li>
+                        <li><strong>Orchestration</strong> : Docker Compose / Kubernetes permettent de déployer et d’isoler les services proprement.</li>
                     </ul>
                     <p>
-                        L’architecture microservices sur intranet offre agilité et scalabilité, mais la sécurité doit être intégrée 
-                        dès la conception. L’usage conjoint de mTLS, d’un API Gateway et de JWT permet d’obtenir un système 
-                        robuste et adapté aux exigences internes.
+                        Cette approche, bien que plus complexe qu’un monolithe, s’avère indispensable dès lors que l’organisation 
+                        dépasse une certaine taille ou que les exigences de sécurité deviennent strictes (conformité, ISO 27001, etc.). 
+                        Elle ouvre la voie à des pratiques avancées comme le Service Mesh (Istio, Linkerd) et l’observabilité 
+                        distribuée, qui seront abordées dans les prochaines leçons.
                     </p>
                     <p>
-                        Dans les prochaines leçons, nous verrons comment orchestrer ces services avec Kubernetes, 
-                        mettre en place un Service Mesh (Istio) et automatiser la délivrance des certificats via SPIRE.
+                        <strong>Message clé :</strong> la sécurité dans un environnement microservices n’est pas une option, 
+                        mais un socle à construire pas à pas, en commençant par l’authentification unique et le chiffrement des flux.
                     </p>
                 </div>
             </section>
 
-            <!-- Exercices pratiques -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Exercices pratiques</h2>
-                <div class="exercise">
-                    <h3 class="text-purple">Exercice 1 : Mise en place d’une Gateway avec NGINX et validation JWT</h3>
-                    <p>À partir d’un fichier docker-compose simple (auth + echo service), configurez NGINX pour :</p>
-                    <ul>
-                        <li>Terminer le TLS (générer un certificat auto-signé).</li>
-                        <li>Vérifier la présence d’un JWT valide dans l’en-tête <code>Authorization: Bearer</code>.</li>
-                        <li>Rejeter les requêtes sans token valide.</li>
-                    </ul>
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir un extrait de solution</summary>
-                        <div class="solution-content">
-                            <pre v-pre><code class="language-nginx">server {
-    listen 443 ssl;
-    ssl_certificate /etc/nginx/certs/server.crt;
-    ssl_certificate_key /etc/nginx/certs/server.key;
-
-    location / {
-        auth_jwt "MyApp" token=$http_authorization;
-        auth_jwt_key_file /etc/nginx/jwt.pub;
-        proxy_pass http://echo-service:3000;
-    }
-}</code></pre>
-                        </div>
-                    </details>
-                </div>
-
-                <div class="exercise">
-                    <h3 class="text-purple">Exercice 2 : Implémenter un middleware JWT en Python ou Node.js</h3>
-                    <p>Créez un service métier fictif qui lit le JWT (clé publique) et n’autorise que les utilisateurs ayant le rôle <code>admin</code>. Renvoyez une erreur 403 sinon.</p>
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir la solution (Node.js)</summary>
-                        <div class="solution-content">
-                            <pre v-pre><code class="language-javascript">const express = require('express');
-const jwt = require('jsonwebtoken');
-const app = express();
-
-const publicKey = `-----BEGIN PUBLIC KEY-----
-...
------END PUBLIC KEY-----`;
-
-const requireAdmin = (req, res, next) => {
-    const token = req.headers.authorization?.split(' ')[1];
-    if (!token) return res.status(401).json({error: 'Missing token'});
-    try {
-        const decoded = jwt.verify(token, publicKey, {algorithms: ['RS256']});
-        if (!decoded.roles || !decoded.roles.includes('admin')) {
-            return res.status(403).json({error: 'Admin role required'});
-        }
-        req.user = decoded;
-        next();
-    } catch(e) {
-        res.status(401).json({error: 'Invalid token'});
-    }
-};
-
-app.get('/admin-only', requireAdmin, (req, res) => {
-    res.json({message: `Welcome admin ${req.user.sub}`});
-});
-
-app.listen(3000);</code></pre>
-                        </div>
-                    </details>
-                </div>
-            </section>
         </div>
     </div>
 </template>
@@ -432,7 +371,7 @@ export default {
 </script>
 
 <style scoped>
-/* === Copie exacte du style de la leçon Symfony === */
+/* (Le style est identique à celui de la leçon Symfony, inchangé) */
 .lesson-container {
     padding: 2rem;
     background: #f8f9fa;
@@ -488,7 +427,7 @@ export default {
 
 .lesson-section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(106, 48, 147, 0.15);
+    box-shadow: 0 12px 25px rgba(106, 48, 147, 0.1);
 }
 
 .bg-light-purple { background-color: #f8f6ff; }
@@ -501,40 +440,10 @@ export default {
 .text-purple { color: #6A3093 !important; }
 .text-white  { color: white !important; }
 
-.btn-purple {
-    background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
-    border: none;
-    color: white;
-    font-weight: 600;
-    padding: 12px 24px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(106, 48, 147, 0.2);
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    margin: 0.5rem 0;
-}
-
-.btn-purple:hover {
-    background: linear-gradient(135deg, #7a4fa8 0%, #5a287a 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(106, 48, 147, 0.3);
-    color: white;
-}
-
 .code-example {
     margin: 1.5rem 0;
     width: 100%;
     box-sizing: border-box;
-}
-
-.code-comparison {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin: 1.5rem 0;
-    width: 100%;
 }
 
 pre {
@@ -559,37 +468,6 @@ pre code {
     width: 100%;
 }
 
-.warning-section {
-    background: #fff3f3;
-    border: 2px solid #ff6b6b;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-}
-
-.warning-text {
-    color: #d63031;
-    font-weight: bold;
-    margin-top: 0.5rem;
-}
-
-.success-text {
-    color: #00b894;
-    font-weight: bold;
-    margin-top: 0.5rem;
-}
-
-.exercise { margin: 2rem 0; }
-.solution { margin: 1rem 0; }
-
-.solution-content {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #8B5FBF;
-}
-
 .textExemple {
     margin-bottom: 1rem;
     line-height: 1.6;
@@ -600,7 +478,6 @@ pre code {
     .lesson-header     { padding: 2rem 1rem; }
     .lesson-header h1  { font-size: 2rem; }
     .lesson-section    { padding: 1.5rem; }
-    .code-comparison   { grid-template-columns: 1fr; gap: 1rem; }
     pre                { padding: 1rem !important; font-size: 0.85rem; }
 }
 
