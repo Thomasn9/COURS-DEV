@@ -21,6 +21,22 @@
             </div>
         </div>
 
+        <!-- =============================================================\\M//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">M</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Microservices sécurisés sur intranet</h5>
+                <p class="card-text">Microservices sécurisés sur intranet comment cela fonctionne ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
 
     </div>
 </template>
