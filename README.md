@@ -88,6 +88,9 @@ il faut créer cette partie
 # Les librairie
 - jest
 ================================================================================
+# Conception et methodologie
+- api gateway
+================================================================================
 # Service web et design et application
 - apache Jmetter
 - bruno
