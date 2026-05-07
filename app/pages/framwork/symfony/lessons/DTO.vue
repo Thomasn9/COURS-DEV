@@ -14,15 +14,15 @@
                 <p class="textExemple">
                     Un <strong>Data Transfer Object (DTO)</strong> est un objet simple, souvent anémique, dont l'unique but est de <strong>transporter des données</strong> entre différentes couches d'une application. Contrairement aux entités (qui contiennent de la logique métier et un identifiant), un DTO ne possède généralement que des propriétés publiques (ou privées avec getters/setters) et aucune méthode métier.
                 </p>
-                <p class="textExemple">
-                    Dans le cadre de Symfony, les DTO sont très utilisés pour : 
+                <div class="textExemple">
+                    <p>Dans le cadre de Symfony, les DTO sont très utilisés pour :</p>
                     <ul>
                         <li>Découpler les formulaires des entités Doctrine</li>
                         <li>Transférer des données entre un contrôleur et un service</li>
                         <li>Structurer les réponses d'une API (sérialisation)</li>
                         <li>Valider des données sans les mapper directement à une entité</li>
                     </ul>
-                </p>
+                </div>
             </section>
 
             <!-- Pourquoi utiliser un DTO -->
@@ -344,77 +344,6 @@ $errors = $validator->validate($dto, null, ['create']); // uniquement les contra
                 </div>
             </section>
 
-            <!-- Exercices pratiques -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Exercices pratiques</h2>
-
-                <div class="exercise">
-                    <h3 class="text-purple">Exercice 1 : DTO de recherche de produits</h3>
-                    <p>Créez un DTO <code>ProductSearchDTO</code> avec les champs : <code>keyword</code> (string, optionnel), <code>minPrice</code> (float, optionnel, ≥0), <code>maxPrice</code> (float, optionnel, >0), <code>categoryId</code> (int, optionnel). Ajoutez les contraintes de validation appropriées.</p>
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir la solution</summary>
-                        <div class="solution-content">
-                            <pre v-pre><code class="language-php">// src/DTO/ProductSearchDTO.php
-namespace App\DTO;
-
-use Symfony\Component\Validator\Constraints as Assert;
-
-class ProductSearchDTO
-{
-    public ?string $keyword = null;
-
-    #[Assert\PositiveOrZero]
-    public ?float $minPrice = null;
-
-    #[Assert\Positive]
-    public ?float $maxPrice = null;
-
-    #[Assert\Positive]
-    public ?int $categoryId = null;
-
-    // Validation croisée : minPrice <= maxPrice (optionnel)
-    #[Assert\Expression(expression: 'this.minPrice === null or this.maxPrice === null or this.minPrice <= this.maxPrice', message: 'Le prix minimum doit être inférieur ou égal au prix maximum')]
-    public array $extra = []; // astuce pour la contrainte Expression
-}</code></pre>
-                        </div>
-                    </details>
-                </div>
-
-                <div class="exercise">
-                    <h3 class="text-purple">Exercice 2 : Formulaire d'inscription avec DTO</h3>
-                    <p>Implémentez un DTO <code>RegisterDTO</code> avec les champs <code>email</code>, <code>plainPassword</code>, <code>confirmPassword</code>, <code>fullName</code>. Créez un FormType lié à ce DTO et traitez la soumission dans un contrôleur en affichant les erreurs de validation.</p>
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir la solution (extrait)</summary>
-                        <div class="solution-content">
-                            <pre v-pre><code class="language-php">// DTO
-class RegisterDTO
-{
-    #[Assert\NotBlank, Assert\Email]
-    public string $email;
-
-    #[Assert\NotBlank, Assert\Length(min: 8)]
-    public string $plainPassword;
-
-    #[Assert\EqualTo(propertyPath: 'plainPassword')]
-    public string $confirmPassword;
-
-    #[Assert\NotBlank]
-    public string $fullName;
-}
-
-// FormType (RegisterDTOType)
-// Contrôleur :
-$dto = new RegisterDTO();
-$form = $this->createForm(RegisterDTOType::class, $dto);
-$form->handleRequest($request);
-if ($form->isSubmitted() && $form->isValid()) {
-    // mapper $dto vers une entité User et enregistrer
-}</code></pre>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
             <!-- Conclusion -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Conclusion</h2>
@@ -449,20 +378,9 @@ export default {
                 const script = document.createElement('script');
                 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
                 script.onload = () => {
-                    // Charger PHP, Bash (pour les commandes) et YAML
                     const phpScript = document.createElement('script');
                     phpScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js';
-                    phpScript.onload = () => {
-                        const bashScript = document.createElement('script');
-                        bashScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js';
-                        bashScript.onload = () => {
-                            const yamlScript = document.createElement('script');
-                            yamlScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js';
-                            yamlScript.onload = resolve;
-                            document.head.appendChild(yamlScript);
-                        };
-                        document.head.appendChild(bashScript);
-                    };
+                    phpScript.onload = resolve;
                     document.head.appendChild(phpScript);
                 };
                 document.head.appendChild(script);
@@ -479,7 +397,7 @@ export default {
 </script>
 
 <style scoped>
-/* Les styles sont identiques aux leçons précédentes */
+/* Styles identiques à votre leçon Symfony */
 .lesson-container {
     padding: 2rem;
     background: #f8f9fa;
@@ -548,28 +466,6 @@ export default {
 .text-purple { color: #6A3093 !important; }
 .text-white  { color: white !important; }
 
-.btn-purple {
-    background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
-    border: none;
-    color: white;
-    font-weight: 600;
-    padding: 12px 24px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(106, 48, 147, 0.2);
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    margin: 0.5rem 0;
-}
-
-.btn-purple:hover {
-    background: linear-gradient(135deg, #7a4fa8 0%, #5a287a 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(106, 48, 147, 0.3);
-    color: white;
-}
-
 .code-example {
     margin: 1.5rem 0;
     width: 100%;
@@ -604,17 +500,6 @@ pre code {
     display: block;
     white-space: pre;
     width: 100%;
-}
-
-.exercise { margin: 2rem 0; }
-.solution { margin: 1rem 0; }
-
-.solution-content {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #8B5FBF;
 }
 
 .textExemple {
