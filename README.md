@@ -89,7 +89,6 @@ il faut créer cette partie
 - jest
 ================================================================================
 # Conception et methodologie
-- api gateway
 - mTLS
 - RBAC
 - orchestration (Docker Compose / Kubernetes)
