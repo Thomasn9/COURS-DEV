@@ -4,6 +4,22 @@
             <h3 class="lettreSommaire">Conception et métodologie dans le developpement</h3>
         </div>
 
+        <!-- =============================================================\\A//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">A</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">API Gateway</h5>
+                <p class="card-text">API Gateway : rôle et utilité</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/api_gateway">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
 
         <!-- =============================================================\\D//==================================================================== -->
         <div class="section-header">
