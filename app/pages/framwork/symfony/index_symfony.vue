@@ -27,6 +27,17 @@
             </div>
         </div>
 
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Symfony UX</h5>
+                <p class="card-text">Comment utiliser symfony ux et quelle estson utiliter</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/symfonyUX">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
 
         <!-- =============================================================\\A//==================================================================== -->
         <div class="section-header">
@@ -320,17 +331,6 @@
                 <p class="card-text">Quest ce que stimulus et comment l'utiliser</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
                     to="lessons/stimulus">
-                    Accès à la leçon
-                </NuxtLink>
-            </div>
-        </div>
-
-        <div class="card border-purple shadow-lg">
-            <div class="card-body bg-light-purple">
-                <h5 class="card-title text-purple">Symfony UX</h5>
-                <p class="card-text">Comment utiliser symfony ux et quelle estson utiliter</p>
-                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
-                    to="lessons/symfonyUX">
                     Accès à la leçon
                 </NuxtLink>
             </div>
