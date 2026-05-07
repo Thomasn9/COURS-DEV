@@ -90,6 +90,9 @@ il faut créer cette partie
 ================================================================================
 # Conception et methodologie
 - api gateway
+- mTLS
+- RBAC
+- orchestration (Docker Compose / Kubernetes)
 ================================================================================
 # Service web et design et application
 - apache Jmetter
