@@ -84,6 +84,8 @@ il faut créer cette partie
 - idempotence
 - les différent hebergeurs
 - site map (pour le seo)
+- pipeline 
+- jobs
 ================================================================================
 # Les librairie
 - jest
