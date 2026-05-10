@@ -123,6 +123,17 @@
             </div>
         </div>
 
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Pipeline</h5>
+                <p class="card-text">Qu'elle est l'utiliter et le fonctionnement d'un pipeline</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/pipeline">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\Q//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">Q</h3>
