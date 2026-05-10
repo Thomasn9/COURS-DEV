@@ -83,7 +83,6 @@
 - idempotence
 - les différent hebergeurs
 - site map (pour le seo)
-- pipeline 
 - jobs
 ================================================================================
 # Les librairie
