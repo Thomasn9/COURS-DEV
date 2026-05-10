@@ -46,8 +46,7 @@
 - les import de ref
 ================================================================================
 # Nuxt
-il faut créer cette partie 
-- introduction a nuxt
+- introduction a nuxt la différence avec vue
 - props
 - emits
 - rooting nuxt
