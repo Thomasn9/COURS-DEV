@@ -34,12 +34,12 @@
 
                 <div class="code-example">
                     <h4 class="text-purple">Vérifier l'installation de PHP :</h4>
-                    <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php --version</span></code></pre>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php --version</span></code></pre>
                 </div>
 
                 <div class="code-example">
                     <h4 class="text-purple">Vérifier l'installation de Composer :</h4>
-                    <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">composer --version</span></code></pre>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">composer --version</span></code></pre>
                 </div>
             </div>
 
@@ -53,20 +53,20 @@
 
                 <h3 class="text-purple">Installation sur Windows</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># Télécharger et installer Symfony CLI depuis le site officiel</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Télécharger et installer Symfony CLI depuis le site officiel</span>
 <span class="bash-comment"># Ou utiliser scoop</span>
 <span class="bash-prompt">$</span> <span class="bash-command">scoop install symfony-cli</span></code></pre>
                 </div>
 
                 <h3 class="text-purple">Installation sur macOS</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># Installation avec Homebrew</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Installation avec Homebrew</span>
 <span class="bash-prompt">$</span> <span class="bash-command">brew install symfony-cli/tap/symfony-cli</span></code></pre>
                 </div>
 
                 <h3 class="text-purple">Installation sur Linux</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># Installation avec curl</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Installation avec curl</span>
 <span class="bash-prompt">$</span> <span class="bash-command">curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash</span>
 <span class="bash-prompt">$</span> <span class="bash-command">sudo apt install symfony-cli</span></code></pre>
                 </div>
@@ -75,7 +75,7 @@
                     Après installation, vérifiez que Symfony CLI fonctionne correctement :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony --version</span></code></pre>
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony --version</span></code></pre>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
 
                 <h3 class="text-purple">Méthode 1 : Utilisation de Symfony CLI (recommandée)</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># Créer un nouveau projet Symfony</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Créer un nouveau projet Symfony</span>
 <span class="bash-prompt">$</span> <span class="bash-command">symfony new mon-projet-symfony --webapp</span></code></pre>
                 </div>
                 <p class="textExemple">
@@ -99,15 +99,100 @@
 
                 <h3 class="text-purple">Méthode 2 : Utilisation de Composer</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># Créer un nouveau projet avec Composer</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Créer un nouveau projet avec Composer</span>
 <span class="bash-prompt">$</span> <span class="bash-command">composer create-project symfony/skeleton:"6.4.*" mon-projet-symfony</span></code></pre>
                 </div>
 
                 <h3 class="text-purple">Méthode 3 : Utilisation du Symfony Demo</h3>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># Pour un projet avec des exemples de code</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Pour un projet avec des exemples de code</span>
 <span class="bash-prompt">$</span> <span class="bash-command">symfony new mon-projet-symfony --demo</span></code></pre>
                 </div>
+            </div>
+
+            <!-- NOUVELLE SECTION : Pourquoi --webapp ? -->
+            <div class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Pourquoi utiliser l’option <code class="text-purple">--webapp</code> ?</h2>
+                <p class="textExemple">
+                    L’option <code>--webapp</code> de Symfony CLI permet d’initialiser un projet avec un ensemble de
+                    packages pré‑intégrés, conçus pour les applications web classiques. Comparé à un projet “squelette”
+                    (<code>symfony/skeleton</code>), cette option vous évite d’avoir à installer manuellement de
+                    nombreuses dépendances indispensables.
+                </p>
+
+                <h3 class="text-purple">Ce que <code>--webapp</code> installe automatiquement</h3>
+                <ul>
+                    <li><strong>Twig</strong> – le moteur de templates puissant et sécurisé.</li>
+                    <li><strong>Doctrine ORM</strong> – l’accès à la base de données avec des entités (et le bundle
+                        Doctrine).</li>
+                    <li><strong>Maker Bundle</strong> – pour générer des contrôleurs, entités, formulaires, etc.</li>
+                    <li><strong>Debug Bundle</strong> – barre d’outils de débogage (profiler) indispensable en développement.</li>
+                    <li><strong>Monolog Bundle</strong> – journalisation avancée des logs.</li>
+                    <li><strong>Webpack Encore</strong> – gestion des assets (CSS, JavaScript) moderne.</li>
+                    <li><strong>API Platform (optionnel selon version)</strong> – création d’API REST.</li>
+                    <li><strong>Symfony Security Bundle</strong> – authentification et autorisation.</li>
+                    <li><strong>Symfony Mailer</strong> – envoi d’e-mails.</li>
+                </ul>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Comparaison : skeleton vs webapp</h3>
+                    <div class="code-comparison">
+                        <div>
+                            <h4>Projet squelette (<code>symfony new --skeleton</code> ou <code>composer create-project symfony/skeleton</code>)</h4>
+                            <ul>
+                                <li>Ultra léger, seulement le noyau Symfony.</li>
+                                <li>Aucun bundle additionnel (pas de Doctrine, pas de Twig, pas d’assets).</li>
+                                <li>Idéal pour créer une API micro‑service ou un système très spécifique.</li>
+                                <li>Nécessite d’installer chaque dépendance à la main.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Projet webapp (<code>symfony new --webapp</code>)</h4>
+                            <ul>
+                                <li>Structure complète prête pour un site web classique.</li>
+                                <li>Tous les bundles utiles sont déjà configurés.</li>
+                                <li>Gain de temps considérable au démarrage.</li>
+                                <li>Parfait pour un blog, un e‑commerce, un intranet ou un formulaire CRUD.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">À quel moment choisir <code>--webapp</code> ?</h3>
+                    <ul>
+                        <li>Vous débutez avec Symfony → la configuration pré‑faite vous guide.</li>
+                        <li>Vous développez une application web “traditionnelle” (base de données, templates, formulaires).</li>
+                        <li>Vous voulez voir rapidement un exemple concret avec le <code>--demo</code> (qui repose sur <code>--webapp</code>).</li>
+                    </ul>
+                    <p>En revanche, si vous construisez une simple API REST sans interface utilisateur ni base de données relationnelle, le squelette (sans <code>--webapp</code>) est plus adapté.</p>
+                </div>
+
+                <div class="code-example">
+                    <h4 class="text-purple">Exemple : différence des <code>composer.json</code></h4>
+                    <pre v-pre><code class="language-json">// Projet skeleton (extrait)
+"require": {
+    "php": ">=8.2",
+    "symfony/console": "6.4.*",
+    "symfony/framework-bundle": "6.4.*"
+}
+
+// Projet --webapp (extrait)
+"require": {
+    "php": ">=8.2",
+    "doctrine/doctrine-bundle": "^2.11",
+    "doctrine/orm": "^2.18",
+    "symfony/asset": "6.4.*",
+    "symfony/orm-pack": "^2.4",
+    "symfony/twig-bundle": "6.4.*",
+    "symfony/webpack-encore-bundle": "^2.1",
+    "symfony/yaml": "6.4.*"
+}</code></pre>
+                </div>
+                <p class="textExemple">
+                    Comme vous pouvez le constater, l’option <code>--webapp</code> vous épargne une bonne dizaine de
+                    <code>composer require</code> manuels et vous offre une architecture fonctionnelle immédiatement.
+                </p>
             </div>
 
             <!-- Structure du projet -->
@@ -117,7 +202,7 @@
                     Après la création, votre projet aura la structure suivante :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash">mon-projet-symfony/
+                    <pre v-pre><code class="language-bash">mon-projet-symfony/
 ├── bin/
 │   └── console          <span class="bash-comment"># Console Symfony pour les commandes</span>
 ├── config/              <span class="bash-comment"># Fichiers de configuration</span>
@@ -140,7 +225,7 @@
                     Symfony inclut un serveur web de développement. Pour le démarrer :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># Se déplacer dans le répertoire du projet</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Se déplacer dans le répertoire du projet</span>
 <span class="bash-prompt">$</span> <span class="bash-command">cd mon-projet-symfony</span>
 
 <span class="bash-comment"># Démarrer le serveur de développement</span>
@@ -158,7 +243,7 @@
                     Configurez votre base de données dans le fichier <code>.env</code> :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># MySQL</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># MySQL</span>
 DATABASE_URL="mysql://username:password@127.0.0.1:3306/database_name?serverVersion=8.0"
 
 <span class="bash-comment"># PostgreSQL</span>
@@ -172,7 +257,7 @@ DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"</code></pre>
                     Créez ensuite la base de données :
                 </p>
                 <div class="code-example">
-                    <pre><code class="language-bash"><span class="bash-comment"># Créer la base de données</span>
+                    <pre v-pre><code class="language-bash"><span class="bash-comment"># Créer la base de données</span>
 <span class="bash-prompt">$</span> <span class="bash-command">php bin/console doctrine:database:create</span>
 
 <span class="bash-comment"># Créer les tables (si vous avez des entités)</span>
@@ -190,36 +275,36 @@ DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"</code></pre>
                 <div class="code-comparison">
                     <div class="code-example">
                         <h4 class="text-purple">Lister toutes les commandes</h4>
-                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console list</span></code></pre>
+                        <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console list</span></code></pre>
                     </div>
 
                     <div class="code-example">
                         <h4 class="text-purple">Vérifier les prérequis système</h4>
-                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony check:requirements</span></code></pre>
+                        <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">symfony check:requirements</span></code></pre>
                     </div>
                 </div>
 
                 <div class="code-comparison">
                     <div class="code-example">
                         <h4 class="text-purple">Créer une entité</h4>
-                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console make:entity</span></code></pre>
+                        <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console make:entity</span></code></pre>
                     </div>
 
                     <div class="code-example">
                         <h4 class="text-purple">Créer un contrôleur</h4>
-                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console make:controller</span></code></pre>
+                        <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console make:controller</span></code></pre>
                     </div>
                 </div>
 
                 <div class="code-comparison">
                     <div class="code-example">
                         <h4 class="text-purple">Effacer le cache</h4>
-                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console cache:clear</span></code></pre>
+                        <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console cache:clear</span></code></pre>
                     </div>
 
                     <div class="code-example">
                         <h4 class="text-purple">Voir les routes</h4>
-                        <pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console debug:router</span></code></pre>
+                        <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console debug:router</span></code></pre>
                     </div>
                 </div>
             </div>
@@ -246,7 +331,7 @@ DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"</code></pre>
                     <div class="solution-content">
                         <h4 class="text-purple">Étapes de la solution :</h4>
                         <div class="code-example">
-                            <pre><code class="language-bash"><span class="bash-comment"># 1. Créer le projet</span>
+                            <pre v-pre><code class="language-bash"><span class="bash-comment"># 1. Créer le projet</span>
 <span class="bash-prompt">$</span> <span class="bash-command">symfony new mon-blog --webapp</span>
 
 <span class="bash-comment"># 2. Se déplacer dans le répertoire</span>
@@ -292,9 +377,13 @@ DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 </template>
 
 <script>
+export default {
+    name: 'SymfonyInstallationLesson'
+}
 </script>
 
 <style scoped>
+/* (Le style reste identique à celui fourni – aucun changement) */
 .lesson-container {
     padding: 2rem;
     background: #f8f9fa;
@@ -326,7 +415,7 @@ DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .lesson-header h1 {
@@ -457,18 +546,13 @@ pre {
     width: 100%;
     box-sizing: border-box;
     white-space: pre-wrap;
-    /* Permet le retour à la ligne */
     word-wrap: break-word;
-    /* Casse les mots longs */
     word-break: break-word;
-    /* Assure la césure des mots */
 }
 
-/* CONTENEUR PRINCIPAL POUR TOUS LES BLOCS DE CODE */
 pre code {
     display: block;
     white-space: pre-wrap;
-    /* Retour à la ligne automatique */
     overflow-x: auto;
     max-width: 100%;
     width: 100%;
@@ -478,33 +562,17 @@ pre code {
 
 /* COULEURS GIT BASH */
 .bash-prompt {
-    color: #2ECC71 !important; /* Vert pour le prompt $ */
+    color: #2ECC71 !important;
     font-weight: bold;
 }
 
 .bash-command {
-    color: #F1C40F !important; /* Jaune pour les commandes */
+    color: #F1C40F !important;
 }
 
 .bash-comment {
-    color: #7F8C8D !important; /* Gris pour les commentaires */
+    color: #7F8C8D !important;
     font-style: italic;
-}
-
-.bash-string {
-    color: #E74C3C !important; /* Rouge pour les chaînes */
-}
-
-.bash-keyword {
-    color: #3498DB !important; /* Bleu pour les mots-clés */
-}
-
-.bash-parameter {
-    color: #9B59B6 !important; /* Violet pour les paramètres */
-}
-
-.bash-number {
-    color: #1ABC9C !important; /* Turquoise pour les nombres */
 }
 
 /* Exercices et solutions */
@@ -524,23 +592,12 @@ pre code {
     border-left: 4px solid #8B5FBF;
 }
 
-.solution-content h4 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-details summary {
-    cursor: pointer;
-    outline: none;
-}
-
-/* Texte des exemples */
 .textExemple {
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
-/* RESPONSIVE DESIGN AMÉLIORÉ */
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
     .lesson-container {
         padding: 1rem;
@@ -569,7 +626,6 @@ details summary {
     }
 }
 
-/* POUR LES TRÈS PETITS ÉCRANS */
 @media (max-width: 480px) {
     pre {
         padding: 0.75rem !important;
@@ -593,14 +649,6 @@ details summary {
     }
 }
 
-/* POUR LES TRÈS GRANDS ÉCRANS */
-@media (min-width: 1400px) {
-    .lesson-content {
-        max-width: 1300px;
-    }
-}
-
-/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -617,23 +665,12 @@ details summary {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-.lesson-section:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.lesson-section:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.lesson-section:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.lesson-section:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.lesson-section:nth-child(5) {
-    animation-delay: 0.5s;
-}
+.lesson-section:nth-child(1) { animation-delay: 0.1s; }
+.lesson-section:nth-child(2) { animation-delay: 0.2s; }
+.lesson-section:nth-child(3) { animation-delay: 0.3s; }
+.lesson-section:nth-child(4) { animation-delay: 0.4s; }
+.lesson-section:nth-child(5) { animation-delay: 0.5s; }
+.lesson-section:nth-child(6) { animation-delay: 0.6s; }
+.lesson-section:nth-child(7) { animation-delay: 0.7s; }
+.lesson-section:nth-child(8) { animation-delay: 0.8s; }
 </style>
