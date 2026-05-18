@@ -5,7 +5,7 @@
             <!-- En-tête de la leçon -->
             <header class="lesson-header">
                 <h1 class="text-white">Routing dans Symfony</h1>
-                <p class="lesson-meta text-white">Routes • Annotations • Attributs • Paramètres • Génération d'URL</p>
+                <p class="lesson-meta text-white">Routes • 3 méthodes • Attributs • YAML • XML • Paramètres</p>
             </header>
 
             <!-- Introduction -->
@@ -16,25 +16,28 @@
                     à un contrôleur et une méthode spécifique. C'est le cœur de toute application web Symfony.
                 </p>
                 <p class="textExemple">
-                    Sans routage, pas de page, pas d'API. Symfony propose un système puissant et flexible, basé sur des 
-                    <strong>annotations</strong> (attributs PHP) ou des fichiers YAML/XML.
+                    Symfony propose <strong>3 méthodes principales</strong> pour définir les routes, que nous allons détailler.
                 </p>
             </section>
 
-            <!-- Les différentes façons de définir des routes -->
+            <!-- Les 3 méthodes de définition des routes -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Les différentes façons de définir une route</h2>
+                <h2 class="text-purple">Les 3 façons de définir une route</h2>
                 <div class="textExemple">
                     <p>Symfony offre 3 méthodes principales pour définir les routes :</p>
                     <ul>
                         <li><strong>Attributs PHP (recommandé)</strong> – directement dans le contrôleur, près du code.</li>
                         <li><strong>Fichier YAML</strong> – centralisé dans <code>config/routes.yaml</code>.</li>
-                        <li><strong>XML ou PHP</strong> – moins courants.</li>
+                        <li><strong>XML ou PHP</strong> – moins courants, mais disponibles pour certains cas.</li>
                     </ul>
-                    <p>Dans cette leçon, nous nous concentrerons sur les <strong>attributs PHP</strong>, la méthode moderne et privilégiée.</p>
+                    <p>Examinons chacune en détail.</p>
                 </div>
 
-                <h3 class="text-purple">Exemple basique avec attribut</h3>
+                <!-- 1. Attributs PHP -->
+                <h3 class="text-purple">1. Attributs PHP (méthode recommandée)</h3>
+                <p class="textExemple">
+                    Depuis PHP 8, les attributs permettent d’annoter directement les classes et méthodes. C’est la méthode privilégiée par l’équipe Symfony.
+                </p>
                 <div class="code-example">
                     <pre v-pre><code class="language-php">// src/Controller/BlogController.php
 namespace App\Controller;
@@ -49,157 +52,148 @@ class BlogController
     {
         return new Response('Liste des articles');
     }
+
+    #[Route('/article/{id}', name: 'article_show', requirements: ['id' => '\d+'])]
+    public function show(int $id): Response
+    {
+        return new Response("Article n° $id");
+    }
 }</code></pre>
                 </div>
                 <p class="textExemple">
-                    La route sera accessible à l'URL <code>/blog</code> et portera le nom interne <code>blog_list</code>.
+                    <strong>Avantages :</strong> lisibilité, maintenance facilitée (route collée à la méthode), pas de fichier externe, autocomplétion IDE.
+                </p>
+
+                <!-- 2. Fichier YAML -->
+                <h3 class="text-purple">2. Fichier YAML (centralisé)</h3>
+                <p class="textExemple">
+                    On place toutes les routes dans <code>config/routes.yaml</code>. Chaque route a un nom, un chemin, un contrôleur et des options.
+                </p>
+                <div class="code-example">
+                    <pre v-pre><code class="language-yaml"># config/routes.yaml
+blog_list:
+    path: /blog
+    controller: App\Controller\BlogController::list
+
+article_show:
+    path: /article/{id}
+    controller: App\Controller\BlogController::show
+    requirements:
+        id: '\d+'
+
+# Préfixage de groupe avec 'prefix' (optionnel)
+admin:
+    resource: '../src/Controller/Admin/'
+    type: attribute
+    prefix: /admin</code></pre>
+                </div>
+                <p class="textExemple">
+                    <strong>Avantages :</strong> toutes les routes sont centralisées, ce qui peut être pratique pour des équipes qui préfèrent une configuration unique. 
+                    <strong>Inconvénients :</strong> déconnexion entre la route et le contrôleur, plus de fichiers à maintenir.
+                </p>
+
+                <!-- 3. XML ou PHP -->
+                <h3 class="text-purple">3. Fichier XML ou PHP (alternatives)</h3>
+                <p class="textExemple">
+                    Symfony accepte aussi les fichiers XML ou PHP pour définir les routes, mais ils sont beaucoup moins utilisés. On les trouve parfois dans des bundles tiers.
+                </p>
+                <div class="code-example">
+                    <pre v-pre><code class="language-xml">&lt;!-- config/routes.xml --&gt;
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;routes xmlns="http://symfony.com/schema/routing"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/routing
+        https://symfony.com/schema/routing/routing-1.0.xsd"&gt;
+
+    &lt;route id="blog_list" path="/blog" controller="App\Controller\BlogController::list"/&gt;
+    &lt;route id="article_show" path="/article/{id}" controller="App\Controller\BlogController::show"&gt;
+        &lt;requirement key="id"&gt;\d+&lt;/requirement&gt;
+    &lt;/route&gt;
+&lt;/routes&gt;</code></pre>
+                </div>
+                <div class="code-example">
+                    <pre v-pre><code class="language-php">// config/routes.php
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+
+return function (RoutingConfigurator $routes) {
+    $routes->add('blog_list', '/blog')
+        ->controller([BlogController::class, 'list']);
+    
+    $routes->add('article_show', '/article/{id}')
+        ->controller([BlogController::class, 'show'])
+        ->requirements(['id' => '\d+']);
+};</code></pre>
+                </div>
+                <p class="textExemple">
+                    Ces méthodes sont moins courantes, mais utiles si vous souhaitez générer des routes dynamiquement ou éviter le parsing YAML/XML.
                 </p>
             </section>
 
-            <!-- Types de routes et paramètres -->
+            <!-- Paramètres dynamiques (communs) -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Paramètres dynamiques dans l'URL</h2>
                 <p class="textExemple">
-                    On peut capturer des parties variables de l'URL en utilisant des <strong>paramètres entre accolades</strong>.
+                    Quelle que soit la méthode choisie, on peut capturer des parties variables de l'URL avec des <strong>paramètres entre accolades</strong>.
                 </p>
                 <div class="code-example">
-                    <pre v-pre><code class="language-php">#[Route('/article/{id}', name: 'article_show')]
-public function show(int $id): Response
-{
-    return new Response("Affichage de l'article n° $id");
-}</code></pre>
-                </div>
-                <p class="textExemple">
-                    Symfony injecte automatiquement la valeur dans l'argument de la méthode. Vous pouvez contraindre le paramètre avec des expressions régulières :
-                </p>
-                <div class="code-example">
-                    <pre v-pre><code class="language-php">#[Route('/article/{id}', name: 'article_show', requirements: ['id' => '\d+'])]
+                    <pre v-pre><code class="language-php">// Attribut
+#[Route('/article/{id}', name: 'article_show', requirements: ['id' => '\d+'])]
 public function show(int $id): Response { ... }
 
-// Plusieurs paramètres :
-#[Route('/blog/{category}/{slug}', name: 'blog_show', requirements: ['category' => 'news|tutorial', 'slug' => '[a-z-]+'])]
-public function show(string $category, string $slug): Response { ... }</code></pre>
-                </div>
-            </section>
+// YAML
+article_show:
+    path: /article/{id}
+    controller: App\Controller\BlogController::show
+    requirements: { id: '\d+' }
 
-            <!-- Paramètres optionnels et valeurs par défaut -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Paramètres optionnels</h2>
-                <p class="textExemple">
-                    On peut rendre un paramètre optionnel en ajoutant <code>?</code> après le nom et une valeur par défaut dans la méthode.
-                </p>
-                <div class="code-example">
-                    <pre v-pre><code class="language-php">#[Route('/page/{slug}', name: 'page_show', defaults: ['slug' => 'accueil'])]
-public function show(string $slug): Response
-{
-    return new Response("Page : $slug");
-}</code></pre>
+// XML
+&lt;route id="article_show" path="/article/{id}" controller="..."&gt;
+    &lt;requirement key="id"&gt;\d+&lt;/requirement&gt;
+&lt;/route&gt;</code></pre>
                 </div>
-                <p class="textExemple">
-                    Ainsi, <code>/page</code> affichera "accueil" et <code>/page/contact</code> affichera "contact".
-                </p>
-            </section>
-
-            <!-- Méthodes HTTP -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Restreindre les méthodes HTTP</h2>
-                <p class="textExemple">
-                    On peut limiter une route à certaines méthodes (GET, POST, PUT, DELETE, etc.) via l'option <code>methods</code>.
-                </p>
-                <div class="code-example">
-                    <pre v-pre><code class="language-php">#[Route('/api/article', name: 'api_article_create', methods: ['POST'])]
-public function create(Request $request): Response { ... }
-
-#[Route('/api/article/{id}', name: 'api_article_delete', methods: ['DELETE'])]
-public function delete(int $id): Response { ... }</code></pre>
-                </div>
-                <p class="textExemple">
-                    Symfony déclenchera une erreur 405 (Méthode non autorisée) si la requête utilise une autre méthode.
-                </p>
             </section>
 
             <!-- Nom des routes et génération d'URL -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Nom des routes et génération d'URL</h2>
                 <p class="textExemple">
-                    Chaque route possède un nom unique (ex: <code>article_show</code>). Ce nom permet de générer des URLs dans les templates ou dans le code, sans les écrire en dur.
+                    Le nom de la route (ex: <code>article_show</code>) est essentiel pour générer des URLs sans les coder en dur.
                 </p>
                 <h3 class="text-purple">Dans un template Twig :</h3>
                 <div class="code-example">
                     <pre v-pre><code class="language-twig">{{ path('article_show', {id: 42}) }}
-{# Génère : /article/42 #}
-
-{{ url('article_show', {id: 42}) }}
-{# Génère l'URL absolue : http://localhost/article/42 #}</code></pre>
+{# Génère : /article/42 #}</code></pre>
                 </div>
                 <h3 class="text-purple">Dans un contrôleur :</h3>
                 <div class="code-example">
-                    <pre v-pre><code class="language-php">use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
-// Depuis un contrôleur qui étend AbstractController
-$this->generateUrl('article_show', ['id' => 42]);
-
-// Avec injection du service
-public function index(UrlGeneratorInterface $urlGenerator): Response
-{
-    $url = $urlGenerator->generate('article_show', ['id' => 42]);
-}</code></pre>
+                    <pre v-pre><code class="language-php">$this->generateUrl('article_show', ['id' => 42]);</code></pre>
                 </div>
             </section>
 
-            <!-- Groupe de routes (préfixes) -->
+            <!-- Méthodes HTTP et autres options -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Grouper des routes avec un préfixe</h2>
-                <p class="textExemple">
-                    Lorsque plusieurs routes partagent le même préfixe, on peut utiliser l'attribut <code>#[Route]</code> au niveau de la classe.
-                </p>
+                <h2 class="text-purple">Restreindre les méthodes HTTP</h2>
                 <div class="code-example">
-                    <pre v-pre><code class="language-php">#[Route('/admin')]
-class AdminController extends AbstractController
-{
-    #[Route('/dashboard', name: 'admin_dashboard')]
-    public function dashboard(): Response { ... }
-    // URL finale : /admin/dashboard
+                    <pre v-pre><code class="language-php">// Attribut
+#[Route('/api/article', name: 'api_create', methods: ['POST'])]
 
-    #[Route('/users', name: 'admin_users')]
-    public function listUsers(): Response { ... }
-    // URL finale : /admin/users
-}</code></pre>
+// YAML
+api_create:
+    path: /api/article
+    controller: ...
+    methods: ['POST']
+
+// XML
+&lt;route id="api_create" path="/api/article" controller="..." methods="POST"/&gt;</code></pre>
                 </div>
-            </section>
-
-            <!-- Redirections -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Redirections entre routes</h2>
-                <p class="textExemple">
-                    On peut rediriger une route vers une autre en utilisant le nom de la route cible.
-                </p>
-                <div class="code-example">
-                    <pre v-pre><code class="language-php">use Symfony\Component\HttpFoundation\RedirectResponse;
-
-#[Route('/ancienne-page', name: 'old_page')]
-public function oldPage(): RedirectResponse
-{
-    return $this->redirectToRoute('new_page', [], 301); // redirection permanente
-}</code></pre>
-                </div>
-                <p class="textExemple">
-                    Il est aussi possible de définir une redirection directement dans le fichier <code>config/routes.yaml</code> sans contrôleur.
-                </p>
             </section>
 
             <!-- Debug des routes -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Debugger les routes</h2>
-                <p class="textExemple">
-                    Symfony fournit des commandes pour lister toutes les routes et déboguer.
-                </p>
                 <div class="code-example">
                     <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console debug:router</span>
-<span class="bash-comment"># Affiche toutes les routes avec leur nom, chemin, méthodes et contrôleur</span>
-
-<span class="bash-prompt">$</span> <span class="bash-command">php bin/console debug:router article_show</span>
-<span class="bash-comment"># Détail d'une route spécifique</span>
+<span class="bash-comment"># Affiche toutes les routes (quelle que soit leur origine)</span>
 
 <span class="bash-prompt">$</span> <span class="bash-command">php bin/console router:match /article/42</span>
 <span class="bash-comment"># Teste quelle route correspond à une URL donnée</span></code></pre>
@@ -210,29 +204,28 @@ public function oldPage(): RedirectResponse
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Bonnes pratiques</h2>
                 <ul>
-                    <li><strong>Toujours nommer ses routes</strong> – cela permet de générer des URLs sans les coder en dur.</li>
-                    <li><strong>Utiliser des noms de routes explicites</strong> : <code>article_show</code> plutôt que <code>show</code>.</li>
-                    <li><strong>Préférer les attributs PHP aux fichiers YAML</strong> – la logique reste proche du contrôleur.</li>
-                    <li><strong>Restreindre les méthodes HTTP</strong> pour plus de sécurité (GET pour afficher, POST pour créer, etc.).</li>
-                    <li><strong>Éviter les paramètres optionnels complexes</strong> – préférez plusieurs routes si nécessaire.</li>
-                    <li><strong>Versionner ses routes d'API</strong> : <code>/api/v1/articles</code>, <code>/api/v2/articles</code>.</li>
+                    <li><strong>Privilégiez les attributs PHP</strong> – c’est la méthode recommandée et la plus maintenable.</li>
+                    <li><strong>Donnez des noms explicites aux routes</strong> – facilite la génération d’URL.</li>
+                    <li><strong>Restreignez les méthodes HTTP</strong> pour plus de sécurité.</li>
+                    <li><strong>Utilisez des préfixes de groupe</strong> (attribut sur classe) pour les contrôleurs d’administration ou d’API.</li>
+                    <li><strong>Versionnez les routes d’API</strong> : <code>/v1/articles</code>, <code>/v2/articles</code>.</li>
                 </ul>
             </section>
 
             <!-- Conclusion -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Conclusion</h2>
-                <div class="textExemple">
-                    <p>
-                        Le routing de Symfony est flexible, puissant et sécurisé. En maîtrisant les attributs <code>#[Route]</code>,
-                        les paramètres dynamiques et la génération d'URL, vous pouvez construire des applications propres,
-                        maintenables et faciles à faire évoluer.
-                    </p>
-                    <p>
-                        Dans les prochaines leçons, nous approfondirons les <strong>paramètres convertis</strong> (ex: <code>Article $article</code>)
-                        et les <strong>conditions avancées</strong> (ex: expressions, sous-domaines).
-                    </p>
-                </div>
+                <p class="textExemple">
+                    Le routing de Symfony est flexible et s’adapte à vos préférences :
+                </p>
+                <ul>
+                    <li><strong>Attributs PHP</strong> → pour la clarté et la proximité avec le contrôleur (recommandé).</li>
+                    <li><strong>YAML</strong> → pour une configuration centralisée (traditionnelle).</li>
+                    <li><strong>XML/PHP</strong> → pour des cas particuliers ou la compatibilité avec certains bundles.</li>
+                </ul>
+                <p class="textExemple">
+                    Maîtrisez ces trois méthodes, et vous saurez naviguer dans n’importe quel projet Symfony.
+                </p>
             </section>
 
         </div>
@@ -256,7 +249,7 @@ export default {
                 const script = document.createElement('script');
                 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
                 script.onload = () => {
-                    const languages = ['php', 'twig', 'bash'];
+                    const languages = ['php', 'yaml', 'xml', 'twig', 'bash'];
                     let loaded = 0;
                     languages.forEach(lang => {
                         const langScript = document.createElement('script');
@@ -282,7 +275,7 @@ export default {
 </script>
 
 <style scoped>
-/* Styles identiques aux leçons précédentes – copie exacte */
+/* Styles identiques – inchangés */
 .lesson-container {
     padding: 2rem;
     background: #f8f9fa;
