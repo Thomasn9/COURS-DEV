@@ -60,27 +60,9 @@ composer require symfony/asset-mapper</code></pre>
                 <div class="textExemple">
                     <h3 class="text-purple">Intégration simple dans Twig</h3>
                     <div class="code-example">
-                        <pre v-pre><code class="language-twig">{# templates/base.html.twig #}
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;{% block title %}Mon projet{% endblock %}&lt;/title&gt;
-    
-    {# Lien Google Fonts #}
+                        <pre v-pre><code class="language-twig">&lt;head&gt;
     &lt;link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"&gt;
-    
-    {# Ou version optimisée avec display=swap #}
-    &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;
-
-    {% block stylesheets %}
-        {{ parent() }}
-    {% endblock %}
-&lt;/head&gt;
-&lt;body&gt;
-    {% block body %}{% endblock %}
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/head&gt;</code></pre>
                     </div>
                 </div>
 
@@ -93,78 +75,43 @@ composer require symfony/asset-mapper</code></pre>
     &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;
 &lt;/head&gt;</code></pre>
                     </div>
-                    <p class="textExemple">Les balises <code>preconnect</code> réduisent la latence de connexion aux domaines Google Fonts.</p>
                 </div>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Application en CSS</h3>
                     <div class="code-example">
-                        <pre v-pre><code class="language-css">/* assets/styles/app.css */
-body {
+                        <pre v-pre><code class="language-css">body {
     font-family: 'Inter', sans-serif;
 }
-
 h1, h2, h3 {
     font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
-.text-soft {
-    font-weight: 400;
-    color: #4a5568;
 }</code></pre>
                     </div>
                 </div>
             </section>
 
             <!-- Méthode 2 : Polices locales -->
-            <section class="section bg-light-purple border-purple">
+            <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Méthode 2 : Polices hébergées localement</h2>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Téléchargement et placement des fichiers</h3>
                     <div class="code-example">
-                        <pre v-pre><code class="language-bash"># Créer le dossier fonts
-mkdir -p assets/fonts
-
-# Télécharger les fichiers .woff2 depuis Google Fonts ou d'autres sources
-# Exemple avec une police Open Sans
-# Fichiers à placer :
-assets/fonts/open-sans-400.woff2
-assets/fonts/open-sans-700.woff2
-assets/fonts/open-sans-italic.woff2</code></pre>
+                        <pre v-pre><code class="language-bash">mkdir -p assets/fonts
+# Placer les fichiers .woff2 dans assets/fonts/</code></pre>
                     </div>
                 </div>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Déclaration @font-face dans CSS</h3>
                     <div class="code-example">
-                        <pre v-pre><code class="language-css">/* assets/styles/fonts.css */
-@font-face {
+                        <pre v-pre><code class="language-css">@font-face {
     font-family: 'Open Sans';
     src: url('../fonts/open-sans-400.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/open-sans-700.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/open-sans-italic.woff2') format('woff2');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-/* Utilisation */
 body {
     font-family: 'Open Sans', sans-serif;
 }</code></pre>
@@ -172,281 +119,79 @@ body {
                 </div>
 
                 <div class="textExemple">
-                    <h3 class="text-purple">Import du CSS dans l'application (AssetMapper)</h3>
+                    <h3 class="text-purple">Import du CSS (AssetMapper)</h3>
                     <div class="code-example">
                         <pre v-pre><code class="language-javascript">// assets/app.js
 import './styles/fonts.css';
 import './styles/app.css';</code></pre>
                     </div>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-twig">{# templates/base.html.twig #}
-{% block stylesheets %}
-    {{ importmap('app') }}
-{% endblock %}</code></pre>
-                    </div>
                 </div>
             </section>
 
-            <!-- Configuration Webpack Encore (alternative) -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Alternative : Webpack Encore</h2>
-
-                <div class="textExemple">
-                    <p>Si vous utilisez le bundle Webpack Encore, voici la configuration typique pour les polices :</p>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-bash"># Installation si nécessaire
-composer require symfony/webpack-encore-bundle
-npm install</code></pre>
-                    </div>
-                </div>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">Configuration de webpack.config.js</h3>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-javascript">// webpack.config.js
-Encore
-    // ... autres configurations
-    .copyFiles({
-        from: './assets/fonts',
-        to: 'fonts/[path][name].[ext]',
-    })
-    // Ou bien utiliser le file-loader automatique
-    .configureFontRule(config => {
-        config.test = /\.(woff|woff2|ttf|eot|otf)$/;
-        config.type = 'asset/resource';
-    })
-;</code></pre>
-                    </div>
-                </div>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">Importer directement dans un fichier SCSS/CSS</h3>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-scss">// assets/styles/app.scss
-@font-face {
-    font-family: 'CustomFont';
-    src: url('../fonts/MyFont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-body {
-    font-family: 'CustomFont', sans-serif;
-}</code></pre>
-                    </div>
-                    <p class="textExemple">Encore s'occupe automatiquement de copier les fichiers dans le dossier de sortie <code>build/fonts/</code>.</p>
-                </div>
-            </section>
-
-            <!-- Optimisation et performance -->
+            <!-- Optimisation -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Optimisation et bonnes pratiques</h2>
 
                 <div class="textExemple">
-                    <h3 class="text-purple">1. Utiliser le format WOFF2</h3>
-                    <p>Le format WOFF2 offre la meilleure compression. Privilégiez toujours ce format pour les polices modernes.</p>
+                    <h3 class="text-purple">1. Utiliser WOFF2</h3>
+                    <p>Meilleure compression, supporté par tous les navigateurs modernes.</p>
                 </div>
 
                 <div class="textExemple">
-                    <h3 class="text-purple">2. Ajuster <code>font-display</code></h3>
+                    <h3 class="text-purple">2. font-display: swap</h3>
                     <div class="code-example">
                         <pre v-pre><code class="language-css">@font-face {
-    font-display: swap; /* Affiche une police de secours immédiatement, puis remplace */
-    /* Autres valeurs : auto, block, fallback, optional */
-}</code></pre>
-                    </div>
-                    <p><code>swap</code> est recommandé pour une expérience utilisateur fluide.</p>
-                </div>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">3. Ne charger que les graisses nécessaires</h3>
-                    <p>Évitez d'importer toutes les variantes (100,200,300,...). Choisissez 3-4 graisses maximum (ex: 400, 500, 700).</p>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-html">&lt;!-- Google Fonts: ne prendre que 400, 500, 700 --&gt;
-&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</code></pre>
-                    </div>
-                </div>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">4. Préchargement des polices critiques</h3>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-twig">&lt;link rel="preload" href="{{ asset('fonts/open-sans-400.woff2') }}" as="font" type="font/woff2" crossorigin&gt;</code></pre>
-                    </div>
-                </div>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">5. Sous-ensemble (subset) pour réduire la taille</h3>
-                    <p>Google Fonts permet de limiter les jeux de caractères (ex: <code>latin</code> seulement).</p>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-html">&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&amp;display=swap&amp;subset=latin" rel="stylesheet"&gt;</code></pre>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Aller plus loin : Variable Fonts -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Polices variables (Variable Fonts)</h2>
-
-                <div class="textExemple">
-                    <p>Les polices variables permettent de stocker plusieurs graisses et styles dans un seul fichier, réduisant considérablement le poids total.</p>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-css">@font-face {
-    font-family: 'Inter Variable';
-    src: url('../fonts/Inter-Variable.woff2') format('woff2-variations');
-    font-weight: 100 900;  /* Plage de graisses supportées */
     font-display: swap;
-}
-
-/* Utilisation avec une graisse spécifique */
-h1 {
-    font-family: 'Inter Variable', sans-serif;
-    font-weight: 700;
-}
-
-/* Effet dynamique au hover */
-.button:hover {
-    font-weight: 800;
 }</code></pre>
                     </div>
                 </div>
 
                 <div class="textExemple">
-                    <h3 class="text-purple">Avec Google Fonts (variable)</h3>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-html">&lt;link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"&gt;</code></pre>
-                    </div>
-                    <p>Remarquez la syntaxe <code>wght@400..700</code> qui indique une police variable.</p>
+                    <h3 class="text-purple">3. Limiter les graisses</h3>
+                    <p>Ne charger que les poids utilisés (400, 500, 700 par exemple).</p>
                 </div>
             </section>
 
-            <!-- Intégration avec Tailwind CSS (si utilisé) -->
-            <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Cas particulier : Tailwind CSS</h2>
-
-                <div class="textExemple">
-                    <p>Si votre projet Symfony utilise Tailwind CSS, voici comment étendre la police par défaut :</p>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-javascript">// tailwind.config.js
-module.exports = {
-    theme: {
-        extend: {
-            fontFamily: {
-                'sans': ['Inter', 'system-ui', 'sans-serif'],
-                'display': ['"Open Sans"', 'serif'],
-            }
-        }
-    }
-}</code></pre>
-                    </div>
-                    <div class="code-example">
-                        <pre v-pre><code class="language-twig">&lt;h1 class="font-display text-4xl"&gt;Titre personnalisé&lt;/h1&gt;
-&lt;p class="font-sans"&gt;Paragraphe avec Inter&lt;/p&gt;</code></pre>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Exercices pratiques -->
+            <!-- Exercices -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Exercices pratiques</h2>
 
                 <div class="exercise">
-                    <h3 class="text-purple">Exercice 1 : Intégration de Google Fonts</h3>
-                    <p>Intégrez la police <strong>"Poppins"</strong> (graisses 400, 500, 700) dans un projet Symfony via CDN, puis appliquez-la aux titres et au corps du texte.</p>
+                    <h3 class="text-purple">Exercice 1 : Google Fonts "Poppins"</h3>
                     <details class="solution">
                         <summary class="btn-purple btn-hover">Voir la solution</summary>
                         <div class="solution-content">
-                            <pre v-pre><code class="language-twig">&lt;!-- base.html.twig --&gt;
-&lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;
-
-&lt;style&gt;
-    body { font-family: 'Poppins', sans-serif; }
-    h1, h2, h3 { font-weight: 700; }
-&lt;/style&gt;</code></pre>
+                            <pre v-pre><code class="language-twig">&lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;
+&lt;style&gt;body { font-family: 'Poppins', sans-serif; }&lt;/style&gt;</code></pre>
                         </div>
                     </details>
                 </div>
 
                 <div class="exercise">
-                    <h3 class="text-purple">Exercice 2 : Police locale avec AssetMapper</h3>
-                    <p>Téléchargez la police "Roboto" en WOFF2, placez-la dans <code>assets/fonts/</code>, déclarez <code>@font-face</code> et utilisez-la dans votre projet.</p>
+                    <h3 class="text-purple">Exercice 2 : Police locale "Roboto"</h3>
                     <details class="solution">
                         <summary class="btn-purple btn-hover">Voir la solution</summary>
                         <div class="solution-content">
-                            <pre v-pre><code class="language-css">/* assets/styles/fonts.css */
-@font-face {
+                            <pre v-pre><code class="language-css">@font-face {
     font-family: 'Roboto';
     src: url('../fonts/Roboto-Regular.woff2') format('woff2');
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
 }
-
-/* assets/app.js */
-import './styles/fonts.css';
-
-/* Utilisation CSS */
 body { font-family: 'Roboto', sans-serif; }</code></pre>
-                        </div>
-                    </details>
-                </div>
-
-                <div class="exercise">
-                    <h3 class="text-purple">Exercice 3 : Police variable et fallback</h3>
-                    <p>Intégrez la police variable "Roboto Flex" depuis Google Fonts, et définissez une police de secours "system-ui" pour les navigateurs non supportés.</p>
-                    <details class="solution">
-                        <summary class="btn-purple btn-hover">Voir la solution</summary>
-                        <div class="solution-content">
-                            <pre v-pre><code class="language-twig">&lt;link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&amp;display=swap" rel="stylesheet"&gt;
-&lt;style&gt;
-    body {
-        font-family: 'Roboto Flex', system-ui, sans-serif;
-    }
-    .bold-text {
-        font-weight: 800;
-    }
-&lt;/style&gt;</code></pre>
                         </div>
                     </details>
                 </div>
             </section>
 
-            <!-- Conclusion et bonnes pratiques -->
+            <!-- Conclusion -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Résumé et bonnes pratiques</h2>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">Choix de la méthode</h3>
-                    <ul>
-                        <li><strong>Google Fonts CDN</strong> : simple, rapide pour le développement, mais peut poser des problèmes RGPD (hébergement externe)</li>
-                        <li><strong>Polices locales</strong> : recommandé pour la conformité RGPD, le hors-ligne et la performance maîtrisée</li>
-                        <li><strong>AssetMapper</strong> : idéal pour Symfony 6.3+ sans configuration complexe</li>
-                        <li><strong>Webpack Encore</strong> : plus puissant, nécessaire pour SCSS, postCSS ou si vous avez déjà une chaîne de build existante</li>
-                    </ul>
-                </div>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">Checklist de performance</h3>
-                    <ul>
-                        <li>✓ Utiliser WOFF2 (pas TTF, OTF)</li>
-                        <li>✓ <code>font-display: swap</code> pour éviter le FOIT (Flash of Invisible Text)</li>
-                        <li>✓ Ne charger que les graisses et styles nécessaires</li>
-                        <li>✓ Précharger les polices critiques avec <code>&lt;link rel="preload"&gt;</code></li>
-                        <li>✓ Préconnecter les origines tierces (Google Fonts)</li>
-                        <li>✓ Utiliser une police de secours système (sans-serif, serif, monospace)</li>
-                    </ul>
-                </div>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">Conclusion</h3>
-                    <p>
-                        Symfony offre une flexibilité totale pour intégrer des polices d'écriture, que vous choisissiez une solution CDN ou locale.
-                        Avec l'arrivée d'AssetMapper, la gestion des assets devient plus légère et plus adaptée aux projets n'ayant pas besoin d'une
-                        chaîne JavaScript complexe.
-                    </p>
-                    <p>
-                        La prochaine étape sera d'aborder l'optimisation des images et la mise en place d'un design system cohérent dans vos projets Symfony.
-                    </p>
-                </div>
+                <ul>
+                    <li>✓ Utiliser WOFF2</li>
+                    <li>✓ <code>font-display: swap</code></li>
+                    <li>✓ Précharger les polices critiques</li>
+                    <li>✓ Polices locales pour le RGPD</li>
+                </ul>
             </section>
 
         </div>
@@ -458,21 +203,19 @@ export default {
     name: 'WebfontLesson',
 
     mounted() {
-        // Charger highlight.js + thème VS Code Dark via CDN
         const loadHighlightJS = () => {
             return new Promise((resolve) => {
                 if (window.hljs) { resolve(); return; }
 
                 const link = document.createElement('link');
-                link.rel  = 'stylesheet';
+                link.rel = 'stylesheet';
                 link.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css';
                 document.head.appendChild(link);
 
                 const script = document.createElement('script');
                 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
                 script.onload = () => {
-                    // Charger les langages CSS, Twig, Bash, PHP, JS, SCSS
-                    const languages = ['css', 'twig', 'bash', 'php', 'javascript', 'scss', 'plaintext'];
+                    const languages = ['css', 'twig', 'bash', 'php', 'javascript', 'plaintext'];
                     let loaded = 0;
                     languages.forEach(lang => {
                         const langScript = document.createElement('script');
@@ -557,14 +300,9 @@ export default {
 }
 
 .bg-light-purple { background-color: #f8f6ff; }
-
-.border-purple {
-    border: 2px solid #e0d6ff;
-    transition: all 0.3s ease;
-}
-
+.border-purple { border: 2px solid #e0d6ff; transition: all 0.3s ease; }
 .text-purple { color: #6A3093 !important; }
-.text-white  { color: white !important; }
+.text-white { color: white !important; }
 
 .btn-purple {
     background: linear-gradient(135deg, #8B5FBF 0%, #6A3093 100%);
@@ -618,7 +356,6 @@ pre code {
 
 .exercise { margin: 2rem 0; }
 .solution { margin: 1rem 0; }
-
 .solution-content {
     margin-top: 1rem;
     padding: 1rem;
@@ -633,23 +370,23 @@ pre code {
 }
 
 @media (max-width: 768px) {
-    .lesson-container  { padding: 1rem; }
-    .lesson-header     { padding: 2rem 1rem; }
-    .lesson-header h1  { font-size: 2rem; }
-    .lesson-section    { padding: 1.5rem; }
-    pre                { padding: 1rem !important; font-size: 0.85rem; }
+    .lesson-container { padding: 1rem; }
+    .lesson-header { padding: 2rem 1rem; }
+    .lesson-header h1 { font-size: 2rem; }
+    .lesson-section { padding: 1.5rem; }
+    pre { padding: 1rem !important; font-size: 0.85rem; }
 }
 
 @media (max-width: 480px) {
-    pre               { padding: 0.75rem !important; font-size: 0.8rem; }
+    pre { padding: 0.75rem !important; font-size: 0.8rem; }
     .lesson-container { padding: 0.5rem; }
-    .lesson-section   { padding: 1rem; }
-    .lesson-header    { padding: 1.5rem 1rem; }
+    .lesson-section { padding: 1rem; }
+    .lesson-header { padding: 1.5rem 1rem; }
     .lesson-header h1 { font-size: 1.75rem; }
 }
 
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+    to { opacity: 1; transform: translateY(0); }
 }
 </style>
