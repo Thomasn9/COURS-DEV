@@ -5,7 +5,7 @@
             <!-- En-tête de la leçon -->
             <header class="lesson-header">
                 <h1 class="text-white">Routing dans Symfony</h1>
-                <p class="lesson-meta text-white">Routes • 3 méthodes • Attributs • YAML • XML • Paramètres</p>
+                <p class="lesson-meta text-white">Routes • 3 méthodes • Attributs • YAML • XML • Paramètres • Cache</p>
             </header>
 
             <!-- Introduction -->
@@ -200,6 +200,54 @@ api_create:
                 </div>
             </section>
 
+            <!--  Problème fréquent : le cache Symfony -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple"> Problème fréquent : le cache Symfony empêche la découverte des nouvelles routes</h2>
+                <p class="textExemple">
+                    Il arrive souvent qu’après avoir créé un nouveau contrôleur ou modifié une route, celle-ci n’apparaisse pas dans <code>debug:router</code> et génère une erreur 404. La cause la plus courante est un <strong>cache Symfony obsolète</strong>.
+                </p>
+                <h3 class="text-purple">Pourquoi cela arrive ?</h3>
+                <p class="textExemple">
+                    Symfony met en cache la configuration des routes pour des raisons de performances. Lorsque vous ajoutez ou modifiez une route, ce cache n’est pas automatiquement rafraîchi, surtout en environnement de production (et parfois même en développement selon votre configuration). Le framework continue donc d’utiliser l’ancienne version des routes.
+                </p>
+                <h3 class="text-purple">Symptômes typiques</h3>
+                <ul>
+                    <li>La commande <code>php bin/console debug:router</code> n’affiche <strong>pas</strong> votre nouvelle route.</li>
+                    <li>Vous accédez à l’URL et obtenez une <strong>erreur 404</strong> (NotFoundHttpException).</li>
+                    <li>Pourtant votre code (contrôleur + attribut <code>#[Route]</code>) est parfaitement valide.</li>
+                </ul>
+                <h3 class="text-purple">Solution : vider le cache</h3>
+                <p class="textExemple">
+                    La commande suivante nettoie le cache de Symfony et force la reconstruction des routes :
+                </p>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console cache:clear</span></code></pre>
+                </div>
+                <p class="textExemple">
+                    Selon votre environnement, vous pouvez avoir besoin d’ajouter l’option <code>--env=prod</code> (ou <code>dev</code> qui est l’environnement par défaut) :
+                </p>
+                <div class="code-example">
+                    <pre v-pre><code class="language-bash"><span class="bash-prompt">$</span> <span class="bash-command">php bin/console cache:clear --env=dev</span></code></pre>
+                </div>
+                <p class="textExemple">
+                    Après avoir vidé le cache, relancez <code>php bin/console debug:router</code>. Votre route devrait maintenant apparaître.
+                </p>
+                <h3 class="text-purple">Bonnes pratiques pour éviter ce désagrément</h3>
+                <ul>
+                    <li><strong>En développement</strong>, utilisez l’environnement <code>dev</code> (par défaut) qui est plus tolérant, mais pas toujours automatique sur les routes.</li>
+                    <li><strong>Après chaque création/modification de route</strong>, exécutez systématiquement <code>cache:clear</code> pour être certain que la nouvelle configuration est prise en compte.</li>
+                    <li><strong>Pensez à redémarrer le serveur Symfony</strong> (<code>symfony server:start</code> ou <code>Ctrl+C</code> puis relance) après avoir modifié des fichiers de configuration (<code>config/routes.yaml</code>, <code>config/services.yaml</code>, etc.).</li>
+                    <li><strong>Utilisez la commande <code>php bin/console debug:router</code> comme outil de diagnostic</strong> : si la route n’y figure pas, le problème vient du cache ou du chargement des fichiers (mauvais namespace, mauvais emplacement).</li>
+                </ul>
+                <div class="code-example">
+                    <h4 class="text-purple">Exemple d’erreur typique dans les logs</h4>
+                    <pre v-pre><code class="language-plaintext">Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /ma-nouvelle-page""</code></pre>
+                </div>
+                <p class="textExemple">
+                    Cette erreur disparaît immédiatement après un <code>cache:clear</code> suivi d’un redémarrage du serveur.
+                </p>
+            </section>
+
             <!-- Bonnes pratiques -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Bonnes pratiques</h2>
@@ -209,6 +257,7 @@ api_create:
                     <li><strong>Restreignez les méthodes HTTP</strong> pour plus de sécurité.</li>
                     <li><strong>Utilisez des préfixes de groupe</strong> (attribut sur classe) pour les contrôleurs d’administration ou d’API.</li>
                     <li><strong>Versionnez les routes d’API</strong> : <code>/v1/articles</code>, <code>/v2/articles</code>.</li>
+                    <li><strong>En cas de route manquante, pensez au cache</strong> – <code>php bin/console cache:clear</code> est votre premier réflexe.</li>
                 </ul>
             </section>
 
@@ -224,7 +273,7 @@ api_create:
                     <li><strong>XML/PHP</strong> → pour des cas particuliers ou la compatibilité avec certains bundles.</li>
                 </ul>
                 <p class="textExemple">
-                    Maîtrisez ces trois méthodes, et vous saurez naviguer dans n’importe quel projet Symfony.
+                    Maîtrisez ces trois méthodes, sachez gérer le cache, et vous saurez naviguer dans n’importe quel projet Symfony.
                 </p>
             </section>
 
@@ -249,7 +298,7 @@ export default {
                 const script = document.createElement('script');
                 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
                 script.onload = () => {
-                    const languages = ['php', 'yaml', 'xml', 'twig', 'bash'];
+                    const languages = ['php', 'yaml', 'xml', 'twig', 'bash', 'plaintext'];
                     let loaded = 0;
                     languages.forEach(lang => {
                         const langScript = document.createElement('script');
