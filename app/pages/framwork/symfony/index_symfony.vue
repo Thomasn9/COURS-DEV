@@ -314,6 +314,22 @@
             </div>
         </div>
 
+        <!-- =============================================================\\P//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">R</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Routing</h5>
+                <p class="card-text">quest ce que le routing dans symfony et comment fonctionne t-il ?</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/routing">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\S//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">S</h3>
