@@ -305,6 +305,17 @@
 
         <div class="card border-purple shadow-lg">
             <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Police d'écriture</h5>
+                <p class="card-text">Comment intégré des police d'écriture dans un projet symfony</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/police">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
                 <h5 class="card-title text-purple">Profiler</h5>
                 <p class="card-text">Qu'est-ce que le Symfony Profiler ?</p>
                 <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
@@ -314,7 +325,7 @@
             </div>
         </div>
 
-        <!-- =============================================================\\P//==================================================================== -->
+        <!-- =============================================================\\R//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">R</h3>
         </div>
