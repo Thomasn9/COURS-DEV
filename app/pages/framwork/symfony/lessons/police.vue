@@ -77,26 +77,38 @@
         </div>
       </section>
 
-      <!-- Étape 3 : Intégration dans Symfony (Twig) -->
+      <!-- Étape 3 : Intégration dans Symfony (Twig) - NOUVEAU CODE -->
       <section class="lesson-section bg-light-purple border-purple">
         <h2 class="text-purple">3. Intégration dans un projet Symfony (Twig)</h2>
         <p class="text-example">
           Dans Symfony, on utilise le template <code>base.html.twig</code> pour définir le code commun à toutes les pages.
-          Placez la balise &lt;link&gt; dans la section &lt;head&gt;.
+          Placez la balise &lt;link&gt; de Google Fonts dans la section &lt;head&gt;.
         </p>
         <div class="code-example">
-          <pre v-pre><code class="language-twig">{# templates/base.html.twig #}
-&lt;!DOCTYPE html&gt;
+          <pre v-pre><code class="language-twig">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;{% block title %}Mon Projet Symfony{% endblock %}&lt;/title&gt;
-    
+    &lt;title&gt;{% block title %}Welcome!{% endblock %}&lt;/title&gt;
+    &lt;link rel="icon"
+        href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22&gt;&lt;text y=%221.2em%22 font-size=%2296%22&gt;⚫️&lt;/text&gt;&lt;text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22&gt;sf&lt;/text&gt;&lt;/svg&gt;"&gt;
+
+    {# --- Google Fonts : Inter --- #}
     &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;
 
     {% block stylesheets %}
-        {{ parent() }}
     {% endblock %}
+
+    {% block javascripts %}
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+
+    {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
+    {% if frankenphpHotReload %}
+    &lt;meta name="frankenphp-hot-reload:url" content="{{ frankenphpHotReload }}"&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/idiomorph"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"&gt;&lt;/script&gt;
+    {% endif %}
 &lt;/head&gt;
 &lt;body&gt;
     {% block body %}{% endblock %}
@@ -108,7 +120,6 @@
           <h3 class="text-purple">Optimisation avec preconnect</h3>
           <p>
             Pour accélérer le chargement, ajoutez les balises <code>preconnect</code> juste avant le lien Google Fonts.
-            Elles établissent une connexion anticipée avec les serveurs Google.
           </p>
           <div class="code-example">
             <pre v-pre><code class="language-twig">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
@@ -365,10 +376,11 @@ export default {
           return
         }
 
-        if (!document.querySelector('link[href*="highlight.js/11.9.0/styles/vs2015"]')) {
+        // Changement du thème : atom-one-dark (couleurs VS Code)
+        if (!document.querySelector('link[href*="atom-one-dark.min.css"]')) {
           const link = document.createElement('link')
           link.rel = 'stylesheet'
-          link.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css'
+          link.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css'
           document.head.appendChild(link)
         }
 
@@ -421,6 +433,7 @@ export default {
 </script>
 
 <style scoped>
+/* Vos styles inchangés */
 .lesson-container {
   padding: 2rem;
   background: #f8f9fa;
