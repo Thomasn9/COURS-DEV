@@ -463,7 +463,7 @@ public function addComment(Article $article, Request $request, EntityManagerInte
                 </div>
             </section>
 
-            <!-- Bonnes pratiques -->
+            <!-- Bonnes pratiques et conclusion -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Bonnes pratiques et conclusion</h2>
 
@@ -504,6 +504,18 @@ public function addComment(Article $article, Request $request, EntityManagerInte
                         Pour aller plus loin, explorez les autres packages UX comme <strong>UX Twig Component</strong> (composants réutilisables Twig), <strong>UX Icons</strong> (gestion d'icônes SVG) ou <strong>UX Toggle</strong> (boutons à bascule).
                     </p>
                 </div>
+
+                <!-- ========== LIENS AJOUTÉS : Accès Symfony UX et LiveComponent ========== -->
+                <div class="textExemple">
+                    <h3 class="text-purple">Accès directs à la documentation officielle</h3>
+                    <p>Pour approfondir vos connaissances, consultez les ressources officielles :</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                        <a href="https://symfony.com/ux" target="_blank" rel="noopener noreferrer" class="btn-purple">📖 Symfony UX – Site officiel</a>
+                        <a href="https://symfony.com/bundles/ux-live-component/current/index.html" target="_blank" rel="noopener noreferrer" class="btn-purple">⚡ LiveComponent – Documentation</a>
+                    </div>
+                </div>
+                <!-- ================================================== -->
+
             </section>
 
         </div>
