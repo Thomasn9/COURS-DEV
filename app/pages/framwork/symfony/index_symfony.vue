@@ -115,6 +115,17 @@
             </div>
         </div>
 
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Boostrap</h5>
+                <p class="card-text">Intégration de boostrap dans symfony</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/boostrap">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\C//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">C</h3>
