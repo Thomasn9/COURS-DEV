@@ -5,7 +5,7 @@
             <!-- En-tête de la leçon -->
             <header class="lesson-header">
                 <h1 class="text-white">Intégration de Bootstrap dans Symfony</h1>
-                <p class="lesson-meta text-white">Symfony • Bootstrap 5 • AssetMapper • Webpack Encore • Twig</p>
+                <p class="lesson-meta text-white">Symfony • Bootstrap 4/5 • AssetMapper • Webpack Encore • Twig</p>
             </header>
 
             <!-- Introduction -->
@@ -21,6 +21,73 @@
                 </p>
             </section>
 
+            <!-- NOUVELLE SECTION : Où trouver les liens CDN -->
+            <section class="lesson-section bg-light-purple border-purple">
+                <h2 class="text-purple">Où trouver les liens CDN officiels ?</h2>
+                <p class="textExemple">
+                    Avant d'intégrer Bootstrap via CDN, vous devez récupérer les liens (balises <code>&lt;link&gt;</code> et <code>&lt;script&gt;</code>) sur le site officiel. 
+                    Voici la procédure pour Bootstrap 4 et Bootstrap 5.
+                </p>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Pour Bootstrap 5 (recommandé, pas de dépendance jQuery)</h3>
+                    <ul>
+                        <li>Rendez-vous sur <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank" class="text-purple">getbootstrap.com/docs/5.3</a></li>
+                        <li>Dans la section <strong>"Quick start"</strong>, copiez le <code>&lt;link&gt;</code> CSS et le <code>&lt;script&gt;</code> du bundle JavaScript (qui inclut déjà Popper).</li>
+                        <li>Insérez-les dans votre template Twig comme montré plus bas.</li>
+                    </ul>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-html">&lt;!-- Bootstrap 5 CSS (exemple avec integrity) --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"&gt;
+
+&lt;!-- Bootstrap 5 JS Bundle --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Pour Bootstrap 4 (nécessite jQuery et Popper.js)</h3>
+                    <ul>
+                        <li>Allez sur <a href="https://getbootstrap.com/docs/4.6/getting-started/introduction/" target="_blank" class="text-purple">getbootstrap.com/docs/4.6</a></li>
+                        <li>Dans la section <strong>"Quick start"</strong>, copiez le CSS, puis les trois scripts dans l'ordre : <strong>jQuery (slim)</strong>, <strong>Popper.js</strong>, <strong>Bootstrap JS</strong>.</li>
+                        <li>Respectez impérativement cet ordre.</li>
+                    </ul>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-html">&lt;!-- Bootstrap 4 CSS --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"&gt;
+
+&lt;!-- jQuery d'abord, puis Popper, puis Bootstrap JS --&gt;
+&lt;script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                    <div class="warning-section">
+                        <strong>Important :</strong> Les attributs <code>integrity</code> et <code>crossorigin</code> sont fournis par le site officiel. Ils garantissent que le fichier n'a pas été altéré (SRI). <strong>Toujours utiliser les liens avec integrity</strong> pour la sécurité en production.
+                    </div>
+                </div>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Intégration dans un template Symfony (base.html.twig)</h3>
+                    <p>Placez les liens dans l'en-tête et avant la fermeture du <code>&lt;body&gt;</code> comme suit :</p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-twig">{# templates/base.html.twig #}
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        {# ... #}
+        &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+        {% block stylesheets %}{% endblock %}
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% block body %}{% endblock %}
+        &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+        {% block javascripts %}{% endblock %}
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
             <!-- Méthode 1 : CDN (rapide, sans personnalisation) -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Méthode 1 : Intégration via CDN</h2>
@@ -29,7 +96,7 @@
                     Elle convient aux prototypes ou aux projets sans besoin de personnalisation poussée.
                 </p>
                 <div class="textExemple">
-                    <h3 class="text-purple">Ajouter les liens CDN dans base.html.twig</h3>
+                    <h3 class="text-purple">Ajouter les liens CDN dans base.html.twig (Bootstrap 5)</h3>
                     <div class="code-example">
                         <pre v-pre><code class="language-twig">{# templates/base.html.twig #}
 &lt;!DOCTYPE html&gt;
@@ -37,12 +104,11 @@
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot;&gt;
         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-        &lt;title&gt;{% block title %}Mon projet Symfony&lt;% endblock %}&lt;/title&gt;
+        &lt;title&gt;{% block title %}Mon projet Symfony{% endblock %}&lt;/title&gt;
         
         {# Bootstrap 5 CSS #}
         &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
         
-        {# Vos styles personnalisés #}
         {% block stylesheets %}{% endblock %}
     &lt;/head&gt;
     &lt;body&gt;
@@ -82,7 +148,7 @@ composer require symfony/stimulus-bundle</code></pre>
                     </div>
                 </div>
                 <div class="textExemple">
-                    <h3 class="text-purple">Configuration d'AssetMapper (assets/config/packages/asset_mapper.yaml)</h3>
+                    <h3 class="text-purple">Configuration d'AssetMapper (config/packages/asset_mapper.yaml)</h3>
                     <div class="code-example">
                         <pre v-pre><code class="language-yaml">framework:
     asset_mapper:
@@ -387,7 +453,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
                     <p>À partir d'un nouveau projet Symfony, intégrez Bootstrap via AssetMapper ou CDN, puis créez :</p>
                     <ul>
                         <li>Une barre de navigation avec le logo, des liens (Accueil, À propos, Contact) et un bouton de connexion</li>
-                        <li>Une grille responsive avec 3 cartes (Boostrap Cards) présentant des services</li>
+                        <li>Une grille responsive avec 3 cartes (Bootstrap Cards) présentant des services</li>
                         <li>Un pied de page simple contenant les mentions légales</li>
                     </ul>
                     <details class="solution">
