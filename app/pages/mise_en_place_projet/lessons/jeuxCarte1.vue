@@ -74,28 +74,63 @@
                 </div>
             </section>
 
-            <!-- Prérequis -->
+            <!-- Création du projet Symfony -->
             <section class="lesson-section bg-light-purple border-purple">
-                <h2 class="text-purple">Prérequis</h2>
+                <h2 class="text-purple">Créer le projet Symfony</h2>
 
                 <div class="textExemple">
                     <p>
-                        On part du principe que vous avez déjà un projet Symfony fonctionnel (webapp) avec le
-                        composant Form, Twig et Bootstrap 5 disponibles. Si ce n'est pas le cas :
+                        Si vous n'avez pas encore de projet, on commence par créer un nouveau projet Symfony
+                        en version "webapp" (le squelette complet, avec Twig, le composant Form et le validateur
+                        déjà inclus). Si vous avez déjà un projet existant, passez directement à la sous-section
+                        suivante.
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash"># Création du projet
+composer create-project symfony/skeleton mon-jeu-de-cartes
+cd mon-jeu-de-cartes
+
+# Installation du pack "webapp" : Twig, Form, Validator, Security, etc.
+composer require webapp</code></pre>
+                    </div>
+                    <p class="textExemple">
+                        On installe ensuite Bootstrap 5 (utilisé par le template de l'étape 5) et le
+                        <strong>Maker Bundle</strong>, qui va nous servir tout au long de cette leçon pour
+                        générer automatiquement le squelette de chaque classe :
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash"># Rendu des formulaires avec Bootstrap 5
+composer require symfony/twig-extra-bundle
+
+# Maker Bundle : génère des squelettes de classes via le terminal
+composer require symfony/maker-bundle --dev</code></pre>
+                    </div>
+                    <p class="textExemple">
+                        Si vous avez déjà un projet et voulez juste vérifier que tout est en place pour
+                        cette leçon :
                     </p>
                     <div class="code-example">
                         <pre v-pre><code class="language-bash"># Composants nécessaires pour cette leçon
 composer require symfony/form
 composer require symfony/twig-bundle
 composer require symfony/validator
-
-# Pour le rendu Bootstrap 5 utilisé dans le template
-composer require symfony/twig-extra-bundle</code></pre>
+composer require symfony/twig-extra-bundle
+composer require symfony/maker-bundle --dev</code></pre>
                     </div>
                     <p class="textExemple">
                         Aucune entité Doctrine n'est nécessaire pour cette leçon : pas de base de données,
                         pas de migration, on reste 100% en mémoire de session.
                     </p>
+                    <p class="textExemple">
+                        Lancez enfin le serveur local pour pouvoir tester au fur et à mesure :
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash"># Avec le binaire Symfony CLI (recommandé)
+symfony server:start -d
+
+# Ou, sans Symfony CLI, avec le serveur PHP intégré
+php -S localhost:8000 -t public</code></pre>
+                    </div>
                 </div>
             </section>
 
@@ -107,6 +142,19 @@ composer require symfony/twig-extra-bundle</code></pre>
                     <p>
                         On commence par le plus simple : une classe PHP "normale", sans annotation Doctrine,
                         qui représente un joueur. Elle ne contient pour l'instant qu'un nom.
+                    </p>
+                    <p class="textExemple">
+                        La commande <code>make:entity</code> du Maker Bundle ne s'applique ici que si on
+                        souhaite une vraie entité Doctrine (avec mapping en base de données), ce qui n'est pas
+                        notre cas. On crée donc cette classe manuellement, en respectant les conventions de
+                        Symfony (dossier <code>src/Entity</code>, même si ce n'est pas une entité Doctrine) :
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash">mkdir -p src/Entity
+touch src/Entity/Player.php</code></pre>
+                    </div>
+                    <p class="textExemple">
+                        Ouvrez <code>src/Entity/Player.php</code> et collez ce contenu :
                     </p>
                     <div class="code-example">
                         <pre v-pre><code class="language-php">// src/Entity/Player.php
@@ -147,7 +195,17 @@ class Player
 
                 <div class="textExemple">
                     <p>
-                        Un formulaire minimal avec un seul champ texte : le nom du joueur.
+                        Un formulaire minimal avec un seul champ texte : le nom du joueur. On génère le
+                        squelette avec le Maker Bundle :
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash">php bin/console make:form PlayerType</code></pre>
+                    </div>
+                    <p class="textExemple">
+                        La commande demande pour quelle classe ce formulaire est créé : répondez
+                        <code>Player</code> (sans le namespace, Symfony le retrouve automatiquement dans
+                        <code>App\Entity</code>). Le fichier <code>src/Form/PlayerType.php</code> est créé avec
+                        une structure de base. Remplacez son contenu par :
                     </p>
                     <div class="code-example">
                         <pre v-pre><code class="language-php">// src/Form/PlayerType.php
@@ -195,6 +253,19 @@ class PlayerType extends AbstractType
                         C'est le cœur de cette leçon : un service qui centralise toute la logique de gestion
                         des joueurs en session. Le Controller ne touchera jamais directement à la session,
                         il passera toujours par ce service.
+                    </p>
+                    <p class="textExemple">
+                        Le Maker Bundle ne propose pas de commande dédiée à la génération d'un service "libre"
+                        (sans Doctrine ni Repository) : on crée donc le fichier manuellement. Toute classe
+                        placée dans <code>src/Service</code> est <strong>automatiquement enregistrée et
+                        autowirable</strong> par Symfony, sans configuration supplémentaire.
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash">mkdir -p src/Service
+touch src/Service/PlayerManager.php</code></pre>
+                    </div>
+                    <p class="textExemple">
+                        Collez ce contenu dans <code>src/Service/PlayerManager.php</code> :
                     </p>
                     <div class="code-example">
                         <pre v-pre><code class="language-php">// src/Service/PlayerManager.php
@@ -257,6 +328,13 @@ class PlayerManager
     }
 }</code></pre>
                     </div>
+                    <p class="textExemple">
+                        Vérifiez que le service est bien reconnu et autowirable par Symfony :
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash">php bin/console debug:autowiring PlayerManager
+# Doit afficher : App\Service\PlayerManager</code></pre>
+                    </div>
                 </div>
 
                 <div class="textExemple">
@@ -288,9 +366,18 @@ class PlayerManager
 
                 <div class="textExemple">
                     <p>
+                        Générez le squelette du controller avec le Maker Bundle :
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash">php bin/console make:controller StartController</code></pre>
+                    </div>
+                    <p class="textExemple">
+                        Cela crée <code>src/Controller/StartController.php</code> ainsi qu'un template par
+                        défaut dans <code>templates/start/</code> (que l'on va remplacer à l'étape 5).
                         Le controller expose 4 routes : l'affichage/ajout (<code>/</code>), la suppression d'un
                         joueur, le vidage de la liste, et le lancement de la partie (avec garde-fou sur le
-                        nombre minimum de joueurs).
+                        nombre minimum de joueurs). Remplacez intégralement le contenu de
+                        <code>src/Controller/StartController.php</code> par :
                     </p>
                     <div class="code-example">
                         <pre v-pre><code class="language-php">// src/Controller/StartController.php
@@ -363,6 +450,18 @@ class StartController extends AbstractController
     }
 }</code></pre>
                     </div>
+                    <p class="textExemple">
+                        Vérifiez que les 4 routes sont bien enregistrées :
+                    </p>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-bash">php bin/console debug:router
+
+# Vous devez voir apparaître :
+#   game_start          GET|POST   /
+#   game_player_remove  ANY        /player/remove/{name}
+#   game_clear          ANY        /game/clear
+#   game_play           GET        /game</code></pre>
+                    </div>
                 </div>
 
                 <div class="textExemple">
@@ -396,7 +495,9 @@ class StartController extends AbstractController
 
                 <div class="textExemple">
                     <p>
-                        Enfin, le template qui affiche le formulaire d'ajout, la liste des joueurs déjà
+                        Grâce à <code>make:controller</code> utilisé à l'étape 4, le fichier
+                        <code>templates/start/index.html.twig</code> existe déjà : il suffit de remplacer son
+                        contenu. Ce template affiche le formulaire d'ajout, la liste des joueurs déjà
                         enregistrés, et les actions (démarrer / vider la liste).
                     </p>
                     <div class="code-example">
