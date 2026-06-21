@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="textExemple">
-                    <h3 class="text-purple">📌 Pourquoi la session plutôt que la base de données ?</h3>
+                    <h3 class="text-purple">Pourquoi la session plutôt que la base de données ?</h3>
                     <div class="warning-section" style="background:#f3f0ff;border-color:#c9b8ff;">
                         <p>
                             Pour un jeu local "sur canapé" (tout le monde joue depuis le même navigateur), la session
@@ -260,7 +260,7 @@ class PlayerManager
                 </div>
 
                 <div class="textExemple">
-                    <h3 class="text-purple">🔍 Pourquoi RequestStack et pas SessionInterface directement ?</h3>
+                    <h3 class="text-purple">Pourquoi RequestStack et pas SessionInterface directement ?</h3>
                     <div class="warning-section" style="background:#f3f0ff;border-color:#c9b8ff;">
                         <p>
                             Injecter <code>SessionInterface</code> directement dans un service peut poser des
@@ -366,7 +366,7 @@ class StartController extends AbstractController
                 </div>
 
                 <div class="textExemple">
-                    <h3 class="text-purple">⚠️ Le pattern Post/Redirect/Get (PRG), encore une fois</h3>
+                    <h3 class="text-purple">Le pattern Post/Redirect/Get (PRG), encore une fois</h3>
                     <div class="warning-section">
                         <h4 class="text-purple">Pourquoi on redirige systématiquement vers game_start</h4>
                         <p>
