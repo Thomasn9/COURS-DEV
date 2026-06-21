@@ -5,6 +5,22 @@
             <h3 class="lettreSommaire">Ici vous aurez de la mise en place de projet avec les explication pour pratiquer</h3>
         </div>
 
+        <!-- =============================================================\\J//==================================================================== -->
+        <div class="section-header">
+            <h3 class="lettreSommaire">J</h3>
+        </div>
+
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Jeux de carte étape 1</h5>
+                <p class="card-text">Début du jeu inscription des joueur</p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/jeuxCarte1">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\M//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">M</h3>
