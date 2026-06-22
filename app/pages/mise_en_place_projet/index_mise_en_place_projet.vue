@@ -21,6 +21,17 @@
             </div>
         </div>
 
+        <div class="card border-purple shadow-lg">
+            <div class="card-body bg-light-purple">
+                <h5 class="card-title text-purple">Jeux de carte étape 2</h5>
+                <p class="card-text">Ajout de style et sur un formulaire et des ajout de font </p>
+                <NuxtLink class="btn btn-purple btn-hover mt-auto text-white text-decoration-none"
+                    to="lessons/jeuxCarte2">
+                    Accès à la leçon
+                </NuxtLink>
+            </div>
+        </div>
+
         <!-- =============================================================\\M//==================================================================== -->
         <div class="section-header">
             <h3 class="lettreSommaire">M</h3>
