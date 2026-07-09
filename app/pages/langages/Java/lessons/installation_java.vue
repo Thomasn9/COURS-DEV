@@ -245,7 +245,7 @@ update-alternatives --list java</code></pre>
                         <li>Se rendre sur <code>jetbrains.com/idea/download</code></li>
                         <li>Télécharger la version Community correspondant à votre OS (Windows / macOS / Linux)</li>
                         <li>Lancer l'installeur et suivre les étapes par défaut</li>
-                        <li>Sur Windows, cocher « Create Desktop Shortcut » et « Add launchers dir to PATH »</li>
+                        <li>Sur l'écran « Installation Options », cocher les cases recommandées (voir détail ci-dessous)</li>
                         <li>Au premier lancement, choisir le thème (Light/Dark) puis ignorer ou installer les plugins additionnels</li>
                     </ol>
                     <div class="code-example">
@@ -254,6 +254,45 @@ update-alternatives --list java</code></pre>
 # Télécharger depuis jetbrains.com/toolbox-app puis installer
 # "IntelliJ IDEA Community" depuis l'application Toolbox</code></pre>
                     </div>
+                </div>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">L'écran « Installation Options » (Windows)</h3>
+                    <p>
+                        Pendant l'installation sur Windows, une fenêtre « Configure your IntelliJ IDEA installation »
+                        propose plusieurs cases à cocher, réparties en 4 groupes. Voici ce que fait chacune et ce
+                        qu'il est recommandé de cocher pour cette leçon :
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Create Desktop Shortcut → ☑ IntelliJ IDEA</strong><br>
+                            Crée un raccourci sur le bureau pour lancer l'IDE rapidement. À cocher pour votre confort, sans impact technique.
+                        </li>
+                        <li>
+                            <strong>Update PATH Variable → ☑ Add "bin" folder to the PATH</strong><br>
+                            Ajoute IntelliJ à la variable d'environnement PATH, ce qui permet de lancer l'IDE depuis
+                            un terminal avec la commande <code>idea</code> (utile mais optionnel). Un redémarrage
+                            de la session Windows est nécessaire pour que le changement soit pris en compte.
+                        </li>
+                        <li>
+                            <strong>Update Context Menu → ☑ Add "Open Folder as Project"</strong><br>
+                            Ajoute une entrée dans le clic droit de l'explorateur Windows pour ouvrir directement
+                            n'importe quel dossier comme projet IntelliJ. Très pratique, à cocher.
+                        </li>
+                        <li>
+                            <strong>Create Associations → ☑ .java</strong> (et éventuellement <strong>.gradle</strong>, <strong>.pom</strong> si vous les utilisez plus tard)<br>
+                            Fait en sorte qu'un double-clic sur un fichier <code>.java</code> dans l'explorateur
+                            Windows l'ouvre automatiquement avec IntelliJ. Cocher au minimum <code>.java</code>.
+                            Les cases <code>.groovy</code>, <code>.kt</code>, <code>.kts</code> concernent d'autres
+                            langages (Groovy, Kotlin) : elles ne sont pas nécessaires pour cette leçon, laissez-les décochées.
+                        </li>
+                    </ul>
+                    <p>
+                        Aucune de ces options n'est bloquante : elles ajoutent simplement des raccourcis de confort.
+                        En cas de doute, cocher <strong>Create Desktop Shortcut</strong>, <strong>Add "bin" folder to the PATH</strong>,
+                        <strong>Add "Open Folder as Project"</strong> et <strong>.java</strong> couvre les besoins
+                        d'un débutant. Cliquer ensuite sur <strong>Next &gt;</strong> pour continuer l'installation.
+                    </p>
                 </div>
 
                 <div class="textExemple">
