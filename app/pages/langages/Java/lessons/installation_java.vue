@@ -62,22 +62,94 @@ Git (local)          Dépôt distant (GitHub)
                 <h2 class="text-purple">Installation du JDK (Java Development Kit)</h2>
 
                 <div class="textExemple">
+                    <h3 class="text-purple">Qu'est-ce que le JDK exactement ?</h3>
+                    <p>
+                        Le <strong>JDK (Java Development Kit)</strong> est la boîte à outils complète du développeur
+                        Java. Il contient trois éléments indispensables :
+                    </p>
+                    <ul>
+                        <li><strong><code>javac</code></strong> : le compilateur, qui transforme votre code source lisible (<code>.java</code>) en bytecode (<code>.class</code>) compréhensible par la machine</li>
+                        <li><strong>la JVM (Java Virtual Machine)</strong> : le programme qui exécute réellement ce bytecode, quel que soit le système d'exploitation (« write once, run anywhere »)</li>
+                        <li><strong>des outils annexes</strong> : débogueur, générateur de documentation (<code>javadoc</code>), archiveur (<code>jar</code>), etc.</li>
+                    </ul>
+                    <p>
+                        Sans le JDK, impossible de compiler du code Java soi-même : c'est le premier outil à installer.
+                    </p>
+                </div>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">⚠️ JDK ou JRE : lequel choisir ?</h3>
+                    <div class="warning-section">
+                        <h4 class="text-purple">Prenez toujours le JDK, jamais le JRE</h4>
+                        <p class="warning-text">
+                            Le <strong>JRE (Java Runtime Environment)</strong> permet uniquement d'<em>exécuter</em>
+                            un programme Java déjà compilé (c'est ce qu'installe un simple utilisateur pour faire
+                            tourner une application Java). Il ne contient pas <code>javac</code>, donc il est
+                            impossible de compiler ou de développer avec.
+                        </p>
+                        <p class="warning-text">
+                            Le <strong>JDK</strong> inclut le JRE <em>et</em> le compilateur : c'est celui-là qu'il
+                            faut télécharger pour développer. Sur la page de téléchargement (Adoptium, Oracle...),
+                            il y a toujours deux boutons ou onglets « JDK » et « JRE » côte à côte : cliquez sur
+                            <strong>JDK</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="textExemple">
                     <h3 class="text-purple">Choisir une distribution</h3>
                     <p>
-                        Java est un standard ouvert, plusieurs éditeurs proposent des distributions gratuites du JDK.
-                        Les plus utilisées sont <strong>Eclipse Temurin (Adoptium)</strong>, <strong>Oracle JDK</strong>
-                        et <strong>OpenJDK</strong>. Pour cette leçon, on utilise la version LTS la plus récente
-                        (actuellement Java 21).
+                        Java est un standard ouvert : plusieurs éditeurs proposent des distributions gratuites et
+                        équivalentes du JDK, toutes basées sur le même code source ouvert (OpenJDK). Les plus
+                        utilisées sont <strong>Eclipse Temurin (Adoptium)</strong>, <strong>Oracle JDK</strong>
+                        et <strong>OpenJDK</strong>. Cette leçon utilise <strong>Adoptium / Temurin</strong>
+                        (<code>adoptium.net</code>), une distribution gratuite maintenue par la fondation Eclipse,
+                        très largement utilisée en entreprise.
+                    </p>
+                </div>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Lire la page de téléchargement Adoptium</h3>
+                    <p>
+                        La page <code>adoptium.net</code> affiche une carte par système d'exploitation (Linux,
+                        Windows, macOS), et pour chacune plusieurs choix à faire :
+                    </p>
+                    <ul>
+                        <li><strong>JDK / JRE</strong> : toujours cliquer sur <strong>JDK</strong> (voir encadré ci-dessus)</li>
+                        <li><strong>L'architecture du processeur</strong> : <code>x64</code> pour un processeur Intel/AMD classique, <code>aarch64</code> (« ARM64 ») pour un Mac Apple Silicon (M1/M2/M3/M4) ou un ordinateur ARM</li>
+                        <li><strong>Le format de fichier</strong> : change uniquement la façon dont l'installation se déroule, pas le contenu du JDK</li>
+                    </ul>
+                    <div class="code-example">
+                        <pre v-pre><code class="language-plaintext">Format    Système        Comportement
+──────────────────────────────────────────────────────────
+.msi      Windows        Installeur graphique classique (recommandé)
+.zip      Windows/Linux  Archive à décompresser soi-même, sans installeur
+.pkg      macOS          Installeur graphique classique (recommandé)
+.tar.gz   macOS/Linux    Archive à décompresser soi-même, sans installeur</code></pre>
+                    </div>
+                    <p>
+                        <strong>En résumé, pour un usage normal :</strong>
+                    </p>
+                    <ul>
+                        <li>Windows → bouton <strong>JDK</strong>, format <strong>.msi</strong> (x64 dans la grande majorité des cas)</li>
+                        <li>macOS → bouton <strong>JDK</strong>, format <strong>.pkg</strong> (aarch64 sur Mac M1/M2/M3/M4, x64 sur Mac Intel)</li>
+                        <li>Linux → bouton <strong>JDK</strong>, format <strong>.tar.gz</strong> — ou, plus simple, passer par le gestionnaire de paquets de votre distribution (voir plus bas)</li>
+                    </ul>
+                    <p>
+                        Les petites icônes à côté de chaque lien (bouclier, empreinte digitale...) donnent accès aux
+                        sommes de contrôle et signatures : elles servent à vérifier que le fichier téléchargé n'a
+                        pas été corrompu, elles ne sont pas nécessaires pour une installation classique.
                     </p>
                 </div>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Installation sur Windows</h3>
                     <ol>
-                        <li>Télécharger l'installeur <code>.msi</code> depuis <code>adoptium.net</code> (Temurin JDK 21 LTS)</li>
-                        <li>Lancer l'installeur et cocher l'option « Set JAVA_HOME variable »</li>
-                        <li>Cocher également « Add to PATH » pour utiliser <code>java</code> depuis n'importe quel terminal</li>
-                        <li>Terminer l'installation puis ouvrir un nouveau terminal (PowerShell)</li>
+                        <li>Sur <code>adoptium.net</code>, sélectionner l'onglet <strong>JDK</strong> puis télécharger le fichier <code>.msi</code> (colonne Windows)</li>
+                        <li>Double-cliquer sur le fichier téléchargé pour lancer l'installeur</li>
+                        <li>Lors de l'étape « Custom Setup », cocher l'option <strong>« Set JAVA_HOME variable »</strong> pour que le système sache où trouver le JDK</li>
+                        <li>Cocher également <strong>« Add to PATH »</strong> pour utiliser <code>java</code> depuis n'importe quel terminal</li>
+                        <li>Terminer l'installation puis ouvrir un <strong>nouveau</strong> terminal (PowerShell)</li>
                     </ol>
                     <div class="code-example">
                         <pre v-pre><code class="language-bash"># Vérifier la variable d'environnement (PowerShell)
@@ -91,6 +163,11 @@ javac -version</code></pre>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Installation sur macOS</h3>
+                    <p>
+                        Sur Mac, il est plus simple d'installer le JDK via <strong>Homebrew</strong> (gestionnaire
+                        de paquets) plutôt que de télécharger manuellement le <code>.pkg</code> depuis Adoptium ;
+                        les mises à jour sont ensuite automatisées.
+                    </p>
                     <div class="code-example">
                         <pre v-pre><code class="language-bash"># Avec Homebrew (recommandé)
 brew install --cask temurin
@@ -106,6 +183,10 @@ javac -version
 
                 <div class="textExemple">
                     <h3 class="text-purple">Installation sur Linux (Debian / Ubuntu)</h3>
+                    <p>
+                        Sur Linux, plutôt que de télécharger l'archive <code>.tar.gz</code> à la main, on utilise
+                        généralement le gestionnaire de paquets du système, plus simple à maintenir à jour.
+                    </p>
                     <div class="code-example">
                         <pre v-pre><code class="language-bash"># Mettre à jour les paquets
 sudo apt update
@@ -121,23 +202,33 @@ javac -version
 update-alternatives --list java</code></pre>
                     </div>
                 </div>
-
-                <div class="textExemple">
-                    <h3 class="text-purple">⚠️ JRE vs JDK</h3>
-                    <div class="warning-section">
-                        <h4 class="text-purple">Ne pas confondre les deux</h4>
-                        <p class="warning-text">
-                            Le JRE (Java Runtime Environment) permet uniquement d'exécuter des programmes déjà
-                            compilés. Pour développer, il faut impérativement le JDK, qui inclut le compilateur
-                            <code>javac</code>, les outils de débogage et le JRE lui-même.
-                        </p>
-                    </div>
-                </div>
             </section>
 
             <!-- Installation d'IntelliJ -->
             <section class="lesson-section bg-light-purple border-purple">
                 <h2 class="text-purple">Installation d'IntelliJ IDEA</h2>
+
+                <div class="textExemple">
+                    <h3 class="text-purple">Qu'est-ce qu'IntelliJ IDEA exactement ?</h3>
+                    <p>
+                        Le JDK, installé précédemment, sait compiler et exécuter du Java, mais uniquement en ligne
+                        de commande (<code>javac</code> puis <code>java</code>). <strong>IntelliJ IDEA</strong> est
+                        un <strong>IDE</strong> (Integrated Development Environment, « environnement de
+                        développement intégré ») : un logiciel qui rassemble en une seule interface tout ce dont
+                        on a besoin au quotidien pour développer, à savoir :
+                    </p>
+                    <ul>
+                        <li><strong>un éditeur de code intelligent</strong> : coloration syntaxique, autocomplétion, détection d'erreurs en temps réel</li>
+                        <li><strong>la gestion du projet</strong> : organisation des fichiers, des dépendances, du SDK utilisé</li>
+                        <li><strong>la compilation et l'exécution</strong> : IntelliJ appelle <code>javac</code> puis <code>java</code> à votre place, en un clic ou un raccourci clavier</li>
+                        <li><strong>le débogage</strong> : possibilité de mettre le programme en pause (points d'arrêt) pour inspecter les variables pendant l'exécution</li>
+                        <li><strong>l'intégration Git</strong> : commit, push, historique, sans quitter l'éditeur</li>
+                    </ul>
+                    <p>
+                        En résumé : le JDK est le moteur, IntelliJ IDEA est le tableau de bord qui pilote ce moteur
+                        confortablement.
+                    </p>
+                </div>
 
                 <div class="textExemple">
                     <h3 class="text-purple">Community vs Ultimate</h3>
